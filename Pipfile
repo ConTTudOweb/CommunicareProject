@@ -14,6 +14,7 @@ django-extensions = "*"
 django-test-without-migrations = "*"
 django-debug-toolbar = "*"
 psycopg2 = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
