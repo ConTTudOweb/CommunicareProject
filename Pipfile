@@ -13,6 +13,7 @@ dj-static = "*"
 django-extensions = "*"
 django-test-without-migrations = "*"
 django-debug-toolbar = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"
