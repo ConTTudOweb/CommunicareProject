@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/custom.css" %}" />
+{% endblock %}
+
+{% block title %}{{ title }}{% if site_title %} | {{ site_title }}{% endif %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <small>{{ site_header }}</small>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
