@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+
+# class Event(models.Model):
+#     title = models.CharField('título', max_length=255)

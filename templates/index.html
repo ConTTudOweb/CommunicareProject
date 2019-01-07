@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Communicare Treinamentos</title>
+</head>
+<body>
+    <h1>Communicare Treinamentos</h1>
+    <h2>Home</h2>
+
+    <form method="POST" id="contact-form">
+        {% csrf_token %}
+        {{ contact_form.as_p }}
+        <div id="results"></div>
+        <input type="submit" value="enviar">
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="static/js/main.js"></script>
+
+</body>
+</html>
