@@ -5,18 +5,52 @@
     <title>Communicare Treinamentos</title>
 </head>
 <body>
-    <h1>Communicare Treinamentos</h1>
-    <h2>Home</h2>
+<h1>Communicare Treinamentos</h1>
+<h2>Home</h2>
 
-    <form method="POST" id="contact-form">
-        {% csrf_token %}
-        {{ contact_form.as_p }}
-        <div id="results"></div>
-        <input type="submit" value="enviar">
-    </form>
+{#Formulário de contato#}
+<form method="POST" id="contact-form">
+    {% csrf_token %}
+    {{ contact_form.as_p }}
+    <div id="results"></div>
+    <input type="submit" value="enviar">
+</form>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="static/js/main.js"></script>
+{#Eventos#}
+<br>
+<hr>
+<br>
+{% for event in events %}
+    <h3>{{ event.title }}</h3>
+    <h4>{{ event.subtitle }}</h4>
+    <p><strong>{{ event.place }}</strong></p>
+    <p><i>{{ event.place.address }}</i></p>
+    <p>{{ event.place.city }}</p>
+    <a href="{{ event.place.link_to_map }}" target="_blank">Ver no Map</a>
+    <p>{{ event.details|linebreaksbr }}</p>
+
+    teste: {{ event.start_date|timesince }}<br>
+    {% if event.start_date|timesince >= "1 min" %}
+        <a href="https://classroom.google.com/" target="_blank"
+           title="Ao acessar o link clique no ícone '➕' que fica no canto superior direito da tela e escolha a opção Participar da Turma. Em seguida informe o código que recebeu!">Download
+            do material</a>
+        {% if event.end_date|timesince >= "1 min" %}
+            <br><span class="text-danger"><strong>TREINAMENTO ENCERRADO!</strong></span>
+        {% endif %}
+    {% else %}
+        {% if event.open_for_subscriptions %}
+            <a href="">Inscreva-se</a>
+        {% else %}
+            <a disabled="disabled">Inscrições em breve</a>
+        {% endif %}
+        <br>
+        <span class="text-danger"><strong>Inscrições Limitadas!</strong></span>
+    {% endif %}
+{% endfor %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="static/js/main.js"></script>
 
 </body>
 </html>

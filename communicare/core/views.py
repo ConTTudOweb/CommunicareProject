@@ -3,6 +3,7 @@ from django.core import mail
 from django.http import JsonResponse
 from django.views.generic import TemplateView
 
+from ..core.models import Event
 from ..core.forms import ContactForm
 
 
@@ -12,6 +13,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
+        context['events'] = Event.objects.all()
         return context
 
 
