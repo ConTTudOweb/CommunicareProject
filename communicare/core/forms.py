@@ -1,7 +1,7 @@
 from django import forms
-# from django.conf import settings
-# from django.core import mail
 from django.core.exceptions import ValidationError
+
+from communicare.core.models import Customer
 
 
 class ContactForm(forms.Form):
@@ -18,21 +18,9 @@ class ContactForm(forms.Form):
 
         return self.cleaned_data
 
-    # def send_email(self):
-    #     # send email using the self.cleaned_data dictionary
-    #     to = self.cleaned_data.get('email')
-    #     from_ = str(settings.DEFAULT_FROM_EMAIL),
-    #
-    #     message = "{name} / {email} / {phone} disse: ".format(
-    #         name=self.cleaned_data.get('name'),
-    #         email=to,
-    #         phone=self.cleaned_data.get('phone'),
-    #     )
-    #     message += "\n\n{0}".format(self.cleaned_data.get('message'))
-    #     email = mail.EmailMessage(
-    #         subject='Contato pelo site.',
-    #         body=message,
-    #         to=from_,
-    #         reply_to=[to],
-    #     )
-    #     email.send()
+
+class CustomerForm(forms.ModelForm):
+
+    class Meta:
+        model = Customer
+        fields = '__all__'

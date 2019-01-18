@@ -18,12 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from .core.views import HomeView, contact
+from .core.views import HomeTemplateView, contact, EventDetailView, registration
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name='home'),
-    path('contact/', contact, name='contact')
+    path('', HomeTemplateView.as_view(), name='home'),
+    path('contact/', contact, name='contact'),
+    path('event/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
+    path('registration/', registration, name='registration')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

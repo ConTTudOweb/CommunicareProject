@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.conf import settings
 
-from ..core.models import Event, Customer, Place, City, FederativeUnit
+from ..core.models import Event, Customer, Place, City, FederativeUnit, Source
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -23,6 +23,11 @@ class PlaceModelAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(Source)
+class SourceModelAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(Customer)
 class CustomerModelAdmin(admin.ModelAdmin):
     pass
@@ -31,3 +36,4 @@ class CustomerModelAdmin(admin.ModelAdmin):
 @admin.register(Event)
 class EventModelAdmin(admin.ModelAdmin):
     filter_horizontal = ('registrations',)
+    prepopulated_fields = {'slug': ("title", "subtitle")}

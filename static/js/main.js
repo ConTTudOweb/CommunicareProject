@@ -84,8 +84,51 @@ function contact() {
 };
 
 
+// AJAX for posting
+function registration(form) {
+    $.ajax({
+        url : "/registration/", // the endpoint
+        type : "POST", // http method
+        data : {
+            name : $('#id_name').val(),
+            phone : $('#id_phone').val(),
+            cpf : $('#id_cpf').val(),
+            rg : $('#id_rg').val(),
+            address : $('#id_address').val(),
+            cep : $('#id_cep').val(),
+            city : $('#id_city').val(),
+            email : $('#id_email').val(),
+            profession : $('#id_profession').val(),
+            age : $('#id_age').val(),
+            source : $('#id_source').val(),
+            event_id : $('#event_id').val(),
+        }, // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            console.log('success');
+            $('#results').html(json.results);
+            $('#errors').html(json.errors);
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            $('#errors').html("Oops! Nós encontramos um erro: "+errmsg); // add the error to the dom
+            console.error(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+};
+
+
 // Submit post on submit
 $('#contact-form').on('submit', function(event){
     event.preventDefault();
     contact();
+});
+
+
+// Submit post on submit
+$('#registration-form').on('submit', function(event){
+    event.preventDefault();
+    registration();
 });

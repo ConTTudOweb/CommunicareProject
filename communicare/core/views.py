@@ -1,17 +1,17 @@
 from django.conf import settings
 from django.core import mail
-from django.http import JsonResponse
-from django.views.generic import TemplateView
+from django.http import JsonResponse, HttpResponse
+from django.views.generic import TemplateView, DetailView
 
-from ..core.models import Event
-from ..core.forms import ContactForm
+from ..core.models import Event, Customer
+from ..core.forms import ContactForm, CustomerForm
 
 
-class HomeView(TemplateView):
+class HomeTemplateView(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        context = super(HomeView, self).get_context_data(**kwargs)
+        context = super(HomeTemplateView, self).get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         context['events'] = Event.objects.all()
         return context
@@ -50,4 +50,36 @@ def contact(request):
                 errors += error
             return JsonResponse({'result': errors})
     else:
-        return JsonResponse({"nothing to see": "this isn't happening"})
+        return JsonResponse({"result": "Método inválido! Aceito somente POST."})
+
+
+class EventDetailView(DetailView):
+    model = Event
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['customer_form'] = CustomerForm
+        return context
+
+
+def registration(request):
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            if not Customer.objects.filter(cpf=form.instance.cpf).exists():
+                form.save()
+                customer = form.instance
+            else:
+                customer = Customer.objects.filter(cpf=form.instance.cpf).first()
+                form.instance.id = customer.id
+                form.save()
+            event = Event.objects.get(pk=request.POST.get('event_id'))
+            event.registrations.add(customer)
+            return JsonResponse({"results": "Inscrição efetuada com sucesso!"})
+        else:
+            errors = ""
+            for error in form.non_field_errors():
+                errors += error
+            return JsonResponse({'errors': errors})
+
+    return HttpResponse()
