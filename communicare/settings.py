@@ -33,6 +33,8 @@ INTERNAL_IPS = ['127.0.0.1', '0.0.0.0']
 
 ADMINS = [('Alessandro', 'alessandrolimafolk@gmail.com'), ]
 
+MANAGERS = ADMINS
+
 AUTH_USER_MODEL = 'authentication.User'
 
 
@@ -87,6 +89,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
 
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]

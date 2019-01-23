@@ -1,6 +1,9 @@
 from django.conf import settings
 from django.core import mail
+from django.core.mail import EmailMultiAlternatives
 from django.http import JsonResponse, HttpResponse
+from django.template import Context
+from django.template.loader import render_to_string, get_template
 from django.views.generic import TemplateView, DetailView
 
 from ..core.models import Event, Customer
@@ -75,6 +78,21 @@ def registration(request):
                 form.save()
             event = Event.objects.get(pk=request.POST.get('event_id'))
             event.registrations.add(customer)
+
+            if customer.email not in [None, '']:
+                d = {
+                    'event': event,
+                    'local': event.place,
+                    'customer': customer
+                }
+                text_content = render_to_string('core/registration_email.txt', d)
+                html_content = render_to_string('core/registration_email.html', d)
+                subject, to = 'Inscrição efetuada com sucesso!', customer.email
+
+                msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to])
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+
             return JsonResponse({"results": "Inscrição efetuada com sucesso!"})
         else:
             errors = ""

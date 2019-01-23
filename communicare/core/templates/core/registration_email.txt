@@ -1,0 +1,25 @@
+Olá, {{ customer.name }}.
+
+Sua inscrição foi efetuada com sucesso para o(a) {{ event.title }} - {{ event.subtitle }}.
+Em breve entraremos em contato para maiores esclarecimentos!
+
+Local "{{ event.place.title }}"
+{{ event.place.address }}
+{{ event.place.city }}
+
+{{ event.details|safe }}
+
+
+Seus dados inseridos foram:
+
+Nome completo: {{ customer.name }}
+Telefone: {{ customer.phone }}
+CPF: {{ customer.cpf }}
+RG: {{ customer.rg }}
+Endereço: {{ customer.address }}
+CEP: {{ customer.cep }}
+Cidade: {{ customer.city }}
+Profissão: {{ customer.profession }}
+Idade: {{ customer.age }}
+
+Caso exista alguma correção a ser feita por favor nos avise respondendo este e-mail.

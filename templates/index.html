@@ -39,7 +39,7 @@
         {% endif %}
     {% else %}
         {% if event.open_for_subscriptions %}
-            <a href="">Inscreva-se</a>
+            <a href="{% url 'event-detail' slug=event.slug %}">Inscreva-se</a>
         {% else %}
             <a disabled="disabled">Inscrições em breve</a>
         {% endif %}

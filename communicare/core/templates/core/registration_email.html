@@ -1,0 +1,25 @@
+Olá, <strong>{{ customer.name }}</strong>.<br>
+<br>
+Sua inscrição foi efetuada com sucesso para o(a) "<strong>{{ event.title }} - <i>{{ event.subtitle }}</i></strong>".<br>
+Em breve entraremos em contato para maiores esclarecimentos!<br>
+<br>
+Local <strong>"{{ event.place.title }}"</strong><br>
+<small><i>{{ event.place.address }}<br>
+{{ event.place.city }}</i></small><br>
+<br>
+<strong>{{ event.details|safe }}</strong><br>
+<br>
+<br>
+Seus dados inseridos foram:<br>
+<br>
+Nome completo: <strong>{{ customer.name }}</strong><br>
+Telefone: <strong>{{ customer.phone }}</strong><br>
+CPF: <strong>{{ customer.cpf }}</strong><br>
+RG: <strong>{{ customer.rg }}</strong><br>
+Endereço: <strong>{{ customer.address }}</strong><br>
+CEP: <strong>{{ customer.cep }}</strong><br>
+Cidade: <strong>{{ customer.city }}</strong><br>
+Profissão: <strong>{{ customer.profession }}</strong><br>
+Idade: <strong>{{ customer.age }}</strong><br>
+<br>
+Caso exista alguma correção a ser feita por favor nos avise respondendo este e-mail.
