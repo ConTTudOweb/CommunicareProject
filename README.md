@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/ConTTudOweb/CommunicareProject.svg?branch=master)](https://travis-ci.org/ConTTudOweb/CommunicareProject)
