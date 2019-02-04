@@ -1,0 +1,452 @@
+{% load i18n static %}<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <title>Communicare Treinamentos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+
+    <link href="{% static "stylesheet/normalize.css" %}" rel="stylesheet">
+    <link href="{% static "stylesheet/flexslider.css" %}" rel="stylesheet">
+    <link href="{% static "stylesheet/plugins/remodal.css" %}" rel="stylesheet">
+    <link href="{% static "stylesheet/plugins/remodal-default-theme.css" %}" rel="stylesheet">
+    <link href="{% static "public/stylesheet/main.css" %}" rel="stylesheet">
+
+    <!-- SEO -->
+    <meta name="description" content="Centro de Treinamentos em Excelência Humana.">
+    <meta name="author" content="Communicare Treinamentos">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon-16x16.png" %}">
+
+    <!-- Jetpack Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Communicare Treinamentos">
+    <meta property="og:description" content="Centro de Treinamentos em Excelência Humana.">
+    <meta property="og:url" content="http://communicaretreinamentos.com.br/">
+    <meta property="og:site_name" content="Communicare Treinamentos">
+    <meta property="og:image" content="">
+    <meta property="og:locale" content="pt_BR">
+
+    <script type="application/ld+json">
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Organization",
+        "name" : "Communicare Treinamentos",
+        "url" : "http://communicaretreinamentos.com.br/",
+        "sameAs" : "https://www.facebook.com/CommunicareTreinamentos/", "https://www.instagram.com/explore/locations/279528915/"
+      }
+    </script>
+
+  </head>
+
+  <body remodal-bg>
+
+    <header>
+      <div class="holder">
+        <h1 class="logo">
+          <a href="{% url 'home' %}">
+            <img src="{% static "images/logo.png" %}">
+          </a>
+        </h1>
+        <nav>
+          <ul>
+            <li><a href="#cards-1">Cursos e Treinamentos</a></li>
+            <li style="display: none;"><a href="#cards-2">Palestras</a></li>
+            <li><a href="#cards-3">Atendimentos</a></li>
+            <li><a href="#calendar">Agenda</a></li>
+            <li><a href="#testimonials">Depoimentos</a></li>
+            <li><a href="#about">Quem somos</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </nav>
+        <a class="menu-trigger">Menu</a>
+      </div>
+    </header>
+
+    <section class="main-banner">
+      <div class="flexslider">
+
+        <ul class="slides">
+          <li>
+            <a href="detalhes.html">
+              <img src="{% static "images/banner-01.jpg" %}">
+            </a>
+          </li>
+          <li>
+            <a href="detalhes.html">
+              <img src="{% static "images/banner-02.jpg" %}">
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </section> <!-- /main-banner -->
+
+    <section class="cards" id="cards-1">
+      <div class="holder">
+
+        <h2>
+          Cursos e Treinamentos
+        </h2>
+
+        <ul class="cards-list">
+            {% include "includes/cards_li.html" with card_type="Treinamento" card_img="images/banner-02.jpg" card_title="Oratória: Comunicação e Expressão." card_description="Um treinamento que envolve técnicas de oratória e programação neurolinguística (PNL) buscando entender e compreender todos os sentimentos que nos sabotam diante de uma apresentação  (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Curso" card_img="images/banner-01.jpg" card_title="Hipnose na Prática" card_description="Um curso que alinha teoria à prática, desmistificando o que é hipnose e compreendendo seu real fundamento terapêutico para cura de traumas e fobias (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Treinamento" card_img="images/banner-02.jpg" card_title="Inteligência Emocional" card_description="Saiba como lidar com suas emoções neste treinamento através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional (...)" only %}
+        </ul>
+
+      </div>
+    </section> <!-- /cards-1 -->
+
+    <section class="cards" id="cards-3">
+      <div class="holder">
+
+        <h2>
+          Atendimentos
+        </h2>
+
+        <ul class="cards-list">
+            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Hipnoterapia" card_description="A utilização da Hipnose na terapia, possibilita de maneira consistente, identificar e modificar a estrutura da realidade de cada indivíduo. Ajudando a aumentar a confiança,  construindo resultados extraordinários, tratando medos/fobias e retomando o prazer pela vida (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Coach" card_description="Uma metodologia extraordinária que tem como finalidade descobrir soluções que auxiliem as pessoas a alcançarem suas metas e potencializar resultados (...)" only %}
+        </ul>
+
+      </div>
+    </section> <!-- /cards-3 -->
+
+    <section class="calendar" id="calendar">
+      <div class="holder">
+
+        <h2>Próximos eventos</h2>
+
+        <div class="description">
+          O Próximo pode ser você!
+        </div>
+
+        <a href="#" class="big-button">
+          <strong>Faça parte dessa história!</strong><br>
+          <span>Cadastre-se e entre para nossa lista de espera.</span>
+        </a>
+
+        <ul>
+            {% for event in events %}
+            {% include 'includes/event_li.html' with event=event %}
+            {% endfor %}
+
+          <li>
+            <img src="{% static "images/ahead-coworking-apucarana.jpg" %}">
+            <div class="calendar-entry">
+              <h3>
+                Treinamento em Oratória<br>
+                <span>Dez, 2018</span>
+              </h3>
+              <address>
+                <strong>Ahead Coworking</strong><br>
+                Rua Rene Camargo de Azambuja, 91 B<br>
+                Apucarana-PR<br>
+                <i class="fas fa-map-marker-alt"></i> <a target="_blank" href="https://l.facebook.com/l.php?u=http%3A%2F%2Fshare.here.com%2Fr%2Fmylocation%2Fe-eyJuYW1lIjoiQWhlYWQgQ293b3JraW5nIiwiYWRkcmVzcyI6IlJ1YSBSZW5lIENhbWFyZ28gZGUgQXphbWJ1amEsIDkxIEIsIEFwdWNhcmFuYSIsImxhdGl0dWRlIjotMjMuNTQ3NjM2NzQ4MjQ0LCJsb25naXR1ZGUiOi01MS40NTkyNDc0Njk5MDIsInByb3ZpZGVyTmFtZSI6ImZhY2Vib29rIiwicHJvdmlkZXJJZCI6MjExMjgxOTA5NjEyMjc4fQ%3D%3D%3Flink%3Ddirections%26fb_locale%3Dpt_BR%26ref%3Dfacebook&h=AT0x8uaQibwTfJCQEO-oAjwwjeOqd6vmpBGQUixy4OtzwZ5z0lq6-eL10XGAaeYIiXIS0qE43H5kICM_b2DYaDiTZ1N67Hev5BCw7s-EVRcotEXC9dv5Deko_9M-FRV6c95DPC2nf0n14PIwEiaYlv4UPpENuil6uDdNDxtfSbWHLqnt3JUSQNH8cC46o0Mz2y-uQyqdgTwG-Nq-Po97WzFmKaaYYMs1mTguQS6kLSrV2yZ94-Wk7xz6f-jCxksVMu_BNfOJdveb-WUG0RWIL_C2rDu3CZ0pbANCbAHMemUU2KBiYYYt6cy-n2bb3kcWkd_t5_U5DtHeRTQBtgk9_bdTVxDXE_xkVtfHaxaghAkmso6WCYmGUetX85E-8-zQCH5s79lAjPi-r_Jm7NfPbF8x_vjks9Nu4rrfq5p_kK91Nd92XFisgjeOkCjSf5rfVWDtTabJky30oDOk7JpA5ODNdyZGmDoP0gPK2acUEiegNe4FvRTKz6bCsIO29vhlE9th5wiAXE-TdO_NIS5F7VpYXePHEXTUb8PKAM9NO8rhEeVRs03wvan053RIvE4LmgVa1WT4zDnDqiHb1X5zktMoscc">Ver no mapa</a>
+              </address>
+              <p>
+                Dias 01/12, 08/12, 15/12<br>
+                Das 14:01 às 18:01
+              </p>
+            </div>
+            <div class="calendar-left-entry">
+              <a href="#" class="view-more-cta"><i class="fas fa-download"></i>Download do material</a>
+              <p>TREINAMENTO ENCERRADO!</p>
+            </div>
+          </li>
+          <li>
+            <img src="{% static "images/ahead-coworking-apucarana.jpg" %}">
+            <div class="calendar-entry">
+              <h3>
+                Curso de Hipnose<br>
+                <span>Nov, 2018</span>
+              </h3>
+              <address>
+                <strong>Ahead Coworking</strong><br>
+                Rua Rene Camargo de Azambuja, 91 B<br>
+                Apucarana-PR<br>
+                <i class="fas fa-map-marker-alt"></i> <a target="_blank" href="https://l.facebook.com/l.php?u=http%3A%2F%2Fshare.here.com%2Fr%2Fmylocation%2Fe-eyJuYW1lIjoiQWhlYWQgQ293b3JraW5nIiwiYWRkcmVzcyI6IlJ1YSBSZW5lIENhbWFyZ28gZGUgQXphbWJ1amEsIDkxIEIsIEFwdWNhcmFuYSIsImxhdGl0dWRlIjotMjMuNTQ3NjM2NzQ4MjQ0LCJsb25naXR1ZGUiOi01MS40NTkyNDc0Njk5MDIsInByb3ZpZGVyTmFtZSI6ImZhY2Vib29rIiwicHJvdmlkZXJJZCI6MjExMjgxOTA5NjEyMjc4fQ%3D%3D%3Flink%3Ddirections%26fb_locale%3Dpt_BR%26ref%3Dfacebook&h=AT0x8uaQibwTfJCQEO-oAjwwjeOqd6vmpBGQUixy4OtzwZ5z0lq6-eL10XGAaeYIiXIS0qE43H5kICM_b2DYaDiTZ1N67Hev5BCw7s-EVRcotEXC9dv5Deko_9M-FRV6c95DPC2nf0n14PIwEiaYlv4UPpENuil6uDdNDxtfSbWHLqnt3JUSQNH8cC46o0Mz2y-uQyqdgTwG-Nq-Po97WzFmKaaYYMs1mTguQS6kLSrV2yZ94-Wk7xz6f-jCxksVMu_BNfOJdveb-WUG0RWIL_C2rDu3CZ0pbANCbAHMemUU2KBiYYYt6cy-n2bb3kcWkd_t5_U5DtHeRTQBtgk9_bdTVxDXE_xkVtfHaxaghAkmso6WCYmGUetX85E-8-zQCH5s79lAjPi-r_Jm7NfPbF8x_vjks9Nu4rrfq5p_kK91Nd92XFisgjeOkCjSf5rfVWDtTabJky30oDOk7JpA5ODNdyZGmDoP0gPK2acUEiegNe4FvRTKz6bCsIO29vhlE9th5wiAXE-TdO_NIS5F7VpYXePHEXTUb8PKAM9NO8rhEeVRs03wvan053RIvE4LmgVa1WT4zDnDqiHb1X5zktMoscc">Ver no mapa</a>
+              </address>
+              <p>
+                Dias 17/11 e 24/11<br>
+                Das 13:01 às 18:01
+              </p>
+            </div>
+            <div class="calendar-left-entry">
+              <a href="#" class="view-more-cta"><i class="fas fa-download"></i>Download do material</a>
+              <p>TREINAMENTO ENCERRADO!</p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </section> <!-- /calendar -->
+
+    <section class="testimonials" id="testimonials">
+      <div class="holder">
+
+        <h2>Veja o que estão falando da gente!</h2>
+
+        <div class="flexslider">
+
+          <ul class="slides">
+            <li>
+              <img src="{% static "images/people/rita_sene.jpeg" %}">
+              <p>
+                <strong>"</strong> Esse curso foi um grande aprendizado; procurei aproveitar todas as oportunidades oferecidas. Para minha vida pessoal e profissional foi um passo de crescimento. A convivência com os colegas acrescentou um novo vigor na caminhada da minha vida. Aprendi que a comunicação não é só ler ou falar um texto, é muito mais que isto! Vou sentir falta, pois foi uma grande oportunidade que tive e fico mais feliz porque consegui vencer mais uma etapa da minha vida <strong>"</strong>
+              </p>
+              <p class="name">- Rita Sene</p>
+            </li>
+            <li>
+              <img src="{% static "images/people/monica_de_brito.jpeg" %}">
+              <p>
+                <strong>"</strong> Quando busquei o curso de oratória, tinha em mente perder a fobia que tinha de falar em público. Eu não imaginava o quanto as técnicas de Programação Neuro Linguística ensinadas nas aulas iriam me ajudar em outros aspectos da minha vida! Após o curso decidi colocar tudo que aprendi em prática, e com muita dedicação consegui ir além, e superei o vício em tabagismo! Sem dúvidas foi uma das minhas melhores experiências, que levarei pro resto da minha vida! <strong>"</strong>
+              </p>
+              <p class="name">- Mônica de Brito</p>
+            </li>
+            <li>
+              <img src="{% static "images/people/fernanda_cristina.jpeg" %}">
+              <p>
+                <strong>"</strong> O curso foi incrível, superou minhas expectativas e me ajudou não só na parte de Hipnose mas também como compreender melhor as pessoas e a mim mesma em como a nossa mente funciona. O professor Vinícius e a equipe conduz o curso com muito profissionalismo, confiança e ética. Recomendo a todos e com certeza farei outros cursos! <strong>"</strong>
+              </p>
+              <p class="name">- Fernanda Cristina</p>
+            </li>
+            <li>
+              <img src="{% static "images/people/thiago_rufino.jpeg" %}">
+              <p>
+                <strong>"</strong> Fiz o curso de oratória e recomendo! O Vinicius e equipe dominam o assunto e sabem conduzir o aluno de forma eficiente, para que melhore sua capacidade de falar em público.<strong>"</strong>
+              </p>
+              <p class="name">- Thiago Rufino</p>
+            </li>
+            <li>
+              <img src="{% static "images/people/stefani_lopes.jpeg" %}">
+              <p>
+                <strong>"</strong> O curso de oratória foi muito importante para eu perder o medo de falar em público. Agora é só praticar e confiar em mim. Quero agradecer muito ao professor Vinicius pelo curso e por essa oportunidade.<strong>"</strong>
+              </p>
+              <p class="name">- Stefani Lopes</p>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </section> <!-- /testimonials -->
+
+    <section class="about" id="about">
+      <div class="holder">
+
+        <div class="columns">
+
+          <div class="column-01">
+
+            <h2>Quem somos</h2>
+
+            <div class="description">
+              Nosso propósito é mediar o conhecimento, potencializando o desenvolvimento pessoal, promovendo a expressão do ser, trazendo a força e o poder para superar os desafios cotidianos e atingir patamares ainda maiores.
+            </div>
+
+            <div class="coach">
+              <img src="{% static "images/people/vinicius.jpeg" %}">
+              <div class="coach-entry">
+                <p>Vinicius Campos é o idealizador e trainner da Communicare Treinamentos. Professor universitário e um entusiasta por comunicação, neurociência e comportamento humano dedica grande parte do seu tempo à esse conhecimento.
+                Alguns de seus treinamentos incluem:</p>
+                <p>
+                	<span>•</span> Life Coach;<br>
+                	<span>•</span> Leader Coach;<br>
+                	<span>•</span> Professional Coach;<br>
+                	<span>•</span> Dale Carnegie Training;<br>
+                	<span>•</span> Practitioner Internacional em PNL;<br>
+                	<span>•</span> Hipnose Clínica;<br>
+                	<span>•</span> Eneagrama (Estrutura de Personalidades);<br>
+                	<span>•</span> Palestrante e Orador Profissional;<br>
+                	<span>•</span> Oratória Avançada;<br>
+                	<span>•</span> Diamond Training (Equipes).
+                </p>
+                <p class="name">
+                  Vinicius Campos<br>
+                  <span>CEO, Coach</span><br>
+                  <a href="https://www.linkedin.com/in/vinicampos/" target="_blank">
+                    <i class="fab fa-linkedin"></i> Linkedin
+                  </a>
+                </p>
+              </div>
+            </div>
+
+          </div> <!-- /column-01 -->
+
+          <div class="column-02">
+
+            <ul class="motivations">
+              <li class="mot-01">
+                <h3><i class="fas fa-rocket"></i> Missão</h3>
+                <p>Desenvolver o conhecimento através de técnicas da Programação Neurolinguística. Trabalhar em cada ser a sua essência, buscando a excelência humana, rompendo barreiras, gerando oportunidades e maximizando potencialidades.</p>
+              </li>
+              <li class="mot-02">
+                <h3><i class="fas fa-eye"></i> Visão</h3>
+                <p>Ser referência em treinamentos de desenvolvimento pessoal e profissional, reconhecida pela sua qualidade e inovação.</p>
+              </li>
+              <li class="mot-03">
+                <h3><i class="fas fa-star"></i> Valores</h3>
+                <p>
+                  Criar relacionamentos abertos e honestos; Tornar-se verdadeiramente interessado em você; Honestidade; Ser ético; Resultados; Criatividade.
+                </p>
+              </li>
+            </ul>
+
+            <a href="gallery.html" class="styled-link">Galeria de fotos</a>
+
+          </div> <!-- /column-02 -->
+
+        </div> <!-- /columns -->
+
+      </div>
+    </section> <!-- /testimonials -->
+
+    <section class="contact" id="contact">
+      <div class="holder">
+
+        <h2>Fale conosco</h2>
+
+        <div class="columns">
+
+          <div class="column-01">
+
+            <form class="default-form" method="POST" id="contact-form">
+                {% csrf_token %}
+              <ul>
+                  <li>{{ contact_form.non_field_errors }}</li>
+                  <li>
+                      {{ contact_form.name.errors }}
+                      <label for="{{ contact_form.name.id_for_label }}">Nome <span>*</span></label>
+                      <!--<input type="text" name="nome" id="nome" required>-->
+                      {{ contact_form.name }}
+                  </li>
+                <li>
+                    {{ contact_form.email.errors }}
+                    <label for="{{ contact_form.email.id_for_label }}">Email</label>
+                    <!--<input type="email" name="email" id="email">-->
+                    {{ contact_form.email }}
+                </li>
+                <li>
+                    {{ contact_form.phone.errors }}
+                    <label for="{{ contact_form.phone.id_for_label }}">Telefone</label>
+                    <!--<input type="tel" name="telefone" id="telefone">-->
+                    {{ contact_form.phone }}
+                </li>
+                <li>
+                    {{ contact_form.message.errors }}
+                  <label for="{{ contact_form.message.id_for_label }}">Mensagem <span>*</span></label>
+                  <!--<textarea name="mensagem" id="mensagem" required></textarea>-->
+                    {{ contact_form.message }}
+                </li>
+                  <li><label id="results"></label></li>
+                <li>
+                  <input type="submit" value="Enviar">
+                </li>
+              </ul>
+            </form>
+
+          </div> <!-- /column-01 -->
+
+          <div class="column-02">
+
+            <div class="contact-people">
+              <img src="{% static "images/people/sandro.jpg" %}">
+              <h5>
+                Alessandro Folk<br>
+                <span>COO, Diretor Operacional</span>
+              </h5>
+              <p>
+                <i class="fab fa-whatsapp"></i><br>
+                +55 (43) 9 9811-4457 (Tim)
+              </p>
+              <p>
+                <a href="mailto:contato@communicaretreinamentos.com.br" class="styled-link">
+                  contato@communicaretreinamentos.com.br
+                </a>
+              </p>
+            </div>
+
+          </div> <!-- /column-02 -->
+
+        </div> <!-- /columns -->
+
+      </div>
+    </section> <!-- /contact -->
+
+    <div class="remodal" data-remodal-id="modal">
+
+      <button data-remodal-action="close" class="remodal-close"></button>
+
+      <img src="{% static "images/banner-02.jpg" %}">
+
+      <h2>Preencha o formulário abaixo para receber nosso ebook por email.</h2>
+
+      <form action="#">
+        <ul>
+          <li><input type="text" placeholder="Nome"></li>
+          <li><input type="text" placeholder="E-mail"></li>
+          <li><input type="submit" value="Enviar"></li>
+        </ul>
+      </form>
+
+    </div> <!-- /remodal -->
+
+    <footer>
+      <div class="holder">
+
+        <div class="copy">
+          <strong> &copy; <strong>2019 Communicare Treinamentos</strong> - Todos os direitos reservados.
+          <ul class="ft-links">
+            <li><a href="privacy.html">Política de Privacidade</a></li>
+            <li><a href="cookies.html">Declaração de Cookie</a></li>
+          </ul>
+        </div>
+
+        <ul class="ft-social">
+          <li>
+            <a target="_blank" href="https://www.instagram.com/communicaretreinamentos/" title="Ir para o Instagram da Communicare Treinamentos">
+              <div><i class="fab fa-instagram"></i></div>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.facebook.com/CommunicareTreinamentos/" title="Ir para o Facebook da Communicare Treinamentos">
+              <div><i class="fab fa-facebook"></i></div>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/communicarebr" title="Ir para o Twitter da Communicare Treinamentos">
+              <div><i class="fab fa-twitter"></i></div>
+            </a>
+          </li>
+        </ul>
+
+        <img src="{% static "images/apple-touch-icon.png" %}">
+
+      </div>
+    </footer>
+
+    <script src="{% static "js/jquery/jquery.js" %}"></script>
+    <script src="{% static "js/flexslider-min.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/remodal.min.js" %}"></script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+  {% block extra_js %}{% endblock %}
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% load i18n static %}
+
+<li>
+    <a href="detalhes.html" title="Saiba mais">
+        <span>{{ card_type }}</span>
+        <img src="{% static card_img %}">
+        <h3>{{ card_title }}</h3>
+        <p>
+            {{ card_description }}
+        </p>
+    </a>
+    <a href="detalhes.html" class="view-more">Saiba mais</a>
+    <a href="register.html" class="view-more-cta">Inscrição</a>
+</li>

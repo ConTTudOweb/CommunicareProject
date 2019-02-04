@@ -1,0 +1,116 @@
+@import "core/variables";
+
+@import "parts/header";
+@import "parts/forms";
+@import "parts/content";
+@import "parts/footer";
+@import "parts/components";
+@import "parts/modal";
+@import "parts/main-banner";
+@import "parts/cards";
+@import "parts/calendar";
+@import "parts/testimonials";
+@import "parts/about";
+@import "parts/register";
+@import "parts/details-page";
+@import "parts/contact";
+@import "parts/gallery";
+
+@import "core/responsive";
+
+
+/**
+GENERAL
+===========================
+*/
+
+a:hover,
+header:hover {
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+
+/* Generic */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $sans-serif;
+  background: $white;
+  margin: 0;
+  color: $gray-9;
+}
+
+p,
+li {
+  color: $gray-9;
+}
+
+p {
+  line-height: 30px;
+  font-size: $font-medium-2;
+}
+
+h2 {
+  margin: 0 0 50px 0;
+  font-size: $font-big-4;
+  letter-spacing: -1px;
+  text-align: center;
+
+  @media #{$smartphones-1} {
+    font-size: $font-big-2;
+  }
+}
+
+
+/* Grid */
+
+.holder {
+  width: 90%;
+  margin: auto;
+
+  @media #{$tablets} {
+
+  }
+
+  @media #{$smartphones-1} {
+    width: 94%;
+  }
+}
+
+.column-01,
+.column-02 {
+  width: 48%;
+
+  @media #{$smartphones-1} {
+    width: 100% !important;
+  }
+}
+
+.columns {
+  @extend %clearfix;
+}
+
+.column-01 {
+  float: left;
+
+  @media #{$smartphones-1} {
+    float: none;
+  }
+}
+
+.column-02 {
+  float: right;
+
+  @media #{$smartphones-1} {
+    float: none;
+  }
+}
+
+
+/* Helper classes */
+
+.algn-center {
+  text-align: center;
+}

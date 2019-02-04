@@ -1,0 +1,24 @@
+{% load i18n static %}
+
+<li>
+    <img src="{{ event.place.image.url }}">
+    <div class="calendar-entry">
+        <h3>
+            {{ event.title }}<br>
+            <span>{{ event.subtitle }}</span>
+        </h3>
+        <address>
+            <strong>{{ event.place }}</strong><br>
+            {{ event.place.address }}<br>
+            {{ event.place.city }}<br>
+            <i class="fas fa-map-marker-alt"></i> <a target="_blank" href="{{ event.place.link_to_map }}">Ver no mapa</a>
+        </address>
+        <p>
+            {{ event.details|linebreaksbr }}
+        </p>
+    </div>
+    <div class="calendar-left-entry">
+        <a href="#" class="view-more-cta"><i class="fas fa-download"></i>Download do material</a>
+        <p>TREINAMENTO ENCERRADO!</p>
+    </div>
+</li>

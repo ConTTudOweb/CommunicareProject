@@ -1,0 +1,56 @@
+/**
+RESPONSIVE
+===========================
+*/
+
+
+/* Viewports */
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+
+@-ms-viewport {
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
+
+
+/* Smartphones */
+
+@media #{$smartphones-1} {
+
+  .menu-trigger {
+    border-radius: 2px;
+    background: $red;
+    color: $white;
+    height: 30px;
+    font-weight: bold;
+    line-height: 30px;
+    text-decoration: none;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-size: $font-small;
+    position: absolute;
+    right: 3%;
+    top: 14px;
+    z-index: 200;
+
+    // Enable mobile menu trigger.
+    display: inline-block;
+
+    &:hover {
+      opacity: .9;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

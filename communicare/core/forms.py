@@ -8,7 +8,7 @@ class ContactForm(forms.Form):
     name = forms.CharField(label='Nome')
     email = forms.EmailField(label='E-mail', required=False)
     phone = forms.CharField(label='Telefone', required=False)
-    message = forms.CharField(label='Mensagem', widget=forms.Textarea)
+    message = forms.CharField(label='Mensagem', widget=forms.Textarea(attrs={'rows': 2}))
 
     def clean(self):
         self.cleaned_data = super().clean()

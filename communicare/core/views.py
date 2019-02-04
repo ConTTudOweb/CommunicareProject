@@ -6,7 +6,7 @@ from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.views.generic import TemplateView, DetailView
 
-from ..core.models import Event, Customer
+from ..core.models import Event, Customer, Registration
 from ..core.forms import ContactForm, CustomerForm
 
 
@@ -43,17 +43,18 @@ def contact(request):
             )
             email.send()
             response_data['result'] = 'Obrigado pelo seu contato!<br>' \
-                                      'O interesse pelo curso foi cadastrado com sucesso, ' \
+                                      'Sua mensagem foi cadastrada com sucesso, ' \
                                       'retornaremos o mais rápido possível.'
+            response_data['status'] = True
 
             return JsonResponse(response_data)
         else:
             errors = ""
             for error in form.non_field_errors():
                 errors += error
-            return JsonResponse({'result': errors})
+            return JsonResponse({'result': errors, 'status': False})
     else:
-        return JsonResponse({"result": "Método inválido! Aceito somente POST."})
+        return JsonResponse({"result": "Método inválido! Aceito somente POST."}, status=500)
 
 
 class EventDetailView(DetailView):
@@ -99,5 +100,31 @@ def registration(request):
             for error in form.non_field_errors():
                 errors += error
             return JsonResponse({'errors': errors})
+
+    return HttpResponse()
+
+
+def send_contract(request):
+    if request.method == 'GET':
+        pk = request.GET.get('pk')
+        if Registration.objects.filter(pk=pk).exists():
+            registration_obj = Registration.objects.get(pk=pk)
+
+            if registration_obj.customer.email not in [None, '']:
+                d = {}
+                # d = {
+                #     'event': event,
+                #     'local': event.place,
+                #     'customer': customer
+                # }
+                text_content = render_to_string('core/contract_email.txt', d)
+                html_content = render_to_string('core/contract_email.html', d)
+                subject, to = 'Inscrição efetuada com sucesso!', customer.email
+
+                msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to])
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+
+            return JsonResponse({"results": "Inscrição efetuada com sucesso!"})
 
     return HttpResponse()

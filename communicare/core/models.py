@@ -29,6 +29,7 @@ class Place(models.Model):
     address = models.CharField('endereço', max_length=255)
     city = models.ForeignKey('City', on_delete=models.PROTECT, verbose_name='cidade')
     link_to_map = models.URLField('link para o mapa')
+    image = models.ImageField('imagem', upload_to='images/place/', null=True, blank=False)
 
     def __str__(self):
         return self.title
@@ -64,6 +65,9 @@ def get_default_source():
         return None
 
 
+customer_verbose_name = 'cliente'
+
+
 class Customer(models.Model):
     name = models.CharField('nome completo', max_length=255)
     phone = models.CharField('telefone', max_length=20)
@@ -81,7 +85,8 @@ class Customer(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'cliente'
+        verbose_name = customer_verbose_name
+        ordering = ('name',)
 
 
 class Event(models.Model):
@@ -92,7 +97,7 @@ class Event(models.Model):
     end_date = models.DateTimeField('data de término')
     details = models.TextField('detalhes')
     open_for_subscriptions = models.BooleanField('aberto para inscrições', default=False)
-    registrations = models.ManyToManyField('Customer', blank=True, verbose_name='clientes')
+    registrations = models.ManyToManyField('Customer', blank=True, verbose_name='clientes', through='Registration')
     slug = models.SlugField(max_length=255, unique=True, verbose_name="Slug / URL",
                             help_text="Preenchido automaticamente, não editar.", )
 
@@ -101,3 +106,13 @@ class Event(models.Model):
 
     class Meta:
         verbose_name = 'evento'
+
+
+class Registration(models.Model):
+    customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
+    event = models.ForeignKey('Event', on_delete=models.PROTECT)
+    contract_sent = models.BooleanField('contrato enviado?', default=False)
+
+    class Meta:
+        verbose_name = 'inscrição'
+        verbose_name_plural = 'inscrições'

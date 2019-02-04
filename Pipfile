@@ -15,6 +15,8 @@ django-test-without-migrations = "*"
 django-debug-toolbar = "*"
 psycopg2 = "*"
 gunicorn = "*"
+django-wkhtmltopdf = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
