@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.utils.safestring import mark_safe
 
-from ..core.models import Event, Customer, Place, City, FederativeUnit, Source
+from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -57,3 +57,8 @@ class EventModelAdmin(admin.ModelAdmin):
         RegistrationInline,
     ]
     prepopulated_fields = {'slug': ("title", "subtitle")}
+
+
+@admin.register(Testimony)
+class TestimonyModelAdmin(admin.ModelAdmin):
+    list_display = ('customer',)

@@ -1,5 +1,3 @@
-{% load i18n static %}
-
 <li>
     <img src="{{ event.place.image.url }}">
     <div class="calendar-entry">
@@ -18,7 +16,22 @@
         </p>
     </div>
     <div class="calendar-left-entry">
-        <a href="#" class="view-more-cta"><i class="fas fa-download"></i>Download do material</a>
-        <p>TREINAMENTO ENCERRADO!</p>
+        {% if event.start_date|timesince >= "1 min" %}
+            <a href="https://classroom.google.com/" target="_blank" class="view-more-cta"
+               title="Ao acessar o link clique no ícone '➕' que fica no canto superior direito da tela e escolha a opção Participar da Turma. Em seguida informe o código que recebeu!"><i class="fas fa-download"></i>Download
+                do material</a>
+            {% if event.end_date|timesince >= "1 min" %}
+                <p><strong>TREINAMENTO ENCERRADO!</strong></p>
+            {% endif %}
+        {% else %}
+            {% if event.open_for_subscriptions %}
+                <a class="view-more-cta" href="{% url 'event-detail' slug=event.slug %}"><i class="fas fa-sign-in-alt"></i>Inscreva-se</a>
+            {% else %}
+                <a class="view-more-cta" disabled="disabled">Inscrições em breve</a>
+            {% endif %}
+            <br>
+            <p><strong>Inscrições Limitadas!</strong></p>
+        {% endif %}
+
     </div>
 </li>

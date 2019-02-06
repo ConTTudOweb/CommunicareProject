@@ -6,7 +6,7 @@ from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.views.generic import TemplateView, DetailView
 
-from ..core.models import Event, Customer, Registration
+from ..core.models import Event, Customer, Registration, Testimony
 from ..core.forms import ContactForm, CustomerForm
 
 
@@ -17,6 +17,7 @@ class HomeTemplateView(TemplateView):
         context = super(HomeTemplateView, self).get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         context['events'] = Event.objects.all()
+        context['testimonies'] = Testimony.objects.filter(visible=True).all()
         return context
 
 

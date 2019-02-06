@@ -134,62 +134,15 @@
           O Próximo pode ser você!
         </div>
 
-        <a href="#" class="big-button">
+        <!-- <a href="#" class="big-button">
           <strong>Faça parte dessa história!</strong><br>
           <span>Cadastre-se e entre para nossa lista de espera.</span>
-        </a>
+        </a> -->
 
         <ul>
             {% for event in events %}
             {% include 'includes/event_li.html' with event=event %}
             {% endfor %}
-
-          <li>
-            <img src="{% static "images/ahead-coworking-apucarana.jpg" %}">
-            <div class="calendar-entry">
-              <h3>
-                Treinamento em Oratória<br>
-                <span>Dez, 2018</span>
-              </h3>
-              <address>
-                <strong>Ahead Coworking</strong><br>
-                Rua Rene Camargo de Azambuja, 91 B<br>
-                Apucarana-PR<br>
-                <i class="fas fa-map-marker-alt"></i> <a target="_blank" href="https://l.facebook.com/l.php?u=http%3A%2F%2Fshare.here.com%2Fr%2Fmylocation%2Fe-eyJuYW1lIjoiQWhlYWQgQ293b3JraW5nIiwiYWRkcmVzcyI6IlJ1YSBSZW5lIENhbWFyZ28gZGUgQXphbWJ1amEsIDkxIEIsIEFwdWNhcmFuYSIsImxhdGl0dWRlIjotMjMuNTQ3NjM2NzQ4MjQ0LCJsb25naXR1ZGUiOi01MS40NTkyNDc0Njk5MDIsInByb3ZpZGVyTmFtZSI6ImZhY2Vib29rIiwicHJvdmlkZXJJZCI6MjExMjgxOTA5NjEyMjc4fQ%3D%3D%3Flink%3Ddirections%26fb_locale%3Dpt_BR%26ref%3Dfacebook&h=AT0x8uaQibwTfJCQEO-oAjwwjeOqd6vmpBGQUixy4OtzwZ5z0lq6-eL10XGAaeYIiXIS0qE43H5kICM_b2DYaDiTZ1N67Hev5BCw7s-EVRcotEXC9dv5Deko_9M-FRV6c95DPC2nf0n14PIwEiaYlv4UPpENuil6uDdNDxtfSbWHLqnt3JUSQNH8cC46o0Mz2y-uQyqdgTwG-Nq-Po97WzFmKaaYYMs1mTguQS6kLSrV2yZ94-Wk7xz6f-jCxksVMu_BNfOJdveb-WUG0RWIL_C2rDu3CZ0pbANCbAHMemUU2KBiYYYt6cy-n2bb3kcWkd_t5_U5DtHeRTQBtgk9_bdTVxDXE_xkVtfHaxaghAkmso6WCYmGUetX85E-8-zQCH5s79lAjPi-r_Jm7NfPbF8x_vjks9Nu4rrfq5p_kK91Nd92XFisgjeOkCjSf5rfVWDtTabJky30oDOk7JpA5ODNdyZGmDoP0gPK2acUEiegNe4FvRTKz6bCsIO29vhlE9th5wiAXE-TdO_NIS5F7VpYXePHEXTUb8PKAM9NO8rhEeVRs03wvan053RIvE4LmgVa1WT4zDnDqiHb1X5zktMoscc">Ver no mapa</a>
-              </address>
-              <p>
-                Dias 01/12, 08/12, 15/12<br>
-                Das 14:01 às 18:01
-              </p>
-            </div>
-            <div class="calendar-left-entry">
-              <a href="#" class="view-more-cta"><i class="fas fa-download"></i>Download do material</a>
-              <p>TREINAMENTO ENCERRADO!</p>
-            </div>
-          </li>
-          <li>
-            <img src="{% static "images/ahead-coworking-apucarana.jpg" %}">
-            <div class="calendar-entry">
-              <h3>
-                Curso de Hipnose<br>
-                <span>Nov, 2018</span>
-              </h3>
-              <address>
-                <strong>Ahead Coworking</strong><br>
-                Rua Rene Camargo de Azambuja, 91 B<br>
-                Apucarana-PR<br>
-                <i class="fas fa-map-marker-alt"></i> <a target="_blank" href="https://l.facebook.com/l.php?u=http%3A%2F%2Fshare.here.com%2Fr%2Fmylocation%2Fe-eyJuYW1lIjoiQWhlYWQgQ293b3JraW5nIiwiYWRkcmVzcyI6IlJ1YSBSZW5lIENhbWFyZ28gZGUgQXphbWJ1amEsIDkxIEIsIEFwdWNhcmFuYSIsImxhdGl0dWRlIjotMjMuNTQ3NjM2NzQ4MjQ0LCJsb25naXR1ZGUiOi01MS40NTkyNDc0Njk5MDIsInByb3ZpZGVyTmFtZSI6ImZhY2Vib29rIiwicHJvdmlkZXJJZCI6MjExMjgxOTA5NjEyMjc4fQ%3D%3D%3Flink%3Ddirections%26fb_locale%3Dpt_BR%26ref%3Dfacebook&h=AT0x8uaQibwTfJCQEO-oAjwwjeOqd6vmpBGQUixy4OtzwZ5z0lq6-eL10XGAaeYIiXIS0qE43H5kICM_b2DYaDiTZ1N67Hev5BCw7s-EVRcotEXC9dv5Deko_9M-FRV6c95DPC2nf0n14PIwEiaYlv4UPpENuil6uDdNDxtfSbWHLqnt3JUSQNH8cC46o0Mz2y-uQyqdgTwG-Nq-Po97WzFmKaaYYMs1mTguQS6kLSrV2yZ94-Wk7xz6f-jCxksVMu_BNfOJdveb-WUG0RWIL_C2rDu3CZ0pbANCbAHMemUU2KBiYYYt6cy-n2bb3kcWkd_t5_U5DtHeRTQBtgk9_bdTVxDXE_xkVtfHaxaghAkmso6WCYmGUetX85E-8-zQCH5s79lAjPi-r_Jm7NfPbF8x_vjks9Nu4rrfq5p_kK91Nd92XFisgjeOkCjSf5rfVWDtTabJky30oDOk7JpA5ODNdyZGmDoP0gPK2acUEiegNe4FvRTKz6bCsIO29vhlE9th5wiAXE-TdO_NIS5F7VpYXePHEXTUb8PKAM9NO8rhEeVRs03wvan053RIvE4LmgVa1WT4zDnDqiHb1X5zktMoscc">Ver no mapa</a>
-              </address>
-              <p>
-                Dias 17/11 e 24/11<br>
-                Das 13:01 às 18:01
-              </p>
-            </div>
-            <div class="calendar-left-entry">
-              <a href="#" class="view-more-cta"><i class="fas fa-download"></i>Download do material</a>
-              <p>TREINAMENTO ENCERRADO!</p>
-            </div>
-          </li>
         </ul>
 
       </div>
@@ -203,41 +156,9 @@
         <div class="flexslider">
 
           <ul class="slides">
-            <li>
-              <img src="{% static "images/people/rita_sene.jpeg" %}">
-              <p>
-                <strong>"</strong> Esse curso foi um grande aprendizado; procurei aproveitar todas as oportunidades oferecidas. Para minha vida pessoal e profissional foi um passo de crescimento. A convivência com os colegas acrescentou um novo vigor na caminhada da minha vida. Aprendi que a comunicação não é só ler ou falar um texto, é muito mais que isto! Vou sentir falta, pois foi uma grande oportunidade que tive e fico mais feliz porque consegui vencer mais uma etapa da minha vida <strong>"</strong>
-              </p>
-              <p class="name">- Rita Sene</p>
-            </li>
-            <li>
-              <img src="{% static "images/people/monica_de_brito.jpeg" %}">
-              <p>
-                <strong>"</strong> Quando busquei o curso de oratória, tinha em mente perder a fobia que tinha de falar em público. Eu não imaginava o quanto as técnicas de Programação Neuro Linguística ensinadas nas aulas iriam me ajudar em outros aspectos da minha vida! Após o curso decidi colocar tudo que aprendi em prática, e com muita dedicação consegui ir além, e superei o vício em tabagismo! Sem dúvidas foi uma das minhas melhores experiências, que levarei pro resto da minha vida! <strong>"</strong>
-              </p>
-              <p class="name">- Mônica de Brito</p>
-            </li>
-            <li>
-              <img src="{% static "images/people/fernanda_cristina.jpeg" %}">
-              <p>
-                <strong>"</strong> O curso foi incrível, superou minhas expectativas e me ajudou não só na parte de Hipnose mas também como compreender melhor as pessoas e a mim mesma em como a nossa mente funciona. O professor Vinícius e a equipe conduz o curso com muito profissionalismo, confiança e ética. Recomendo a todos e com certeza farei outros cursos! <strong>"</strong>
-              </p>
-              <p class="name">- Fernanda Cristina</p>
-            </li>
-            <li>
-              <img src="{% static "images/people/thiago_rufino.jpeg" %}">
-              <p>
-                <strong>"</strong> Fiz o curso de oratória e recomendo! O Vinicius e equipe dominam o assunto e sabem conduzir o aluno de forma eficiente, para que melhore sua capacidade de falar em público.<strong>"</strong>
-              </p>
-              <p class="name">- Thiago Rufino</p>
-            </li>
-            <li>
-              <img src="{% static "images/people/stefani_lopes.jpeg" %}">
-              <p>
-                <strong>"</strong> O curso de oratória foi muito importante para eu perder o medo de falar em público. Agora é só praticar e confiar em mim. Quero agradecer muito ao professor Vinicius pelo curso e por essa oportunidade.<strong>"</strong>
-              </p>
-              <p class="name">- Stefani Lopes</p>
-            </li>
+            {% for testimony in testimonies %}
+            {% include 'includes/testimony_li.html' with testimony=testimony %}
+            {% endfor %}
           </ul>
 
         </div>

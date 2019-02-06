@@ -116,3 +116,13 @@ class Registration(models.Model):
     class Meta:
         verbose_name = 'inscrição'
         verbose_name_plural = 'inscrições'
+
+
+class Testimony(models.Model):
+    customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
+    description = models.TextField('descrição')
+    image = models.ImageField('imagem', upload_to='images/testimony/', help_text="Imagem quadrada com no mínimo 170px")
+    visible = models.BooleanField('visível', default=True)
+
+    class Meta:
+        verbose_name = 'depoimento'
