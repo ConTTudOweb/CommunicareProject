@@ -1,4 +1,4 @@
-Index = {
+Main = {
   init: function(){
 
 
@@ -31,10 +31,10 @@ Index = {
 
     // Remodal auto load
 
-    $(function(){
-      var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
-      inst.open();
-    })
+    // $(function(){
+    //     var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
+    //     inst.open();
+    // });
 
 
     // Scroll links
@@ -57,5 +57,5 @@ Index = {
 }
 
 $(document).ready(function() {
-  Index.init();
+  Main.init();
 });

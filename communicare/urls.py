@@ -18,7 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract
+from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
+    PrivacyPolicyTemplateView, CookiesStatementTemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +27,9 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('event/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
     path('registration/', registration, name='registration'),
-    path('send_contract/', send_contract, name='send_contract')
+    path('send_contract/', send_contract, name='send_contract'),
+    path('politica-de-privacidade/', PrivacyPolicyTemplateView.as_view(), name='privacy_policy'),
+    path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

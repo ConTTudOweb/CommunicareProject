@@ -129,3 +129,11 @@ def send_contract(request):
             return JsonResponse({"results": "Inscrição efetuada com sucesso!"})
 
     return HttpResponse()
+
+
+class PrivacyPolicyTemplateView(TemplateView):
+    template_name = 'privacy_policy.html'
+
+
+class CookiesStatementTemplateView(TemplateView):
+    template_name = 'cookies_statement.html'
