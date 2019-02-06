@@ -1,6 +1,6 @@
 SECRET_KEY=THIS_IS_NOT_A_GOOD_SECRET
 DEBUG=True
-ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuapp.com
+ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuapp.com, .communicaretreinamentos.com.br
 
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 EMAIL_HOST=localhost
@@ -8,3 +8,7 @@ EMAIL_PORT=25
 EMAIL_USE_TLS=False
 EMAIL_HOST_USER=
 EMAIL_HOST_PASSWORD=
+
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=

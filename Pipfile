@@ -17,6 +17,7 @@ psycopg2 = "*"
 gunicorn = "*"
 django-wkhtmltopdf = "*"
 pillow = "*"
+cloudinary = "*"
 
 [requires]
 python_version = "3.7"

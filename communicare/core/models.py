@@ -1,3 +1,4 @@
+from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 from django.db import models
 
@@ -29,7 +30,7 @@ class Place(models.Model):
     address = models.CharField('endereço', max_length=255)
     city = models.ForeignKey('City', on_delete=models.PROTECT, verbose_name='cidade')
     link_to_map = models.URLField('link para o mapa')
-    image = models.ImageField('imagem', upload_to='images/place/', null=True, blank=False)
+    image = CloudinaryField('imagem', null=True, blank=False)
 
     def __str__(self):
         return self.title
@@ -121,7 +122,7 @@ class Registration(models.Model):
 class Testimony(models.Model):
     customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
     description = models.TextField('descrição')
-    image = models.ImageField('imagem', upload_to='images/testimony/', help_text="Imagem quadrada com no mínimo 170px")
+    image = CloudinaryField('imagem', help_text="Imagem quadrada com no mínimo 170px")
     visible = models.BooleanField('visível', default=True)
 
     class Meta:
