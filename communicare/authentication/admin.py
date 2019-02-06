@@ -20,7 +20,6 @@ class UserAdmin(BaseUserAdmin):
         (None, {'fields': ('email', 'password')}),
         ('Dados pessoais', {'fields': ('date_of_birth', 'first_name', 'last_name')}),
         ('Permissões', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
-        ('Preferências', {'fields': ('entity',)}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
