@@ -3,87 +3,106 @@
 {% load humanize %}
 
 {% block extra_css %}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    {#    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />#}
+    {{ customer_form.media.css }}
 {% endblock %}
 
 {% block content %}
-<section class="register">
-      <div class="holder">
+    <section class="register">
+        <div class="holder">
 
-        {% if event.type == event_types.treinamento_oratoria.value %}
-            <img src="{% static '/images/banner/treinamento_oratoria.jpg' %}">
-        {% elif event.type == event_types.curso_hipnose.value %}
-            <img src="{% static '/images/banner/curso_hipnose.jpg' %}">
-        {% elif event.type == event_types.treinamento_inteligencia_emocional.value %}
-            <img src="{% static '/images/banner/treinamento_inteligencia_emocional.jpg' %}">
-        {% endif %}
+            {% if event.type == event_types.treinamento_oratoria.value %}
+                <img src="{% static '/images/banner/treinamento_oratoria.jpg' %}">
+            {% elif event.type == event_types.curso_hipnose.value %}
+                <img src="{% static '/images/banner/curso_hipnose.jpg' %}">
+            {% elif event.type == event_types.treinamento_inteligencia_emocional.value %}
+                <img src="{% static '/images/banner/treinamento_inteligencia_emocional.jpg' %}">
+            {% endif %}
 
-        <div class="register-header">
+            <div class="register-header">
 
-            {% include 'includes/register_header.html' with event=event %}
+                {% include 'includes/register_header.html' with event=event %}
 
-        </div> <!-- /register-header -->
+            </div> <!-- /register-header -->
 
-        <div class="register-entry">
+            <div class="register-entry">
+                <form method="POST" class="register-form" id="registration-form">{% csrf_token %}
+                    <input type="text" hidden id="event_id" value="{{ event.pk }}">
+                    <ul>
+                        <li>{{ customer_form.non_field_errors }}</li>
+                        <li>
+                            {{ customer_form.name.errors }}
+                            <label for="{{ customer_form.name.id_for_label }}">Nome completo<span>*</span></label>
+                            <!--<input type="text" name="nome" id="nome">-->
+                            {{ customer_form.name }}
+                        </li>
+                        <li class="column-01">
+                            {{ customer_form.phone.errors }}
+                            <label for="{{ customer_form.phone.id_for_label }}">Telefone<span>*</span></label>
+                            {{ customer_form.phone }}
+                        </li>
+                        <li class="column-02">
+                            {{ customer_form.email.errors }}
+                            <label for="{{ customer_form.email.id_for_label }}">Email<span>*</span></label>
+                            {{ customer_form.email }}
+                        </li>
+                        <li class="column-01">
+                            {{ customer_form.cpf.errors }}
+                            <label for="{{ customer_form.cpf.id_for_label }}">CPF<span>*</span></label>
+                            {{ customer_form.cpf }}
+                        </li>
+                        <li class="column-02">
+                            {{ customer_form.rg.errors }}
+                            <label for="{{ customer_form.rg.id_for_label }}">RG<span>*</span></label>
+                            {{ customer_form.rg }}
+                        </li>
+                        <li>
+                            {{ customer_form.address.errors }}
+                            <label for="{{ customer_form.address.id_for_label }}">Endereço<span>*</span></label>
+                            {{ customer_form.address }}
+                        </li>
 
-          <form action="#" class="register-form">
-            <ul>
-              <li>
-                <label for="nome">Nome completo<span>*</span></label>
-                <input type="text" name="nome" id="nome">
-              </li>
-              <li class="column-01">
-                <label for="telefone">Telefone<span>*</span></label>
-                <input type="tel" name="telefone" id="telefone">
-              </li>
-              <li class="column-02">
-                <label for="cpf">CPF<span>*</span></label>
-                <input type="text" name="cpf" id="cpf">
-              </li>
-              <li class="column-01">
-                <label for="rg">RG<span>*</span></label>
-                <input type="text" name="rg" id="rg">
-              </li>
-              <li class="column-02">
-                <label for="endereco">Endereço<span>*</span></label>
-                <input type="text" name="endereco" id="endereco">
-              </li>
-              <li class="column-01">
-                <label for="cep">CEP<span>*</span></label>
-                <input type="text" name="cep" id="cep">
-              </li>
-              <li class="column-02">
-                <label for="email">Email<span>*</span></label>
-                <input type="email" name="email" id="email">
-              </li>
-              <li class="column-01">
-                <label for="cidade">Cidade<span>*</span></label>
-                <input type="text" name="cidade" id="cidade">
-              </li>
-              <li class="column-02">
-                <label for="estado">Estado<span>*</span></label>
-                <input type="text" name="estado" id="estado">
-              </li>
-              <li class="column-01">
-                <label for="profissao">Profissão</label>
-                <input type="text" name="profissao" id="profissao">
-              </li>
-              <li class="column-02">
-                <label for="idade">Idade</label>
-                <input type="text" name="idade" id="idade">
-              </li>
-              <li>
-                <input type="submit" value="Enviar">
-              </li>
-            </ul>
-          </form>
+                        <li class="column-01">
+                            {{ customer_form.city.errors }}
+                            <label for="{{ customer_form.city.id_for_label }}">Cidade<span>*</span></label>
+                            {{ customer_form.city }}
+                        </li>
+                        <li class="column-02">
+                            {{ customer_form.cep.errors }}
+                            <label for="{{ customer_form.cep.id_for_label }}">CEP<span>*</span></label>
+                            {{ customer_form.cep }}
+                        </li>
+                        <li class="column-01">
+                            {{ customer_form.profession.errors }}
+                            <label for="{{ customer_form.profession.id_for_label }}">Profissão</label>
+                            {{ customer_form.profession }}
+                        </li>
+                        <li class="column-02">
+                            {{ customer_form.age.errors }}
+                            <label for="{{ customer_form.age.id_for_label }}">Idade</label>
+                            {{ customer_form.age }}
+                        </li>
+                        <li>
+                            {{ customer_form.source.errors }}
+                            <label for="{{ customer_form.source.id_for_label }}">{{ customer_form.source.label }}</label>
+                            {{ customer_form.source }}
+                        </li>
+                        <li>
+                            <div id="errors"></div>
+                        </li>
+                        <li>
+                            <input type="submit" value="Enviar">
+                        </li>
+                    </ul>
+                </form>
 
-        </div> <!-- /register-entry -->
+            </div> <!-- /register-entry -->
 
-      </div>
+        </div>
     </section> <!-- /register -->
 {% endblock content %}
 
 {% block extra_js %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>#}
+    {{ customer_form.media.js }}
 {% endblock %}

@@ -18,6 +18,7 @@ gunicorn = "*"
 django-wkhtmltopdf = "*"
 pillow = "*"
 cloudinary = "*"
+django-select2 = "*"
 
 [requires]
 python_version = "3.7"

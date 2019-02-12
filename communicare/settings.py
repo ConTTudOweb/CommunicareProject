@@ -83,6 +83,7 @@ APPS += (
     'django_extensions',
     'debug_toolbar',
     'cloudinary',
+    'django_select2'
 )
 
 # Project Apps
@@ -139,6 +140,14 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
+}
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache_table',
+    }
 }
 
 

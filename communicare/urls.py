@@ -33,7 +33,9 @@ urlpatterns = [
     path('curso-de-hipnose/', CursoHipnoseTemplateView.as_view(), name='curso_hipnose'),
     path('galeria-de-fotos/', GalleryTemplateView.as_view(), name='gallery'),
     path('politica-de-privacidade/', PrivacyPolicyTemplateView.as_view(), name='privacy_policy'),
-    path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement')
+    path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement'),
+
+    path('select2/', include('django_select2.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

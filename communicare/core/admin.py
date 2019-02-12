@@ -16,12 +16,13 @@ class FederativeUnitModelAdmin(admin.ModelAdmin):
 
 @admin.register(City)
 class CityModelAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ('name', 'uf__initials')
+    ordering = ('name',)
 
 
 @admin.register(Place)
 class PlaceModelAdmin(admin.ModelAdmin):
-    pass
+    autocomplete_fields = ('city',)
 
 
 @admin.register(Source)

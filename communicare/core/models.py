@@ -26,6 +26,7 @@ class City(models.Model):
     class Meta:
         verbose_name = 'cidade'
         unique_together = (('uf', 'name'),)
+        ordering = ('name',)
 
 
 class Place(models.Model):
