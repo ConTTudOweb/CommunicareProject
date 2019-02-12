@@ -90,7 +90,11 @@ def registration(request):
                 form.instance.id = customer.id
                 form.save()
             event = Event.objects.get(pk=request.POST.get('event_id'))
-            event.registrations.add(customer)
+            # event.registrations.add(customer, through_defaults={'contract_sent': False})
+            Registration.objects.create(
+                customer=customer,
+                event=event
+            )
 
             if customer.email not in [None, '']:
                 d = {

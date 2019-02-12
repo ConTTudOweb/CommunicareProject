@@ -3,7 +3,6 @@
 {% load humanize %}
 
 {% block extra_css %}
-    {#    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />#}
     {{ customer_form.media.css }}
 {% endblock %}
 
@@ -32,59 +31,59 @@
                         <li>{{ customer_form.non_field_errors }}</li>
                         <li>
                             {{ customer_form.name.errors }}
-                            <label for="{{ customer_form.name.id_for_label }}">Nome completo<span>*</span></label>
+                            <label for="{{ customer_form.name.id_for_label }}">{{ customer_form.name.label }}<span>*</span></label>
                             <!--<input type="text" name="nome" id="nome">-->
                             {{ customer_form.name }}
                         </li>
                         <li class="column-01">
                             {{ customer_form.phone.errors }}
-                            <label for="{{ customer_form.phone.id_for_label }}">Telefone<span>*</span></label>
+                            <label for="{{ customer_form.phone.id_for_label }}">{{ customer_form.phone.label }}<span>*</span></label>
                             {{ customer_form.phone }}
                         </li>
                         <li class="column-02">
                             {{ customer_form.email.errors }}
-                            <label for="{{ customer_form.email.id_for_label }}">Email<span>*</span></label>
+                            <label for="{{ customer_form.email.id_for_label }}">{{ customer_form.email.label }}</label>
                             {{ customer_form.email }}
                         </li>
                         <li class="column-01">
                             {{ customer_form.cpf.errors }}
-                            <label for="{{ customer_form.cpf.id_for_label }}">CPF<span>*</span></label>
+                            <label for="{{ customer_form.cpf.id_for_label }}">{{ customer_form.cpf.label }}<span>*</span></label>
                             {{ customer_form.cpf }}
                         </li>
                         <li class="column-02">
                             {{ customer_form.rg.errors }}
-                            <label for="{{ customer_form.rg.id_for_label }}">RG<span>*</span></label>
+                            <label for="{{ customer_form.rg.id_for_label }}">{{ customer_form.rg.label }}<span>*</span></label>
                             {{ customer_form.rg }}
                         </li>
                         <li>
                             {{ customer_form.address.errors }}
-                            <label for="{{ customer_form.address.id_for_label }}">Endereço<span>*</span></label>
+                            <label for="{{ customer_form.address.id_for_label }}">{{ customer_form.address.label }}<span>*</span> <small>({{ customer_form.address.help_text }})</small></label>
                             {{ customer_form.address }}
                         </li>
 
                         <li class="column-01">
                             {{ customer_form.city.errors }}
-                            <label for="{{ customer_form.city.id_for_label }}">Cidade<span>*</span></label>
+                            <label for="{{ customer_form.city.id_for_label }}">{{ customer_form.city.label }}<span>*</span></label>
                             {{ customer_form.city }}
                         </li>
                         <li class="column-02">
                             {{ customer_form.cep.errors }}
-                            <label for="{{ customer_form.cep.id_for_label }}">CEP<span>*</span></label>
+                            <label for="{{ customer_form.cep.id_for_label }}">{{ customer_form.cep.label }}<span>*</span></label>
                             {{ customer_form.cep }}
                         </li>
                         <li class="column-01">
                             {{ customer_form.profession.errors }}
-                            <label for="{{ customer_form.profession.id_for_label }}">Profissão</label>
+                            <label for="{{ customer_form.profession.id_for_label }}">{{ customer_form.profession.label }}</label>
                             {{ customer_form.profession }}
                         </li>
                         <li class="column-02">
                             {{ customer_form.age.errors }}
-                            <label for="{{ customer_form.age.id_for_label }}">Idade</label>
+                            <label for="{{ customer_form.age.id_for_label }}">{{ customer_form.age.label }}</label>
                             {{ customer_form.age }}
                         </li>
                         <li>
                             {{ customer_form.source.errors }}
-                            <label for="{{ customer_form.source.id_for_label }}">{{ customer_form.source.label }}</label>
+                            <label for="{{ customer_form.source.id_for_label }}">{{ customer_form.source.label }}<span>*</span></label>
                             {{ customer_form.source }}
                         </li>
                         <li>
@@ -103,6 +102,49 @@
 {% endblock content %}
 
 {% block extra_js %}
-    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>#}
     {{ customer_form.media.js }}
+    <script src="{% static "js/get-csrftoken.js" %}"></script>
+
+    <script type="application/javascript">
+        // AJAX for posting
+        function registration(form) {
+            $.ajax({
+                url : "/registration/", // the endpoint
+                type : "POST", // http method
+                data : {
+                    name : $('#id_name').val(),
+                    phone : $('#id_phone').val(),
+                    cpf : $('#id_cpf').val(),
+                    rg : $('#id_rg').val(),
+                    address : $('#id_address').val(),
+                    cep : $('#id_cep').val(),
+                    city : $('#id_city').val(),
+                    email : $('#id_email').val(),
+                    profession : $('#id_profession').val(),
+                    age : $('#id_age').val(),
+                    source : $('#id_source').val(),
+                    event_id : $('#event_id').val(),
+                }, // data sent with the post request
+
+                // handle a successful response
+                success : function(json) {
+                    console.log('success');
+                    $('#results').html(json.results);
+                    $('#errors').html(json.errors);
+                },
+
+                // handle a non-successful response
+                error : function(xhr,errmsg,err) {
+                    $('#errors').html("Oops! Nós encontramos um erro: "+errmsg); // add the error to the dom
+                    console.error(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                }
+            });
+        };
+
+        // Submit post on submit
+        $('#registration-form').on('submit', function(event){
+            event.preventDefault();
+            registration();
+        });
+    </script>
 {% endblock %}

@@ -78,7 +78,7 @@ class Customer(models.Model):
     phone = models.CharField('telefone', max_length=20)
     cpf = models.CharField('CPF', max_length=14)
     rg = models.CharField('RG', max_length=20)
-    address = models.CharField('endereço completo', max_length=255)
+    address = models.CharField('endereço completo', max_length=255, help_text="Rua tal, 123 - Centro")
     cep = models.CharField('CEP', max_length=10)
     city = models.ForeignKey('City', on_delete=models.PROTECT, verbose_name='cidade')
     email = models.EmailField('e-mail', null=True, blank=True)
@@ -128,6 +128,9 @@ class Registration(models.Model):
     customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
     event = models.ForeignKey('Event', on_delete=models.PROTECT)
     contract_sent = models.BooleanField('contrato enviado?', default=False)
+
+    def __str__(self):
+        return '%s [%s]' % (str(self.customer), str(self.event))
 
     class Meta:
         verbose_name = 'inscrição'

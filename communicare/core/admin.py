@@ -33,6 +33,7 @@ class SourceModelAdmin(admin.ModelAdmin):
 @admin.register(Customer)
 class CustomerModelAdmin(admin.ModelAdmin):
     search_fields = ('name',)
+    autocomplete_fields = ('city',)
 
 
 class RegistrationInline(admin.TabularInline):
