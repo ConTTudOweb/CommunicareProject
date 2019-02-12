@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.conf import settings
 from django.core import mail
 from django.core.mail import EmailMultiAlternatives
@@ -10,6 +12,10 @@ from ..core.models import Event, Customer, Registration, Testimony
 from ..core.forms import ContactForm, CustomerForm
 
 
+def get_current_event(type):
+    return Event.objects.filter(start_date__gt=datetime.now(), open_for_subscriptions=True, type=type).order_by('start_date').first()
+
+
 class HomeTemplateView(TemplateView):
     template_name = 'index.html'
 
@@ -17,6 +23,9 @@ class HomeTemplateView(TemplateView):
         context = super(HomeTemplateView, self).get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         context['events'] = Event.objects.all()
+        context['event_treinamento_oratoria'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
+        context['event_curso_hipnose'] = get_current_event(Event.EventTypes.curso_hipnose.value)
+        context['event_treinamento_inteligencia_emocional'] = get_current_event(Event.EventTypes.treinamento_inteligencia_emocional.value)
         context['testimonies'] = Testimony.objects.filter(visible=True).all()
         return context
 
@@ -60,10 +69,12 @@ def contact(request):
 
 class EventDetailView(DetailView):
     model = Event
+    template_name = "event_register.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['customer_form'] = CustomerForm
+        context['event_types'] = Event.EventTypes.__members__
         return context
 
 
@@ -137,3 +148,27 @@ class PrivacyPolicyTemplateView(TemplateView):
 
 class CookiesStatementTemplateView(TemplateView):
     template_name = 'cookies_statement.html'
+
+
+class GalleryTemplateView(TemplateView):
+    template_name = 'gallery.html'
+
+
+class TreinamentoOratoriaTemplateView(TemplateView):
+    template_name = 'treinamento_oratoria.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TreinamentoOratoriaTemplateView, self).get_context_data(**kwargs)
+        context['event'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
+        context['event_type'] = Event.EventTypes.treinamento_oratoria.value
+        return context
+
+
+class CursoHipnoseTemplateView(TemplateView):
+    template_name = 'curso_hipnose.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CursoHipnoseTemplateView, self).get_context_data(**kwargs)
+        context['event'] = get_current_event(Event.EventTypes.curso_hipnose.value)
+        context['event_type'] = Event.EventTypes.curso_hipnose.value
+        return context

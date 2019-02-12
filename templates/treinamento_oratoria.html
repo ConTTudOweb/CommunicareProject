@@ -1,0 +1,150 @@
+{% extends 'base_details.html' %}
+
+{% block details_header_class %}
+    header-treinamento-oratoria
+{% endblock %}
+
+{% block details_frase %}
+    Quer enfrentar seu medo<br> de falar em público?<br>
+    SIM, Você Pode!
+{% endblock %}
+
+{% block details_citacao %}
+    "Somos o que repetidamente fazemos.<br>
+    A excelência, portanto, não é um feito, mas um hábito".
+{% endblock %}
+
+{% block details_citacao_autor %}
+    ARISTÓTELES
+{% endblock %}
+
+{% block details_titulo %}
+    {{ TREINAMENTO_ORATORIA.titulo }}
+{% endblock %}
+
+
+{#Sobre#}
+{% block details_sobre %}
+    Sobre o treinamento
+{% endblock %}
+
+{% block details_sobre_p %}
+    <p>O sucesso na carreira não depende apenas da qualificação, mas de uma comunicação clara e eficaz. Desta forma, sabemos que a comunicação não é o que você diz, e sim o que os outros entendem. Se o seu objetivo é desenvolver reuniões, palestras, cursos e afins, tenha certeza que está no lugar certo. O treinamento traz técnicas de apresentação e oratória com PNL (Programação NeuroLinguistica), alinhando teoria à prática com aulas presenciais, gravadas e turmas reduzidas. Sabemos que um dos maiores medos do ser humano é falar em público, então, te convido a enfrentar os seus medos e expandir a sua mente.</p>
+{% endblock %}
+
+
+{#Objetivos#}
+{% block details_objetivos_p %}
+    <p>
+        Proporcionar ao participante o desenvolvimento da habilidade de falar em público para o fortalecimento do processo de comunicação, aperfeiçoando as técnicas, habilidades e competências da comunicação verbal, corporal e emocional.
+    </p>
+    <p>
+        Tornar o participante mais persuasivo, objetivo e dinâmico, ampliando o seu desenvolvimento pessoal e profissional.
+    </p>
+{% endblock %}
+
+
+{#Duração#}
+{% block details_duracao %}
+    4 encontros de 3hrs.<br>
+    Carga horária total de 12hrs.
+{% endblock %}
+
+
+{#Para quem?#}
+{% block details_para_quem %}
+    Público em geral que tenha interesse em aperfeiçoar técnicas e práticas de oratória e comunicação verbal, corporal e emocional. Pessoas de qualquer área de atuação e do conhecimento, com ou sem experiência.
+{% endblock %}
+
+
+{% block program_content_li %}
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-chalkboard-teacher"></i>Técnicas de apresentação' %}
+        <p>
+            - Fatores Psicológicos: medo, ansiedade e nervosismo;<br>
+            - Entendendo o funcionamento da nossa mente para chegar a um estado desejado;<br>
+            - Como iniciar uma apresentação em público;<br>
+            - Como avaliar as condições da apresentação;<br>
+            - A escolha do tema;<br>
+            - Como obter a simpatia e confiança do público;<br>
+            - Como apresentar o tema principal;<br>
+            - Como evitar os "brancos";<br>
+            - Técnicas de persuasão;<br>
+            - Como concluir o tema;<br>
+            - Credibilidade e confiança;<br>
+            - Como enfrentar perguntas;<br>
+            - Comportamento visual;<br>
+            - O tempo.
+        </p>
+    </li>
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-microphone"></i>Comunicação verbal' %}
+        <p>
+            - A dinâmica da fala e os possíveis impactos no ouvinte;<br>
+            - Como modelar os principais parâmetros da voz e da fala que afetam a qualidade e a intenção do discurso;<br>
+            - Técnicas para melhorar a clareza das informações transmitidas;<br>
+            - Como e o que não falar em uma apresentação;<br>
+            - Cuidados com a voz;<br>
+            - Eloquência e persuasão;<br>
+            - A importância da emoção na apresentação;<br>
+            - Vícios de linguagem;<br>
+            - Vocabulário, pronúncia e voz;<br>
+            - Técnicas de microfone.
+        </p>
+    </li>
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-handshake"></i>Expressão corporal' %}
+        <p>
+            - Desenvolver e ampliar a comunicação não-verbal;<br>
+            - O corpo como instrumento para expressar ideias;<br>
+            - Adquirir consciência, domínio corporal e noção espacial;<br>
+            - Melhorar a postura corporal: gestual e facial;<br>
+            - Estabelecer a congruência (harmonia entre corpo, mente e fala);<br>
+            - Desinibir e desbloquear;<br>
+            - O que fazer com os pés, pernas e as mãos;<br>
+            - Potencializar a expressividade da fala (acompanhar a fala com o objetivo de controlar o tema da conversa, a atenção do ouvinte, pontuar, etc.);<br>
+            - Técnicas de relaxamento mental e corporal.
+        </p>
+    </li>
+{% endblock %}
+
+{% block benefits_li %}
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-chalkboard-teacher"></i>Para quem deseja ser palestrante' %}
+        <p>
+            - Conhecimentos necessários para realizar grandes palestras;<br>
+            - Orientação técnica e comercial para uma carreira de sucesso;<br>
+            - Aprenda a atrair a atenção do público desejado;<br>
+            - Conduzir o aluno a ser uma autoridade na área.
+        </p>
+    </li>
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-users"></i>Para vida pessoal' %}
+        <p>
+            - Superação do medo de falar em público;<br>
+            - Técnicas de apresentação para trabalhos, reuniões, palestras, tcc’s, cursos e afins;<br>
+            - Fortalecimento da autoconfiança;<br>
+            - Desenvolver a comunicação em todas as áreas da vida;<br>
+            - Utilizar a Inteligência Emocional na comunicação.
+        </p>
+    </li>
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-briefcase"></i>Para vida profissional' %}
+        <p>
+            - Tranquilidade para expressar seus pontos de vista;<br>
+            - Autoconfiança;<br>
+            - Maior capacidade de realização;<br>
+            - Fortificação do trabalho em equipe;<br>
+            - Alta performance profissional.
+        </p>
+    </li>
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-user-tie"></i>Para líderes e gestores' %}
+        <p>
+            - Aumento do comprometimento geral da equipe;<br>
+            - Formação de líderes comunicativos com sua equipe;<br>
+            - Fortalecimento da sua capacidade de liderança e persuasão;<br>
+            - Formação de uma liderança inspiradora.
+        </p>
+    </li>
+{% endblock %}

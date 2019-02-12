@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block extra_css %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<section class="register">
+      <div class="holder">
+
+        {% if event.type == event_types.treinamento_oratoria.value %}
+            <img src="{% static '/images/banner/treinamento_oratoria.jpg' %}">
+        {% elif event.type == event_types.curso_hipnose.value %}
+            <img src="{% static '/images/banner/curso_hipnose.jpg' %}">
+        {% elif event.type == event_types.treinamento_inteligencia_emocional.value %}
+            <img src="{% static '/images/banner/treinamento_inteligencia_emocional.jpg' %}">
+        {% endif %}
+
+        <div class="register-header">
+
+            {% include 'includes/register_header.html' with event=event %}
+
+        </div> <!-- /register-header -->
+
+        <div class="register-entry">
+
+          <form action="#" class="register-form">
+            <ul>
+              <li>
+                <label for="nome">Nome completo<span>*</span></label>
+                <input type="text" name="nome" id="nome">
+              </li>
+              <li class="column-01">
+                <label for="telefone">Telefone<span>*</span></label>
+                <input type="tel" name="telefone" id="telefone">
+              </li>
+              <li class="column-02">
+                <label for="cpf">CPF<span>*</span></label>
+                <input type="text" name="cpf" id="cpf">
+              </li>
+              <li class="column-01">
+                <label for="rg">RG<span>*</span></label>
+                <input type="text" name="rg" id="rg">
+              </li>
+              <li class="column-02">
+                <label for="endereco">Endereço<span>*</span></label>
+                <input type="text" name="endereco" id="endereco">
+              </li>
+              <li class="column-01">
+                <label for="cep">CEP<span>*</span></label>
+                <input type="text" name="cep" id="cep">
+              </li>
+              <li class="column-02">
+                <label for="email">Email<span>*</span></label>
+                <input type="email" name="email" id="email">
+              </li>
+              <li class="column-01">
+                <label for="cidade">Cidade<span>*</span></label>
+                <input type="text" name="cidade" id="cidade">
+              </li>
+              <li class="column-02">
+                <label for="estado">Estado<span>*</span></label>
+                <input type="text" name="estado" id="estado">
+              </li>
+              <li class="column-01">
+                <label for="profissao">Profissão</label>
+                <input type="text" name="profissao" id="profissao">
+              </li>
+              <li class="column-02">
+                <label for="idade">Idade</label>
+                <input type="text" name="idade" id="idade">
+              </li>
+              <li>
+                <input type="submit" value="Enviar">
+              </li>
+            </ul>
+          </form>
+
+        </div> <!-- /register-entry -->
+
+      </div>
+    </section> <!-- /register -->
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+{% endblock %}

@@ -53,6 +53,14 @@ Main = {
         });
     });
 
+
+    // WhatsApp widget
+
+    $(".whatsapp-header").click(function(e) {
+      $(".whatsapp-widget form").toggle();
+      e.stopPropagation();
+    });
+
   }
 }
 

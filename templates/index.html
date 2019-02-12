@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load static %}
 
 {% block content %}
+    <section id="inicio"></section>
     <section class="main-banner">
       <div class="flexslider">
 
         <ul class="slides">
           <li>
-            <a href="detalhes.html">
-              <img src="{% static "images/banner-01.jpg" %}">
+            <a href="{% url 'treinamento_oratoria' %}">
+              <img src="{% static "images/banner/treinamento_oratoria.jpg" %}">
             </a>
           </li>
           <li>
-            <a href="detalhes.html">
-              <img src="{% static "images/banner-02.jpg" %}">
+            <a href="{% url 'curso_hipnose' %}">
+              <img src="{% static "images/banner/curso_hipnose.jpg" %}">
             </a>
           </li>
         </ul>
@@ -29,28 +30,28 @@
         </h2>
 
         <ul class="cards-list">
-            {% include "includes/cards_li.html" with card_type="Treinamento" card_img="images/banner-02.jpg" card_title="Oratória: Comunicação e Expressão." card_description="Um treinamento que envolve técnicas de oratória e programação neurolinguística (PNL) buscando entender e compreender todos os sentimentos que nos sabotam diante de uma apresentação  (...)" only %}
-            {% include "includes/cards_li.html" with card_type="Curso" card_img="images/banner-01.jpg" card_title="Hipnose na Prática" card_description="Um curso que alinha teoria à prática, desmistificando o que é hipnose e compreendendo seu real fundamento terapêutico para cura de traumas e fobias (...)" only %}
-            {% include "includes/cards_li.html" with card_type="Treinamento" card_img="images/banner-02.jpg" card_title="Inteligência Emocional" card_description="Saiba como lidar com suas emoções neste treinamento através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg" card_title=TREINAMENTO_ORATORIA.titulo card_description="Um treinamento que envolve técnicas de oratória e programação neurolinguística (PNL) buscando entender e compreender todos os sentimentos que nos sabotam diante de uma apresentação  (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Curso"       event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg" card_title=CURSO_HIPNOSE.titulo card_description="Um curso que alinha teoria à prática, desmistificando o que é hipnose e compreendendo seu real fundamento terapêutico para cura de traumas e fobias (...)" only %}
+{#          {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner-02.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description="Saiba como lidar com suas emoções neste treinamento através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional (...)" only %}#}
         </ul>
 
       </div>
     </section> <!-- /cards-1 -->
 
-    <section class="cards" id="cards-3">
-      <div class="holder">
-
-        <h2>
-          Atendimentos
-        </h2>
-
-        <ul class="cards-list">
-            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Hipnoterapia" card_description="A utilização da Hipnose na terapia, possibilita de maneira consistente, identificar e modificar a estrutura da realidade de cada indivíduo. Ajudando a aumentar a confiança,  construindo resultados extraordinários, tratando medos/fobias e retomando o prazer pela vida (...)" only %}
-            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Coach" card_description="Uma metodologia extraordinária que tem como finalidade descobrir soluções que auxiliem as pessoas a alcançarem suas metas e potencializar resultados (...)" only %}
-        </ul>
-
-      </div>
-    </section> <!-- /cards-3 -->
+{#    <section class="cards" id="cards-3">#}
+{#      <div class="holder">#}
+{##}
+{#        <h2>#}
+{#          Atendimentos#}
+{#        </h2>#}
+{##}
+{#        <ul class="cards-list">#}
+{#            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Hipnoterapia" card_description="A utilização da Hipnose na terapia, possibilita de maneira consistente, identificar e modificar a estrutura da realidade de cada indivíduo. Ajudando a aumentar a confiança,  construindo resultados extraordinários, tratando medos/fobias e retomando o prazer pela vida (...)" only %}#}
+{#            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Coach" card_description="Uma metodologia extraordinária que tem como finalidade descobrir soluções que auxiliem as pessoas a alcançarem suas metas e potencializar resultados (...)" only %}#}
+{#        </ul>#}
+{##}
+{#      </div>#}
+{#    </section> <!-- /cards-3 -->#}
 
     <section class="calendar" id="calendar">
       <div class="holder">
@@ -154,7 +155,7 @@
               </li>
             </ul>
 
-            <a href="gallery.html" class="styled-link">Galeria de fotos</a>
+            <a href="{% url 'gallery' %}" class="styled-link">Galeria de fotos</a>
 
           </div> <!-- /column-02 -->
 
@@ -235,28 +236,28 @@
       </div>
     </section> <!-- /contact -->
 
-    <div class="remodal" data-remodal-id="modal"
-         data-remodal-options="hashTracking: false">
-
-      <button data-remodal-action="close" class="remodal-close"></button>
-
-      <img src="{% static "images/banner-02.jpg" %}">
-
-      <h2>Preencha o formulário abaixo para receber nosso ebook por email.</h2>
-
-      <form action="#">
-        <ul>
-          <li><input type="text" placeholder="Nome"></li>
-          <li><input type="text" placeholder="E-mail"></li>
-          <li><input type="submit" value="Enviar"></li>
-        </ul>
-      </form>
-
-    </div> <!-- /remodal -->
+{#    <div class="remodal" data-remodal-id="modal"#}
+{#         data-remodal-options="hashTracking: false">#}
+{##}
+{#      <button data-remodal-action="close" class="remodal-close"></button>#}
+{##}
+{#      <img src="{% static "images/banner/banner01_treinamento_oratoria.jpg" %}">#}
+{##}
+{#      <h2>Preencha o formulário abaixo para receber nosso ebook por email.</h2>#}
+{##}
+{#      <form action="#">#}
+{#        <ul>#}
+{#          <li><input type="text" placeholder="Nome"></li>#}
+{#          <li><input type="text" placeholder="E-mail"></li>#}
+{#          <li><input type="submit" value="Enviar"></li>#}
+{#        </ul>#}
+{#      </form>#}
+{##}
+{#    </div> <!-- /remodal -->#}
 {% endblock content %}
 
 {% block extra_js %}
     <script src="{% static "js/remodal.min.js" %}"></script>
-    <script src="{% static "js/index.js" %}"></script>
+{#    <script src="{% static "js/index.js" %}"></script>#}
     <script src="{% static "js/contact.js" %}"></script>
 {% endblock %}

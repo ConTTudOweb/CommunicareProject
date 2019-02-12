@@ -1,0 +1,32 @@
+{% load humanize %}
+
+{% if event %}
+    <div class="columns">
+        <h2>
+            {{ event.title }}<br>
+            <span>Turma <strong>{{ event.subtitle }}</strong></span>
+        </h2>
+        <div class="price">
+            R$ {{ event.amount|floatformat:2|intcomma }}<br>
+            <span>{{ PARCELAMENTO }}</span>
+        </div>
+    </div>
+    <div class="register-header-ft">
+        <div>
+            <i class="far fa-calendar"></i> {{ event.details|linebreaksbr }}
+        </div>
+        <span class="city">
+            {{ event.place.city }}
+        </span>
+    </div>
+{% else %}
+    <h2>
+        {% if event_type == EVENT_TYPES.treinamento_oratoria.value %}
+            {{ TREINAMENTO_ORATORIA.titulo }}
+        {% elif event_type == EVENT_TYPES.curso_hipnose.value %}
+            {{ CURSO_HIPNOSE.titulo }}
+        {% elif event_type == EVENT_TYPES.treinamento_inteligencia_emocional.value %}
+            {{ TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo }}
+        {% endif %}
+    </h2>
+{% endif %}

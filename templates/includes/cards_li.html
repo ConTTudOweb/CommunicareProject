@@ -1,7 +1,7 @@
 {% load i18n static %}
 
 <li>
-    <a href="detalhes.html" title="Saiba mais">
+    <a href="{% url card_more_link %}" title="Saiba mais">
         <span>{{ card_type }}</span>
         <img src="{% static card_img %}">
         <h3>{{ card_title }}</h3>
@@ -9,6 +9,8 @@
             {{ card_description }}
         </p>
     </a>
-    <a href="detalhes.html" class="view-more">Saiba mais</a>
-    <a href="register.html" class="view-more-cta">Inscrição</a>
+    <a href="{% url card_more_link %}" class="view-more">Saiba mais</a>
+    {% if event %}
+        <a href="{% url 'event-detail' slug=event.slug %}" class="view-more-cta">Inscrição</a>
+    {% endif %}
 </li>

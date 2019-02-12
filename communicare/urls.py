@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
-    PrivacyPolicyTemplateView, CookiesStatementTemplateView
+    PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
+    CursoHipnoseTemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,9 @@ urlpatterns = [
     path('event/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
     path('registration/', registration, name='registration'),
     path('send_contract/', send_contract, name='send_contract'),
+    path('treinamento-de-oratoria/', TreinamentoOratoriaTemplateView.as_view(), name='treinamento_oratoria'),
+    path('curso-de-hipnose/', CursoHipnoseTemplateView.as_view(), name='curso_hipnose'),
+    path('galeria-de-fotos/', GalleryTemplateView.as_view(), name='gallery'),
     path('politica-de-privacidade/', PrivacyPolicyTemplateView.as_view(), name='privacy_policy'),
     path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

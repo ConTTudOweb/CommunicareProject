@@ -1,10 +1,12 @@
+import enum
+
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 from django.db import models
 
 
 class FederativeUnit(models.Model):
-    initials = models.CharField('sigla', max_length=2)
+    initials = models.CharField('sigla', max_length=2, unique=True)
     name = models.CharField('nome', max_length=255)
 
     def __str__(self):
@@ -23,6 +25,7 @@ class City(models.Model):
 
     class Meta:
         verbose_name = 'cidade'
+        unique_together = (('uf', 'name'),)
 
 
 class Place(models.Model):
@@ -91,16 +94,27 @@ class Customer(models.Model):
 
 
 class Event(models.Model):
+    class EventTypes(enum.Enum):
+        treinamento_oratoria = 'tre_ora'
+        curso_hipnose = 'cur_hip'
+        treinamento_inteligencia_emocional = 'tre_iem'
+
     title = models.CharField('título', max_length=135)
     subtitle = models.CharField('subtítulo', max_length=120)
     place = models.ForeignKey('Place', on_delete=models.PROTECT, verbose_name='local')
     start_date = models.DateTimeField('data de início')
     end_date = models.DateTimeField('data de término')
     details = models.TextField('detalhes')
+    amount = models.DecimalField('valor', max_digits=15, decimal_places=2)
     open_for_subscriptions = models.BooleanField('aberto para inscrições', default=False)
     registrations = models.ManyToManyField('Customer', blank=True, verbose_name='clientes', through='Registration')
+    type = models.CharField('tipo', max_length=7, choices=[
+        (EventTypes.treinamento_oratoria.value, 'Treinamento de Oratória'),
+        (EventTypes.curso_hipnose.value, 'Curso de Hipnose na Prática'),
+        (EventTypes.treinamento_inteligencia_emocional.value, 'Treinamento de Inteligência Emocional'),
+    ])
     slug = models.SlugField(max_length=255, unique=True, verbose_name="Slug / URL",
-                            help_text="Preenchido automaticamente, não editar.", )
+                            help_text="Preenchido automaticamente, não editar.")
 
     def __str__(self):
         return "{} ({})".format(self.title, self.subtitle)
