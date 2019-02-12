@@ -65,10 +65,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         """
-        Return the first_name plus the last_name, with a space in between.
+        Return the first_name plus the last_name, with a space in between or E-mail.
         """
-        full_name = '%s %s' % (self.first_name, self.last_name)
-        return full_name.strip()
+        if self.first_name not in [None, ""]:
+            full_name = '%s %s' % (self.first_name, self.last_name)
+            return full_name.strip()
+        else:
+            return self.email
 
     class Meta:
         verbose_name = _('user')
