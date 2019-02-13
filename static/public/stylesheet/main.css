@@ -135,7 +135,7 @@ FORMS
 .default-form li,
 .register-form li {
   list-style-type: none;
-  margin: 20px 0 0 0;
+  margin: 0 0 20px 0;
 }
 
 .default-form label {
@@ -144,6 +144,7 @@ FORMS
 .default-form input[type=text],
 .default-form input[type=email],
 .default-form input[type=tel],
+.default-form input[type=number],
 .default-form textarea {
   border: none;
   background: white;
@@ -159,7 +160,9 @@ FORMS
 .register-form input[type=text],
 .register-form input[type=email],
 .register-form input[type=tel],
-.register-form textarea {
+.register-form input[type=number],
+.register-form textarea,
+.register-form select {
   border: 1px solid #ccc;
   background: #f8f8f8;
   color: rgba(0, 0, 0, 0.9);
@@ -181,7 +184,9 @@ label span {
 input[type=text],
 input[type=email],
 input[type=tel],
-textarea {
+input[type=number],
+textarea,
+select {
   width: 100%;
   border-radius: 4px;
   padding: 0 15px;
@@ -194,7 +199,9 @@ textarea {
 
 input[type=text],
 input[type=email],
-input[type=tel] {
+input[type=tel],
+input[type=number],
+select {
   padding: 0 15px;
   height: 50px;
   line-height: 50px;
@@ -226,18 +233,18 @@ input[type=submit]:hover {
   opacity: 0.8;
 }
 
-.radios {
-  margin-top: -15px;
-  font-size: 14px;
+/* Select 2 */
+.select2-selection {
+  height: 50px !important;
+  line-height: 50px !important;
 }
 
-.first-radio {
-  margin-right: 10px;
-  display: inline-block;
+.select2-selection__rendered {
+  margin-top: 10px;
 }
 
-input[type=radio] {
-  margin-right: 3px;
+.select2-selection__arrow {
+  top: 12px !important;
 }
 
 /**
@@ -1033,6 +1040,11 @@ REGISTER
   float: left;
   margin: 0;
 }
+@media only screen and (max-width: 800px) {
+  .register-header h2 {
+    float: none;
+  }
+}
 .register-header h2 span {
   font-weight: normal;
   font-size: 12px;
@@ -1111,8 +1123,11 @@ DETAILS PAGE
 }
 
 /* Details header */
+.banner-02 {
+  background: url("../../images/banner-02-interna.jpg") no-repeat;
+}
+
 .details-header {
-  background: url("../../images/header-bg.jpeg") no-repeat;
   background-size: cover;
   background-position: top center;
   background-attachment: scroll;
@@ -1149,6 +1164,7 @@ DETAILS PAGE
   margin: 0;
   font-size: 22px;
   line-height: 36px;
+  color: #fff;
   font-style: italic;
 }
 @media only screen and (max-width: 800px) {
