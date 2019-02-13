@@ -61,6 +61,17 @@ Main = {
       e.stopPropagation();
     });
 
+
+    // Simple mask
+
+    $('#id_phone, #whats_tel').simpleMask({
+      'mask': ['(##) ####-####', '(##) #####-####']
+    });
+
+    $('#id_cpf').simpleMask({
+      'mask': ['###.###.###-##']
+    });
+
   }
 }
 

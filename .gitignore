@@ -1,3 +1,4 @@
+.DS_Store
 .idea
 media
 
@@ -185,4 +186,3 @@ $RECYCLE.BIN/
 pyvenv.cfg
 .venv
 pip-selfcheck.json
-
