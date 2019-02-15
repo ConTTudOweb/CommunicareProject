@@ -20,20 +20,33 @@ from django.urls import path, include
 
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
-    CursoHipnoseTemplateView
+    CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
+    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Páginas
     path('', HomeTemplateView.as_view(), name='home'),
-    path('contact/', contact, name='contact'),
-    path('event/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
-    path('registration/', registration, name='registration'),
-    path('send_contract/', send_contract, name='send_contract'),
-    path('treinamento-de-oratoria/', TreinamentoOratoriaTemplateView.as_view(), name='treinamento_oratoria'),
-    path('curso-de-hipnose/', CursoHipnoseTemplateView.as_view(), name='curso_hipnose'),
     path('galeria-de-fotos/', GalleryTemplateView.as_view(), name='gallery'),
     path('politica-de-privacidade/', PrivacyPolicyTemplateView.as_view(), name='privacy_policy'),
     path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement'),
+    path('evento/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
+
+    # Ajax
+    path('contact/', contact, name='contact'),
+    path('contact_whatsapp/', contact_whatsapp, name='contact_whatsapp'),
+    path('registration/', registration, name='registration'),
+    path('send_contract/', send_contract, name='send_contract'),
+
+    # Cursos / Treinamentos
+    path('treinamento-de-oratoria/', TreinamentoOratoriaTemplateView.as_view(), name='treinamento_oratoria'),
+    path('curso-de-hipnose/', CursoHipnoseTemplateView.as_view(), name='curso_hipnose'),
+    path('treinamento-de-inteligencia-emocional/', TreinamentoInteligenciaEmocionalTemplateView.as_view(), name='treinamento_inteligencia_emocional'),
+
+    # Atendimentos
+    path('atendimento-coaching/', AtendimentoCoachingTemplateView.as_view(), name='atendimento_coaching'),
+    path('atendimento-hipnoterapia/', AtendimentoHipnoterapiaTemplateView.as_view(), name='atendimento_hipnoterapia'),
 
     path('select2/', include('django_select2.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

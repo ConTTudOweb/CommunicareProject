@@ -20,6 +20,7 @@
     <link href="{% static "stylesheet/plugins/remodal.css" %}" rel="stylesheet">
     <link href="{% static "stylesheet/plugins/remodal-default-theme.css" %}" rel="stylesheet">
     <link href="{% static "public/stylesheet/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/loading.css" %}" rel="stylesheet">
 
       {% block extra_css %}{% endblock extra_css %}
 
@@ -55,6 +56,8 @@
 
   <body remodal-bg>
 
+    <div class="modal_loading"></div>
+
     <header>
       <div class="holder">
         <h1 class="logo">
@@ -66,10 +69,11 @@
           <ul>
             <li><a href="{% url 'home' %}#cards-1">Cursos e Treinamentos</a></li>
             <li style="display: none;"><a href="{% url 'home' %}#cards-2">Palestras</a></li>
-{#            <li><a href="{% url 'home' %}#cards-3">Atendimentos</a></li>#}
+            <li><a href="{% url 'home' %}#cards-3">Atendimentos</a></li>
             <li><a href="{% url 'home' %}#calendar">Agenda</a></li>
             <li><a href="{% url 'home' %}#testimonials">Depoimentos</a></li>
             <li><a href="{% url 'home' %}#about">Quem somos</a></li>
+            <li><a href="{% url 'gallery' %}">Galeria de Fotos</a></li>
             <li><a href="{% url 'home' %}#contact">Contato</a></li>
           </ul>
         </nav>
@@ -85,9 +89,10 @@
         <i class="fab fa-whatsapp"></i>
         Saiba os valores via<br> <span>WhatsApp</span>
       </div>
-      <form action="#">
-        <input type="text" placeholder="Nome">
-        <input type="tel" placeholder="Telefone" id="whats_tel">
+        <label id="whats_results"></label>
+      <form method="POST" id="whatsapp-form">
+        <input type="text" placeholder="Nome" id="whats_name" required>
+        <input type="tel" placeholder="Telefone" id="whats_tel" required>
         <input type="submit" value="Solicitar atendimento">
       </form>
     </div>
@@ -135,6 +140,8 @@
     <script src="{% static "js/flexslider-min.js" %}"></script>
     <script src="{% static "js/simple-mask.js" %}"></script>
     <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/get-csrftoken.js" %}"></script>
+    <script src="{% static "js/contact-whatsapp.js" %}"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
 

@@ -19,7 +19,7 @@ RG: {{ customer.rg }}
 Endereço: {{ customer.address }}
 CEP: {{ customer.cep }}
 Cidade: {{ customer.city }}
-Profissão: {{ customer.profession }}
-Idade: {{ customer.age }}
+Profissão: {{ customer.profession|default_if_none:"" }}
+Idade: {{ customer.age|default_if_none:"" }}
 
 Caso exista alguma correção a ser feita por favor nos avise respondendo este e-mail.

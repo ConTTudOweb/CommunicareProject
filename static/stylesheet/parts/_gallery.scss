@@ -1,0 +1,47 @@
+/**
+GALLERY
+===========================
+*/
+
+.gallery {
+  @extend %clearfix;
+  padding: 140px 0 70px 0;
+  text-align: center;
+  box-sizing: border-box;
+
+  @media #{$smartphones-1} {
+    padding-top: 60px;
+  }
+}
+
+.gallery-list {
+  padding: 0;
+  margin: 0 0 -50px 0;
+
+  li {
+    vertical-align: top;
+    width: 21%;
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 1% 50px 0;
+
+    @media #{$smartphones-1} {
+      width: 45%;
+    }
+  }
+
+  img {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 7px;
+    background: $lt-gray-1;
+    border: 1px solid $lt-gray-2;
+  }
+}
+
+.lb-close {
+  font-weight: bold;
+  color: $white;
+  font-size: $font-medium;
+  margin-top: 5px;
+}

@@ -84,7 +84,8 @@ class Customer(models.Model):
     email = models.EmailField('e-mail', null=True, blank=True)
     profession = models.CharField('profissão', max_length=255, null=True, blank=True)
     age = models.PositiveSmallIntegerField('idade', null=True, blank=True)
-    source = models.ForeignKey('Source', on_delete=models.PROTECT, default=get_default_source, verbose_name='como nos conheceu')
+    source = models.ForeignKey('Source', on_delete=models.PROTECT, default=get_default_source,
+                               verbose_name='como nos conheceu')
 
     def __str__(self):
         return self.name

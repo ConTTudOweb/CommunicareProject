@@ -1,0 +1,132 @@
+/**
+FORMS
+===========================
+*/
+
+.default-form,
+.register-form {
+  padding: 0;
+  margin: 0;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    @extend %clearfix;
+  }
+
+  li {
+    list-style-type: none;
+    margin: 20px 0 0 0;
+  }
+}
+
+.default-form {
+
+  label {
+    color: $white;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    border: none;
+    background: rgba($white, 1);
+    color: $gray-9;
+  }
+}
+
+.register-form {
+  padding-bottom: 30px;
+
+  label {
+    color: $gray-9;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    border: 1px solid $lt-gray-3;
+    background: $lt-gray-1;
+    color: $gray-9;
+  }
+
+  input[type="submit"] {
+    margin-top: 25px;
+  }
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  font-size: $font-medium;
+
+  span {
+    color: $red;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: $sans-serif;
+  font-size: $font-medium-2;
+  margin: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+}
+
+textarea {
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  padding: 15px;
+  line-height: 22px;
+}
+
+input[type="submit"] {
+  border-radius: 4px;
+  height: 50px;
+  line-height: 50px;
+  background: $red;
+  padding: 0 30px;
+  color: $white;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: $font-medium-2;
+  border: none;
+  outline: none;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.radios {
+  margin-top: -15px;
+  font-size: $font-medium;
+}
+
+.first-radio {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+input[type="radio"] {
+  margin-right: 3px;
+}

@@ -62,14 +62,16 @@
 
           <div class="columns with-border">
 
+            {% block program_content %}
             <div class="column-01">
-              <h3>Ementa</h3>
-              <ul class="motivations">
-                  {% block program_content_li %}{% endblock %}
-              </ul>
+                  <h3>Ementa</h3>
+                  <ul class="motivations">
+                      {% block program_content_li %}{% endblock %}
+                  </ul>
             </div>
+            {% endblock %}
 
-            <div class="column-02">
+            <div class="{% block benefits_class %}column-02{% endblock %}">
               <h3>Benefícios</h3>
               <ul class="motivations benefits">
                   {% block benefits_li %}{% endblock %}

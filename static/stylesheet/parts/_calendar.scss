@@ -1,0 +1,130 @@
+/**
+CALENDAR
+===========================
+*/
+
+.calendar {
+  @extend %clearfix;
+  padding: 70px 0;
+  text-align: center;
+  border-bottom: 1px solid $gray-1;
+  background: $lt-gray-1;
+
+  ul {
+    width: 760px;
+    background: url("../../images/calendar-bg.jpg") center center repeat-y;
+    padding: 30px 0;
+    margin: 0 auto;
+
+    @media #{$smartphones-1} {
+      background: none;
+      width: 94%;
+      padding: 0;
+      margin-bottom: -50px;
+    }
+  }
+
+  li {
+    list-style-type: none;
+    text-align: left;
+    margin: 50px 0;
+  }
+
+  img {
+    padding: 7px;
+    background: $white;
+    border: 1px solid $lt-gray-2;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 170px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 30px;
+
+    @media #{$smartphones-1} {
+      width: 90px;
+      float: left;
+      margin: 0;
+    }
+  }
+
+  .calendar-left-entry {
+    width: 265px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    box-sizing: border-box;
+    padding-top: 85px;
+    float: left;
+
+    @media #{$smartphones-1} {
+      width: auto;
+      text-align: left;
+      padding-top: 0;
+      float: none;
+      display: block;
+      margin-left: 110px;
+    }
+
+    .view-more-cta {
+      margin: 0;
+
+      i {
+        color: $white;
+        float: left;
+        margin: 7px 5px 0 0;
+      }
+    }
+  }
+
+  .calendar-entry {
+    width: 255px;
+    display: inline-block;
+    vertical-align: middle;
+
+    @media #{$smartphones-1} {
+      width: auto;
+      display: block;
+      margin-left: 110px;
+    }
+  }
+
+  h3 {
+    color: $red;
+    margin: 0;
+
+    span {
+      font-size: $font-medium-2;
+      color: $gray-6;
+    }
+  }
+
+  address {
+    font-style: normal;
+    font-size: $font-medium;
+    line-height: 22px;
+    margin-top: 15px;
+
+    strong {
+      display: block;
+      margin-bottom: -20px;
+    }
+  }
+
+  a {
+    color: $red;
+    font-weight: bold;
+    font-size: $font-small;
+  }
+
+  i {
+    color: $red;
+    float: left;
+    margin: 5px 6px 0 0;
+  }
+
+  p {
+    font-size: $font-medium;
+    line-height: 22px;
+  }
+}

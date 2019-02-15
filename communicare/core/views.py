@@ -4,8 +4,7 @@ from django.conf import settings
 from django.core import mail
 from django.core.mail import EmailMultiAlternatives
 from django.http import JsonResponse, HttpResponse
-from django.template import Context
-from django.template.loader import render_to_string, get_template
+from django.template.loader import render_to_string
 from django.views.generic import TemplateView, DetailView
 
 from ..core.models import Event, Customer, Registration, Testimony
@@ -67,6 +66,30 @@ def contact(request):
         return JsonResponse({"result": "Método inválido! Aceito somente POST."}, status=500)
 
 
+def contact_whatsapp(request):
+    response_data = {}
+    if request.method == 'POST':
+        from_ = str(settings.DEFAULT_FROM_EMAIL),
+
+        message = "Nova solicitação de contato por whatsapp feita no site!\nNome: {name}\nWhatsapp: {phone}".format(
+            name=request.POST.get('name'),
+            phone=request.POST.get('phone'),
+        )
+        email = mail.EmailMessage(
+            subject='Me chame no whatsapp ({})'.format(request.POST.get('name')),
+            body=message,
+            to=from_
+        )
+        email.send()
+        response_data['result'] = 'Obrigado pelo seu contato!<br>' \
+                                  'Retornaremos o mais rápido possível.'
+        response_data['status'] = True
+
+        return JsonResponse(response_data)
+    else:
+        return JsonResponse({"result": "Método inválido! Aceito somente POST."}, status=500)
+
+
 class EventDetailView(DetailView):
     model = Event
     template_name = "event_register.html"
@@ -96,19 +119,19 @@ def registration(request):
                 event=event
             )
 
-            if customer.email not in [None, '']:
-                d = {
-                    'event': event,
-                    'local': event.place,
-                    'customer': customer
-                }
-                text_content = render_to_string('core/registration_email.txt', d)
-                html_content = render_to_string('core/registration_email.html', d)
-                subject, to = 'Inscrição efetuada com sucesso!', customer.email
-
-                msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to])
-                msg.attach_alternative(html_content, "text/html")
-                msg.send()
+            # if customer.email not in [None, '']:
+            d = {
+                'event': event,
+                'local': event.place,
+                'customer': customer
+            }
+            text_content = render_to_string('core/registration_email.txt', d)
+            html_content = render_to_string('core/registration_email.html', d)
+            subject = 'Inscrição efetuada com sucesso! (%s)' % customer.name
+            to = customer.email
+            msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to], cc=[str(settings.DEFAULT_FROM_EMAIL)])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
 
             return JsonResponse({"results": "Inscrição efetuada com sucesso!"})
         else:
@@ -158,21 +181,35 @@ class GalleryTemplateView(TemplateView):
     template_name = 'gallery.html'
 
 
-class TreinamentoOratoriaTemplateView(TemplateView):
+class BaseCursoTemplateView(TemplateView):
+    event_type = None
+
+    def get_context_data(self, **kwargs):
+        context = super(BaseCursoTemplateView, self).get_context_data(**kwargs)
+        if self.event_type:
+            context['event'] = get_current_event(self.event_type.value)
+            context['event_type'] = self.event_type.value
+        return context
+
+
+class TreinamentoOratoriaTemplateView(BaseCursoTemplateView):
     template_name = 'treinamento_oratoria.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(TreinamentoOratoriaTemplateView, self).get_context_data(**kwargs)
-        context['event'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
-        context['event_type'] = Event.EventTypes.treinamento_oratoria.value
-        return context
+    event_type = Event.EventTypes.treinamento_oratoria
 
 
-class CursoHipnoseTemplateView(TemplateView):
+class CursoHipnoseTemplateView(BaseCursoTemplateView):
     template_name = 'curso_hipnose.html'
+    event_type = Event.EventTypes.curso_hipnose
 
-    def get_context_data(self, **kwargs):
-        context = super(CursoHipnoseTemplateView, self).get_context_data(**kwargs)
-        context['event'] = get_current_event(Event.EventTypes.curso_hipnose.value)
-        context['event_type'] = Event.EventTypes.curso_hipnose.value
-        return context
+
+class TreinamentoInteligenciaEmocionalTemplateView(BaseCursoTemplateView):
+    template_name = 'treinamento_inteligencia_emocional.html'
+    event_type = Event.EventTypes.treinamento_inteligencia_emocional
+
+
+class AtendimentoCoachingTemplateView(BaseCursoTemplateView):
+    template_name = 'atendimento_coaching.html'
+
+
+class AtendimentoHipnoterapiaTemplateView(BaseCursoTemplateView):
+    template_name = 'atendimento_hipnoterapia.html'

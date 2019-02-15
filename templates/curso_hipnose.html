@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block details_frase %}
-    Quer descobrir o poder <br>da sua mente?<br>
+    Quer descobrir o poder<br>da sua mente?<br>
     SIM, Você Pode!
 {% endblock %}
 
 {% block details_citacao %}
-    "O pensamento é o ensaio da ação".
+    "O pensamento é o ensaio da ação."
 {% endblock %}
 
 {% block details_citacao_autor %}
-    FREUD
+    Freud
 {% endblock %}
 
 {% block details_titulo %}
@@ -55,12 +55,14 @@
 
 {% block program_content_li %}
     <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fab fa-elementor"></i>Introdução' %}
         <p>
             - O que é hipnose;<br>
             - Freud e a hipnose;<br>
             - Sintomatologia do transe;<br>
             - Autoridade para hipnose;<br>
             - Profissionalismo e ética;<br>
+            - Instrução de segurança;<br>
             - Níveis de hipnose;<br>
             - O que a hipnose definitivamente não é;<br>
             - Entendendo as mentes consciente, subconsciente e inconsciente;<br>
@@ -68,20 +70,33 @@
             - Rapport individual e coletivo;<br>
             - O pre-talk perfeito;<br>
             - O loop hipnótico;<br>
+            - Signo de sinal;<br>
             - Pseudo-hipnose: testes e aplicações;<br>
             - O preparo: Geração de expectativas e pré-hipnose;<br>
             - Os testes: Eliminando objeções conscientes e subconscientes;<br>
             - A seleção: Como escolher os sujeitos a serem hipnotizados;<br>
-            - Relaxamento rápido e eficaz;<br>
+            - Relaxamento rápido e eficaz.
+        </p>
+    </li>
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="far fa-dot-circle"></i>Induções: Pseudo-Hipnose' %}
+        <p>
+            - Dedos magnéticos;<br>
+            - Olhos colados;<br>
+            - Mãos coladas;<br>
+            - Barquinho;<br>
+            - Livros e balões.
+        </p>
+    </li>
+    <li>
+        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-icicles"></i>Induções' %}
+        <p>
             - Indução Rápidas E Instantâneas;<br>
             - A Tratar: Transtornos De Ansiedade;<br>
             - A Tratar: Fobias Em Geral;<br>
             - Indução de Dave Elman Evoluída;<br>
             - Atalhos da Indução de Dave Elman;<br>
             - Induções clássicas da hipnose;<br>
-            - Dedos magnéticos;<br>
-            - Olhos colados;<br>
-            - Mãos coladas;<br>
             - Amnésia partindo da pseudo;<br>
             - Falso aperto de mão de Dave Elman;<br>
             - Falso aperto de mão de Richard Bandler;<br>
@@ -92,15 +107,10 @@
             - Mãos magnéticas;<br>
             - Armpull indução;<br>
             - Street hipnose;<br>
-            - Instrução de segurança;<br>
-            - Toque de Charcot;<br>
             - Aprofundamento do transe;<br>
-            - Indução do barquinho;<br>
-            - Signo de sinal;<br>
             - Auto hipnose;<br>
             - Presente hipnótico.
         </p>
-
     </li>
 {% endblock %}
 

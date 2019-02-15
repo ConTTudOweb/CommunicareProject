@@ -17,6 +17,11 @@
               <img src="{% static "images/banner/curso_hipnose.jpg" %}">
             </a>
           </li>
+          <li>
+            <a href="{% url 'treinamento_inteligencia_emocional' %}">
+              <img src="{% static "images/banner/treinamento_inteligencia_emocional.jpg" %}">
+            </a>
+          </li>
         </ul>
 
       </div>
@@ -30,28 +35,28 @@
         </h2>
 
         <ul class="cards-list">
-            {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg" card_title=TREINAMENTO_ORATORIA.titulo card_description="Um treinamento que envolve técnicas de oratória e programação neurolinguística (PNL) buscando entender e compreender todos os sentimentos que nos sabotam diante de uma apresentação  (...)" only %}
-            {% include "includes/cards_li.html" with card_type="Curso"       event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg" card_title=CURSO_HIPNOSE.titulo card_description="Um curso que alinha teoria à prática, desmistificando o que é hipnose e compreendendo seu real fundamento terapêutico para cura de traumas e fobias (...)" only %}
-{#          {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner-02.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description="Saiba como lidar com suas emoções neste treinamento através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional (...)" only %}#}
+            {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg"               card_title=TREINAMENTO_ORATORIA.titulo               card_description="Um treinamento que envolve técnicas de oratória e programação neurolinguística (PNL) buscando entender e compreender todos os sentimentos que nos sabotam diante de uma apresentação  (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Curso"       event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg"                      card_title=CURSO_HIPNOSE.titulo                      card_description="Um curso que alinha teoria à prática, desmistificando o que é hipnose e compreendendo seu real fundamento terapêutico para cura de traumas e fobias (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description="Saiba como lidar com suas emoções neste treinamento através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional (...)" only %}
         </ul>
 
       </div>
     </section> <!-- /cards-1 -->
 
-{#    <section class="cards" id="cards-3">#}
-{#      <div class="holder">#}
-{##}
-{#        <h2>#}
-{#          Atendimentos#}
-{#        </h2>#}
-{##}
-{#        <ul class="cards-list">#}
-{#            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Hipnoterapia" card_description="A utilização da Hipnose na terapia, possibilita de maneira consistente, identificar e modificar a estrutura da realidade de cada indivíduo. Ajudando a aumentar a confiança,  construindo resultados extraordinários, tratando medos/fobias e retomando o prazer pela vida (...)" only %}#}
-{#            {% include "includes/cards_li.html" with card_type="Atendimento" card_img="images/banner-02.jpg" card_title="Coach" card_description="Uma metodologia extraordinária que tem como finalidade descobrir soluções que auxiliem as pessoas a alcançarem suas metas e potencializar resultados (...)" only %}#}
-{#        </ul>#}
-{##}
-{#      </div>#}
-{#    </section> <!-- /cards-3 -->#}
+    <section class="cards" id="cards-3">
+      <div class="holder">
+
+        <h2>
+          Atendimentos
+        </h2>
+
+        <ul class="cards-list">
+            {% include "includes/cards_li.html" with card_type="Atendimento" card_more_link="atendimento_hipnoterapia" card_img="images/banner/atendimento_hipnoterapia.jpg" card_title=ATENDIMENTO_HIPNOTERAPIA.titulo card_description="A utilização da Hipnose na terapia, possibilita de maneira consistente, identificar e modificar a estrutura da realidade de cada indivíduo. Ajudando a aumentar a confiança,  construindo resultados extraordinários, tratando medos/fobias e retomando o prazer pela vida (...)" only %}
+            {% include "includes/cards_li.html" with card_type="Atendimento" card_more_link="atendimento_coaching"     card_img="images/banner/atendimento_coaching.jpg"     card_title=ATENDIMENTO_COACHING.titulo     card_description="Uma metodologia extraordinária que tem como finalidade descobrir soluções que auxiliem as pessoas a alcançarem suas metas e potencializar resultados (...)" only %}
+        </ul>
+
+      </div>
+    </section> <!-- /cards-3 -->
 
     <section class="calendar" id="calendar">
       <div class="holder">
@@ -213,17 +218,17 @@
           <div class="column-02">
 
             <div class="contact-people">
-              <img src="{% static "images/people/sandro.jpg" %}">
+              <img src="https://www.gravatar.com/avatar/399d48b39ef431d4552a7be1e6947ae7?s=342" alt="Alessandro de Lima Folk">
               <h5>
                 Alessandro Folk<br>
                 <span>COO, Diretor Operacional</span>
               </h5>
               <p>
-                <i class="fab fa-whatsapp"></i><br>
-                +55 (43) 9 9811-4457 (Tim)
+                  <a href="https://api.whatsapp.com/send?phone=5543998114457&text=Estou%20no%20site%20%20www.communicaretreinamentos.com.br!" target="_blank"><span style="font-size: 3em; color: #fff;"><i class="fab fa-whatsapp"></i></span></a><br>
+                  <a href="tel:043998114457" target="_blank"><span style="font-size: 3em; color: #fff;"><i class="fas fa-phone-square"></i></span></a> +55 (43) 9 9811-4457 (Tim)
               </p>
               <p>
-                <a href="mailto:contato@communicaretreinamentos.com.br" class="styled-link">
+                <a href="mailto:contato@communicaretreinamentos.com.br" class="styled-link" target="_blank">
                   contato@communicaretreinamentos.com.br
                 </a>
               </p>

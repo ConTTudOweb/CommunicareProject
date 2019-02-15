@@ -44,8 +44,8 @@ class RegistrationInline(admin.TabularInline):
     fields = ('customer', 'contract_sent', 'send_contract')
 
     class Media:
-        js = ("js/send_contract.js",
-              "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+        js = ("admin/js/send_contract.js",
+              "js/jquery/jquery.js")
 
     def send_contract(self, obj):
         return mark_safe('<a href="javascript:void(0)" onclick="send_contract('+str(obj.pk)+')">Enviar contrato</a>')

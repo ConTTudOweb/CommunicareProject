@@ -1,0 +1,27 @@
+/**
+MAIN BANNER
+===========================
+*/
+
+.main-banner {
+  margin-top: 80px;
+  background: #00bdb4;
+
+  img {
+    width: 100%;
+  }
+
+  @media #{$smartphones-1} {
+    margin-top: 0;
+  }
+
+  .flex-control-nav {
+    bottom: 4%;
+    z-index: 50;
+  }
+}
+
+.flexslider {
+  border: none !important;
+  margin-bottom: 0;
+}

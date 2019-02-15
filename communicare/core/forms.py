@@ -1,6 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from django_select2.forms import Select2Widget, ModelSelect2Widget
+from django_select2.forms import ModelSelect2Widget
 
 from communicare.core.models import Customer, City
 

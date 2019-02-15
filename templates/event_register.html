@@ -24,7 +24,7 @@
 
             </div> <!-- /register-header -->
 
-            <div class="register-entry">
+            <div class="register-entry" id="results">
                 <form method="POST" class="register-form" id="registration-form">{% csrf_token %}
                     <input type="text" hidden id="event_id" value="{{ event.pk }}">
                     <ul>
@@ -102,11 +102,12 @@
 
 {% block extra_js %}
     {{ customer_form.media.js }}
-    <script src="{% static "js/get-csrftoken.js" %}"></script>
 
     <script type="application/javascript">
         // AJAX for posting
         function registration(form) {
+            $body = $("body");
+            $body.addClass("loading");
             $.ajax({
                 url : "/registration/", // the endpoint
                 type : "POST", // http method
@@ -127,15 +128,16 @@
 
                 // handle a successful response
                 success : function(json) {
-                    console.log('success');
                     $('#results').html(json.results);
                     $('#errors').html(json.errors);
+                    $body.removeClass("loading");
                 },
 
                 // handle a non-successful response
                 error : function(xhr,errmsg,err) {
                     $('#errors').html("Oops! Nós encontramos um erro: "+errmsg); // add the error to the dom
                     console.error(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    $body.removeClass("loading");
                 }
             });
         };

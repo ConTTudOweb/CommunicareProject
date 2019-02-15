@@ -1,9 +1,21 @@
 /* Details header */
 
 .header-treinamento-oratoria {
-    background: url("../images/header-bg-treinamento-oratoria.jpeg") no-repeat; !important;
+    background: url("../images/banner/treinamento_oratoria_header.jpg") no-repeat; !important;
 }
 
 .header-curso-hipnose {
-    background: url("../images/header-bg-curso-hipnose.jpeg") no-repeat; !important;
+    background: url("../images/banner/curso_hipnose_header.jpg") no-repeat; !important;
+}
+
+.header-treinamento-inteligencia-emocional {
+    background: url("../images/banner/treinamento_inteligencia_emocional_header.jpg") no-repeat; !important;
+}
+
+.header-atendimento-coaching {
+    background: url("../images/banner/atendimento_coaching_header.jpg") no-repeat; !important;
+}
+
+.header-atendimento-hipnoterapia {
+    background: url("../images/banner/atendimento_hipnoterapia_header.jpg") no-repeat; !important;
 }

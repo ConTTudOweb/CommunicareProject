@@ -1,0 +1,73 @@
+/**
+WHATSAPP
+===========================
+*/
+
+.whatsapp-widget {
+  width: 200px;
+  background: green;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f9fa+0,7db9e8+100&1+0,0+100 */
+  background: -moz-linear-gradient(top, #233030 0%, #2c4e4c 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #233030 0%, #2c4e4c 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #233030 0%, #2c4e4c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#233030', endColorstr='#2c4e4c',GradientType=0 ); /* IE6-9 */
+
+  position: fixed;
+  padding: 10px;
+  bottom: 0;
+  right: 15px;
+  z-index: 100;
+
+  @media #{$smartphones-1} {
+    width: 100%;
+    box-sizing: border-box;
+    right: 0;
+  }
+
+  .whatsapp-header {
+    font-size: $font-small;
+    color: $white;
+    margin: 5px 0;
+    cursor: pointer;
+
+    span {
+      font-size: $font-large;
+      font-weight: bold;
+    }
+
+    i {
+      font-size: $font-bigger;
+      margin: 1px 12px 0 10px;
+      float: left;
+    }
+  }
+
+  form {
+    margin-top: 15px;
+    display: none;
+  }
+
+  input {
+    box-sizing: border-box;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 2px;
+    font-size: $font-small;
+  }
+
+  input[type="text"],
+  input[type="tel"] {
+    border: none;
+    padding: 0 7px;
+  }
+
+  input[type="text"] {
+    margin-bottom: 10px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

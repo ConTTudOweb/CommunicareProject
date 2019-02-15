@@ -1,0 +1,75 @@
+/**
+REMODAL ADJUSTS
+===========================
+*/
+
+.remodal {
+  width: 500px;
+  background: $white;
+  padding: 0 0 40px 0;
+  box-sizing: border-box;
+  border: 1px solid rgba($white, 1);
+
+  @media #{$smartphones-1} {
+    width: 100%;
+  }
+
+  > img {
+    width: 100%;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: $font-big;
+    padding: 30px 20px 0 20px;
+  }
+
+  form {
+    margin-top: 25px;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style-type: none;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      border-radius: 2px;
+      width: 300px;
+      border: none;
+      background: rgba($lt-gray-2, 1);
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
+      outline: none;
+      color: $dark-gray;
+    }
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+  }
+}
+
+
+// Policy message
+
+.policy {
+  border-top: 1px solid rgba($white, .2);
+  font-size: $font-small;
+  margin-top: 20px;
+  padding-top: 15px;
+
+  a {
+    color: rgba($white, .8);
+
+    &:hover {
+      text-decoration: underline;
+      color: rgba($white, 1);
+    }
+  }
+}

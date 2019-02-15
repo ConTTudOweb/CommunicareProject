@@ -19,7 +19,7 @@ RG: <strong>{{ customer.rg }}</strong><br>
 Endereço: <strong>{{ customer.address }}</strong><br>
 CEP: <strong>{{ customer.cep }}</strong><br>
 Cidade: <strong>{{ customer.city }}</strong><br>
-Profissão: <strong>{{ customer.profession }}</strong><br>
-Idade: <strong>{{ customer.age }}</strong><br>
+Profissão: <strong>{{ customer.profession|default_if_none:"" }}</strong><br>
+Idade: <strong>{{ customer.age|default_if_none:"" }}</strong><br>
 <br>
 Caso exista alguma correção a ser feita por favor nos avise respondendo este e-mail.
