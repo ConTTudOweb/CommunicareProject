@@ -64,3 +64,4 @@ class EventModelAdmin(admin.ModelAdmin):
 @admin.register(Testimony)
 class TestimonyModelAdmin(admin.ModelAdmin):
     list_display = ('customer',)
+    autocomplete_fields = ('customer',)
