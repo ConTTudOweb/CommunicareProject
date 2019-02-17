@@ -75,7 +75,9 @@ APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'django.contrib.sitemaps',
+    'django.contrib.sites'
 )
 
 # Third Parts Apps
@@ -188,6 +190,8 @@ USE_TZ = True
 USE_THOUSAND_SEPARATOR = True
 
 THOUSAND_SEPARATOR = '.'
+
+SITE_ID = 1
 
 
 # Static files (CSS, JavaScript, Images)

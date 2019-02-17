@@ -7,26 +7,13 @@ from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
 from django.views.generic import TemplateView, DetailView
 
+from communicare.core.context_processors import CONSTS, PAGES
 from ..core.models import Event, Customer, Registration, Testimony
 from ..core.forms import ContactForm, CustomerForm
 
 
 def get_current_event(type):
     return Event.objects.filter(start_date__gt=datetime.now(), open_for_subscriptions=True, type=type).order_by('start_date').first()
-
-
-class HomeTemplateView(TemplateView):
-    template_name = 'index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(HomeTemplateView, self).get_context_data(**kwargs)
-        context['contact_form'] = ContactForm()
-        context['events'] = Event.objects.all()
-        context['event_treinamento_oratoria'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
-        context['event_curso_hipnose'] = get_current_event(Event.EventTypes.curso_hipnose.value)
-        context['event_treinamento_inteligencia_emocional'] = get_current_event(Event.EventTypes.treinamento_inteligencia_emocional.value)
-        context['testimonies'] = Testimony.objects.filter(visible=True).all()
-        return context
 
 
 def contact(request):
@@ -88,17 +75,6 @@ def contact_whatsapp(request):
         return JsonResponse(response_data)
     else:
         return JsonResponse({"result": "Método inválido! Aceito somente POST."}, status=500)
-
-
-class EventDetailView(DetailView):
-    model = Event
-    template_name = "event_register.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['customer_form'] = CustomerForm
-        context['event_types'] = Event.EventTypes.__members__
-        return context
 
 
 def registration(request):
@@ -169,47 +145,94 @@ def send_contract(request):
     return HttpResponse()
 
 
-class PrivacyPolicyTemplateView(TemplateView):
+class HomeTemplateView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeTemplateView, self).get_context_data(**kwargs)
+        context['contact_form'] = ContactForm()
+        context['events'] = Event.objects.all()
+        context['event_treinamento_oratoria'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
+        context['event_curso_hipnose'] = get_current_event(Event.EventTypes.curso_hipnose.value)
+        context['event_treinamento_inteligencia_emocional'] = get_current_event(Event.EventTypes.treinamento_inteligencia_emocional.value)
+        context['testimonies'] = Testimony.objects.filter(visible=True).all()
+        # SEO
+        context['page'] = PAGES.get("PAGE_HOME")
+        return context
+
+
+class EventDetailView(DetailView):
+    model = Event
+    template_name = "event_register.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['customer_form'] = CustomerForm
+        context['event_types'] = Event.EventTypes.__members__
+        # SEO
+        context['page'] = PAGES.get("PAGE_GENERICA")
+        return context
+
+
+class BaseTemplateView(TemplateView):
+    page_context = PAGES.get("PAGE_GENERICA")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # SEO
+        context['page'] = self.page_context
+        return context
+
+
+class PrivacyPolicyTemplateView(BaseTemplateView):
     template_name = 'privacy_policy.html'
 
 
-class CookiesStatementTemplateView(TemplateView):
+class CookiesStatementTemplateView(BaseTemplateView):
     template_name = 'cookies_statement.html'
 
 
-class GalleryTemplateView(TemplateView):
+class GalleryTemplateView(BaseTemplateView):
     template_name = 'gallery.html'
 
 
 class BaseCursoTemplateView(TemplateView):
     event_type = None
+    page = None
 
     def get_context_data(self, **kwargs):
         context = super(BaseCursoTemplateView, self).get_context_data(**kwargs)
         if self.event_type:
             context['event'] = get_current_event(self.event_type.value)
             context['event_type'] = self.event_type.value
+        # SEO
+        context['page'] = self.page
         return context
 
 
 class TreinamentoOratoriaTemplateView(BaseCursoTemplateView):
     template_name = 'treinamento_oratoria.html'
     event_type = Event.EventTypes.treinamento_oratoria
+    page = CONSTS.get("PAGE_TREINAMENTO_ORATORIA")
 
 
 class CursoHipnoseTemplateView(BaseCursoTemplateView):
     template_name = 'curso_hipnose.html'
     event_type = Event.EventTypes.curso_hipnose
+    page = CONSTS.get("PAGE_CURSO_HIPNOSE")
 
 
 class TreinamentoInteligenciaEmocionalTemplateView(BaseCursoTemplateView):
     template_name = 'treinamento_inteligencia_emocional.html'
     event_type = Event.EventTypes.treinamento_inteligencia_emocional
+    page = CONSTS.get("PAGE_TREINAMENTO_INTELIGENCIA_EMOCIONAL")
 
 
 class AtendimentoCoachingTemplateView(BaseCursoTemplateView):
     template_name = 'atendimento_coaching.html'
+    page = CONSTS.get("PAGE_ATENDIMENTO_COACHING")
 
 
 class AtendimentoHipnoterapiaTemplateView(BaseCursoTemplateView):
     template_name = 'atendimento_hipnoterapia.html'
+    page = CONSTS.get("PAGE_ATENDIMENTO_HIPNOTERAPIA")

@@ -128,7 +128,7 @@
 
                 // handle a successful response
                 success : function(json) {
-                    $('#results').html(json.results);
+                    $('#results').html('<h3 class="algn-center">'+json.results+'</h3>');
                     $('#errors').html(json.errors);
                     $body.removeClass("loading");
                 },

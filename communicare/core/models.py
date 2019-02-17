@@ -144,5 +144,8 @@ class Testimony(models.Model):
     image = CloudinaryField('imagem', help_text="Imagem quadrada com no mínimo 170px")
     visible = models.BooleanField('visível', default=True)
 
+    def __str__(self):
+        return str(self.customer)
+
     class Meta:
         verbose_name = 'depoimento'

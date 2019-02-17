@@ -3,13 +3,32 @@
 
   <head>
 
+    <meta http-equiv="Content-Language" content="pt-br">
+
+    <!-- Global site tag (gtag.js) - Google Analytics
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57052794-8"></script>
+    <script data-cookieconsent="statistics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-57052794-8');
+    </script>-->
+
+    <!-- Google Tag Manager
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PW2694T');</script>
+     End Google Tag Manager -->
+
     <meta charset="utf-8">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
-    <title>Communicare Treinamentos</title>
+    <title>{{ page.title }} | {{ EMPRESA.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -25,8 +44,10 @@
       {% block extra_css %}{% endblock extra_css %}
 
     <!-- SEO -->
-    <meta name="description" content="Centro de Treinamentos em Excelência Humana.">
-    <meta name="author" content="Communicare Treinamentos">
+    <link rel="canonical" href="{{ SITE.url }}" />
+    <meta name="description" content="{{ page.description }}">
+    <meta name="me" content="{{ EMPRESA.name }}">
+    <meta name="keywords" content="{{ page.keywords }}">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
@@ -35,26 +56,44 @@
 
     <!-- Jetpack Open Graph Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Communicare Treinamentos">
-    <meta property="og:description" content="Centro de Treinamentos em Excelência Humana.">
-    <meta property="og:url" content="http://communicaretreinamentos.com.br/">
-    <meta property="og:site_name" content="Communicare Treinamentos">
-    <meta property="og:image" content="">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:url" content="{{ SITE.url }}">
+    <meta property="og:site_name" content="{{ EMPRESA.name }}">
+    <meta property="og:image" content="{{ SITE.url }}{% static 'images/communicare_treinamentos.png' %}">
     <meta property="og:locale" content="pt_BR">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@CommunicareBR" />
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="e0832ee0-dbd7-4d0e-90de-09e791db1801" type="text/javascript" async></script>
 
     <script type="application/ld+json">
       {
         "@context" : "http://schema.org",
         "@type" : "Organization",
-        "name" : "Communicare Treinamentos",
-        "url" : "http://communicaretreinamentos.com.br/",
-        "sameAs" : "https://www.facebook.com/CommunicareTreinamentos/", "https://www.instagram.com/explore/locations/279528915/"
+        "name" : "{{ EMPRESA.name }}",
+        "url" : "{{ SITE.url }}",
+        "sameAs" : [
+            "https://www.facebook.com/CommunicareTreinamentos/",
+            "https://www.instagram.com/explore/locations/279528915/",
+            "https://twitter.com/communicarebr",
+            "https://www.linkedin.com/company/communicaretreinamentos/",
+            "http://www.youtube.com/channel/UCJWIepXJpUvDhiqg9WMcSKA"
+        ]
       }
     </script>
+
+    <meta name="google-site-verification" content="mxoFyAD1M4ZdSQPRr3jvHT_Wu6SkfYyPRqz-o2ofUus" />
 
   </head>
 
   <body remodal-bg>
+
+    <!-- Google Tag Manager (noscript)
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW2694T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+     End Google Tag Manager (noscript) -->
 
     <div class="modal_loading"></div>
 
@@ -110,22 +149,27 @@
 
         <ul class="ft-social">
           <li>
-            <a target="_blank" href="https://www.instagram.com/communicaretreinamentos/" title="Ir para o Instagram da Communicare Treinamentos">
+            <a target="_blank" href="https://www.instagram.com/communicaretreinamentos/" title="Ir para o Instagram da {{ EMPRESA.name }}">
               <div><i class="fab fa-instagram"></i></div>
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://www.facebook.com/CommunicareTreinamentos/" title="Ir para o Facebook da Communicare Treinamentos">
+            <a target="_blank" href="https://www.facebook.com/CommunicareTreinamentos/" title="Ir para o Facebook da {{ EMPRESA.name }}">
               <div><i class="fab fa-facebook"></i></div>
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://twitter.com/communicarebr" title="Ir para o Twitter da Communicare Treinamentos">
+            <a target="_blank" href="https://twitter.com/communicarebr" title="Ir para o Twitter da {{ EMPRESA.name }}">
               <div><i class="fab fa-twitter"></i></div>
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://www.linkedin.com/company/communicaretreinamentos/" title="Ir para o Linkedin da Communicare Treinamentos">
+            <a target="_blank" href="https://www.linkedin.com/company/communicaretreinamentos/" title="Ir para o Linkedin da {{ EMPRESA.name }}">
+              <div><i class="fab fa-linkedin"></i></div>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="http://www.youtube.com/channel/UCJWIepXJpUvDhiqg9WMcSKA" title="Ir para o YouTube da {{ EMPRESA.name }}">
               <div><i class="fab fa-linkedin"></i></div>
             </a>
           </li>
