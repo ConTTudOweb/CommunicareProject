@@ -59,6 +59,7 @@ class EventModelAdmin(admin.ModelAdmin):
         RegistrationInline,
     ]
     prepopulated_fields = {'slug': ("title", "subtitle")}
+    list_display = ('title', 'subtitle', 'start_date')
 
 
 @admin.register(Testimony)
