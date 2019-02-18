@@ -151,7 +151,7 @@ class HomeTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeTemplateView, self).get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
-        context['events'] = Event.objects.all()
+        context['events'] = Event.objects.all().order_by('start_date')
         context['event_treinamento_oratoria'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
         context['event_curso_hipnose'] = get_current_event(Event.EventTypes.curso_hipnose.value)
         context['event_treinamento_inteligencia_emocional'] = get_current_event(Event.EventTypes.treinamento_inteligencia_emocional.value)
