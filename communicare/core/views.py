@@ -206,33 +206,33 @@ class BaseCursoTemplateView(TemplateView):
             context['event'] = get_current_event(self.event_type.value)
             context['event_type'] = self.event_type.value
         # SEO
-        context['page'] = self.page
+        context['page'] = PAGES.get(self.page)
         return context
 
 
 class TreinamentoOratoriaTemplateView(BaseCursoTemplateView):
     template_name = 'treinamento_oratoria.html'
     event_type = Event.EventTypes.treinamento_oratoria
-    page = CONSTS.get("PAGE_TREINAMENTO_ORATORIA")
+    page = "PAGE_TREINAMENTO_ORATORIA"
 
 
 class CursoHipnoseTemplateView(BaseCursoTemplateView):
     template_name = 'curso_hipnose.html'
     event_type = Event.EventTypes.curso_hipnose
-    page = CONSTS.get("PAGE_CURSO_HIPNOSE")
+    page = "PAGE_CURSO_HIPNOSE"
 
 
 class TreinamentoInteligenciaEmocionalTemplateView(BaseCursoTemplateView):
     template_name = 'treinamento_inteligencia_emocional.html'
     event_type = Event.EventTypes.treinamento_inteligencia_emocional
-    page = CONSTS.get("PAGE_TREINAMENTO_INTELIGENCIA_EMOCIONAL")
+    page = "PAGE_TREINAMENTO_INTELIGENCIA_EMOCIONAL"
 
 
 class AtendimentoCoachingTemplateView(BaseCursoTemplateView):
     template_name = 'atendimento_coaching.html'
-    page = CONSTS.get("PAGE_ATENDIMENTO_COACHING")
+    page = "PAGE_ATENDIMENTO_COACHING"
 
 
 class AtendimentoHipnoterapiaTemplateView(BaseCursoTemplateView):
     template_name = 'atendimento_hipnoterapia.html'
-    page = CONSTS.get("PAGE_ATENDIMENTO_HIPNOTERAPIA")
+    page = "PAGE_ATENDIMENTO_HIPNOTERAPIA"
