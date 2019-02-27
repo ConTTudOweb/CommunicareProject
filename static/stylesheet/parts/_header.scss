@@ -14,7 +14,7 @@ header {
   @extend %clearfix;
   z-index: 100;
 
-  @media #{$smartphones-1} {
+  @media only screen and (max-width: 1180px) {
     height: auto;
     position: inherit;
     left: none;
@@ -25,7 +25,7 @@ header {
     display: block;
     float: right;
 
-    @media #{$smartphones-1} {
+    @media only screen and (max-width: 1180px) {
       width: 100%;
       display: none;
     }
@@ -35,7 +35,7 @@ header {
     padding: 0;
     margin: 23px 0 0 0;
 
-    @media #{$smartphones-1} {
+    @media only screen and (max-width: 1180px) {
       margin: 0 0 10px 0
     }
   }
@@ -45,7 +45,7 @@ header {
     display: inline-block;
     margin-left: 25px;
 
-    @media #{$smartphones-1} {
+    @media only screen and (max-width: 1180px) {
       display: block;
       margin: 0 0 2px 0;
     }
@@ -60,7 +60,7 @@ header {
         color: rgba($white, 1);
       }
 
-      @media #{$smartphones-1} {
+      @media only screen and (max-width: 1180px) {
         text-align: left;
         padding: 0 10px;
         height: 32px;
@@ -85,7 +85,7 @@ header {
   margin-top: 16px;
   float: left;
 
-  @media #{$smartphones-1} {
+  @media only screen and (max-width: 1180px) {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -94,7 +94,7 @@ header {
     width: 200px;
     float: left;
 
-    @media #{$smartphones-1} {
+    @media only screen and (max-width: 1180px) {
       width: 150px;
     }
   }

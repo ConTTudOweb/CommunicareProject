@@ -26,7 +26,7 @@ header {
   left: 0;
   top: 0;
   z-index: 100; }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1180px) {
     header {
       height: auto;
       position: inherit;
@@ -35,21 +35,21 @@ header {
   header nav {
     display: block;
     float: right; }
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 1180px) {
       header nav {
         width: 100%;
         display: none; } }
   header ul {
     padding: 0;
     margin: 23px 0 0 0; }
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 1180px) {
       header ul {
         margin: 0 0 10px 0; } }
   header li {
     font-size: 14px;
     display: inline-block;
     margin-left: 25px; }
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 1180px) {
       header li {
         display: block;
         margin: 0 0 2px 0; } }
@@ -60,7 +60,7 @@ header {
       position: relative; }
       header li a:hover {
         color: white; }
-      @media only screen and (max-width: 800px) {
+      @media only screen and (max-width: 1180px) {
         header li a {
           text-align: left;
           padding: 0 10px;
@@ -77,14 +77,14 @@ header {
 .logo {
   margin-top: 16px;
   float: left; }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1180px) {
     .logo {
       margin-top: 10px;
       margin-bottom: 10px; } }
   .logo > a img {
     width: 200px;
     float: left; }
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 1180px) {
       .logo > a img {
         width: 150px; } }
 
@@ -463,7 +463,7 @@ MAIN BANNER
   background: #00bdb4; }
   .main-banner img {
     width: 100%; }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1180px) {
     .main-banner {
       margin-top: 0; } }
   .main-banner .flex-control-nav {
@@ -1153,7 +1153,7 @@ body {
   width: extend-to-zoom;
   zoom: 1.0; }
 /* Smartphones */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1180px) {
   .menu-trigger {
     border-radius: 2px;
     background: #bc2b33;
