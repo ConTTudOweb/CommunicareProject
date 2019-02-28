@@ -44,7 +44,8 @@
       {% block extra_css %}{% endblock extra_css %}
 
     <!-- SEO -->
-    <link rel="canonical" href="{{ SITE.url }}" />
+{#    <link rel="canonical" href="{% firstof page.url SITE.url %}" />#}
+    <link rel="canonical" href="{{ request.build_absolute_uri }}" />
     <meta name="description" content="{{ page.description }}">
     <meta name="me" content="{{ EMPRESA.name }}">
     <meta name="keywords" content="{{ page.keywords }}">
@@ -59,7 +60,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:description" content="{{ page.description }}">
-    <meta property="og:url" content="{{ SITE.url }}">
+    <meta property="og:url" content="{% firstof page.url SITE.url %}">
     <meta property="og:site_name" content="{{ EMPRESA.name }}">
     <meta property="og:image" content="{{ SITE.url }}{% static 'images/avatar_communicare_treinamentos.jpg' %}">
     <meta property="og:locale" content="pt_BR">
@@ -74,7 +75,8 @@
         "@context" : "https://schema.org",
         "@type" : "Organization",
         "name" : "{{ EMPRESA.name }}",
-        "url" : "{{ SITE.url }}",
+        "url" : "{% firstof page.url SITE.url %}",
+        "url" : "{% firstof page.url SITE.url %}",
         "sameAs" : [
             "https://www.facebook.com/CommunicareTreinamentos/",
             "https://www.instagram.com/explore/locations/279528915/",
