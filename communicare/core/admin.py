@@ -1,8 +1,9 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.conf import settings
+from django.contrib.admin import SimpleListFilter
 from django.utils.safestring import mark_safe
 
-from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony
+from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -66,3 +67,24 @@ class EventModelAdmin(admin.ModelAdmin):
 class TestimonyModelAdmin(admin.ModelAdmin):
     list_display = ('customer',)
     autocomplete_fields = ('customer',)
+
+
+@admin.register(Registration)
+class RegistrationModelAdmin(admin.ModelAdmin):
+    class EventFilter(SimpleListFilter):
+        title = Event._meta.verbose_name
+        parameter_name = 'event'
+
+        def lookups(self, request, model_admin):
+            events = set([r for r in Event.objects.all()])
+            return [(r.id, str(r)) for r in events]
+
+        def queryset(self, request, queryset):
+            if self.value():
+                return queryset.filter(event__id__exact=self.value())
+            else:
+                messages.add_message(request, messages.WARNING, 'Escolha um ' + self.title)
+                return queryset.filter(event__id__exact=0)
+    list_filter = (EventFilter,)
+    search_fields = ('customer__name',)
+    list_display = ('customer', 'contract_sent', 'financial_generated', 'financial_observations')

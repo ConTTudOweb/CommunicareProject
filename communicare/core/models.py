@@ -95,6 +95,9 @@ class Customer(models.Model):
         ordering = ('name',)
 
 
+event_verbose_name = 'evento'
+
+
 class Event(models.Model):
     class EventTypes(enum.Enum):
         treinamento_oratoria = 'tre_ora'
@@ -122,20 +125,21 @@ class Event(models.Model):
         return "{} ({})".format(self.title, self.subtitle)
 
     class Meta:
-        verbose_name = 'evento'
+        verbose_name = event_verbose_name
 
 
 class Registration(models.Model):
     customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
-    event = models.ForeignKey('Event', on_delete=models.PROTECT)
+    event = models.ForeignKey('Event', verbose_name=event_verbose_name, on_delete=models.PROTECT)
     contract_sent = models.BooleanField('contrato enviado?', default=False)
+    financial_generated = models.BooleanField('financeiro gerado?', default=False)
+    financial_observations = models.TextField('observações financeiras', null=True, blank=True)
 
     def __str__(self):
         return '%s [%s]' % (str(self.customer), str(self.event))
 
     class Meta:
-        verbose_name = 'inscrição'
-        verbose_name_plural = 'inscrições'
+        verbose_name = 'inscrito'
 
 
 class Testimony(models.Model):
