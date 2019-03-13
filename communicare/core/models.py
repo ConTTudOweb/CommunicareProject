@@ -138,7 +138,7 @@ class Registration(models.Model):
     contract_sent = models.BooleanField('contrato enviado?', default=False)
     financial_generated = models.BooleanField('financeiro gerado?', default=False)
     financial_observations = models.TextField('observações financeiras', null=True, blank=True)
-    nf_status = models.CharField('Situação NF', max_length=1, default=NfStatus.pendente.value, choices=[
+    nf_status = models.CharField('Situação NF', max_length=1, blank=True, default=NfStatus.pendente.value, choices=[
         (NfStatus.null.value, ''),
         (NfStatus.pendente.value, 'Pendente'),
         (NfStatus.emitida.value, 'Emitida'),
