@@ -129,11 +129,21 @@ class Event(models.Model):
 
 
 class Registration(models.Model):
+    class NfStatus(enum.Enum):
+        null = ''
+        pendente = 'P'
+        emitida = 'E'
     customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
     event = models.ForeignKey('Event', verbose_name=event_verbose_name, on_delete=models.PROTECT)
     contract_sent = models.BooleanField('contrato enviado?', default=False)
     financial_generated = models.BooleanField('financeiro gerado?', default=False)
     financial_observations = models.TextField('observações financeiras', null=True, blank=True)
+    nf_status = models.CharField('Situação NF', max_length=1, default=NfStatus.pendente.value, choices=[
+        (NfStatus.null.value, ''),
+        (NfStatus.pendente.value, 'Pendente'),
+        (NfStatus.emitida.value, 'Emitida'),
+    ])
+    nf = models.CharField('NF', max_length=60, null=True, blank=True)
 
     def __str__(self):
         return '%s [%s]' % (str(self.customer), str(self.event))

@@ -87,4 +87,4 @@ class RegistrationModelAdmin(admin.ModelAdmin):
                 return queryset.filter(event__id__exact=0)
     list_filter = (EventFilter,)
     search_fields = ('customer__name',)
-    list_display = ('customer', 'contract_sent', 'financial_generated', 'financial_observations')
+    list_display = ('customer', 'contract_sent', 'financial_generated', 'financial_observations', 'nf_status')
