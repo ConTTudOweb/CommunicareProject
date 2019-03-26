@@ -71,6 +71,7 @@ def get_default_source():
 
 
 customer_verbose_name = 'cliente'
+source_verbose_name = 'como nos conheceu'
 
 
 class Customer(models.Model):
@@ -85,7 +86,7 @@ class Customer(models.Model):
     profession = models.CharField('profissão', max_length=255, null=True, blank=True)
     age = models.PositiveSmallIntegerField('idade', null=True, blank=True)
     source = models.ForeignKey('Source', on_delete=models.PROTECT, default=get_default_source,
-                               verbose_name='como nos conheceu')
+                               verbose_name=source_verbose_name)
 
     def __str__(self):
         return self.name

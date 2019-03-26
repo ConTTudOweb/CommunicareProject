@@ -3,7 +3,8 @@ from django.conf import settings
 from django.contrib.admin import SimpleListFilter
 from django.utils.safestring import mark_safe
 
-from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration
+from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
+    source_verbose_name
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -88,4 +89,9 @@ class RegistrationModelAdmin(admin.ModelAdmin):
     list_filter = (EventFilter,)
     search_fields = ('customer__name',)
     list_display = ('customer', 'contract_sent', 'financial_generated', 'financial_observations', 'nf_status',
-                    'customer__source')
+                    'get_customer_source')
+
+    def get_customer_source(self, obj):
+        return obj.customer.source
+    get_customer_source.short_description = source_verbose_name
+    get_customer_source.admin_order_field = 'customer__source'
