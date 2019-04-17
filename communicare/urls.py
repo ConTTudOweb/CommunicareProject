@@ -24,7 +24,7 @@ from .sitemaps import StaticViewSitemap
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
     CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
-    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView
+    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, CertificateTemplateView
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -33,6 +33,8 @@ sitemaps = {
 urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'images/favicon.ico')),
     path('admin/', admin.site.urls),
+
+    path('teste/', CertificateTemplateView.as_view()),
 
     # Páginas
     path('', HomeTemplateView.as_view(), name='home'),

@@ -1,6 +1,9 @@
 from django.contrib import admin, messages
 from django.conf import settings
 from django.contrib.admin import SimpleListFilter
+from django.core.mail import EmailMultiAlternatives
+from django.http import HttpResponseRedirect
+from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
@@ -95,3 +98,41 @@ class RegistrationModelAdmin(admin.ModelAdmin):
         return obj.customer.source
     get_customer_source.short_description = source_verbose_name
     get_customer_source.admin_order_field = 'customer__source'
+
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        if request.method == 'POST':
+            if '_contrato' in request.POST:
+                super(RegistrationModelAdmin, self).change_view(request, object_id, form_url, extra_context)
+
+                if Registration.objects.filter(pk=object_id).exists():
+                    registration_obj = Registration.objects.get(pk=object_id)
+
+                    if registration_obj.customer.email not in [None, '']:
+                        d = {
+                            'event': registration_obj.event,
+                            'customer': registration_obj.customer
+                        }
+                        text_content = render_to_string('core/contract_email.txt', d)
+                        html_content = render_to_string('core/contract_email.html', d)
+                        subject, to = 'Contrato (%s)' % registration_obj.event.title, registration_obj.customer.email
+
+                        msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to])
+                        msg.attach_alternative(html_content, "text/html")
+                        msg.send()
+
+                        registration_obj.contract_sent = True
+                        registration_obj.save()
+
+                        self.message_user(
+                            request,
+                            "Contrato enviado com sucesso para '{}'.".format(registration_obj.customer.email),
+                            messages.SUCCESS)
+                    else:
+                        self.message_user(
+                            request,
+                            "{} sem e-mail informado!".format(Registration._meta.verbose_name),
+                            messages.ERROR)
+                return HttpResponseRedirect("../")
+
+        return super(RegistrationModelAdmin, self).change_view(request, object_id, form_url,
+                                                               extra_context=extra_context)

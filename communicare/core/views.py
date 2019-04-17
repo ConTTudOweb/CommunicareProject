@@ -126,23 +126,25 @@ def send_contract(request):
             registration_obj = Registration.objects.get(pk=pk)
 
             if registration_obj.customer.email not in [None, '']:
-                d = {}
-                # d = {
-                #     'event': event,
-                #     'local': event.place,
-                #     'customer': customer
-                # }
+                d = {
+                    'event': registration_obj.event,
+                    'customer': registration_obj.customer
+                }
                 text_content = render_to_string('core/contract_email.txt', d)
                 html_content = render_to_string('core/contract_email.html', d)
-                subject, to = 'Inscrição efetuada com sucesso!', customer.email
+                subject, to = 'Contrato ({})' % registration_obj.event.title, registration_obj.customer.email
 
                 msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to])
                 msg.attach_alternative(html_content, "text/html")
                 msg.send()
 
-            return JsonResponse({"results": "Inscrição efetuada com sucesso!"})
+            return JsonResponse({"results": "Contrato enviado com sucesso!"})
 
     return HttpResponse()
+
+
+class CertificateTemplateView(TemplateView):
+    template_name = "core/certificate.html"
 
 
 class HomeTemplateView(TemplateView):
