@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/contract.css' %}"/>
+
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'images/Lg_9.png' %}" class="logo_header">
+        <aside class="text_header">
+            <span>
+                COMMUNICARE TREINAMENTOS<br>
+                contato@communicaretreinamentos.com.br<br>
+                www.communicaretreinamentos.com.br<br>
+                Apucarana - PR
+            </span>
+        </aside>
+    </div>
+
+    <div class="content">
+        <h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h1>
+
+        <p>Instrumento Particular</p>
+
+        <p>
+            <strong>CONTRATADA: Communicare Treinamentos</strong> pessoa jurídica, devidamente inscrita no CNPJ Sob o
+            nº 31.632.133/0001-04, com sede em Rua Casemiro de Abreu, 262 - Bloco F Apto. 201 - Jardim Celmira,
+            CEP 86.808-220, cidade de Apucarana-PR, devidamente representada neste ato por
+            <strong>Vinicius Pereira de Campos</strong>, brasileiro, casado, Professor/Palestrante portador da
+            Cédula de Identidade RG 8.846.043-0, inscrito no CPF/MF Sob o nº 061.051.599-35.
+        </p>
+        <p>
+            <strong>CONTRATANTE:</strong> Senhor(a) {{ registration.customer.name }}, brasileiro(a), devidamente
+            inscrito(a) no Cadastro de Pessoas Físicas (CPF) Sob n° {{ registration.customer.cpf }} e
+            Registro Geral (RG) Sob o n° {{ registration.customer.rg }}, endereço eletrônico (e-mail)
+            “{{ registration.customer.email|default_if_none:"SEM E-MAIL" }}”, telefone nº
+            “{{ registration.customer.phone|default_if_none:"" }}”, residente no endereço
+            {{ registration.customer.address }}, CEP {{ registration.customer.cep }}, cidade de
+            {{ registration.customer.city }}.
+        </p>
+        <p>
+            Pelo presente instrumento particular, as partes acima devidamente qualificadas, doravante denominadas
+            simplesmente <strong>CONTRATADA</strong> e <strong>CONTRATANTE</strong>, na melhor forma de direito,
+            ajustam e contratam a prestação de serviços, segundo as cláusulas e condições adiante arroladas.
+        </p>
+        <section>
+            <h2>CLÁUSULA 1ª - DO OBJETO</h2>
+            O objeto do presente consiste na prestação pela CONTRATADA à CONTRATANTE de serviço educacional, mais
+            especificamente <strong>"{{ registration.event.title }}"</strong>.
+        </section>
+        <section>
+            <h2>CLÁUSULA 2ª - DAS CONDIÇÕES DE EXECUÇÃO DOS SERVIÇOS</h2>
+            Os serviços serão executados, em obediência às seguintes condições:
+            <ol>
+                <li>O serviço será realizado {{ registration.event.details|lower|cut:"." }} na cidade de
+                    {{ registration.event.place.city }}, no endereço {{ registration.event.place.address }}.
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h2>CLÁUSULA 3ª - DO PREÇO</h2>
+            O valor a ser pago pela <strong>CONTRATANTE</strong> à <strong>CONTRATADA</strong> pela prestação dos
+            serviços descritos na cláusula 1ª deste instrumento é de <strong>{{ registration.event.amount }}</strong>,
+            pagos da seguinte forma: <strong>{{ registration.financial_observations }}</strong>.
+        </section>
+        <section>
+            <h2>CLÁUSULA 4ª - DOS DEVERES DA CONTRATADA</h2>
+            <ol>
+                <li>Os materiais didáticos eventualmente a serem utilizados para a realização do serviço serão fornecidos pela CONTRATADA, caso esta entenda pela necessidade.</li>
+                <ol type="a">
+                    <li>Materiais extras e ou de reposição serão cobrados separadamente do valor total da matrícula.</li>
+                </ol>
+                <li>Fornecer a certificação.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>CLÁUSULA 5ª - DOS DEVERES DA CONTRATANTE</h2>
+            <ol>
+                <li>A <strong>CONTRATANTE</strong> se compromete a participar de todas as aulas e executar todas as
+                    atividades propostas para receber as certificações.</li>
+                <li>A <strong>CONTRATANTE</strong> se compromete em respeitar os instrutores e demais participantes.</li>
+                <li>Caso a <strong>CONTRATANTE</strong> venha a prejudicar o andamento do serviço ou os participantes a
+                    <strong>CONTRATADA</strong> fica no direito de rescindir o presente instrumento.</li>
+                <li>No caso de faltas ou atraso por parte da <strong>CONTRATANTE</strong>, a <strong>CONTRATADA</strong>
+                    se dará ao direito de não repor essas aulas.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>CLÁUSULA 6ª - DO INADIMPLEMENTO, RESCISÃO IMOTIVADA E MULTA</h2>
+            <ol>
+                <li>O presente contrato poderá ainda ser rescindido, a qualquer tempo, pelas partes, mediante
+                    notificação prévia de no mínimo 30 (trinta) dias do início da prestação de serviço, sem danos
+                    monetários.</li>
+                <ol type="a">
+                    <li>Caso a <strong>CONTRATANTE</strong> decida rescindir em menos de 30 (trinta) dias e mais de 14
+                        (quatorze) dias do início o mesmo deverá pagar uma multa no valor de 30% referente ao montante
+                        contratado.</li>
+                    <li>Caso a <strong>CONTRATANTE</strong> decida rescindir em menos de 15 (quinze) dias do início o
+                        mesmo deverá pagar uma multa no valor de 50% referente ao montante contratado.</li>
+                </ol>
+                <li>Se, por motivos extraordinários, o serviço for cancelado pela <strong>CONTRATADA</strong>,
+                    a <strong>CONTRATANTE</strong> terá seu pagamento devolvido integralmente, desde que não iniciado
+                    ainda o serviço ofertado.</li>
+                <li>A <strong>CONTRATADA</strong> se isenta de qualquer reposição ou compensação em caso de falta e
+                    atraso da <strong>CONTRATANTE</strong> ao evento.</li>
+                <li>Em caso de inadimplemento a <strong>CONTRATANTE</strong> autoriza a <strong>CONTRATADA</strong> a
+                    inserir seu nome no cadastro de inadimplentes dos serviços de proteção ao crédito (SCPC e SERASA),
+                    bem como fica ciente da possibilidade de execução do presente instrumento mediante o poder
+                    judiciário, estando sujeita ao pagamento de custas processuais e honorários de advogado na razão de
+                    20% sobre o valor executado.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>CLÁUSULA 7ª - DAS CONDIÇÕES GERAIS</h2>
+            <ol>
+                <li>Os certificados serão entregues apenas se a <strong>CONTRATANTE</strong> cumprir com os requisitos
+                    mínimos de certificação propostos pela <strong>CONTRATADA</strong> quais sejam:</li>
+                <ol type="a">
+                    <li>Presença em 85% da carga horária total do serviço contratado.</li>
+                    <li>Participação das atividades individuais e em grupo propostas durante o período.</li>
+                    <li>Não ter nenhuma pendência com a <strong>CONTRATADA</strong> (legal, didática e/ ou financeira).</li>
+                </ol>
+                <li>A matrícula da <strong>CONTRATANTE</strong> será formalizada pela assinatura do presente contrato e mediante a apresentação dos seguintes documentos:</li>
+                <ol type="a">
+                    <li>Cópia simples do RG;</li>
+                    <li>Cópia simples do CPF;</li>
+                    <li>Comprovante de Residência.</li>
+                </ol>
+            </ol>
+        </section>
+        <section>
+            <h2>CLÁUSULA 8ª - DO FORO</h2>
+            Fica eleito o Foro da Cidade de Apucarana, estado Paraná, com expressa renúncia a qualquer outro, por mais
+            privilegiado que seja, para dirimir as questões oriundas da interpretação e execução do presente contrato.
+            E, por estarem justos e contratados, assinam o presente, em 2 (duas) vias de igual teor e para um só efeito,
+            na presença de 02 (duas) testemunhas instrumentárias.
+        </section>
+        <br><br><br><br><br>
+        <div>
+            <div class="assinaturas assinatura-right">___________________________,____de_________________de________</div>
+        </div>
+        <br><br><br><br><br>
+        <div class="assinaturas">
+            <div class="assinatura assinatura-left text-center">
+                CONTRATADA
+            </div>
+            <div class="assinatura assinatura-right text-center">
+                CONTRATANTE
+            </div>
+            <br><br><br><br>
+            <div class="assinatura assinatura-left">
+                Testemunha (1):<br>CPF:
+            </div>
+            <div class="assinatura assinatura-right">
+                Testemunha (2):<br>CPF:
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Olá, {{ customer.name }}.
+Como vai? Desejo que bem!
+
+Prezando sempre pela excelência e clareza em todas as nossas ações, segue anexo contrato formal referente ao "{{ event.title }} - {{ event.subtitle }}".
+Por gentileza leia atentamente todos os detalhes contidos no contrato e caso reste alguma dúvida estaremos a disposição para saná-las!
+
+Caso exista alguma correção a ser feita por favor nos avise respondendo este e-mail.
+
+Após a leitura do contrato e total entendimento por favor responda este e-mail informando que concorda com os termos do mesmo!

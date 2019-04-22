@@ -19,6 +19,7 @@ django-wkhtmltopdf = "*"
 pillow = "*"
 cloudinary = "*"
 django-select2 = "*"
+weasyprint = "*"
 
 [requires]
 python_version = "3.7"

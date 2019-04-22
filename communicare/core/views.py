@@ -147,6 +147,15 @@ class CertificateTemplateView(TemplateView):
     template_name = "core/certificate.html"
 
 
+class ContractTemplateView(TemplateView):
+    template_name = "core/contract.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ContractTemplateView, self).get_context_data(**kwargs)
+        context['registration'] = Registration.objects.get(pk=2)
+        return context
+
+
 class HomeTemplateView(TemplateView):
     template_name = 'index.html'
 

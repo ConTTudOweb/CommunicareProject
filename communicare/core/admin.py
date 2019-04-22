@@ -1,3 +1,4 @@
+import weasyprint
 from django.contrib import admin, messages
 from django.conf import settings
 from django.contrib.admin import SimpleListFilter
@@ -116,8 +117,21 @@ class RegistrationModelAdmin(admin.ModelAdmin):
                         html_content = render_to_string('core/contract_email.html', d)
                         subject, to = 'Contrato (%s)' % registration_obj.event.title, registration_obj.customer.email
 
+                        # Contrato em PDF
+                        context = {
+                            'title': subject,
+                            'registration': registration_obj
+                        }
+                        html = render_to_string('core/contract.html', context)
+                        pdf_file = weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf()
+
+
+
+
                         msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to])
                         msg.attach_alternative(html_content, "text/html")
+                        file_name = subject
+                        msg.attach(file_name, pdf_file, 'application/pdf')
                         msg.send()
 
                         registration_obj.contract_sent = True
