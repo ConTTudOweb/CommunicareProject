@@ -1,0 +1,20 @@
+/**
+LECTURE PAGE
+===========================
+*/
+
+.lecture-page {
+  @extend %clearfix;
+  box-sizing: border-box;
+
+  .register-header {
+    padding: 15px 0;
+  }
+}
+
+
+/* Details header */
+
+.lecture-banner {
+  background: url("../../images/banner-02-interna.jpg") no-repeat;
+}

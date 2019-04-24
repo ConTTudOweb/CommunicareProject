@@ -10,6 +10,20 @@ Main = {
     });
 
 
+    //Dropdown
+
+    if ($(window).width() > 800) {
+      $('header nav li').hover(
+        function() {
+          $('.dropdown', this).stop().fadeIn(300);
+        },
+        function() {
+          $('.dropdown', this).stop().fadeOut(300);
+        }
+      );
+    }
+
+
     // ScrollReveal
 
     ScrollReveal().reveal(".cards-list li",{ distance: "-100px", duration: 2000 })

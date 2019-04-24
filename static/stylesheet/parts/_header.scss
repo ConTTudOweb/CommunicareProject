@@ -14,7 +14,7 @@ header {
   @extend %clearfix;
   z-index: 100;
 
-  @media only screen and (max-width: 1180px) {
+  @media #{$header} {
     height: auto;
     position: inherit;
     left: none;
@@ -25,7 +25,7 @@ header {
     display: block;
     float: right;
 
-    @media only screen and (max-width: 1180px) {
+    @media #{$header} {
       width: 100%;
       display: none;
     }
@@ -35,7 +35,7 @@ header {
     padding: 0;
     margin: 23px 0 0 0;
 
-    @media only screen and (max-width: 1180px) {
+    @media #{$header} {
       margin: 0 0 10px 0
     }
   }
@@ -44,13 +44,14 @@ header {
     font-size: $font-medium;
     display: inline-block;
     margin-left: 25px;
+    position: relative;
 
-    @media only screen and (max-width: 1180px) {
+    @media only screen and (max-width: 1220px) {
       display: block;
       margin: 0 0 2px 0;
     }
 
-    a {
+    a, span {
       text-decoration: none;
       color: rgba($white, .7);
       font-weight: bold;
@@ -60,7 +61,7 @@ header {
         color: rgba($white, 1);
       }
 
-      @media only screen and (max-width: 1180px) {
+      @media #{$header} {
         text-align: left;
         padding: 0 10px;
         height: 32px;
@@ -85,7 +86,7 @@ header {
   margin-top: 16px;
   float: left;
 
-  @media only screen and (max-width: 1180px) {
+  @media #{$header} {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -94,7 +95,7 @@ header {
     width: 200px;
     float: left;
 
-    @media only screen and (max-width: 1180px) {
+    @media #{$header} {
       width: 150px;
     }
   }
@@ -102,4 +103,58 @@ header {
 
 .menu-trigger {
   display: none; /* Disable mobile menu trigger */
+}
+
+
+// Dropdown
+
+.dropdown {
+  border-radius: 4px;
+  width: 150px;
+  background: $white;
+  position: absolute;
+  padding: 5px 20px;
+  box-shadow: 0 5px 7px $gray-2;
+  top: 24px;
+  left: -20px;
+  display: none;
+  text-align: left;
+
+  @media #{$smartphones-1} {
+    width: 100%;
+    border-radius: 0;
+    background: $lt-gray-1;
+    top: 0;
+    left: none;
+    position: inherit;
+    display: block;
+    box-shadow: none;
+    box-sizing: border-box;
+    margin-left: 20px;
+  }
+
+  a {
+    font-size: $font-small;
+    color: $blue;
+    text-decoration: none;
+    border-top: 1px solid $gray-1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    color: $red;
+
+    @media #{$smartphones-1} {
+      font-size: $font-medium;
+    }
+
+    &:hover {
+      color: $red;
+      opacity: .5;
+    }
+  }
+
+  div:first-child a {
+    border-top: 0;
+  }
 }

@@ -25,7 +25,7 @@ body {
 
 /* Smartphones */
 
-@media only screen and (max-width: 1180px) {
+@media #{$header} {
 
   .menu-trigger {
     border-radius: 2px;

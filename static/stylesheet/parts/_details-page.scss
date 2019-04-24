@@ -28,7 +28,7 @@ DETAILS PAGE
   margin-top: 80px;
   opacity: 0.9;
 
-  @media #{$smartphones-1} {
+  @media #{$header} {
     height: auto;
     margin-top: 0;
     padding-bottom: 100px;
