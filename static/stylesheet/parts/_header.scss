@@ -83,7 +83,7 @@ header {
 }
 
 .logo {
-  margin-top: 16px;
+  margin-top: 20px;
   float: left;
 
   @media #{$header} {
@@ -92,7 +92,7 @@ header {
   }
 
   > a img {
-    width: 200px;
+    width: 170px;
     float: left;
 
     @media #{$header} {
@@ -110,17 +110,17 @@ header {
 
 .dropdown {
   border-radius: 4px;
-  width: 150px;
+  width: 200px;
   background: $white;
   position: absolute;
-  padding: 5px 20px;
+  padding: 10px 20px;
   box-shadow: 0 5px 7px $gray-2;
   top: 24px;
   left: -20px;
   display: none;
   text-align: left;
 
-  @media #{$smartphones-1} {
+  @media #{$header} {
     width: 100%;
     border-radius: 0;
     background: $lt-gray-1;
@@ -134,18 +134,21 @@ header {
   }
 
   a {
-    font-size: $font-small;
+    font-size: $font-medium;
     color: $blue;
     text-decoration: none;
     border-top: 1px solid $gray-1;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     display: block;
     font-weight: bold;
     color: $red;
 
-    @media #{$smartphones-1} {
+    @media #{$header} {
       font-size: $font-medium;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
     }
 
     &:hover {
