@@ -38,7 +38,7 @@ python manage.py runserver
 9. Execute o servidor.
 
 ```console
-cd ConTTudOwebProject
+cd CommunicareProject
 pipenv shell
 python manage.py runserver
 ```
