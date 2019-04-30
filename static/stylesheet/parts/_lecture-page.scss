@@ -6,15 +6,218 @@ LECTURE PAGE
 .lecture-page {
   @extend %clearfix;
   box-sizing: border-box;
+}
 
-  .register-header {
-    padding: 15px 0;
+
+/* Lecture banner */
+
+.lecture-banner {
+  background: url("../../images/palestras/ie-banner.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: scroll;
+  margin-top: 80px;
+  padding: 100px 0 250px 0;
+  @extend %clearfix;
+
+  @media #{$header} {
+    height: auto;
+    margin-top: 0;
+    padding-bottom: 100px;
+  }
+
+  h2 {
+    width: 100%;
+    text-shadow: 2px 2px 8px #222;
+    float: left;
+    font-size: $font-big;
+    text-align: left;
+    color: rgba($white, .8);
+
+    strong {
+      color: rgba($white, 1);
+      font-size: $font-bigger-2;
+    }
+  }
+
+  iframe {
+    float: right;
+  }
+
+  .cta {
+    float: none;
   }
 }
 
 
-/* Details header */
+// Lecture video
 
-.lecture-banner {
-  background: url("../../images/banner-02-interna.jpg") no-repeat;
+.lecture-video {
+  @extend %clearfix;
+  padding: 70px 0;
+  text-align: center;
+
+  .column-01,
+  .column-02 {
+    width: 48%;
+
+    @media #{$smartphones-1} {
+      width: 100% !important;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    text-align: left;
+    line-height: 28px;
+    font-size: $font-medium-2;
+    list-style-type: none;
+    margin-top: 10px;
+
+    i {
+      margin-top: 6px;
+      float: left;
+      color: $red;
+    }
+
+    span {
+      margin-left: 20px;
+      display: block;
+      padding-left: 10px;
+    }
+  }
+
+  li:first-child {
+    margin-top: 0;
+  }
+
+  iframe {
+    width: 100%;
+  }
+}
+
+
+// Quais resultados
+
+.quais-resultados {
+  border-top: 1px solid $lt-gray-2;
+  text-align: center;
+  background: $lt-gray-1;
+  @extend %clearfix;
+  padding: 70px 0;
+
+  h3 {
+    margin: 0;
+    font-size: $font-big-3;
+
+    strong {
+      font-size: $font-bigger;
+      color: $red;
+    }
+  }
+
+  .columns {
+    margin-top: 50px;
+  }
+
+  .column-01,
+  .column-02 {
+    border: 1px solid $lt-gray-2;
+    padding: 40px;
+    box-sizing: border-box;
+    background: $white;
+    border-radius: 2px;
+    min-height: 480px;
+
+    .big-icon {
+      font-size: $font-bigger;
+      color: $red;
+    }
+
+    h4 {
+      font-size: $font-big;
+      margin: 10px 0 30px 0;
+      color: $gray-6;
+    }
+
+    p {
+      text-align: left;
+    }
+  }
+}
+
+
+// Features
+
+.features {
+  border-top: 1px solid $lt-gray-2;
+  text-align: center;
+  background: $white;
+  @extend %clearfix;
+  padding: 70px 0;
+
+  h3 {
+    margin: 0;
+    font-size: $font-big-3;
+
+    strong {
+      font-size: $font-bigger;
+      color: $red;
+    }
+  }
+
+  .column-01,
+  .column-02 {
+    box-sizing: border-box;
+    background: $white;
+    border-radius: 2px;
+
+    .big-icon {
+      font-size: $font-bigger;
+      color: $red;
+    }
+
+    h4 {
+      text-align: left;
+      font-size: $font-big;
+      margin: 0 0 20px 0;
+      color: $gray-6;
+    }
+
+    p {
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  .column-02 {
+    text-align: right;
+
+    @media #{$tablets} {
+      text-align: center;
+    }
+  }
+
+  .feature-02 {
+    border-top: 1px solid $lt-gray-2;
+    margin-top: 60px;
+    padding-top: 60px;
+  }
+
+  img {
+    border-radius: 4px;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid $lt-gray-2;
+    padding: 7px;
+
+    @media #{$tablets} {
+      width: 300px;
+      margin-bottom: 60px;
+    }
+  }
 }
