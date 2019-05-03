@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load humanize static %}
 
+{% block extra_css %}
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+{% endblock extra_css %}
+
 {% block content %}
   <section class="lecture-page">
 
@@ -8,9 +12,9 @@
       <div class="holder">
         <h2>
           Palestra<br>
-          <strong>Inteligência Emocional</strong>
+          <strong>{% block palestra_titulo %}{% endblock %}</strong>
         </h2>
-        <a href="#" class="cta">Quero participar</a>
+{#        <a href="#" class="cta">Quero participar</a>#}
       </div>
     </div>
 
@@ -22,15 +26,11 @@
         <div class="columns">
           <div class="column-01">
             <ul>
-              <li><i class="fas fa-check-circle"></i> <span>Elogiar os colaboradores a cada pequeno progresso e não fazer críticas (públicas);</span></li>
-              <li><i class="fas fa-check-circle"></i> <span>Promover reuniões de equipe que estimulam o feedback aberto entre os particiantes;</span></li>
-              <li><i class="fas fa-check-circle"></i> <span>Apresentar vídeos ou treinamentos motivacionais com frequência para alterar o estado emocional dos funcionários;</span></li>
-              <li><i class="fas fa-check-circle"></i> <span>Estimular a comunicação voltada para o foco na solução e não no problema;</span></li>
-              <li><i class="fas fa-check-circle"></i> <span>Divulgar amplamente na empresa o conceito da autoresponsabilidade, que diz que nós somos os únicos responsáveis pelos nossos resultados e, consequentementeos únicos que podem mudá-los.</span></li>
+                {% block palestra_objetivos %}{% endblock %}
             </ul>
           </div>
           <div class="column-02">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/1ACaMPjWNHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="{% block palestra_video %}{% endblock %}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -49,27 +49,14 @@
             <i class="fas fa-user-friends big-icon"></i>
             <h4>Colaboradores</h4>
             <p>
-              - Motivados e proativos;<br>
-              - Sem reclamar e ficar colocando a culpa nos outros;<br>
-              - Acreditando mais em si mesmos e buscando realizações maiores;<br>
-              - Relacionando-se melhor com os outros colaboradores;<br>
-              - Focado na solução e não no problema;<br>
-              - Entendendo que cada um tem a vida e o salário que merece;<br>
-              - Mais felizes e entusiasmados;<br>
-              - Com uma mente saudável, positiva e criativa;<br>
-              - Mais produtivos e entregando mais resultado.
+                {% block palestra_resultados_colaboradores %}{% endblock %}
             </p>
           </div>
           <div class="column-02">
             <i class="fas fa-building big-icon"></i>
             <h4>Empresas</h4>
             <p>
-              - Melhora clima organizacional;<br>
-              - Diminuição do absenteísmo;<br>
-              - Mais produtividade;<br>
-              - Diminuição do turnover;<br>
-              - Menos reclamações;<br>
-              - Mais resultados.
+                {% block palestra_resultados_empresa %}{% endblock %}
             </p>
           </div>
         </div>

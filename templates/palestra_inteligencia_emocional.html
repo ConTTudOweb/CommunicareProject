@@ -1,0 +1,36 @@
+{% extends 'palestra.html' %}
+
+{% block palestra_titulo %}
+    {{ PALESTRA_INTELIGENCIA_EMOCIONAL.titulo }}
+{% endblock %}
+
+{% block palestra_objetivos %}
+    {% include 'includes/palestra_objetivos_li.html' with palestra_objetivos_li_content='Elogiar os colaboradores a cada pequeno progresso e não fazer críticas (públicas);' %}
+    {% include 'includes/palestra_objetivos_li.html' with palestra_objetivos_li_content='Promover reuniões de equipe que estimulam o feedback aberto entre os particiantes;' %}
+    {% include 'includes/palestra_objetivos_li.html' with palestra_objetivos_li_content='Apresentar vídeos ou treinamentos motivacionais com frequência para alterar o estado emocional dos funcionários;' %}
+    {% include 'includes/palestra_objetivos_li.html' with palestra_objetivos_li_content='Estimular a comunicação voltada para o foco na solução e não no problema;' %}
+    {% include 'includes/palestra_objetivos_li.html' with palestra_objetivos_li_content='Divulgar amplamente na empresa o conceito da autoresponsabilidade, que diz que nós somos os únicos responsáveis pelos nossos resultados e, consequentementeos únicos que podem mudá-los.' %}
+{% endblock %}
+
+{% block palestra_video %}https://www.youtube.com/embed/1ACaMPjWNHQ{% endblock %}
+
+{% block palestra_resultados_colaboradores %}
+    - Motivados e proativos;<br>
+    - Sem reclamar e ficar colocando a culpa nos outros;<br>
+    - Acreditando mais em si mesmos e buscando realizações maiores;<br>
+    - Relacionando-se melhor com os outros colaboradores;<br>
+    - Focado na solução e não no problema;<br>
+    - Entendendo que cada um tem a vida e o salário que merece;<br>
+    - Mais felizes e entusiasmados;<br>
+    - Com uma mente saudável, positiva e criativa;<br>
+    - Mais produtivos e entregando mais resultado.
+{% endblock %}
+
+{% block palestra_resultados_empresa %}
+    - Melhora clima organizacional;<br>
+    - Diminuição do absenteísmo;<br>
+    - Mais produtividade;<br>
+    - Diminuição do turnover;<br>
+    - Menos reclamações;<br>
+    - Mais resultados.
+{% endblock %}

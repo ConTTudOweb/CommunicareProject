@@ -24,7 +24,7 @@ from .sitemaps import StaticViewSitemap
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
     CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
-    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, CertificateTemplateView, ContractTemplateView, PalestraTemplateView
+    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -34,12 +34,9 @@ urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'images/favicon.ico')),
     path('admin/', admin.site.urls),
 
-    path('teste/', ContractTemplateView.as_view()),
-
     # Páginas
     path('', HomeTemplateView.as_view(), name='home'),
     path('galeria-de-fotos/', GalleryTemplateView.as_view(), name='gallery'),
-    path('palestra/', PalestraTemplateView.as_view(), name='palestra'),
     path('politica-de-privacidade/', PrivacyPolicyTemplateView.as_view(), name='privacy_policy'),
     path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement'),
     path('evento/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
@@ -58,6 +55,9 @@ urlpatterns = [
     # Atendimentos
     path('atendimento-coaching/', AtendimentoCoachingTemplateView.as_view(), name='atendimento_coaching'),
     path('atendimento-hipnoterapia/', AtendimentoHipnoterapiaTemplateView.as_view(), name='atendimento_hipnoterapia'),
+
+    # Palestras
+    path('palestra-inteligencia-emocional/', PalestraInteligenciaEmocionalTemplateView.as_view(), name='palestra_inteligencia_emocional'),
 
     path('select2/', include('django_select2.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},

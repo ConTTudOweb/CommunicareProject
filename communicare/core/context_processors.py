@@ -13,6 +13,8 @@ ATENDIMENTO_COACHING_TITULO = "Coaching"
 ATENDIMENTO_COACHING_RESUMO = "Uma metodologia extraordinária que tem como finalidade descobrir soluções que auxiliem as pessoas a alcançarem suas metas e potencializar resultados"
 ATENDIMENTO_HIPNOTERAPIA_TITULO = "Hipnoterapia"
 ATENDIMENTO_HIPNOTERAPIA_RESUMO = "A utilização da Hipnose na terapia, possibilita de maneira consistente, identificar e modificar a estrutura da realidade de cada indivíduo. Ajudando a aumentar a confiança,  construindo resultados extraordinários, tratando medos/fobias e retomando o prazer pela vida"
+PALESTRA_INTELIGENCIA_EMOCIONAL_TITULO = "Inteligência Emocional"
+PALESTRA_INTELIGENCIA_EMOCIONAL_RESUMO = "Aprenda um pouco mais sobre suas emoções nesta palestra através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional"
 
 KEYWORDS = \
     "a communicare é confiavel?, communicare treinamentos, communicare treinamentos apucarana, cursos em apucarana, " \
@@ -28,15 +30,17 @@ KEYWORDS_CURSO_HIPNOSE = \
     "curso de hipnose, treinamento de hipnose, curso de hipnose em apucarana, treinamento de hipnose em apucarana, " \
     "auto controle, aprenda a hipnotizar, como hipnotizar pessoas, hipnose, mente consciente, mente subconsciente, " \
     "mente inconsciente, o que é mente consciente, o que é mente inconsciente, o que é mente subconsciente"
-KEYWORDS_TREINAMENTO_INTELIGENCIA_EMOCIONAL = \
-    "curso de inteligência emocional, treinamento de inteligência emocional, " \
-    "curso de inteligência emocional em apucarana, treinamento de inteligência emocional em apucarana, " \
+KEYWORDS_INTELIGENCIA_EMOCIONAL = \
     "o que é inteligência emocional?, inteligência emocional, viver em paz, viver feliz, gestão da emoção, " \
     "controle da emoção, como eliminar ansiedade, como acabar com a depressão, tenho depressão, depressão, " \
     "como se motivar, o que é motivação, como saber se relacionar, como conhecer as emoções, " \
-    "como controlar as emoções, como controlar a raiva, como controlar o ódio, como controlar a pornografia," \
-    "como controlar o medo, como reduzir emoções negativas, como ser mais positivo, como diminuir o stress," \
+    "como controlar as emoções, como controlar a raiva, como controlar o ódio, como controlar a pornografia, " \
+    "como controlar o medo, como reduzir emoções negativas, como ser mais positivo, como diminuir o stress, " \
     "empatia, como praticar a empatia, mente consciente, mente subconsciente, mente inconsciente"
+KEYWORDS_TREINAMENTO_INTELIGENCIA_EMOCIONAL = \
+    "curso de inteligência emocional, treinamento de inteligência emocional, " \
+    "curso de inteligência emocional em apucarana, treinamento de inteligência emocional em apucarana, " + \
+    KEYWORDS_INTELIGENCIA_EMOCIONAL
 KEYWORDS_ATENDIMENTO_COACHING = \
     "atendimento de coaching, atendimento coaching, atendimento de coach, atendimento coach, curso de coaching" \
     "acompanhamento de carreira, atendimento coaching em apucarana, coaching em apucarana, life coach, leader coach, " \
@@ -47,6 +51,9 @@ KEYWORDS_ATENDIMENTO_HIPNOTERAPIA = \
     "atendimento em hipnose, hipnose clínica, tratar fobias, tratar traumas, tratar depressão, tratar medos" \
     "tratar medo de falar em público, tratar ansiedade, como tratar fobias, como tratar medos, como tratar traumas, " \
     "como tratar depressão, como tratar ansiedade, atendimento hipnose em apucarana, hipnoterapia em apucarana, hipnose"
+KEYWORDS_PALESTRA_INTELIGENCIA_EMOCIONAL = \
+    "palestra de inteligência emocional, palestra de inteligência emocional em apucarana, " + \
+    KEYWORDS_INTELIGENCIA_EMOCIONAL
 
 PAGES = dict(
     PAGE_HOME={
@@ -84,6 +91,12 @@ PAGES = dict(
         "description": ATENDIMENTO_HIPNOTERAPIA_RESUMO,
         "keywords": "%s, %s" % (KEYWORDS, KEYWORDS_ATENDIMENTO_HIPNOTERAPIA)
     },
+    PAGE_PALESTRA_INTELIGENCIA_EMOCIONAL={
+        "title": PALESTRA_INTELIGENCIA_EMOCIONAL_TITULO,
+        "description": PALESTRA_INTELIGENCIA_EMOCIONAL_RESUMO,
+        "keywords": "%s, %s" % (
+            KEYWORDS, KEYWORDS_PALESTRA_INTELIGENCIA_EMOCIONAL)
+    },
     PAGE_GENERICA={
         "title": "Centro de Treinamentos em Excelência Humana",
         "description": EMPRESA_DESCRICAO
@@ -117,6 +130,10 @@ CONSTS = dict(
     ATENDIMENTO_HIPNOTERAPIA={
         "titulo": ATENDIMENTO_HIPNOTERAPIA_TITULO,
         "resumo": "%s (...)" % ATENDIMENTO_HIPNOTERAPIA_RESUMO
+    },
+    PALESTRA_INTELIGENCIA_EMOCIONAL={
+        "titulo": PALESTRA_INTELIGENCIA_EMOCIONAL_TITULO,
+        "resumo": PALESTRA_INTELIGENCIA_EMOCIONAL_RESUMO
     },
     EVENT_TYPES=Event.EventTypes.__members__,
 )

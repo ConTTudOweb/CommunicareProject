@@ -143,17 +143,17 @@ def send_contract(request):
     return HttpResponse()
 
 
-class CertificateTemplateView(TemplateView):
-    template_name = "core/certificate.html"
-
-
-class ContractTemplateView(TemplateView):
-    template_name = "core/contract.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(ContractTemplateView, self).get_context_data(**kwargs)
-        context['registration'] = Registration.objects.get(pk=2)
-        return context
+# class CertificateTemplateView(TemplateView):
+#     template_name = "core/certificate.html"
+#
+#
+# class ContractTemplateView(TemplateView):
+#     template_name = "core/contract.html"
+#
+#     def get_context_data(self, **kwargs):
+#         context = super(ContractTemplateView, self).get_context_data(**kwargs)
+#         context['registration'] = Registration.objects.get(pk=2)
+#         return context
 
 
 class HomeTemplateView(TemplateView):
@@ -249,6 +249,16 @@ class AtendimentoHipnoterapiaTemplateView(BaseCursoTemplateView):
     page = "PAGE_ATENDIMENTO_HIPNOTERAPIA"
 
 
-class PalestraTemplateView(BaseTemplateView):
-    template_name = 'palestra.html'
-    
+class BasePalestraTemplateView(TemplateView):
+    page = None
+
+    def get_context_data(self, **kwargs):
+        context = super(BasePalestraTemplateView, self).get_context_data(**kwargs)
+        # SEO
+        context['page'] = PAGES.get(self.page)
+        return context
+
+
+class PalestraInteligenciaEmocionalTemplateView(BasePalestraTemplateView):
+    template_name = 'palestra_inteligencia_emocional.html'
+    page = "PAGE_PALESTRA_INTELIGENCIA_EMOCIONAL"
