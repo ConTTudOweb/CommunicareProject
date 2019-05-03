@@ -8,7 +8,7 @@ VARS AND MIXINS
 /* Breakpoints */
 /* Mixins */
 header:after, .default-form ul:after,
-.register-form ul:after, .content:after, footer:after, .cards:after, .calendar:after, .testimonials:after, .about:after, .register:after, .register-header:after, .register-header-ft:after, .details-page:after, .contact:after, .gallery:after, .columns:after {
+.register-form ul:after, .content:after, footer:after, .cards:after, .calendar:after, .testimonials:after, .about:after, .register:after, .register-header:after, .register-header-ft:after, .details-page:after, .lecture-page:after, .lecture-banner:after, .lecture-video:after, .quais-resultados:after, .features:after, .contact:after, .gallery:after, .columns:after {
   content: "";
   display: table;
   clear: both; }
@@ -26,7 +26,7 @@ header {
   left: 0;
   top: 0;
   z-index: 100; }
-  @media only screen and (max-width: 1180px) {
+  @media only screen and (max-width: 1179px) {
     header {
       height: auto;
       position: inherit;
@@ -35,33 +35,34 @@ header {
   header nav {
     display: block;
     float: right; }
-    @media only screen and (max-width: 1180px) {
+    @media only screen and (max-width: 1179px) {
       header nav {
         width: 100%;
         display: none; } }
   header ul {
     padding: 0;
     margin: 23px 0 0 0; }
-    @media only screen and (max-width: 1180px) {
+    @media only screen and (max-width: 1179px) {
       header ul {
         margin: 0 0 10px 0; } }
   header li {
     font-size: 14px;
     display: inline-block;
-    margin-left: 25px; }
-    @media only screen and (max-width: 1180px) {
+    margin-left: 25px;
+    position: relative; }
+    @media only screen and (max-width: 1220px) {
       header li {
         display: block;
         margin: 0 0 2px 0; } }
-    header li a {
+    header li a, header li span {
       text-decoration: none;
       color: rgba(255, 255, 255, 0.7);
       font-weight: bold;
       position: relative; }
-      header li a:hover {
+      header li a:hover, header li span:hover {
         color: white; }
-      @media only screen and (max-width: 1180px) {
-        header li a {
+      @media only screen and (max-width: 1179px) {
+        header li a, header li span {
           text-align: left;
           padding: 0 10px;
           height: 32px;
@@ -69,28 +70,73 @@ header {
           background: rgba(255, 255, 255, 0.1);
           display: block;
           color: white; }
-          header li a:hover {
+          header li a:hover, header li span:hover {
             color: #fff; } }
   header li:first-child {
     margin-left: 0; }
 
 .logo {
-  margin-top: 16px;
+  margin-top: 20px;
   float: left; }
-  @media only screen and (max-width: 1180px) {
+  @media only screen and (max-width: 1179px) {
     .logo {
       margin-top: 10px;
       margin-bottom: 10px; } }
   .logo > a img {
-    width: 200px;
+    width: 170px;
     float: left; }
-    @media only screen and (max-width: 1180px) {
+    @media only screen and (max-width: 1179px) {
       .logo > a img {
         width: 150px; } }
 
 .menu-trigger {
   display: none;
   /* Disable mobile menu trigger */ }
+
+.dropdown {
+  border-radius: 4px;
+  width: 200px;
+  background: #fff;
+  position: absolute;
+  padding: 10px 20px;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+  top: 24px;
+  left: -20px;
+  display: none;
+  text-align: left; }
+  @media only screen and (max-width: 1179px) {
+    .dropdown {
+      width: 100%;
+      border-radius: 0;
+      background: #f8f8f8;
+      top: 0;
+      left: none;
+      position: inherit;
+      display: block;
+      box-shadow: none;
+      box-sizing: border-box;
+      margin-left: 20px; } }
+  .dropdown a {
+    font-size: 14px;
+    color: #3f77c3;
+    text-decoration: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    display: block;
+    font-weight: bold;
+    color: #bc2b33; }
+    @media only screen and (max-width: 1179px) {
+      .dropdown a {
+        font-size: 14px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0; } }
+    .dropdown a:hover {
+      color: #bc2b33;
+      opacity: .5; }
+  .dropdown div:first-child a {
+    border-top: 0; }
 
 /**
 FORMS
@@ -463,7 +509,7 @@ MAIN BANNER
   background: #00bdb4; }
   .main-banner img {
     width: 100%; }
-  @media only screen and (max-width: 1180px) {
+  @media only screen and (max-width: 1179px) {
     .main-banner {
       margin-top: 0; } }
   .main-banner .flex-control-nav {
@@ -915,7 +961,7 @@ DETAILS PAGE
   height: 650px;
   margin-top: 80px;
   opacity: 0.9; }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1179px) {
     .details-header {
       height: auto;
       margin-top: 0;
@@ -997,6 +1043,157 @@ DETAILS PAGE
   @media only screen and (max-width: 800px) {
     .cols-aside .column-02 {
       width: 100%; } }
+
+/**
+LECTURE PAGE
+===========================
+*/
+.lecture-page {
+  box-sizing: border-box; }
+
+/* Lecture banner */
+.lecture-banner {
+  background: url("../../images/palestras/ie-banner.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: scroll;
+  margin-top: 80px;
+  padding: 100px 0 250px 0; }
+  @media only screen and (max-width: 1179px) {
+    .lecture-banner {
+      height: auto;
+      margin-top: 0;
+      padding-bottom: 100px; } }
+  .lecture-banner h2 {
+    width: 100%;
+    text-shadow: 2px 2px 8px #222;
+    float: left;
+    font-size: 22px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.8); }
+    .lecture-banner h2 strong {
+      color: white;
+      font-size: 50px; }
+  .lecture-banner iframe {
+    float: right; }
+  .lecture-banner .cta {
+    float: none; }
+
+.lecture-video {
+  padding: 70px 0;
+  text-align: center; }
+  .lecture-video .column-01,
+  .lecture-video .column-02 {
+    width: 48%; }
+    @media only screen and (max-width: 800px) {
+      .lecture-video .column-01,
+      .lecture-video .column-02 {
+        width: 100% !important; } }
+  .lecture-video ul {
+    padding: 0;
+    margin: 0; }
+  .lecture-video li {
+    text-align: left;
+    line-height: 28px;
+    font-size: 16px;
+    list-style-type: none;
+    margin-top: 10px; }
+    .lecture-video li i {
+      margin-top: 6px;
+      float: left;
+      color: #bc2b33; }
+    .lecture-video li span {
+      margin-left: 20px;
+      display: block;
+      padding-left: 10px; }
+  .lecture-video li:first-child {
+    margin-top: 0; }
+  .lecture-video iframe {
+    width: 100%; }
+
+.quais-resultados {
+  border-top: 1px solid #eee;
+  text-align: center;
+  background: #f8f8f8;
+  padding: 70px 0; }
+  .quais-resultados h3 {
+    margin: 0;
+    font-size: 30px; }
+    .quais-resultados h3 strong {
+      font-size: 40px;
+      color: #bc2b33; }
+  .quais-resultados .columns {
+    margin-top: 50px; }
+  .quais-resultados .column-01,
+  .quais-resultados .column-02 {
+    border: 1px solid #eee;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 2px;
+    min-height: 480px; }
+    .quais-resultados .column-01 .big-icon,
+    .quais-resultados .column-02 .big-icon {
+      font-size: 40px;
+      color: #bc2b33; }
+    .quais-resultados .column-01 h4,
+    .quais-resultados .column-02 h4 {
+      font-size: 22px;
+      margin: 10px 0 30px 0;
+      color: rgba(0, 0, 0, 0.6); }
+    .quais-resultados .column-01 p,
+    .quais-resultados .column-02 p {
+      text-align: left; }
+
+.features {
+  border-top: 1px solid #eee;
+  text-align: center;
+  background: #fff;
+  padding: 70px 0; }
+  .features h3 {
+    margin: 0;
+    font-size: 30px; }
+    .features h3 strong {
+      font-size: 40px;
+      color: #bc2b33; }
+  .features .column-01,
+  .features .column-02 {
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 2px; }
+    .features .column-01 .big-icon,
+    .features .column-02 .big-icon {
+      font-size: 40px;
+      color: #bc2b33; }
+    .features .column-01 h4,
+    .features .column-02 h4 {
+      text-align: left;
+      font-size: 22px;
+      margin: 0 0 20px 0;
+      color: rgba(0, 0, 0, 0.6); }
+    .features .column-01 p,
+    .features .column-02 p {
+      text-align: left;
+      margin: 0; }
+  .features .column-02 {
+    text-align: right; }
+    @media only screen and (max-width: 950px) {
+      .features .column-02 {
+        text-align: center; } }
+  .features .feature-02 {
+    border-top: 1px solid #eee;
+    margin-top: 60px;
+    padding-top: 60px; }
+  .features img {
+    border-radius: 4px;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    padding: 7px; }
+    @media only screen and (max-width: 950px) {
+      .features img {
+        width: 300px;
+        margin-bottom: 60px; } }
 
 /**
 TESTIMONIALS
@@ -1153,7 +1350,7 @@ body {
   width: extend-to-zoom;
   zoom: 1.0; }
 /* Smartphones */
-@media only screen and (max-width: 1180px) {
+@media only screen and (max-width: 1179px) {
   .menu-trigger {
     border-radius: 2px;
     background: #bc2b33;

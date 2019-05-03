@@ -11,7 +11,7 @@ MAIN BANNER
     width: 100%;
   }
 
-  @media only screen and (max-width: 1180px) {
+  @media #{$header} {
     margin-top: 0;
   }
 

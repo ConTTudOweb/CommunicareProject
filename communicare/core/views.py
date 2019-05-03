@@ -247,3 +247,8 @@ class AtendimentoCoachingTemplateView(BaseCursoTemplateView):
 class AtendimentoHipnoterapiaTemplateView(BaseCursoTemplateView):
     template_name = 'atendimento_hipnoterapia.html'
     page = "PAGE_ATENDIMENTO_HIPNOTERAPIA"
+
+
+class PalestraTemplateView(BaseTemplateView):
+    template_name = 'palestra.html'
+    

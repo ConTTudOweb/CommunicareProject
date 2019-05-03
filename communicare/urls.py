@@ -24,7 +24,7 @@ from .sitemaps import StaticViewSitemap
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
     CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
-    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, CertificateTemplateView, ContractTemplateView
+    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, CertificateTemplateView, ContractTemplateView, PalestraTemplateView
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -39,6 +39,7 @@ urlpatterns = [
     # Páginas
     path('', HomeTemplateView.as_view(), name='home'),
     path('galeria-de-fotos/', GalleryTemplateView.as_view(), name='gallery'),
+    path('palestra/', PalestraTemplateView.as_view(), name='palestra'),
     path('politica-de-privacidade/', PrivacyPolicyTemplateView.as_view(), name='privacy_policy'),
     path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement'),
     path('evento/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
