@@ -19,3 +19,7 @@
 .header-atendimento-hipnoterapia {
     background: url("../images/banner/atendimento_hipnoterapia_header.jpg") no-repeat; !important;
 }
+
+header li span {
+    cursor: pointer !important;
+}
