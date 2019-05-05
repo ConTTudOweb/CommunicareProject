@@ -11,8 +11,8 @@
     <div class="lecture-banner">
       <div class="holder">
         <h2>
-          Palestra<br>
-          <strong>{% block palestra_titulo %}{% endblock %}</strong>
+            <strong><small>Palestra</small><br>
+          {% block palestra_titulo %}{% endblock %}</strong>
         </h2>
 {#        <a href="#" class="cta">Quero participar</a>#}
       </div>
@@ -21,10 +21,11 @@
     <div class="lecture-video">
       <div class="holder">
 
-        <h2>Objetivos da palestra</h2>
+{#        <h2>Objetivos da Palestra</h2>#}
 
         <div class="columns">
           <div class="column-01">
+            <h2>Objetivos da Palestra</h2>
             <ul>
                 {% block palestra_objetivos %}{% endblock %}
             </ul>
@@ -72,7 +73,7 @@
             <img src="{% static "images/palestras/img-01.jpg" %}">
           </div>
           <div class="column-01">
-            <h4>Investimentos e requisitos para a palestra</h4>
+              <h4>Investimentos e Requisitos para a Palestra</h4>
             <p>
               - Palestra gratuita;<br>
               - Paralisação dos colaboradores por 1h30min;<br>
