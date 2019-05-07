@@ -1,0 +1,6 @@
+Novo interessado em palestras!
+
+Nome completo: {{ form.name }}
+Telefone: {{ form.phone }}
+E-mail: {{ form.email }}
+Cidade: {{ form.city }}.

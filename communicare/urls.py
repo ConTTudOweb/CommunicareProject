@@ -24,7 +24,8 @@ from .sitemaps import StaticViewSitemap
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
     CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
-    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView
+    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView, \
+    InterestedView, interested
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -45,6 +46,7 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('contact_whatsapp/', contact_whatsapp, name='contact_whatsapp'),
     path('registration/', registration, name='registration'),
+    path('interested/', interested, name='interested'),
     path('send_contract/', send_contract, name='send_contract'),
 
     # Cursos / Treinamentos
@@ -58,6 +60,7 @@ urlpatterns = [
 
     # Palestras
     path('palestra-inteligencia-emocional/', PalestraInteligenciaEmocionalTemplateView.as_view(), name='palestra_inteligencia_emocional'),
+    path('solicitar-palestra/', InterestedView.as_view(), name='solicitar_palestra'),
 
     path('select2/', include('django_select2.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},

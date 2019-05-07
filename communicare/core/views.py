@@ -5,11 +5,11 @@ from django.core import mail
 from django.core.mail import EmailMultiAlternatives
 from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, FormView
 
 from communicare.core.context_processors import CONSTS, PAGES
 from ..core.models import Event, Customer, Registration, Testimony
-from ..core.forms import ContactForm, CustomerForm
+from ..core.forms import ContactForm, CustomerForm, InterestedForm
 
 
 def get_current_event(type):
@@ -119,6 +119,33 @@ def registration(request):
     return HttpResponse()
 
 
+def interested(request):
+    if request.method == 'POST':
+        form = InterestedForm(request.POST)
+        if form.is_valid():
+            d = {
+                'form': form.cleaned_data
+            }
+            text_content = render_to_string('core/interested_lecture_email.txt', d)
+            html_content = render_to_string('core/interested_lecture_email.html', d)
+            subject = 'Novo interessado em Palestras. (%s)' % form.cleaned_data['name']
+            to = settings.DEFAULT_FROM_EMAIL
+            msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to],
+                                         reply_to=[form.cleaned_data['email']])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+
+            return JsonResponse({
+                "results": "Seu interesse foi registrado com sucesso!<br>Em breve entraremos em contato."})
+        else:
+            errors = ""
+            for error in form.non_field_errors():
+                errors += error
+            return JsonResponse({'errors': errors})
+
+    return HttpResponse()
+
+
 def send_contract(request):
     if request.method == 'GET':
         pk = request.GET.get('pk')
@@ -180,6 +207,17 @@ class EventDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['customer_form'] = CustomerForm
         context['event_types'] = Event.EventTypes.__members__
+        # SEO
+        context['page'] = PAGES.get("PAGE_GENERICA")
+        return context
+
+
+class InterestedView(FormView):
+    template_name = "interested_form.html"
+    form_class = InterestedForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         # SEO
         context['page'] = PAGES.get("PAGE_GENERICA")
         return context

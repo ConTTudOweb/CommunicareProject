@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block extra_css %}
+    {{ form.media.css }}
+{% endblock %}
+
+{% block content %}
+    <section class="register">
+        <div class="holder">
+            <div class="register-entry" id="results">
+                <form method="POST" class="register-form" id="interested-form">{% csrf_token %}
+                    <ul>
+                        <li>{{ form.non_field_errors }}</li>
+                        <li>
+                            {{ form.name.errors }}
+                            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}<span>*</span></label>
+                            {{ form.name }}
+                        </li>
+                        <li class="column-01">
+                            {{ form.phone.errors }}
+                            <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}<span>*</span></label>
+                            {{ form.phone }}
+                        </li>
+                        <li class="column-02">
+                            {{ form.email.errors }}
+                            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                            {{ form.email }}
+                        </li>
+                        <li>
+                            {{ form.city.errors }}
+                            <label for="{{ form.city.id_for_label }}">{{ form.city.label }}<span>*</span></label>
+                            {{ form.city }}
+                        </li>
+                        <li>
+                            <div id="errors"></div>
+                        </li>
+                        <li>
+                            <input type="submit" value="Enviar">
+                        </li>
+                    </ul>
+                </form>
+
+            </div> <!-- /register-entry -->
+
+        </div>
+    </section> <!-- /register -->
+{% endblock content %}
+
+{% block extra_js %}
+    {{ form.media.js }}
+
+    <script type="application/javascript">
+        // AJAX for posting
+        function interested(form) {
+            $body = $("body");
+            $body.addClass("loading");
+            $.ajax({
+                url : "/interested/", // the endpoint
+                type : "POST", // http method
+                data : {
+                    name : $('#id_name').val(),
+                    phone : $('#id_phone').val(),
+                    city : $('#id_city').val(),
+                    email : $('#id_email').val(),
+                }, // data sent with the post request
+
+                // handle a successful response
+                success : function(json) {
+                    $('#results').html('<h3 class="algn-center">'+json.results+'</h3>');
+                    $('#errors').html(json.errors);
+                    $body.removeClass("loading");
+                },
+
+                // handle a non-successful response
+                error : function(xhr,errmsg,err) {
+                    $('#errors').html("Oops! Nós encontramos um erro: "+errmsg); // add the error to the dom
+                    console.error(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    $body.removeClass("loading");
+                }
+            });
+        };
+
+        // Submit post on submit
+        $('#interested-form').on('submit', function(form){
+            form.preventDefault();
+            interested();
+        });
+    </script>
+{% endblock %}
