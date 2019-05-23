@@ -13,7 +13,8 @@ from ..core.forms import ContactForm, CustomerForm, InterestedForm
 
 
 def get_current_event(type):
-    return Event.objects.filter(start_date__gt=datetime.now(), open_for_subscriptions=True, type=type).order_by('start_date').first()
+    return Event.objects.filter(start_date__gt=datetime.now(), open_for_subscriptions=True, visible=True, type=type)\
+        .order_by('start_date').first()
 
 
 def contact(request):
@@ -189,7 +190,7 @@ class HomeTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeTemplateView, self).get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
-        context['events'] = Event.objects.all().order_by('start_date')
+        context['events'] = Event.objects.filter(visible=True).order_by('start_date')
         context['event_treinamento_oratoria'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
         context['event_curso_hipnose'] = get_current_event(Event.EventTypes.curso_hipnose.value)
         context['event_treinamento_inteligencia_emocional'] = get_current_event(Event.EventTypes.treinamento_inteligencia_emocional.value)

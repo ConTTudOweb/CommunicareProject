@@ -112,6 +112,7 @@ class Event(models.Model):
     end_date = models.DateTimeField('data de término')
     details = models.TextField('detalhes')
     amount = models.DecimalField('valor', max_digits=15, decimal_places=2)
+    visible = models.BooleanField('visível no site', default=True)
     open_for_subscriptions = models.BooleanField('aberto para inscrições', default=False)
     registrations = models.ManyToManyField('Customer', blank=True, verbose_name='clientes', through='Registration')
     type = models.CharField('tipo', max_length=7, choices=[
