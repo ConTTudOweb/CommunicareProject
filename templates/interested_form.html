@@ -9,6 +9,19 @@
 {% block content %}
     <section class="register">
         <div class="holder">
+
+            <img src="{% static '/images/palestras/ie-banner.jpg' %}">
+
+            <div class="register-header">
+
+                <h2>
+                    <small>Palestra</small>
+                    <br>
+                    {{ PALESTRA_INTELIGENCIA_EMOCIONAL.titulo }}
+                </h2>
+
+            </div> <!-- /register-header -->
+
             <div class="register-entry" id="results">
                 <form method="POST" class="register-form" id="interested-form">{% csrf_token %}
                     <ul>
