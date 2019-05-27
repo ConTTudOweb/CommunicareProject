@@ -5,7 +5,7 @@ EMPRESA_DESCRICAO = "Nosso propósito é mediar o conhecimento, potencializando 
                     "patamares ainda maiores."
 TREINAMENTO_ORATORIA_TITULO = "Oratória: Comunicação e Expressão."
 TREINAMENTO_ORATORIA_RESUMO = "Um treinamento que envolve técnicas de oratória e programação neurolinguística (PNL) buscando entender e compreender todos os sentimentos que nos sabotam diante de uma apresentação"
-CURSO_HIPNOSE_TITULO = "Hipnose na Prática"
+CURSO_HIPNOSE_TITULO = "Hipnose na Clínica"
 CURSO_HIPNOSE_RESUMO = "Um curso que alinha teoria à prática, desmistificando o que é hipnose e compreendendo seu real fundamento terapêutico para cura de traumas e fobias"
 TREINAMENTO_INTELIGENCIA_EMOCIONAL_TITULO = "Inteligência Emocional"
 TREINAMENTO_INTELIGENCIA_EMOCIONAL_RESUMO = "Saiba como lidar com suas emoções neste treinamento através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional"
@@ -29,7 +29,8 @@ KEYWORDS_TREINAMENTO_ORATORIA = \
 KEYWORDS_CURSO_HIPNOSE = \
     "curso de hipnose, treinamento de hipnose, curso de hipnose em apucarana, treinamento de hipnose em apucarana, " \
     "auto controle, aprenda a hipnotizar, como hipnotizar pessoas, hipnose, mente consciente, mente subconsciente, " \
-    "mente inconsciente, o que é mente consciente, o que é mente inconsciente, o que é mente subconsciente"
+    "mente inconsciente, o que é mente consciente, o que é mente inconsciente, o que é mente subconsciente, " \
+    "hipnose clínica, hipnose clinica"
 KEYWORDS_INTELIGENCIA_EMOCIONAL = \
     "o que é inteligência emocional?, inteligência emocional, viver em paz, viver feliz, gestão da emoção, " \
     "controle da emoção, como eliminar ansiedade, como acabar com a depressão, tenho depressão, depressão, " \
