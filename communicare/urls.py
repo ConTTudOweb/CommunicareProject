@@ -25,7 +25,7 @@ from .core.views import HomeTemplateView, contact, EventDetailView, registration
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
     CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
     AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView, \
-    InterestedView, interested
+    InterestedEmotionalIntelligenceLecture, interested, InterestedHypnotherapy, InterestedCoaching
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -46,7 +46,7 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('contact_whatsapp/', contact_whatsapp, name='contact_whatsapp'),
     path('registration/', registration, name='registration'),
-    path('interested/', interested, name='interested'),
+    path('interested/<type>/<title>', interested, name='interested'),
     path('send_contract/', send_contract, name='send_contract'),
 
     # Cursos / Treinamentos
@@ -56,11 +56,13 @@ urlpatterns = [
 
     # Atendimentos
     path('atendimento-coaching/', AtendimentoCoachingTemplateView.as_view(), name='atendimento_coaching'),
+    path('solicitar-atendimento-coaching/', InterestedCoaching.as_view(), name='solicitar_atendimento_coaching'),
     path('atendimento-hipnoterapia/', AtendimentoHipnoterapiaTemplateView.as_view(), name='atendimento_hipnoterapia'),
+    path('solicitar-atendimento-hipnoterapia/', InterestedHypnotherapy.as_view(), name='solicitar_atendimento_hipnoterapia'),
 
     # Palestras
     path('palestra-inteligencia-emocional/', PalestraInteligenciaEmocionalTemplateView.as_view(), name='palestra_inteligencia_emocional'),
-    path('solicitar-palestra/', InterestedView.as_view(), name='solicitar_palestra'),
+    path('solicitar-palestra-inteligencia-emocional/', InterestedEmotionalIntelligenceLecture.as_view(), name='solicitar_palestra_inteligencia_emocional'),
 
     path('select2/', include('django_select2.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},

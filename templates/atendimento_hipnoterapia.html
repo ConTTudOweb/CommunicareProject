@@ -19,6 +19,10 @@
     Dave Elman
 {% endblock %}
 
+{% block actions %}
+    <a href="{% url 'solicitar_atendimento_hipnoterapia' %}" class="cta">Solicitar atendimento</a>
+{% endblock %}
+
 {% block details_titulo %}
     {{ ATENDIMENTO_HIPNOTERAPIA.titulo }}
 {% endblock %}

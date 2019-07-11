@@ -20,6 +20,8 @@
                 <a href="{% url 'event-detail' slug=event.slug %}" class="cta">Fazer inscrição</a>
             {% endif %}
 
+        {% block actions %}{% endblock %}
+
         </div>
       </div> <!-- /details-header -->
 

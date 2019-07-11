@@ -1,0 +1,21 @@
+{% extends 'interested_form.html' %}
+{% load static %}
+
+{% block img_header %}
+    <img src="{% static '/images/banner/atendimento_hipnoterapia_header.jpg' %}">
+{% endblock %}
+
+{% block interested_title_type %}Atendimento{% endblock %}
+
+{% block interested_title %}{{ ATENDIMENTO_HIPNOTERAPIA.titulo }}{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script type="application/javascript">
+        // Submit post on submit
+        $('#interested-form').on('submit', function(form){
+            form.preventDefault();
+            interested("/interested/atendimento/{{ ATENDIMENTO_HIPNOTERAPIA.titulo }}");
+        });
+    </script>
+{% endblock %}

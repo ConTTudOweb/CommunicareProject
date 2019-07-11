@@ -1,4 +1,6 @@
-Novo interessado em palestras!
+Novo interessado em {{ type }}!
+
+"{{ title }}"
 
 Nome completo: {{ form.name }}
 Telefone: {{ form.phone }}

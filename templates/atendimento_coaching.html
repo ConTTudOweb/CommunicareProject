@@ -17,6 +17,10 @@
     Anthony Robbins
 {% endblock %}
 
+{% block actions %}
+    <a href="{% url 'solicitar_atendimento_coaching' %}" class="cta">Solicitar atendimento</a>
+{% endblock %}
+
 {% block details_titulo %}
     {{ ATENDIMENTO_COACHING.titulo }}
 {% endblock %}

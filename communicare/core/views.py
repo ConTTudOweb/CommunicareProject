@@ -120,16 +120,18 @@ def registration(request):
     return HttpResponse()
 
 
-def interested(request):
+def interested(request, type, title):
     if request.method == 'POST':
         form = InterestedForm(request.POST)
         if form.is_valid():
             d = {
-                'form': form.cleaned_data
+                'form': form.cleaned_data,
+                'type': type,
+                'title': title
             }
-            text_content = render_to_string('core/interested_lecture_email.txt', d)
-            html_content = render_to_string('core/interested_lecture_email.html', d)
-            subject = 'Novo interessado em Palestras. (%s)' % form.cleaned_data['name']
+            text_content = render_to_string('core/interested_email.txt', d)
+            html_content = render_to_string('core/interested_email.html', d)
+            subject = 'Novo interessado em %s. (%s)' % (type, form.cleaned_data['name'])
             to = settings.DEFAULT_FROM_EMAIL
             msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to],
                                          reply_to=[form.cleaned_data['email']])
@@ -213,8 +215,8 @@ class EventDetailView(DetailView):
         return context
 
 
-class InterestedView(FormView):
-    template_name = "interested_form.html"
+class InterestedFormView(FormView):
+    # template_name = "interested_form.html"
     form_class = InterestedForm
 
     def get_context_data(self, **kwargs):
@@ -222,6 +224,18 @@ class InterestedView(FormView):
         # SEO
         context['page'] = PAGES.get("PAGE_GENERICA")
         return context
+
+
+class InterestedEmotionalIntelligenceLecture(InterestedFormView):
+    template_name = "interested_form_palestra_inteligencia_emocional.html"
+
+
+class InterestedHypnotherapy(InterestedFormView):
+    template_name = "interested_form_atendimento_hipnoterapia.html"
+
+
+class InterestedCoaching(InterestedFormView):
+    template_name = "interested_form_atendimento_coaching.html"
 
 
 class BaseTemplateView(TemplateView):

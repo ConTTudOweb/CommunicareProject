@@ -10,16 +10,14 @@
     <section class="register">
         <div class="holder">
 
-            <img src="{% static '/images/palestras/ie-banner.jpg' %}">
+            {% block img_header %}{% endblock %}
 
             <div class="register-header">
-
                 <h2>
-                    <small>Palestra</small>
+                    <small>{% block interested_title_type %}{% endblock %}</small>
                     <br>
-                    {{ PALESTRA_INTELIGENCIA_EMOCIONAL.titulo }}
+                    {% block interested_title %}{% endblock %}
                 </h2>
-
             </div> <!-- /register-header -->
 
             <div class="register-entry" id="results">
@@ -66,11 +64,11 @@
 
     <script type="application/javascript">
         // AJAX for posting
-        function interested(form) {
+        function interested(url) {
             $body = $("body");
             $body.addClass("loading");
             $.ajax({
-                url : "/interested/", // the endpoint
+                url : url, // the endpoint
                 type : "POST", // http method
                 data : {
                     name : $('#id_name').val(),
@@ -94,11 +92,5 @@
                 }
             });
         };
-
-        // Submit post on submit
-        $('#interested-form').on('submit', function(form){
-            form.preventDefault();
-            interested();
-        });
     </script>
 {% endblock %}

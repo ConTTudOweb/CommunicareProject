@@ -1,0 +1,21 @@
+{% extends 'interested_form.html' %}
+{% load static %}
+
+{% block img_header %}
+    <img src="{% static '/images/palestras/ie-banner.jpg' %}">
+{% endblock %}
+
+{% block interested_title_type %}Palestra{% endblock %}
+
+{% block interested_title %}{{ PALESTRA_INTELIGENCIA_EMOCIONAL.titulo }}{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script type="application/javascript">
+        // Submit post on submit
+        $('#interested-form').on('submit', function(form){
+            form.preventDefault();
+            interested("/interested/palestra/{{ PALESTRA_INTELIGENCIA_EMOCIONAL.titulo }}");
+        });
+    </script>
+{% endblock %}
