@@ -8,13 +8,17 @@ from django.template.loader import render_to_string
 from django.views.generic import TemplateView, DetailView, FormView
 
 from communicare.core.context_processors import CONSTS, PAGES
-from ..core.models import Event, Customer, Registration, Testimony
-from ..core.forms import ContactForm, CustomerForm, InterestedForm
+from ..core.models import Event, Customer, Registration, Testimony, WaitingList, EventTypes
+from ..core.forms import ContactForm, CustomerForm, InterestedForm, WaitlistedForm
 
 
 def get_current_event(type):
     return Event.objects.filter(start_date__gt=datetime.now(), open_for_subscriptions=True, visible=True, type=type)\
         .order_by('start_date').first()
+
+
+def get_current_waiting_list(type):
+    return WaitingList.objects.filter(type=type).first()
 
 
 def contact(request):
@@ -120,6 +124,39 @@ def registration(request):
     return HttpResponse()
 
 
+def waitlisted(request):
+    if request.method == 'POST':
+        form = WaitlistedForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # event = Event.objects.get(pk=request.POST.get('event_id'))
+            # Registration.objects.create(
+            #     customer=customer,
+            #     event=event
+            # )
+
+            # if customer.email not in [None, '']:
+            d = {
+                'waitlisted': form.instance
+            }
+            text_content = render_to_string('core/waitlisted_email.txt', d)
+            html_content = render_to_string('core/waitlisted_email.html', d)
+            subject = 'Inscrição para a lista de espera efetuada com sucesso! (%s)' % form.instance.name
+            to = form.instance.email
+            msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to], cc=[str(settings.DEFAULT_FROM_EMAIL)])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+
+            return JsonResponse({"results": "Inscrição na lista de espera efetuada com sucesso!"})
+        else:
+            errors = ""
+            for error in form.non_field_errors():
+                errors += error
+            return JsonResponse({'errors': errors})
+
+    return HttpResponse()
+
+
 def interested(request, type, title):
     if request.method == 'POST':
         form = InterestedForm(request.POST)
@@ -193,9 +230,12 @@ class HomeTemplateView(TemplateView):
         context = super(HomeTemplateView, self).get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         context['events'] = Event.objects.filter(visible=True).order_by('start_date')
-        context['event_treinamento_oratoria'] = get_current_event(Event.EventTypes.treinamento_oratoria.value)
-        context['event_curso_hipnose'] = get_current_event(Event.EventTypes.curso_hipnose.value)
-        context['event_treinamento_inteligencia_emocional'] = get_current_event(Event.EventTypes.treinamento_inteligencia_emocional.value)
+        context['event_treinamento_oratoria'] = get_current_event(EventTypes.treinamento_oratoria.value)
+        context['waiting_list_treinamento_oratoria'] = get_current_waiting_list(EventTypes.treinamento_oratoria.value)
+        context['event_curso_hipnose'] = get_current_event(EventTypes.curso_hipnose.value)
+        context['waiting_list_curso_hipnose'] = get_current_waiting_list(EventTypes.curso_hipnose.value)
+        context['event_treinamento_inteligencia_emocional'] = get_current_event(EventTypes.treinamento_inteligencia_emocional.value)
+        context['waiting_list_treinamento_inteligencia_emocional'] = get_current_waiting_list(EventTypes.treinamento_inteligencia_emocional.value)
         context['testimonies'] = Testimony.objects.filter(visible=True).all()
         # SEO
         context['page'] = PAGES.get("PAGE_HOME")
@@ -209,7 +249,20 @@ class EventDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['customer_form'] = CustomerForm
-        context['event_types'] = Event.EventTypes.__members__
+        context['event_types'] = EventTypes.__members__
+        # SEO
+        context['page'] = PAGES.get("PAGE_GENERICA")
+        return context
+
+
+class WaitingListDetailView(DetailView):
+    model = WaitingList
+    template_name = "waiting-list_register.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['waitlisted_form'] = WaitlistedForm
+        context['event_types'] = EventTypes.__members__
         # SEO
         context['page'] = PAGES.get("PAGE_GENERICA")
         return context
@@ -268,6 +321,7 @@ class BaseCursoTemplateView(TemplateView):
         context = super(BaseCursoTemplateView, self).get_context_data(**kwargs)
         if self.event_type:
             context['event'] = get_current_event(self.event_type.value)
+            context['waiting_list'] = get_current_waiting_list(self.event_type.value)
             context['event_type'] = self.event_type.value
         # SEO
         context['page'] = PAGES.get(self.page)
@@ -276,19 +330,19 @@ class BaseCursoTemplateView(TemplateView):
 
 class TreinamentoOratoriaTemplateView(BaseCursoTemplateView):
     template_name = 'treinamento_oratoria.html'
-    event_type = Event.EventTypes.treinamento_oratoria
+    event_type = EventTypes.treinamento_oratoria
     page = "PAGE_TREINAMENTO_ORATORIA"
 
 
 class CursoHipnoseTemplateView(BaseCursoTemplateView):
     template_name = 'curso_hipnose.html'
-    event_type = Event.EventTypes.curso_hipnose
+    event_type = EventTypes.curso_hipnose
     page = "PAGE_CURSO_HIPNOSE"
 
 
 class TreinamentoInteligenciaEmocionalTemplateView(BaseCursoTemplateView):
     template_name = 'treinamento_inteligencia_emocional.html'
-    event_type = Event.EventTypes.treinamento_inteligencia_emocional
+    event_type = EventTypes.treinamento_inteligencia_emocional
     page = "PAGE_TREINAMENTO_INTELIGENCIA_EMOCIONAL"
 
 

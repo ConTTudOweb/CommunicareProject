@@ -99,12 +99,22 @@ class Customer(models.Model):
 event_verbose_name = 'evento'
 
 
-class Event(models.Model):
-    class EventTypes(enum.Enum):
-        treinamento_oratoria = 'tre_ora'
-        curso_hipnose = 'cur_hip'
-        treinamento_inteligencia_emocional = 'tre_iem'
+class EventTypes(enum.Enum):
+    treinamento_oratoria = 'tre_ora'
+    curso_hipnose = 'cur_hip'
+    treinamento_inteligencia_emocional = 'tre_iem'
 
+
+def GetEventTypesDisplay(str):
+    if str == EventTypes.treinamento_oratoria.value:
+        return 'Treinamento de Oratória'
+    elif str == EventTypes.curso_hipnose.value:
+        return 'Curso de Hipnose Clínica'
+    elif str == EventTypes.treinamento_inteligencia_emocional.value:
+        return 'Treinamento de Inteligência Emocional'
+
+
+class Event(models.Model):
     title = models.CharField('título', max_length=135)
     subtitle = models.CharField('subtítulo', max_length=120)
     place = models.ForeignKey('Place', on_delete=models.PROTECT, verbose_name='local')
@@ -116,9 +126,10 @@ class Event(models.Model):
     open_for_subscriptions = models.BooleanField('aberto para inscrições', default=False)
     registrations = models.ManyToManyField('Customer', blank=True, verbose_name='clientes', through='Registration')
     type = models.CharField('tipo', max_length=7, choices=[
-        (EventTypes.treinamento_oratoria.value, 'Treinamento de Oratória'),
-        (EventTypes.curso_hipnose.value, 'Curso de Hipnose na Prática'),
-        (EventTypes.treinamento_inteligencia_emocional.value, 'Treinamento de Inteligência Emocional'),
+        (EventTypes.treinamento_oratoria.value, GetEventTypesDisplay(EventTypes.treinamento_oratoria.value)),
+        (EventTypes.curso_hipnose.value, GetEventTypesDisplay(EventTypes.curso_hipnose.value)),
+        (EventTypes.treinamento_inteligencia_emocional.value,
+         GetEventTypesDisplay(EventTypes.treinamento_inteligencia_emocional.value)),
     ])
     slug = models.SlugField(max_length=255, unique=True, verbose_name="Slug / URL",
                             help_text="Preenchido automaticamente, não editar.")
@@ -165,3 +176,34 @@ class Testimony(models.Model):
 
     class Meta:
         verbose_name = 'depoimento'
+
+
+class WaitingList(models.Model):
+    type = models.CharField('tipo', max_length=7, choices=[
+        (EventTypes.treinamento_oratoria.value, GetEventTypesDisplay(EventTypes.treinamento_oratoria.value)),
+        (EventTypes.curso_hipnose.value, GetEventTypesDisplay(EventTypes.curso_hipnose.value)),
+        (EventTypes.treinamento_inteligencia_emocional.value, GetEventTypesDisplay(EventTypes.treinamento_inteligencia_emocional.value)),
+    ])
+    slug = models.SlugField(max_length=255, unique=True, verbose_name="Slug / URL",
+                            help_text="Preenchido automaticamente, não editar.")
+
+    def __str__(self):
+        return "{}".format(self.get_type_display())
+
+    class Meta:
+        verbose_name = 'lista de espera'
+        verbose_name_plural = 'listas de espera'
+
+
+class Waitlisted(models.Model):
+    name = models.CharField('nome completo', max_length=255)
+    phone = models.CharField('telefone', max_length=20)
+    email = models.EmailField('e-mail', null=True, blank=True)
+    city = models.ForeignKey('City', on_delete=models.PROTECT, verbose_name='cidade')
+    waiting_list = models.ForeignKey('WaitingList', on_delete=models.PROTECT)
+
+    def __str__(self):
+        return '%s [%s]' % (self.name, str(self.waiting_list))
+
+    class Meta:
+        verbose_name = 'interessado'

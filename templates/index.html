@@ -45,9 +45,9 @@
         </h2>
 
         <ul class="cards-list">
-            {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}
-            {% include "includes/cards_li.html" with card_type="Curso"       event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg"                      card_title=CURSO_HIPNOSE.titulo                      card_description=CURSO_HIPNOSE.resumo only %}
-            {% include "includes/cards_li.html" with card_type="Treinamento" event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}
+            {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_oratoria               event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}
+            {% include "includes/cards_li.html" with card_type="Curso"       waiting_list=waiting_list_curso_hipnose                      event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg"                      card_title=CURSO_HIPNOSE.titulo                      card_description=CURSO_HIPNOSE.resumo only %}
+            {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_inteligencia_emocional event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}
         </ul>
 
       </div>
@@ -74,19 +74,20 @@
         <h2>Próximos eventos</h2>
 
         <div class="description">
-          O Próximo pode ser você!
+          <!-- O Próximo pode ser você! -->
+            Venha fazer parte dessa história!
         </div>
-
-        <!-- <a href="#" class="big-button">
-          <strong>Faça parte dessa história!</strong><br>
-          <span>Cadastre-se e entre para nossa lista de espera.</span>
-        </a> -->
 
         <ul>
             {% for event in events %}
             {% include 'includes/event_li.html' with event=event %}
             {% endfor %}
         </ul>
+
+        <a href="{% url 'home' %}#contato" class="big-button">
+          <strong>Não encontrou o que procurava?</strong><br>
+          <span>Fale conosco!!!</span>
+        </a>
 
       </div>
     </section> <!-- /agenda -->

@@ -1,0 +1,13 @@
+Olá, {{ waitlisted.name }}.
+
+Sua inscrição foi efetuada com sucesso em nossa lista de espera para o(a) {{ waitlisted.waiting_list.get_type_display }}.
+Assim que abrirmos uma nova turma você será informado!
+
+
+Seus dados inseridos foram:
+
+Nome completo: {{ waitlisted.name }}
+Telefone: {{ waitlisted.phone }}
+Cidade: {{ waitlisted.city }}
+
+Caso exista alguma correção a ser feita por favor nos avise respondendo este e-mail.

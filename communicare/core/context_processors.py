@@ -1,4 +1,4 @@
-from communicare.core.models import Event
+from communicare.core.models import EventTypes
 
 EMPRESA_DESCRICAO = "Nosso propósito é mediar o conhecimento, potencializando o desenvolvimento pessoal, promovendo " \
                     "a expressão do ser, trazendo a força e o poder para superar os desafios cotidianos e atingir " \
@@ -136,7 +136,7 @@ CONSTS = dict(
         "titulo": PALESTRA_INTELIGENCIA_EMOCIONAL_TITULO,
         "resumo": PALESTRA_INTELIGENCIA_EMOCIONAL_RESUMO
     },
-    EVENT_TYPES=Event.EventTypes.__members__,
+    EVENT_TYPES=EventTypes.__members__,
 )
 
 

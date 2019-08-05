@@ -25,7 +25,8 @@ from .core.views import HomeTemplateView, contact, EventDetailView, registration
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
     CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
     AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView, \
-    InterestedEmotionalIntelligenceLecture, interested, InterestedHypnotherapy, InterestedCoaching
+    InterestedEmotionalIntelligenceLecture, interested, InterestedHypnotherapy, InterestedCoaching, \
+    WaitingListDetailView, waitlisted
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -41,11 +42,13 @@ urlpatterns = [
     path('politica-de-privacidade/', PrivacyPolicyTemplateView.as_view(), name='privacy_policy'),
     path('declaracao-de-cookies/', CookiesStatementTemplateView.as_view(), name='cookies_statement'),
     path('evento/<slug:slug>/', EventDetailView.as_view(), name='event-detail'),
+    path('lista-de-espera/<slug:slug>/', WaitingListDetailView.as_view(), name='waiting-list-detail'),
 
     # Ajax
     path('contact/', contact, name='contact'),
     path('contact_whatsapp/', contact_whatsapp, name='contact_whatsapp'),
     path('registration/', registration, name='registration'),
+    path('waitlisted/', waitlisted, name='waitlisted'),
     path('interested/<type>/<title>', interested, name='interested'),
     path('send_contract/', send_contract, name='send_contract'),
 

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block extra_css %}
+    {{ waitlisted_form.media.css }}
+{% endblock %}
+
+{% block content %}
+    <section class="register">
+        <div class="holder">
+
+            {% if waitinglist.type == event_types.treinamento_oratoria.value %}
+                <img src="{% static '/images/banner/treinamento_oratoria.jpg' %}">
+            {% elif waitinglist.type == event_types.curso_hipnose.value %}
+                <img src="{% static '/images/banner/curso_hipnose.jpg' %}">
+            {% elif waitinglist.type == event_types.treinamento_inteligencia_emocional.value %}
+                <img src="{% static '/images/banner/treinamento_inteligencia_emocional.jpg' %}">
+            {% endif %}
+
+            <div class="register-header">
+
+                {% include 'includes/register_header.html' %}
+
+            </div> <!-- /register-header -->
+
+            <div class="register-entry" id="results">
+                <form method="POST" class="register-form" id="registration-form">{% csrf_token %}
+                    <input type="text" hidden id="id_waiting_list" name="waiting_list" value="{{ waitinglist.pk }}">
+                    <ul>
+                        <li>{{ waitlisted_form.non_field_errors }}</li>
+                        <li>
+                            {{ waitlisted_form.name.errors }}
+                            <label for="{{ waitlisted_form.name.id_for_label }}">{{ waitlisted_form.name.label }}<span>*</span></label>
+                            {{ waitlisted_form.name }}
+                        </li>
+                        <li class="column-01">
+                            {{ waitlisted_form.phone.errors }}
+                            <label for="{{ waitlisted_form.phone.id_for_label }}">{{ waitlisted_form.phone.label }}<span>*</span></label>
+                            {{ waitlisted_form.phone }}
+                        </li>
+                        <li class="column-02">
+                            {{ waitlisted_form.email.errors }}
+                            <label for="{{ waitlisted_form.email.id_for_label }}">{{ waitlisted_form.email.label }}</label>
+                            {{ waitlisted_form.email }}
+                        </li>
+                        <li>
+                            {{ waitlisted_form.city.errors }}
+                            <label for="{{ waitlisted_form.city.id_for_label }}">{{ waitlisted_form.city.label }}<span>*</span></label>
+                            {{ waitlisted_form.city }}
+                        </li>
+                        <li>
+                            <div id="errors"></div>
+                        </li>
+                        <li>
+                            <input type="submit" value="Enviar">
+                        </li>
+                    </ul>
+                </form>
+
+            </div> <!-- /register-entry -->
+
+        </div>
+    </section> <!-- /register -->
+{% endblock content %}
+
+{% block extra_js %}
+    {{ waitlisted_form.media.js }}
+
+    <script type="application/javascript">
+        // AJAX for posting
+        function registration(form) {
+            $body = $("body");
+            $body.addClass("loading");
+            $.ajax({
+                url : "/waitlisted/", // the endpoint
+                type : "POST", // http method
+                data : {
+                    name : $('#id_name').val(),
+                    phone : $('#id_phone').val(),
+                    city : $('#id_city').val(),
+                    email : $('#id_email').val(),
+                    waiting_list : $('#id_waiting_list').val(),
+                }, // data sent with the post request
+
+                // handle a successful response
+                success : function(json) {
+                    $('#results').html('<h3 class="algn-center">'+json.results+'</h3>');
+                    $('#errors').html(json.errors);
+                    $body.removeClass("loading");
+                },
+
+                // handle a non-successful response
+                error : function(xhr,errmsg,err) {
+                    $('#errors').html("Oops! Nós encontramos um erro: "+errmsg); // add the error to the dom
+                    console.error(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    $body.removeClass("loading");
+                }
+            });
+        };
+
+        // Submit post on submit
+        $('#registration-form').on('submit', function(event){
+            event.preventDefault();
+            registration();
+        });
+    </script>
+{% endblock %}

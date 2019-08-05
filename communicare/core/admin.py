@@ -8,7 +8,7 @@ from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
-    source_verbose_name
+    source_verbose_name, WaitingList, GetEventTypesDisplay
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -66,6 +66,15 @@ class EventModelAdmin(admin.ModelAdmin):
     ]
     prepopulated_fields = {'slug': ("title", "subtitle")}
     list_display = ('title', 'subtitle', 'start_date')
+
+
+@admin.register(WaitingList)
+class WaitingListModelAdmin(admin.ModelAdmin):
+    # inlines = [
+    #     RegistrationInline,
+    # ]
+    prepopulated_fields = {'slug': ('type',)}
+    list_display = ('type',)
 
 
 @admin.register(Testimony)

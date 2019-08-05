@@ -18,6 +18,8 @@
 
             {% if event %}
                 <a href="{% url 'event-detail' slug=event.slug %}" class="cta">Fazer inscrição</a>
+            {% elif waiting_list %}
+                <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">Lista de espera</a>
             {% endif %}
 
         {% block actions %}{% endblock %}
