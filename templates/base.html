@@ -46,6 +46,7 @@
 
     <!-- SEO -->
 {#    <link rel="canonical" href="{% firstof page.url SITE.url %}" />#}
+{#    TODO: Aqui tem que ser feito igual está na DR.MERIGUE#}
     <link rel="canonical" href="{{ request.build_absolute_uri }}" />
     <meta name="description" content="{{ page.description }}">
     <meta name="me" content="{{ EMPRESA.name }}">
@@ -76,7 +77,6 @@
         "@context" : "https://schema.org",
         "@type" : "Organization",
         "name" : "{{ EMPRESA.name }}",
-        "url" : "{% firstof page.url SITE.url %}",
         "url" : "{% firstof page.url SITE.url %}",
         "sameAs" : [
             "https://www.facebook.com/CommunicareTreinamentos/",
