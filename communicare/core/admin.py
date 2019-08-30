@@ -8,7 +8,7 @@ from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
-    source_verbose_name, WaitingList, GetEventTypesDisplay
+    source_verbose_name, WaitingList, GetEventTypesDisplay, Waitlisted
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -68,11 +68,17 @@ class EventModelAdmin(admin.ModelAdmin):
     list_display = ('title', 'subtitle', 'start_date')
 
 
+class WaitlistedInline(admin.TabularInline):
+    model = Waitlisted
+    extra = 0
+    autocomplete_fields = ('city',)
+
+
 @admin.register(WaitingList)
 class WaitingListModelAdmin(admin.ModelAdmin):
-    # inlines = [
-    #     RegistrationInline,
-    # ]
+    inlines = [
+        WaitlistedInline,
+    ]
     prepopulated_fields = {'slug': ('type',)}
     list_display = ('type',)
 
