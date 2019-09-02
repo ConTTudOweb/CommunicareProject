@@ -7,7 +7,19 @@
             <span>Turma <strong>{{ event.subtitle }}</strong></span>
         </h2>
         <div class="price">
-            R$ {{ event.amount|floatformat:2|intcomma }}<br>
+            {% if event.amount > 0 %}
+                R$ {{ event.amount|floatformat:2|intcomma }}<br>
+            {% else %}
+                {% if event.amount_lote1 > 0 %}
+                    Lote 1 - R$ {{ event.amount_lote1|floatformat:2|intcomma }} <small style="font-size: small">({{ event.start_date_lote1|date:"d/m/y H:i" }} a {{ event.end_date_lote1|date:"d/m/y H:i" }})</small>
+                {% endif %}
+                {% if event.amount_lote2 > 0 %}
+                    <br>Lote 2 - R$ {{ event.amount_lote2|floatformat:2|intcomma }} <small style="font-size: small">({{ event.start_date_lote2|date:"d/m/y H:i" }} a {{ event.end_date_lote2|date:"d/m/y H:i" }})</small>
+                {% endif %}
+                {% if event.amount_lote3 > 0 %}
+                    <br>Lote 3 - R$ {{ event.amount_lote3|floatformat:2|intcomma }} <small style="font-size: small">({{ event.start_date_lote3|date:"d/m/y H:i" }} a {{ event.end_date_lote3|date:"d/m/y H:i" }})</small>
+                {% endif %}
+            {% endif %}
             <span>{{ PARCELAMENTO }}</span>
         </div>
     </div>
