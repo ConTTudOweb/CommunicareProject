@@ -6,7 +6,7 @@
 ## Como desenvolver?
 
 01. Clone o repositorio;
-02. Crie uma env com Python 3;
+02. Crie uma env com Python 3.7;
 03. Instale as dependências;
 04. Ative a env;
 05. Configure a instancia com o .env;
@@ -17,8 +17,8 @@
 10. Execute o servidor.
 
 ```console
-git clone https://github.com/ConTTudOweb/ConTTudOwebProject.git
-cd ConTTudOwebProject
+git clone https://github.com/ConTTudOweb/CommunicareProject.git
+cd CommunicareProject
 pipenv --three
 pipenv install
 pipenv shell
