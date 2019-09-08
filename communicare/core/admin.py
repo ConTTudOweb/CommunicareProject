@@ -1,3 +1,4 @@
+import re
 import weasyprint
 from django.contrib import admin, messages
 from django.conf import settings
@@ -71,7 +72,13 @@ class EventModelAdmin(admin.ModelAdmin):
 class WaitlistedInline(admin.TabularInline):
     model = Waitlisted
     extra = 0
+    fields = ('name', 'phone', 'email', 'city', 'whatsapp')
+    readonly_fields = ('whatsapp',)
     autocomplete_fields = ('city',)
+
+    def whatsapp(self, obj):
+        return mark_safe(
+            '<a target="_blank" href="https://api.whatsapp.com/send?phone=55' + re.sub("[^0-9]", "", obj.phone) + '">Whatsapp</a>')
 
 
 @admin.register(WaitingList)
@@ -95,9 +102,8 @@ class RegistrationModelAdmin(admin.ModelAdmin):
         title = Event._meta.verbose_name
         parameter_name = 'event'
 
-        def lookups(self, request, model_admin):
-            events = set([r for r in Event.objects.all()])
-            return [(r.id, str(r)) for r in events]
+        def lookups(self, _, model_admin):
+            return [(event.id, str(event)) for event in Event.objects.order_by('-start_date')]
 
         def queryset(self, request, queryset):
             if self.value():
