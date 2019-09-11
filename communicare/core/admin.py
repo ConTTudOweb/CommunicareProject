@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 
+from communicare.utils import get_whatsapp_link
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
     source_verbose_name, WaitingList, GetEventTypesDisplay, Waitlisted
 
@@ -55,7 +56,8 @@ class RegistrationInline(admin.TabularInline):
               "js/jquery/jquery.js")
 
     def send_contract(self, obj):
-        return mark_safe('<a href="javascript:void(0)" onclick="send_contract('+str(obj.pk)+')">Enviar contrato</a>')
+        return mark_safe(
+            '<a href="javascript:void(0)" onclick="send_contract(' + str(obj.pk) + ')">Enviar contrato</a>')
 
     send_contract.short_description = ""
 
@@ -72,13 +74,12 @@ class EventModelAdmin(admin.ModelAdmin):
 class WaitlistedInline(admin.TabularInline):
     model = Waitlisted
     extra = 0
-    fields = ('name', 'phone', 'email', 'city', 'whatsapp')
+    fields = ('name', 'whatsapp', 'phone', 'email', 'city')
     readonly_fields = ('whatsapp',)
     autocomplete_fields = ('city',)
 
     def whatsapp(self, obj):
-        return mark_safe(
-            '<a target="_blank" href="https://api.whatsapp.com/send?phone=55' + re.sub("[^0-9]", "", obj.phone) + '">Whatsapp</a>')
+        return get_whatsapp_link(obj.phone)
 
 
 @admin.register(WaitingList)
@@ -111,15 +112,21 @@ class RegistrationModelAdmin(admin.ModelAdmin):
             else:
                 messages.add_message(request, messages.WARNING, 'Escolha um ' + self.title)
                 return queryset.filter(event__id__exact=0)
+
     list_filter = (EventFilter,)
     search_fields = ('customer__name',)
-    list_display = ('customer', 'contract_sent', 'financial_generated', 'financial_observations', 'nf_status',
-                    'get_customer_source')
+    list_display = (
+    'customer', 'whatsapp', 'contract_sent', 'financial_generated', 'financial_observations', 'nf_status',
+    'get_customer_source')
 
     def get_customer_source(self, obj):
         return obj.customer.source
+
     get_customer_source.short_description = source_verbose_name
     get_customer_source.admin_order_field = 'customer__source'
+
+    def whatsapp(self, obj):
+        return get_whatsapp_link(obj.customer.phone)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         if request.method == 'POST':
@@ -145,9 +152,6 @@ class RegistrationModelAdmin(admin.ModelAdmin):
                         }
                         html = render_to_string('core/contract.html', context)
                         pdf_file = weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf()
-
-
-
 
                         msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to])
                         msg.attach_alternative(html_content, "text/html")

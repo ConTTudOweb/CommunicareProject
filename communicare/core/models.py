@@ -166,6 +166,7 @@ class Registration(models.Model):
         (NfStatus.emitida.value, 'Emitida'),
     ])
     nf = models.CharField('NF', max_length=60, null=True, blank=True)
+    net_value = models.DecimalField('valor líquido', max_digits=15, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return '%s [%s]' % (str(self.customer), str(self.event))
