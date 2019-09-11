@@ -117,7 +117,7 @@ class RegistrationModelAdmin(admin.ModelAdmin):
     search_fields = ('customer__name',)
     list_display = (
     'customer', 'whatsapp', 'contract_sent', 'financial_generated', 'financial_observations', 'nf_status',
-    'get_customer_source')
+    'get_customer_source', 'net_value')
 
     def get_customer_source(self, obj):
         return obj.customer.source
