@@ -259,6 +259,28 @@
       </div>
     </section> <!-- /contato -->
 
+{#    {% for event in events %}#}
+{#        {% if event.start_date|timesince < "1 min" %}#}
+{#            {% if event.open_for_subscriptions %}#}
+{#                {% if not event.amount > 0 %}#}
+{#                    {% if event.amount_lote1 > 0 %}#}
+{#                        <div class="remodal" data-remodal-id="modal"#}
+{#                             data-remodal-options="hashTracking: false">#}
+{##}
+{#                          <button data-remodal-action="close" class="remodal-close"></button>#}
+{##}
+{#                          <img src="{% static "images/banner/treinamento_oratoria.jpg" %}">#}
+{##}
+{#                          <h2><i class="fas fa-tags"></i> Lote 1</h2>#}
+{#                        {{ event.start_date_lote1|timesince }}#}
+{##}
+{#                        </div> <!-- /remodal -->#}
+{#                    {% endif %}#}
+{#                {% endif %}#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+
 {#    <div class="remodal" data-remodal-id="modal"#}
 {#         data-remodal-options="hashTracking: false">#}
 {##}

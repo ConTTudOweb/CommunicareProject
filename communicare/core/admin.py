@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 
 from communicare.utils import get_whatsapp_link
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
-    source_verbose_name, WaitingList, GetEventTypesDisplay, Waitlisted
+    source_verbose_name, WaitingList, GetEventTypesDisplay, Waitlisted, Expense
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -44,6 +44,16 @@ class CustomerModelAdmin(admin.ModelAdmin):
     autocomplete_fields = ('city',)
 
 
+@admin.register(Expense)
+class ExpenseModelAdmin(admin.ModelAdmin):
+    pass
+
+
+class ExpenseInline(admin.TabularInline):
+    model = Expense
+    extra = 1
+
+
 class RegistrationInline(admin.TabularInline):
     model = Event.registrations.through
     extra = 0
@@ -66,6 +76,7 @@ class RegistrationInline(admin.TabularInline):
 class EventModelAdmin(admin.ModelAdmin):
     inlines = [
         RegistrationInline,
+        ExpenseInline
     ]
     prepopulated_fields = {'slug': ("title", "subtitle")}
     list_display = ('title', 'subtitle', 'start_date')

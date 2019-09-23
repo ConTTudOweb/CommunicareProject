@@ -217,3 +217,15 @@ class Waitlisted(models.Model):
 
     class Meta:
         verbose_name = 'interessado'
+
+
+class Expense(models.Model):
+    description = models.CharField('descrição', max_length=255)
+    amount = models.DecimalField('valor', max_digits=15, decimal_places=2, null=True, blank=True)
+    event = models.ForeignKey('Event', verbose_name=event_verbose_name, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.description
+
+    class Meta:
+        verbose_name = 'despesa'
