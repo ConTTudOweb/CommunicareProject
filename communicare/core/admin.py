@@ -4,13 +4,13 @@ from django.contrib import admin, messages
 from django.conf import settings
 from django.contrib.admin import SimpleListFilter
 from django.core.mail import EmailMultiAlternatives
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 
 from communicare.utils import get_whatsapp_link
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
-    source_verbose_name, WaitingList, GetEventTypesDisplay, Waitlisted, Expense
+    source_verbose_name, WaitingList, GetEventTypesDisplay, Waitlisted, Expense, Lead
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -79,7 +79,7 @@ class EventModelAdmin(admin.ModelAdmin):
         ExpenseInline
     ]
     prepopulated_fields = {'slug': ("title", "subtitle")}
-    list_display = ('title', 'subtitle', 'start_date')
+    list_display = ('title', 'subtitle', 'start_date', 'lucro_liquido', 'total_despesas', 'percentual_despesa')
 
 
 class WaitlistedInline(admin.TabularInline):
@@ -186,3 +186,18 @@ class RegistrationModelAdmin(admin.ModelAdmin):
 
         return super(RegistrationModelAdmin, self).change_view(request, object_id, form_url,
                                                                extra_context=extra_context)
+
+
+def export_emails(modeladmin, request, queryset):
+    # response = HttpResponse(content_type="application/html")
+    emails = Lead.objects.filter(email__isnull=False).values('email')
+    emails = ("{}, ".format(i['email']) for i in emails)
+    return HttpResponse(content=emails)
+export_emails.short_description = "Exportar e-mails"
+
+
+@admin.register(Lead)
+class LeadAdmin(admin.ModelAdmin):
+    actions = [
+        export_emails
+    ]

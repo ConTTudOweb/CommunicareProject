@@ -3,6 +3,7 @@ import enum
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.db.models import Sum
 
 
 class FederativeUnit(models.Model):
@@ -143,6 +144,28 @@ class Event(models.Model):
     slug = models.SlugField(max_length=255, unique=True, verbose_name="Slug / URL",
                             help_text="Preenchido automaticamente, não editar.")
 
+    def _lucro_liquido(self):
+        query = Registration.objects.filter(event=self, net_value__isnull=False).aggregate(lucro_liquido=Sum('net_value'))
+        return query['lucro_liquido'] or 0.0
+
+    def lucro_liquido(self):
+        return '{:.2f}'.format(self._lucro_liquido())
+
+    def _total_despesas(self):
+        query = Expense.objects.filter(event=self, amount__isnull=False).aggregate(total_despesas=Sum('amount'))
+        return query['total_despesas'] or 0.0
+
+    def total_despesas(self):
+        return '{:.2f}'.format(self._total_despesas())
+
+    def percentual_despesa(self):
+        if self._total_despesas() and self._lucro_liquido():
+            value = (self._total_despesas() / self._lucro_liquido()) * 100
+        else:
+            value = 0.0
+
+        return '{:.2f}%'.format(value)
+
     def __str__(self):
         return "{} ({})".format(self.title, self.subtitle)
 
@@ -229,3 +252,12 @@ class Expense(models.Model):
 
     class Meta:
         verbose_name = 'despesa'
+
+
+class Lead(models.Model):
+    name = models.CharField('nome', max_length=255)
+    email = models.EmailField('e-mail', unique=True, null=True, blank=True)
+    phone = models.CharField('telefone', max_length=20)
+
+    def __str__(self):
+        return self.name
