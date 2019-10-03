@@ -181,7 +181,7 @@ class Registration(models.Model):
     customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
     event = models.ForeignKey('Event', verbose_name=event_verbose_name, on_delete=models.PROTECT)
     contract_sent = models.BooleanField('contrato enviado?', default=False)
-    financial_generated = models.BooleanField('financeiro gerado?', default=False)
+    financial_generated = models.BooleanField('recebimento confirmado?', default=False)
     financial_observations = models.TextField('observações financeiras', null=True, blank=True)
     nf_status = models.CharField('Situação NF', max_length=1, blank=True, default=NfStatus.pendente.value, choices=[
         (NfStatus.null.value, ''),
