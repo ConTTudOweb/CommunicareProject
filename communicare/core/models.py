@@ -261,3 +261,16 @@ class Lead(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Lecture(models.Model):
+    description = models.CharField('descrição', max_length=255)
+    city = models.ForeignKey(City, on_delete=models.PROTECT, verbose_name='cidade')
+    date = models.DateTimeField('data/hora')
+    participants = models.ManyToManyField(Lead, blank=True, verbose_name='participantes')
+
+    def __str__(self):
+        return self.description
+
+    class Meta:
+        verbose_name = 'palestra'
