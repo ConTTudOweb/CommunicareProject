@@ -272,7 +272,7 @@ class Lecture(models.Model):
     participants = models.ManyToManyField(Lead, blank=True, verbose_name='participantes', through='Audience')
 
     def __str__(self):
-        return self.description
+        return "{} - {}".format(self.description, self.date.strftime("%d/%m/%Y"))
 
     class Meta:
         verbose_name = 'palestra'
