@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 
 from communicare.utils import get_whatsapp_link
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
-    source_verbose_name, WaitingList, GetEventTypesDisplay, Waitlisted, Expense, Lead
+    source_verbose_name, WaitingList, Waitlisted, Expense, Lead, Lecture, Audience
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -198,6 +198,26 @@ export_emails.short_description = "Exportar e-mails"
 
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
+    search_fields = ('name', 'email', 'phone')
     actions = [
         export_emails
+    ]
+
+
+class ParticipantInline(admin.TabularInline):
+    model = Audience
+    autocomplete_fields = ('lead',)
+    extra = 0
+    fields = ('lead', 'whatsapp')
+    readonly_fields = ('whatsapp',)
+
+    def whatsapp(self, obj):
+        return get_whatsapp_link(obj.lead.phone)
+
+
+@admin.register(Lecture)
+class LectureAdmin(admin.ModelAdmin):
+    autocomplete_fields = ('city',)
+    inlines = [
+        ParticipantInline,
     ]

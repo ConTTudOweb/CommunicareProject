@@ -5,6 +5,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Sum
 
+from communicare.utils import get_whatsapp_link
+
 
 class FederativeUnit(models.Model):
     initials = models.CharField('sigla', max_length=2, unique=True)
@@ -256,8 +258,8 @@ class Expense(models.Model):
 
 class Lead(models.Model):
     name = models.CharField('nome', max_length=255)
-    email = models.EmailField('e-mail', unique=True, null=True, blank=True)
-    phone = models.CharField('telefone', max_length=20)
+    email = models.EmailField('e-mail', null=True, blank=True)
+    phone = models.CharField('telefone', unique=True, max_length=20)
 
     def __str__(self):
         return self.name
@@ -267,10 +269,22 @@ class Lecture(models.Model):
     description = models.CharField('descrição', max_length=255)
     city = models.ForeignKey(City, on_delete=models.PROTECT, verbose_name='cidade')
     date = models.DateTimeField('data/hora')
-    participants = models.ManyToManyField(Lead, blank=True, verbose_name='participantes')
+    participants = models.ManyToManyField(Lead, blank=True, verbose_name='participantes', through='Audience')
 
     def __str__(self):
         return self.description
 
     class Meta:
         verbose_name = 'palestra'
+
+
+class Audience(models.Model):
+    lecture = models.ForeignKey(Lecture, on_delete=models.CASCADE)
+    lead = models.ForeignKey(Lead, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.lead)
+
+    class Meta:
+        verbose_name = 'plateia'
+        verbose_name_plural = 'plateia'
