@@ -199,9 +199,11 @@ export_emails.short_description = "Exportar e-mails"
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email', 'phone')
+    list_filter = (('lecture__city', admin.RelatedOnlyFieldListFilter),)
     actions = [
         export_emails
     ]
+
 
 
 class ParticipantInline(admin.TabularInline):
@@ -217,7 +219,9 @@ class ParticipantInline(admin.TabularInline):
 
 @admin.register(Lecture)
 class LectureAdmin(admin.ModelAdmin):
+    list_display = ('description', 'city', 'date')
     autocomplete_fields = ('city',)
+    ordering = ('-date',)
     inlines = [
         ParticipantInline,
     ]
