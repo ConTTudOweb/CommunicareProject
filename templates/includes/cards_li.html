@@ -11,7 +11,11 @@
     </a>
     <a href="{% url card_more_link %}" class="view-more">Saiba mais</a>
     {% if event %}
-        <a href="{% url 'event-detail' slug=event.slug %}" class="view-more-cta">Inscrição</a>
+        {% if event.external_subscriptions %}
+            <a href="{{ event.external_subscriptions }}" target="_blank" class="view-more-cta">Inscrição</a>
+        {% else %}
+            <a href="{% url 'event-detail' slug=event.slug %}" class="view-more-cta">Inscrição</a>
+        {% endif %}
     {% elif waiting_list %}
         <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="view-more-cta">Lista de espera</a>
     {% endif %}

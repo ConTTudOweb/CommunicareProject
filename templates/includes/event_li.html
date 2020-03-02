@@ -25,7 +25,11 @@
             {% endif %}
         {% else %}
             {% if event.open_for_subscriptions %}
-                <a class="view-more-cta" href="{% url 'event-detail' slug=event.slug %}"><i class="fas fa-sign-in-alt"></i>Inscreva-se</a>
+                {% if event.external_subscriptions %}
+                    <a class="view-more-cta" href="{{ event.external_subscriptions }}" target="_blank"><i class="fas fa-sign-in-alt"></i>Inscreva-se</a>
+                {% else %}
+                    <a class="view-more-cta" href="{% url 'event-detail' slug=event.slug %}"><i class="fas fa-sign-in-alt"></i>Inscreva-se</a>
+                {% endif %}
             {% else %}
                 <a class="view-more-cta" disabled="disabled">Inscrições em breve</a>
             {% endif %}

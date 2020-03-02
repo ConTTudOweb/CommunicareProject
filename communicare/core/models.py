@@ -136,6 +136,7 @@ class Event(models.Model):
     end_date_lote3 = models.DateTimeField('data de término lote 3', null=True, blank=True)
     visible = models.BooleanField('visível no site', default=True)
     open_for_subscriptions = models.BooleanField('aberto para inscrições', default=False)
+    external_subscriptions = models.URLField('inscrição externa', null=True, blank=True)
     registrations = models.ManyToManyField('Customer', blank=True, verbose_name='clientes', through='Registration')
     type = models.CharField('tipo', max_length=7, choices=[
         (EventTypes.treinamento_oratoria.value, GetEventTypesDisplay(EventTypes.treinamento_oratoria.value)),
