@@ -7,10 +7,15 @@
 
 {% block extrahead %}
     <!-- Favicons -->
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/favicon-32x32.png" %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon-16x16.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}?v=PYqP0dW2nv">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}?v=PYqP0dW2nv">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}?v=PYqP0dW2nv">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}?v=PYqP0dW2nv">
+    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}?v=PYqP0dW2nv" color="#000000">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}?v=PYqP0dW2nv">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="{% static 'favicon/browserconfig.xml' %}?v=PYqP0dW2nv">
+    <meta name="theme-color" content="#ffffff">
 {% endblock %}
 
 {% block title %}{{ title }}{% if site_title %} | {{ site_title }}{% endif %}{% endblock %}

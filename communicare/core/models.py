@@ -1,9 +1,12 @@
 import enum
 
+from cloudinary import uploader
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Sum
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
 
 from communicare.utils import get_whatsapp_link
 
@@ -45,6 +48,11 @@ class Place(models.Model):
     class Meta:
         verbose_name = 'local'
         verbose_name_plural = 'locais'
+
+
+@receiver(pre_delete, sender=Place)
+def place_image_delete(sender, instance, **kwargs):
+    uploader.destroy(instance.image.public_id)
 
 
 class Source(models.Model):
@@ -289,3 +297,31 @@ class Audience(models.Model):
     class Meta:
         verbose_name = 'plateia'
         verbose_name_plural = 'plateia'
+
+
+class Gallery(models.Model):
+    image = CloudinaryField('imagem', help_text="Manter um padrão e ter no máximo 1000px")
+
+    def __str__(self):
+        return str(self.image)
+
+    class Meta:
+        verbose_name = 'imagem da galeria'
+        verbose_name_plural = 'imagens da galeria'
+
+
+@receiver(pre_delete, sender=Gallery)
+def gallery_image_delete(sender, instance, **kwargs):
+    uploader.destroy(instance.image.public_id)
+
+
+class TestimonyHipnoterapia(models.Model):
+    description = models.CharField(max_length=255)
+    id_video_youtube = models.CharField(max_length=120)
+
+    def __str__(self):
+        return str(self.description)
+
+    class Meta:
+        verbose_name = 'depoimento hipnoterapia'
+        verbose_name_plural = 'depoimentos hipnoterapia'

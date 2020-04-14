@@ -1,37 +1,50 @@
 {% load i18n static %}<!DOCTYPE html>
 <html lang="pt-br">
-
-  <head>
-
+<head>
     <meta http-equiv="Content-Language" content="pt-br">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57052794-8"></script>
-    <script data-cookieconsent="statistics">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-57052794-8');
-    </script>
+    {% if not debug %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57052794-8"></script>
+        <script data-cookieconsent="statistics">
+            window.dataLayer = window.dataLayer || [];
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PW2694T');</script>
-    <!-- End Google Tag Manager -->
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'UA-57052794-8');
+        </script>
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PW2694T');</script>
+        <!-- End Google Tag Manager -->
+    {% endif %}
 
     <meta charset="utf-8">
 
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
     <title>{{ page.title }} | {{ EMPRESA.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
     <link href="{% static "stylesheet/normalize.css" %}" rel="stylesheet">
@@ -42,21 +55,26 @@
     <link href="{% static "css/loading.css" %}" rel="stylesheet">
     <link href="{% static "css/custom_v1.css" %}" rel="stylesheet">
 
-      {% block extra_css %}{% endblock extra_css %}
+    {% block extra_css %}{% endblock extra_css %}
 
     <!-- SEO -->
-{#    <link rel="canonical" href="{% firstof page.url SITE.url %}" />#}
-{#    TODO: Aqui tem que ser feito igual está na DR.MERIGUE#}
-    <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+    {#    <link rel="canonical" href="{% firstof page.url SITE.url %}" />#}
+    {#    TODO: Aqui tem que ser feito igual está na DR.MERIGUE#}
+    <link rel="canonical" href="{{ request.build_absolute_uri }}"/>
     <meta name="description" content="{{ page.description }}">
     <meta name="me" content="{{ EMPRESA.name }}">
     <meta name="keywords" content="{{ page.keywords }}">
 
     <!-- Favicons -->
-  <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/favicon-32x32.png" %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon-16x16.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}?v=PYqP0dW2nv">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}?v=PYqP0dW2nv">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}?v=PYqP0dW2nv">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}?v=PYqP0dW2nv">
+    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}?v=PYqP0dW2nv" color="#000000">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}?v=PYqP0dW2nv">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="{% static 'favicon/browserconfig.xml' %}?v=PYqP0dW2nv">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Jetpack Open Graph Tags -->
     <meta property="og:type" content="website">
@@ -64,141 +82,148 @@
     <meta property="og:description" content="{{ page.description }}">
     <meta property="og:url" content="{% firstof page.url SITE.url %}">
     <meta property="og:site_name" content="{{ EMPRESA.name }}">
-    <meta property="og:image" content="{{ SITE.url }}{% static 'images/avatar_communicare_treinamentos.jpg' %}">
+    <meta property="og:image" content="{{ SITE.url }}{% static 'images/avatar.jpg' %}">
     <meta property="og:locale" content="pt_BR">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@CommunicareBR" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@CommunicareBR"/>
 
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="e0832ee0-dbd7-4d0e-90de-09e791db1801" type="text/javascript" async></script>
+    {% if not debug %}
+        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
+                data-cbid="e0832ee0-dbd7-4d0e-90de-09e791db1801" type="text/javascript" async></script>
 
-    <script type="application/ld+json">
-      {
-        "@context" : "https://schema.org",
-        "@type" : "Organization",
-        "name" : "{{ EMPRESA.name }}",
-        "url" : "{% firstof page.url SITE.url %}",
-        "sameAs" : [
-            "https://www.facebook.com/CommunicareTreinamentos/",
-            "https://www.instagram.com/explore/locations/279528915/",
-            "https://twitter.com/communicarebr",
-            "https://www.linkedin.com/company/communicaretreinamentos/",
-            "https://www.youtube.com/channel/UCJWIepXJpUvDhiqg9WMcSKA"
-        ]
-      }
-    </script>
+        <script type="application/ld+json">
+          {
+            "@context" : "https://schema.org",
+            "@type" : "Organization",
+            "name" : "{{ EMPRESA.name }}",
+            "url" : "{% firstof page.url SITE.url %}",
+            "sameAs" : [
+                "https://www.facebook.com/CommunicareTreinamentos/",
+                "https://www.instagram.com/explore/locations/279528915/",
+                "https://twitter.com/communicarebr",
+                "https://www.linkedin.com/company/communicaretreinamentos/",
+                "https://www.youtube.com/channel/UCJWIepXJpUvDhiqg9WMcSKA"
+            ]
+          }
+        </script>
 
-    <meta name="google-site-verification" content="mxoFyAD1M4ZdSQPRr3jvHT_Wu6SkfYyPRqz-o2ofUus" />
+        <meta name="google-site-verification" content="mxoFyAD1M4ZdSQPRr3jvHT_Wu6SkfYyPRqz-o2ofUus"/>
+    {% endif %}
 
-  </head>
+</head>
 
-  <body remodal-bg>
+<body remodal-bg>
 
+{% if not debug %}
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW2694T"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW2694T"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
+{% endif %}
 
-    <div class="modal_loading"></div>
+<div class="modal_loading"></div>
 
-    <header>
-      <div class="holder">
+<header>
+    <div class="holder">
         <h1 class="logo">
-          <a href="{% url 'home' %}#inicio">
-            <img src="{% static "images/logo.png" %}">
-          </a>
+            <a href="{% url 'home' %}#inicio">
+                <img src="{% static "images/logo.png" %}">
+            </a>
         </h1>
         <nav>
-          <ul>
-            <li><a href="{% url 'home' %}#cursos-e-treinamentos">Cursos e Treinamentos</a></li>
-            <li><a href="{% url 'home' %}#atendimentos">Atendimentos</a></li>
-            <li>
-              <span>Palestras</span>
-              <div class="dropdown">
-                <div><a href="{% url 'palestra_inteligencia_emocional' %}">Inteligência Emocional</a></div>
-              </div>
-            </li>
-            <li><a href="{% url 'home' %}#agenda">Agenda</a></li>
-            <li><a href="{% url 'home' %}#depoimentos">Depoimentos</a></li>
-            <li><a href="{% url 'home' %}#quem-somos">Quem somos</a></li>
-            <li><a href="{% url 'gallery' %}">Galeria de Fotos</a></li>
-            <li><a href="{% url 'home' %}#contato">Contato</a></li>
-          </ul>
+            <ul>
+                <li><a href="{% url 'home' %}#cursos-e-treinamentos">Cursos e Treinamentos</a></li>
+{#                <li><a href="{% url 'home' %}#atendimentos">Atendimentos</a></li>#}
+                <li><a href="{% url 'atendimento_hipnoterapia' %}">Hipnoterapia</a></li>
+                <li>
+                    <span>Palestras</span>
+                    <div class="dropdown">
+                        <div><a href="{% url 'palestra_inteligencia_emocional' %}">Inteligência Emocional</a></div>
+                    </div>
+                </li>
+                <li><a href="{% url 'home' %}#agenda">Agenda</a></li>
+                <li><a href="{% url 'home' %}#depoimentos">Depoimentos</a></li>
+                <li><a href="{% url 'home' %}#quem-somos">Quem somos</a></li>
+                <li><a href="{% url 'gallery' %}">Galeria de Fotos</a></li>
+                <li><a href="{% url 'home' %}#contato">Contato</a></li>
+            </ul>
         </nav>
         <a class="menu-trigger">Menu</a>
-      </div>
-    </header>
+    </div>
+</header>
 
-    {% block content %}
-    {% endblock content %}
+{% block content %}
+{% endblock content %}
 
-    <div class="whatsapp-widget">
-      <div class="whatsapp-header">
+<div class="whatsapp-widget">
+    <div class="whatsapp-header">
         <i class="fab fa-whatsapp"></i>
         Saiba os valores via<br> <span>WhatsApp</span>
-      </div>
-        <label id="whats_results"></label>
-      <form method="POST" id="whatsapp-form">
+    </div>
+    <label id="whats_results"></label>
+    <form method="POST" id="whatsapp-form">
         <input type="text" placeholder="Nome" id="whats_name" required>
         <input type="tel" placeholder="Telefone" id="whats_tel" required>
         <input type="submit" value="Solicitar atendimento">
-      </form>
-    </div>
+    </form>
+</div>
 
-    <footer>
-      <div class="holder">
+<footer>
+    <div class="holder">
 
         <div class="copy">
-          &copy; <strong>2019 Communicare Treinamentos</strong> - Todos os direitos reservados.
-          <ul class="ft-links">
-            <li><a href="{% url 'privacy_policy' %}">Política de Privacidade</a></li>
-            <li><a href="{% url 'cookies_statement' %}">Declaração de Cookies</a></li>
-          </ul>
+            &copy; <strong>2019 Communicare Treinamentos</strong> - Todos os direitos reservados.
+            <ul class="ft-links">
+                <li><a href="{% url 'privacy_policy' %}">Política de Privacidade</a></li>
+                <li><a href="{% url 'cookies_statement' %}">Declaração de Cookies</a></li>
+            </ul>
         </div>
 
         <ul class="ft-social">
-          <li>
-            <a target="_blank" href="https://www.instagram.com/communicaretreinamentos/" title="Ir para o Instagram da {{ EMPRESA.name }}">
-              <div><i class="fab fa-instagram"></i></div>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://www.facebook.com/CommunicareTreinamentos/" title="Ir para o Facebook da {{ EMPRESA.name }}">
-              <div><i class="fab fa-facebook"></i></div>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://twitter.com/communicarebr" title="Ir para o Twitter da {{ EMPRESA.name }}">
-              <div><i class="fab fa-twitter"></i></div>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://www.linkedin.com/company/communicaretreinamentos/" title="Ir para o Linkedin da {{ EMPRESA.name }}">
-              <div><i class="fab fa-linkedin"></i></div>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="http://www.youtube.com/channel/UCJWIepXJpUvDhiqg9WMcSKA" title="Ir para o YouTube da {{ EMPRESA.name }}">
-              <div><i class="fab fa-youtube"></i></div>
-            </a>
-          </li>
+            <li>
+                <a target="_blank" href="{{ SITE.instagram }}"
+                   title="Ir para o Instagram da {{ EMPRESA.name }}">
+                    <div><i class="fab fa-instagram"></i></div>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="{{ SITE.facebook }}"
+                   title="Ir para o Facebook da {{ EMPRESA.name }}">
+                    <div><i class="fab fa-facebook"></i></div>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="{{ SITE.youtube }}"
+                   title="Ir para o YouTube da {{ EMPRESA.name }}">
+                    <div><i class="fab fa-youtube"></i></div>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="{{ SITE.linkedin }}"
+                   title="Ir para o Linkedin da {{ EMPRESA.name }}">
+                    <div><i class="fab fa-linkedin"></i></div>
+                </a>
+            </li>
         </ul>
 
         <img src="{% static "images/apple-touch-icon.png" %}">
 
-      </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="{% static "js/jquery/jquery.js" %}"></script>
-    <script src="{% static "js/flexslider-min.js" %}"></script>
-    <script src="{% static "js/simple-mask.js" %}"></script>
-    <script src="{% static "js/main.js" %}"></script>
-    <script src="{% static "js/get-csrftoken.js" %}"></script>
-    <script src="{% static "js/contact-whatsapp.js" %}"></script>
+<script src="{% static "js/jquery/jquery.js" %}"></script>
+<script src="{% static "js/flexslider-min.js" %}"></script>
+<script src="{% static "js/simple-mask.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+<script src="{% static "js/get-csrftoken.js" %}"></script>
+<script src="{% static "js/contact-whatsapp.js" %}"></script>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 
-  {% block extra_js %}{% endblock %}
+{% block extra_js %}{% endblock %}
 
-  </body>
+</body>
 </html>

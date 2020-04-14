@@ -23,3 +23,24 @@
 header li span {
     cursor: pointer !important;
 }
+
+/* --- */
+
+.iframe-container{
+    margin: 0 auto;
+    max-width:100%;
+    width:500px;
+    height:300px;
+}
+@media only screen and (max-width: 992px) {
+    .iframe-container{
+        width: 80%;
+        height:400px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .iframe-container{
+        width: 100%;
+        height:500px;
+    }
+}

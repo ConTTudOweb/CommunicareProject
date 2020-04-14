@@ -4,88 +4,90 @@
 {% block content %}
     <section class="details-page">
 
-      <div class="details-header {% block details_header_class %}{% endblock %}">
-        <div class="holder">
+        <div class="details-header {% block details_header_class %}{% endblock %}">
+            <div class="holder">
 
-          <h2>
-              {% block details_frase %}{% endblock %}
-          </h2>
+                <h2>
+                    {% block details_frase %}{% endblock %}
+                </h2>
 
-          <blockquote>
-              {% block details_citacao %}{% endblock %}<br>
-            <span>{% block details_citacao_autor %}{% endblock %}</span>
-          </blockquote>
+                <blockquote>
+                    {% block details_citacao %}{% endblock %}<br>
+                    <span>{% block details_citacao_autor %}{% endblock %}</span>
+                </blockquote>
 
-            {% if event %}
-                {% if event.external_subscriptions %}
-                    <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">Fazer inscrição</a>
-                {% else %}
-                    <a href="{% url 'event-detail' slug=event.slug %}" class="cta">Fazer inscrição</a>
+                {% if event %}
+                    {% if event.external_subscriptions %}
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">Fazer inscrição</a>
+                    {% else %}
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">Fazer inscrição</a>
+                    {% endif %}
+                {% elif waiting_list %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">Lista de espera</a>
                 {% endif %}
-            {% elif waiting_list %}
-                <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">Lista de espera</a>
-            {% endif %}
 
-        {% block actions %}{% endblock %}
+                {% block actions %}{% endblock %}
 
-        </div>
-      </div> <!-- /details-header -->
+            </div>
+        </div> <!-- /details-header -->
 
-      <div class="register-header">
+        <div class="register-header">
+            <div class="holder">
+
+                {% include 'includes/register_header.html' with event=event %}
+
+            </div>
+        </div> <!-- /register-header -->
+
         <div class="holder">
+            <div class="details-entry">
 
-            {% include 'includes/register_header.html' with event=event %}
+                <div class="columns cols-aside">
 
+                    <div class="column-01">
+                        <h3>{% block details_sobre %}{% endblock %}</h3>
+                        {% block details_sobre_p %}{% endblock %}
+                        <h3>Objetivos</h3>
+                        {% block details_objetivos_p %}{% endblock %}
+                    </div>
+
+                    <div class="column-02">
+                        <h4>Duração</h4>
+                        <p>
+                            {% block details_duracao %}{% endblock %}
+                        </p>
+                        <h4>Para quem?</h4>
+                        <p>
+                            {% block details_para_quem %}{% endblock %}
+                        </p>
+                    </div>
+
+                </div> <!-- /columns -->
+
+                <div class="columns with-border">
+
+                    {% block program_content %}
+                        <div class="column-01">
+                            <h3>Ementa</h3>
+                            <ul class="motivations">
+                                {% block program_content_li %}{% endblock %}
+                            </ul>
+                        </div>
+                    {% endblock %}
+
+                    <div class="{% block benefits_class %}column-02{% endblock %}">
+                        <h3>Benefícios</h3>
+                        <ul class="motivations benefits">
+                            {% block benefits_li %}{% endblock %}
+                        </ul>
+                    </div>
+
+                </div> <!-- /columns -->
+
+                {% block depoiments %}{% endblock %}
+
+            </div> <!-- /details-entry -->
         </div>
-      </div> <!-- /register-header -->
-
-      <div class="holder">
-        <div class="details-entry">
-
-          <div class="columns cols-aside">
-
-            <div class="column-01">
-              <h3>{% block details_sobre %}{% endblock %}</h3>
-              {% block details_sobre_p %}{% endblock %}
-              <h3>Objetivos</h3>
-              {% block details_objetivos_p %}{% endblock %}
-            </div>
-
-            <div class="column-02">
-              <h4>Duração</h4>
-              <p>
-                  {% block details_duracao %}{% endblock %}
-              </p>
-              <h4>Para quem?</h4>
-              <p>
-                  {% block details_para_quem %}{% endblock %}
-              </p>
-            </div>
-
-          </div> <!-- /columns -->
-
-          <div class="columns with-border">
-
-            {% block program_content %}
-            <div class="column-01">
-                  <h3>Ementa</h3>
-                  <ul class="motivations">
-                      {% block program_content_li %}{% endblock %}
-                  </ul>
-            </div>
-            {% endblock %}
-
-            <div class="{% block benefits_class %}column-02{% endblock %}">
-              <h3>Benefícios</h3>
-              <ul class="motivations benefits">
-                  {% block benefits_li %}{% endblock %}
-              </ul>
-            </div>
-
-          </div> <!-- /columns -->
-
-        </div> <!-- /details-entry -->
-      </div>
 
     </section> <!-- /details-page -->
 {% endblock content %}

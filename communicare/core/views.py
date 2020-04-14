@@ -8,7 +8,8 @@ from django.template.loader import render_to_string
 from django.views.generic import TemplateView, DetailView, FormView
 
 from communicare.core.context_processors import CONSTS, PAGES
-from ..core.models import Event, Customer, Registration, Testimony, WaitingList, EventTypes
+from ..core.models import Event, Customer, Registration, Testimony, WaitingList, EventTypes, Gallery, \
+    TestimonyHipnoterapia
 from ..core.forms import ContactForm, CustomerForm, InterestedForm, WaitlistedForm
 
 
@@ -287,8 +288,8 @@ class InterestedHypnotherapy(InterestedFormView):
     template_name = "interested_form_atendimento_hipnoterapia.html"
 
 
-class InterestedCoaching(InterestedFormView):
-    template_name = "interested_form_atendimento_coaching.html"
+# class InterestedCoaching(InterestedFormView):
+#     template_name = "interested_form_atendimento_coaching.html"
 
 
 class BaseTemplateView(TemplateView):
@@ -311,6 +312,11 @@ class CookiesStatementTemplateView(BaseTemplateView):
 
 class GalleryTemplateView(BaseTemplateView):
     template_name = 'gallery.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GalleryTemplateView, self).get_context_data(**kwargs)
+        context['images'] = Gallery.objects.all()
+        return context
 
 
 class BaseCursoTemplateView(TemplateView):
@@ -346,14 +352,19 @@ class TreinamentoInteligenciaEmocionalTemplateView(BaseCursoTemplateView):
     page = "PAGE_TREINAMENTO_INTELIGENCIA_EMOCIONAL"
 
 
-class AtendimentoCoachingTemplateView(BaseCursoTemplateView):
-    template_name = 'atendimento_coaching.html'
-    page = "PAGE_ATENDIMENTO_COACHING"
+# class AtendimentoCoachingTemplateView(BaseCursoTemplateView):
+#     template_name = 'atendimento_coaching.html'
+#     page = "PAGE_ATENDIMENTO_COACHING"
 
 
 class AtendimentoHipnoterapiaTemplateView(BaseCursoTemplateView):
     template_name = 'atendimento_hipnoterapia.html'
     page = "PAGE_ATENDIMENTO_HIPNOTERAPIA"
+
+    def get_context_data(self, **kwargs):
+        context = super(AtendimentoHipnoterapiaTemplateView, self).get_context_data(**kwargs)
+        context['testimonies'] = TestimonyHipnoterapia.objects.all()
+        return context
 
 
 class BasePalestraTemplateView(TemplateView):

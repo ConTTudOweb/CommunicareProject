@@ -109,7 +109,11 @@ CONSTS = dict(
         "name": "Communicare Treinamentos",
     },
     SITE={
-        "url": "https://communicaretreinamentos.com.br"
+        "url": "https://communicaretreinamentos.com.br",
+        "instagram": "https://www.instagram.com/viniciuscommunicare/",
+        "facebook": "https://www.facebook.com/viniciushipnoterapia/",
+        "linkedin": "https://www.linkedin.com/in/vinicampos/",
+        "youtube": "https://www.youtube.com/channel/UCgGb95A1399ogNHOi3bDbOg",
     },
     PARCELAMENTO="",
     TREINAMENTO_ORATORIA={

@@ -7,99 +7,138 @@
 
 {% block content %}
     <section class="gallery">
-      <div class="holder">
+        <div class="holder">
 
-        <h2>Galeria de fotos</h2>
+            <h2>Galeria de fotos</h2>
 
-        <ul class="gallery-list">
-          <li>
-            <a href="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana1_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana1_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana2_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana2_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/curso_de_hipnose_1_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/curso_de_hipnose_1_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/palestra_inteligencia_emocional2_fap_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/palestra_inteligencia_emocional2_fap_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/palestra_inteligencia_emocional3_fap_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/palestra_inteligencia_emocional3_fap_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/palestra_inteligencia_emocional4_fap_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/palestra_inteligencia_emocional4_fap_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/palestra_inteligencia_emocional_fap_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/palestra_inteligencia_emocional_fap_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/palestra_inteligencia_emocional_hospital_da_providencia_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/palestra_inteligencia_emocional_hospital_da_providencia_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_1_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_1_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_2_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_2_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_3_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_3_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_4_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_4_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_apresentacao_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_apresentacao_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_aula1_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_aula1_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_certificado_communicare_treinamentos.jpeg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_certificado_communicare_treinamentos.jpeg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/treinamento_de_oratoria_communicare_treinamentos.jpeg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/treinamento_de_oratoria_communicare_treinamentos.jpeg' %}" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="{% static 'images/gallery/filmagens_communicare_treinamentos.jpg' %}" data-lightbox="roadtrip">
-              <img src="{% static 'images/gallery/filmagens_communicare_treinamentos.jpg' %}" alt="">
-            </a>
-          </li>
-        </ul>
+            <ul class="gallery-list">
+                {% if images %}
+                    {% for img in images %}
+                        {% include 'includes/gallery_li.html' with img=img %}
+                    {% endfor %}
+                {% else %}
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana2_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana2_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/curso_de_hipnose_1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/curso_de_hipnose_1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional2_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional2_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional3_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional3_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional4_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional4_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_hospital_da_providencia_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_hospital_da_providencia_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_2_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_2_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_3_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_3_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_4_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_4_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_apresentacao_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_apresentacao_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_aula1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_aula1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_certificado_communicare_treinamentos.jpeg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_certificado_communicare_treinamentos.jpeg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_communicare_treinamentos.jpeg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_communicare_treinamentos.jpeg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/filmagens_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/filmagens_communicare_treinamentos.jpg' %}" alt="">
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
 
-      </div>
+        </div>
     </section>
 {% endblock content %}
 

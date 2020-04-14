@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 
 from communicare.utils import get_whatsapp_link
 from ..core.models import Event, Customer, Place, City, FederativeUnit, Source, Testimony, Registration, \
-    source_verbose_name, WaitingList, Waitlisted, Expense, Lead, Lecture, Audience
+    source_verbose_name, WaitingList, Waitlisted, Expense, Lead, Lecture, Audience, Gallery, TestimonyHipnoterapia
 
 admin.site.site_title = settings.ADMIN_SITE_TITLE
 admin.site.site_header = settings.ADMIN_SITE_HEADER
@@ -225,3 +225,13 @@ class LectureAdmin(admin.ModelAdmin):
     inlines = [
         ParticipantInline,
     ]
+
+
+@admin.register(Gallery)
+class GalleryModelAdmin(admin.ModelAdmin):
+    list_display = ('image',)
+
+
+@admin.register(TestimonyHipnoterapia)
+class TestimonyHipnoterapiaModelAdmin(admin.ModelAdmin):
+    list_display = ('description', 'id_video_youtube')

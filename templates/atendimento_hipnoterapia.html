@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block actions %}
-    <a href="{% url 'solicitar_atendimento_hipnoterapia' %}" class="cta">Solicitar atendimento</a>
+    <a href="{% url 'solicitar_atendimento_hipnoterapia' %}" class="cta">Agendar sua sessão</a>
 {% endblock %}
 
 {% block details_titulo %}
@@ -34,9 +34,15 @@
 
 {% block details_sobre_p %}
     <p>
-        A hipnoterapia consiste na aplicação de técnicas hipnóticas como ferramenta terapêutica. A terapia é utilizada como auxílio para o tratamento de transtornos emocionais, físicos, psicológicos, hábitos e sentimentos indesejáveis.<br>
-        Muitos problemas vivenciados são causados por eventos do passado dos quais muitas vezes nem lembramos. O papel do hipnoterapeuta é identificar esses eventos causadores e ajudar o cliente a confrontá-los, para que o transtorno possa ser tratado com eficácia e o indivíduo possa ter sua qualidade de vida de volta.<br>
-        Normalmente, os resultados alcançados com a hipnoterapia são mais efetivos e rápidos que com outros métodos convencionais. Isso ocorre porque a hipnose clínica alcança a mente subconsciente do indivíduo e trata o transtorno direto em sua origem.
+        A hipnoterapia consiste na aplicação de técnicas hipnóticas como ferramenta terapêutica. A terapia é utilizada
+        como auxílio para o tratamento de transtornos emocionais, físicos, psicológicos, hábitos e sentimentos
+        indesejáveis.<br>
+        Muitos problemas vivenciados são causados por eventos do passado dos quais muitas vezes nem lembramos. O papel
+        do hipnoterapeuta é identificar esses eventos causadores e ajudar o cliente a confrontá-los, para que o
+        transtorno possa ser tratado com eficácia e o indivíduo possa ter sua qualidade de vida de volta.<br>
+        Normalmente, os resultados alcançados com a hipnoterapia são mais efetivos e rápidos que com outros métodos
+        convencionais. Isso ocorre porque a hipnose clínica alcança a mente subconsciente do indivíduo e trata o
+        transtorno direto em sua origem.
     </p>
 {% endblock %}
 
@@ -49,11 +55,14 @@
         Transformar pensamentos negativos em positivos;<br>
         Desenvolver hábitos mais saudáveis;<br>
         Estabelecer metas realistas;<br>
-        Assumir o controle ativo de sua saúde, sua carreira, seus relacionamentos e sua vida em geral (mental e emocional);<br>
+        Assumir o controle ativo de sua saúde, sua carreira, seus relacionamentos e sua vida em geral (mental e
+        emocional);<br>
         Melhorar o bem-estar físico;<br>
         Melhorar o desenvolvimento espiritual;<br>
         Potencializar a criatividade e motivação;<br>
-        Tratar vícios, obsessões, compulsões, raiva, depressão, distúrbios alimentares, ansiedade, medos, fobias, questões sexuais, gagueira, síndrome do pânico, problemas relacionado ao sono, TOC, traumas, perda de peso, redução do estresse etc;<br>
+        Tratar vícios, obsessões, compulsões, raiva, depressão, distúrbios alimentares, ansiedade, medos, fobias,
+        questões sexuais, gagueira, síndrome do pânico, problemas relacionado ao sono, TOC, traumas, perda de peso,
+        redução do estresse etc;<br>
         Aumentar auto-estima e confiança;<br>
         Propiciar um estado pleno de relaxamento.
     </p>
@@ -62,13 +71,15 @@
 
 {#Duração#}
 {% block details_duracao %}
-    O processo de hipnoterapia acontece em sessões (semanais, quinzenais ou mensais), porém o ideial é que as sessões sejam realizadas uma vez por semana com duração de cerca de 1 hora dependendo das técnicas utilizadas.
+    O processo de hipnoterapia acontece em sessões (semanais, quinzenais ou mensais), porém o ideial é que as sessões
+    sejam realizadas uma vez por semana com duração de cerca de 1 hora dependendo das técnicas utilizadas.
 {% endblock %}
 
 
 {#Para quem?#}
 {% block details_para_quem %}
-    Público em geral comprometidos com os seus resultados, ou seja, dispostos a mudanças, a expandir sua mente, a curar traumas, fobias e a direcionar sua energia, foco, empenho e dedicação em prol de seu potencial interno.
+    Público em geral comprometidos com os seus resultados, ou seja, dispostos a mudanças, a expandir sua mente, a curar
+    traumas, fobias e a direcionar sua energia, foco, empenho e dedicação em prol de seu potencial interno.
 {% endblock %}
 
 
@@ -87,7 +98,8 @@
             - A se livrar do stress. Fazendo com que você se sinta saudável mentalmente e fisicamente;<br>
             - A aumentar a sua autoconfiança;<br>
             - A dormir melhor e ter mais energia quando você precisar dela;<br>
-            - A encontrar a estabilidade que vai te permitir viver verdadeiramente a sua vida, ao invés de apenas passar por ela;<br>
+            - A encontrar a estabilidade que vai te permitir viver verdadeiramente a sua vida, ao invés de apenas passar
+            por ela;<br>
             - Aumento da realização e da satisfação pessoal e profissional;<br>
             - Aumento do equilíbrio e da harmonia interior;<br>
             - Melhoria na qualidade de vida;<br>
@@ -97,9 +109,27 @@
             - Elevação das habilidades necessárias para resolução de conflitos, dúvidas e problemas;<br>
             - Aumento da autopercepção e do conhecimento de si mesmo;<br>
             - Elevação da autoestima e da autoconfiança;<br>
-            - Mais inteligência emocional – compreender e administrar as próprias emoções, automotivar-se, ter empatia e reagir de forma adequada às emoções dos outros;<br>
+            - Mais inteligência emocional – compreender e administrar as próprias emoções, automotivar-se, ter empatia e
+            reagir de forma adequada às emoções dos outros;<br>
             - Modificação de hábitos improdutivos;<br>
             - Aprendizado contínuo.
         </p>
     </li>
+{% endblock %}
+
+{% block depoiments %}
+    {% if testimonies %}
+        <section class="testimonials" id="depoimentos">
+            <div class="holder">
+                <h2>Depoimentos</h2>
+                <div class="flexslider">
+                    <ul class="slides">
+                        {% for testimony in testimonies %}
+                            {% include 'includes/testimony_video_li.html' with testimony=testimony %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section> <!-- /depoimentos -->
+    {% endif %}
 {% endblock %}

@@ -23,9 +23,9 @@ from django.views.generic import RedirectView
 from .sitemaps import StaticViewSitemap
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
-    CursoHipnoseTemplateView, TreinamentoInteligenciaEmocionalTemplateView, contact_whatsapp, \
-    AtendimentoCoachingTemplateView, AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView, \
-    InterestedEmotionalIntelligenceLecture, interested, InterestedHypnotherapy, InterestedCoaching, \
+    CursoHipnoseTemplateView, contact_whatsapp, \
+    AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView, \
+    InterestedEmotionalIntelligenceLecture, interested, InterestedHypnotherapy, \
     WaitingListDetailView, waitlisted
 
 sitemaps = {
@@ -33,7 +33,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'images/favicon.ico')),
+    path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'favicon/favicon.ico')),
     path('admin/', admin.site.urls),
 
     # Páginas
@@ -55,11 +55,11 @@ urlpatterns = [
     # Cursos / Treinamentos
     path('treinamento-de-oratoria/', TreinamentoOratoriaTemplateView.as_view(), name='treinamento_oratoria'),
     path('curso-de-hipnose/', CursoHipnoseTemplateView.as_view(), name='curso_hipnose'),
-    path('treinamento-de-inteligencia-emocional/', TreinamentoInteligenciaEmocionalTemplateView.as_view(), name='treinamento_inteligencia_emocional'),
+    # path('treinamento-de-inteligencia-emocional/', TreinamentoInteligenciaEmocionalTemplateView.as_view(), name='treinamento_inteligencia_emocional'),
 
     # Atendimentos
-    path('atendimento-coaching/', AtendimentoCoachingTemplateView.as_view(), name='atendimento_coaching'),
-    path('solicitar-atendimento-coaching/', InterestedCoaching.as_view(), name='solicitar_atendimento_coaching'),
+    # path('atendimento-coaching/', AtendimentoCoachingTemplateView.as_view(), name='atendimento_coaching'),
+    # path('solicitar-atendimento-coaching/', InterestedCoaching.as_view(), name='solicitar_atendimento_coaching'),
     path('atendimento-hipnoterapia/', AtendimentoHipnoterapiaTemplateView.as_view(), name='atendimento_hipnoterapia'),
     path('solicitar-atendimento-hipnoterapia/', InterestedHypnotherapy.as_view(), name='solicitar_atendimento_hipnoterapia'),
 
