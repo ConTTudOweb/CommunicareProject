@@ -42,3 +42,10 @@ cd CommunicareProject
 pipenv shell
 python manage.py runserver
 ```
+
+
+## Deploy manual
+
+```console
+git push heroku master
+```

@@ -1,135 +1,208 @@
-{% extends 'base_details.html' %}
-
-{% block details_header_class %}
-    header-atendimento-hipnoterapia
-{% endblock %}
-
-{% block details_frase %}
-    Abra a sua mente e ouça a <br>voz do seu inconsciente!
-{% endblock %}
-
-{% block details_citacao %}
-    "Deseje que aconteça,<br>
-    espere que aconteça,<br>
-    e acima de tudo, deixe que aconteça."
-{% endblock %}
-
-{% block details_citacao_autor %}
-    Dave Elman
-{% endblock %}
-
-{% block actions %}
-    <a href="{% url 'solicitar_atendimento_hipnoterapia' %}" class="cta">Agendar sua sessão</a>
-{% endblock %}
+{% extends 'base.html' %}
+{% load humanize static %}
 
 {% block details_titulo %}
     {{ ATENDIMENTO_HIPNOTERAPIA.titulo }}
 {% endblock %}
 
+{% block content %}
+    <section class="details-page">
 
-{#Sobre#}
-{% block details_sobre %}
-    Sobre o atendimento
-{% endblock %}
-
-{% block details_sobre_p %}
-    <p>
-        A hipnoterapia consiste na aplicação de técnicas hipnóticas como ferramenta terapêutica. A terapia é utilizada
-        como auxílio para o tratamento de transtornos emocionais, físicos, psicológicos, hábitos e sentimentos
-        indesejáveis.<br>
-        Muitos problemas vivenciados são causados por eventos do passado dos quais muitas vezes nem lembramos. O papel
-        do hipnoterapeuta é identificar esses eventos causadores e ajudar o cliente a confrontá-los, para que o
-        transtorno possa ser tratado com eficácia e o indivíduo possa ter sua qualidade de vida de volta.<br>
-        Normalmente, os resultados alcançados com a hipnoterapia são mais efetivos e rápidos que com outros métodos
-        convencionais. Isso ocorre porque a hipnose clínica alcança a mente subconsciente do indivíduo e trata o
-        transtorno direto em sua origem.
-    </p>
-{% endblock %}
-
-
-{#Objetivos#}
-{% block details_objetivos_p %}
-    <p>
-        Encontrar soluções para os problemas que carrega a muito tempo;<br>
-        Livrar de velhas crenças limitantes;<br>
-        Transformar pensamentos negativos em positivos;<br>
-        Desenvolver hábitos mais saudáveis;<br>
-        Estabelecer metas realistas;<br>
-        Assumir o controle ativo de sua saúde, sua carreira, seus relacionamentos e sua vida em geral (mental e
-        emocional);<br>
-        Melhorar o bem-estar físico;<br>
-        Melhorar o desenvolvimento espiritual;<br>
-        Potencializar a criatividade e motivação;<br>
-        Tratar vícios, obsessões, compulsões, raiva, depressão, distúrbios alimentares, ansiedade, medos, fobias,
-        questões sexuais, gagueira, síndrome do pânico, problemas relacionado ao sono, TOC, traumas, perda de peso,
-        redução do estresse etc;<br>
-        Aumentar auto-estima e confiança;<br>
-        Propiciar um estado pleno de relaxamento.
-    </p>
-{% endblock %}
-
-
-{#Duração#}
-{% block details_duracao %}
-    O processo de hipnoterapia acontece em sessões (semanais, quinzenais ou mensais), porém o ideial é que as sessões
-    sejam realizadas uma vez por semana com duração de cerca de 1 hora dependendo das técnicas utilizadas.
-{% endblock %}
-
-
-{#Para quem?#}
-{% block details_para_quem %}
-    Público em geral comprometidos com os seus resultados, ou seja, dispostos a mudanças, a expandir sua mente, a curar
-    traumas, fobias e a direcionar sua energia, foco, empenho e dedicação em prol de seu potencial interno.
-{% endblock %}
-
-
-{% block program_content %}
-{% endblock %}
-
-{% block benefits_class %}{% endblock %}
-
-{% block benefits_li %}
-    <li>
-        <p>
-            - Tomar melhores decisões;<br>
-            - Obter o aumento da sua concentração;<br>
-            - Libertar a sua imaginação e criatividade;<br>
-            - A se sentir mais relaxado e mais em paz consigo mesmo;<br>
-            - A se livrar do stress. Fazendo com que você se sinta saudável mentalmente e fisicamente;<br>
-            - A aumentar a sua autoconfiança;<br>
-            - A dormir melhor e ter mais energia quando você precisar dela;<br>
-            - A encontrar a estabilidade que vai te permitir viver verdadeiramente a sua vida, ao invés de apenas passar
-            por ela;<br>
-            - Aumento da realização e da satisfação pessoal e profissional;<br>
-            - Aumento do equilíbrio e da harmonia interior;<br>
-            - Melhoria na qualidade de vida;<br>
-            - Melhor gestão do tempo;<br>
-            - Equilíbrio entre as áreas pessoal, profissional, social e familiar;<br>
-            - Aumento de disposição, energia e saúde;<br>
-            - Elevação das habilidades necessárias para resolução de conflitos, dúvidas e problemas;<br>
-            - Aumento da autopercepção e do conhecimento de si mesmo;<br>
-            - Elevação da autoestima e da autoconfiança;<br>
-            - Mais inteligência emocional – compreender e administrar as próprias emoções, automotivar-se, ter empatia e
-            reagir de forma adequada às emoções dos outros;<br>
-            - Modificação de hábitos improdutivos;<br>
-            - Aprendizado contínuo.
-        </p>
-    </li>
-{% endblock %}
-
-{% block depoiments %}
-    {% if testimonies %}
-        <section class="testimonials" id="depoimentos">
+        <div class="details-header header-atendimento-hipnoterapia">
             <div class="holder">
-                <h2>Depoimentos</h2>
-                <div class="flexslider">
-                    <ul class="slides">
-                        {% for testimony in testimonies %}
-                            {% include 'includes/testimony_video_li.html' with testimony=testimony %}
-                        {% endfor %}
-                    </ul>
-                </div>
+                <h2>
+                    {#                    Abra a sua mente e ouça a <br>voz do seu inconsciente!#}
+                    Dê o primeiro passo em direção a <br>uma vida melhor e mais plena!
+                </h2>
+
+                <blockquote>
+                    "Deseje que aconteça,<br>
+                    espere que aconteça,<br>
+                    e acima de tudo, deixe que aconteça."<br>
+                    <span>Dave Elman</span>
+                </blockquote>
+
+                {% if event %}
+                    {% if event.external_subscriptions %}
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">Fazer inscrição</a>
+                    {% else %}
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">Fazer inscrição</a>
+                    {% endif %}
+                {% elif waiting_list %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">Lista de espera</a>
+                {% endif %}
+
+                <a href="{% url 'solicitar_atendimento_hipnoterapia' %}" class="cta">Agendar sua sessão</a>
+
             </div>
-        </section> <!-- /depoimentos -->
-    {% endif %}
-{% endblock %}
+        </div> <!-- /details-header -->
+
+        <div class="register-header">
+            <div class="holder">
+
+                {% include 'includes/register_header.html' with event=event %}
+
+            </div>
+        </div> <!-- /register-header -->
+
+        <div class="holder">
+            <div class="details-entry">
+
+                <div class="columns cols-aside">
+
+                    <div class="column-01">
+                        <h3>Sobre o atendimento</h3>
+                        <p>
+                            A hipnoterapia consiste na aplicação de técnicas hipnóticas como ferramenta terapêutica. A
+                            terapia é utilizada
+                            como auxílio para o tratamento de transtornos emocionais, físicos, psicológicos, hábitos e
+                            sentimentos
+                            indesejáveis.<br>
+                            Muitos problemas vivenciados são causados por eventos do passado dos quais muitas vezes nem
+                            lembramos. O papel
+                            do hipnoterapeuta é identificar esses eventos causadores e ajudar o cliente a confrontá-los,
+                            para que o
+                            transtorno possa ser tratado com eficácia e o indivíduo possa ter sua qualidade de vida de
+                            volta.<br>
+                            Normalmente, os resultados alcançados com a hipnoterapia são mais efetivos e rápidos que com
+                            outros métodos
+                            convencionais. Isso ocorre porque a hipnose clínica alcança a mente subconsciente do
+                            indivíduo e trata o
+                            transtorno direto em sua origem.
+                        </p>
+                        <h3>Objetivos</h3>
+                        <ul class="motivations benefits">
+                            <li class="icon-list">Encontrar soluções para os problemas que carrega a muito tempo;</li>
+                            <li class="icon-list">Livrar de velhas crenças limitantes;</li>
+                            <li class="icon-list">Transformar pensamentos negativos em positivos;</li>
+                            <li class="icon-list">Desenvolver hábitos mais saudáveis;</li>
+                            <li class="icon-list">Estabelecer metas realistas;</li>
+                            <li class="icon-list">Assumir o controle ativo de sua saúde, sua carreira, seus
+                                relacionamentos e sua vida em geral (mental e emocional);
+                            </li>
+                            <li class="icon-list">Melhorar o bem-estar físico;</li>
+                            <li class="icon-list">Melhorar o desenvolvimento espiritual;</li>
+                            <li class="icon-list">Potencializar a criatividade e motivação;</li>
+                            <li class="icon-list">Tratar vícios, obsessões, compulsões, raiva, depressão, distúrbios
+                                alimentares, ansiedade, medos, fobias, questões sexuais, gagueira, síndrome do pânico,
+                                problemas relacionado ao sono, TOC, traumas, perda de peso, redução do estresse etc;
+                            </li>
+                            <li class="icon-list">Aumentar auto-estima e confiança;</li>
+                            <li class="icon-list">Propiciar um estado pleno de relaxamento.</li>
+                        </ul>
+                    </div>
+
+                    <div class="column-02">
+                        <h4>Duração</h4>
+                        <p>
+                            O processo de hipnoterapia acontece em sessões (semanais, quinzenais ou mensais), porém o
+                            ideial é que as sessões
+                            sejam realizadas uma vez por semana com duração de cerca de 1 hora dependendo das técnicas
+                            utilizadas.
+                        </p>
+                        <h4>Para quem?</h4>
+                        <p>
+                            Público em geral comprometidos com os seus resultados, ou seja, dispostos a mudanças, a
+                            expandir sua mente, a curar
+                            traumas, fobias e a direcionar sua energia, foco, empenho e dedicação em prol de seu
+                            potencial interno.
+                        </p>
+                        <a href="{% url 'solicitar_atendimento_hipnoterapia' %}" class="cta">Agendar sua sessão</a>
+                    </div>
+
+                </div> <!-- /columns -->
+
+                <div class="columns with-border">
+
+                    {% block program_content %}
+                    {% endblock %}
+
+                    <div class="">
+                        <h3>Benefícios</h3>
+                        <ul class="motivations benefits">
+                            <li class="icon-list">Tomar melhores decisões;</li>
+                            <li class="icon-list">Obter o aumento da sua concentração;</li>
+                            <li class="icon-list">Libertar a sua imaginação e criatividade;</li>
+                            <li class="icon-list">A se sentir mais relaxado e mais em paz consigo mesmo;</li>
+                            <li class="icon-list">A se livrar do stress. Fazendo com que você se sinta saudável
+                                mentalmente e fisicamente;
+                            </li>
+                            <li class="icon-list">A aumentar a sua autoconfiança;</li>
+                            <li class="icon-list">A dormir melhor e ter mais energia quando você precisar dela;</li>
+                            <li class="icon-list">A encontrar a estabilidade que vai te permitir viver verdadeiramente a
+                                sua vida, ao invés de apenas passar por ela;
+                            </li>
+                            <li class="icon-list">Aumento da realização e da satisfação pessoal e profissional;</li>
+                            <li class="icon-list">Aumento do equilíbrio e da harmonia interior;</li>
+                            <li class="icon-list">Melhoria na qualidade de vida;</li>
+                            <li class="icon-list">Melhor gestão do tempo;</li>
+                            <li class="icon-list">Equilíbrio entre as áreas pessoal, profissional, social e familiar;
+                            </li>
+                            <li class="icon-list">Aumento de disposição, energia e saúde;</li>
+                            <li class="icon-list">Elevação das habilidades necessárias para resolução de conflitos,
+                                dúvidas e problemas;
+                            </li>
+                            <li class="icon-list">Aumento da autopercepção e do conhecimento de si mesmo;</li>
+                            <li class="icon-list">Elevação da autoestima e da autoconfiança;</li>
+                            <li class="icon-list">Mais inteligência emocional – compreender e administrar as próprias
+                                emoções, automotivar-se, ter empatia e reagir de forma adequada às emoções dos outros;
+                            </li>
+                            <li class="icon-list">Modificação de hábitos improdutivos;</li>
+                            <li class="icon-list">Aprendizado contínuo.</li>
+                        </ul>
+                    </div>
+                </div> <!-- /columns -->
+
+                <div class="columns with-border">
+                    <div class="">
+                        <h3>Como Funciona?</h3>
+                        <p><strong>1º Passo / Sessão de Avaliação</strong><br>
+                            A avaliação servirá de guia para o seu tratamento. É nessa etapa que vamos decidir juntos se
+                            o seu problema se adequa para tratamento através da hipnose, bem como qual a melhor maneira
+                            de ajudar você a superá-lo de forma rápida e segura.<br>
+                            <br>
+                            Na avaliação você terá a oportunidade de experimentar o estado hipnótico, sanar quaisquer
+                            dúvidas sobre o tratamento e entender como se dá o processo da hipnoterapia.</p>
+                        <p><strong>2º Passo / Sessão de Hipnoterapia</strong><br>
+                            Com base nas informações levantadas em nossa sessão de avaliação, o tratamento se inicia.
+                            Você já terá experimentado o estado hipnótico de antemão, por isso estará absolutamente
+                            confortável e confiante de sua decisão.<br>
+                            <br>
+                            Seu desejo profundo de mudar e de conquistar uma nova vida nos ajudará a acessar as áreas
+                            adormecidas de sua mente, desvendando os gatilhos por trás do seu comportamento, distúrbio
+                            ou fobia. A partir desse momento, vamos então modificar os padrões de pensamentos negativos,
+                            as “amarras mentais” que estão te impedindo de viver a vida que sempre quis.<br>
+                            <br>
+                            Sem qualquer contraindicação, trata-se de um tratamento seguro para qualquer idade. Todo o
+                            processo é realizado em consultório, de maneira ética e respeitando a individualidade de
+                            cada cliente.</p>
+                    </div>
+                </div> <!-- /columns -->
+
+                {% if testimonies %}
+                    <section class="testimonials" id="depoimentos">
+                        <div class="holder">
+                            <h2>Depoimentos</h2>
+                            <div class="flexslider">
+                                <ul class="slides">
+                                    {% for testimony in testimonies %}
+                                        {% include 'includes/testimony_video_li.html' with testimony=testimony %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </section> <!-- /depoimentos -->
+                {% endif %}
+            </div> <!-- /details-entry -->
+
+            <div class="with-border holder">
+                <h2>Coloque um ponto final no sofrimento.<br>
+                    <small>Recupere o controle da sua mente e de suas escolhas.</small><br>
+                    <a href="{% url 'solicitar_atendimento_hipnoterapia' %}" class="cta">Agendar sua sessão</a>
+                </h2>
+
+            </div>
+        </div>
+
+    </section> <!-- /details-page -->
+{% endblock content %}

@@ -136,7 +136,7 @@
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}#cursos-e-treinamentos">Cursos e Treinamentos</a></li>
-{#                <li><a href="{% url 'home' %}#atendimentos">Atendimentos</a></li>#}
+                {#                <li><a href="{% url 'home' %}#atendimentos">Atendimentos</a></li>#}
                 <li><a href="{% url 'atendimento_hipnoterapia' %}">Hipnoterapia</a></li>
                 <li>
                     <span>Palestras</span>
@@ -172,10 +172,16 @@
 </div>
 
 <footer>
-    <div class="holder">
+    <div>
+        <script src="https://apis.google.com/js/platform.js"></script>
 
+        <div class="g-ytsubscribe" data-channelid="UCgGb95A1399ogNHOi3bDbOg" data-layout="full"
+             data-count="default"></div>
+    </div>
+
+    <div class="holder">
         <div class="copy">
-            &copy; <strong>2019 Communicare Treinamentos</strong> - Todos os direitos reservados.
+            &copy; <strong>2019-{% now 'Y' %} Communicare Treinamentos</strong> - Todos os direitos reservados.
             <ul class="ft-links">
                 <li><a href="{% url 'privacy_policy' %}">Política de Privacidade</a></li>
                 <li><a href="{% url 'cookies_statement' %}">Declaração de Cookies</a></li>
@@ -208,9 +214,7 @@
                 </a>
             </li>
         </ul>
-
-        <img src="{% static "images/apple-touch-icon.png" %}">
-
+{#        <img src="{% static "favicon/apple-touch-icon.png" %}">#}
     </div>
 </footer>
 
