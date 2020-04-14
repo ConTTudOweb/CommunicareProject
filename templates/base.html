@@ -3,36 +3,36 @@
 <head>
     <meta http-equiv="Content-Language" content="pt-br">
 
-    {% if not debug %}
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57052794-8"></script>
-        <script data-cookieconsent="statistics">
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'UA-57052794-8');
-        </script>
-
-        <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-PW2694T');</script>
-        <!-- End Google Tag Manager -->
-    {% endif %}
+{#    {% if not debug %}#}
+{#        <!-- Global site tag (gtag.js) - Google Analytics -->#}
+{#        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57052794-8"></script>#}
+{#        <script data-cookieconsent="statistics">#}
+{#            window.dataLayer = window.dataLayer || [];#}
+{##}
+{#            function gtag() {#}
+{#                dataLayer.push(arguments);#}
+{#            }#}
+{##}
+{#            gtag('js', new Date());#}
+{#            gtag('config', 'UA-57052794-8');#}
+{#        </script>#}
+{##}
+{#        <!-- Google Tag Manager -->#}
+{#        <script>(function (w, d, s, l, i) {#}
+{#            w[l] = w[l] || [];#}
+{#            w[l].push({#}
+{#                'gtm.start':#}
+{#                    new Date().getTime(), event: 'gtm.js'#}
+{#            });#}
+{#            var f = d.getElementsByTagName(s)[0],#}
+{#                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';#}
+{#            j.async = true;#}
+{#            j.src =#}
+{#                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;#}
+{#            f.parentNode.insertBefore(j, f);#}
+{#        })(window, document, 'script', 'dataLayer', 'GTM-PW2694T');</script>#}
+{#        <!-- End Google Tag Manager -->#}
+{#    {% endif %}#}
 
     <meta charset="utf-8">
 
@@ -58,8 +58,6 @@
     {% block extra_css %}{% endblock extra_css %}
 
     <!-- SEO -->
-    {#    <link rel="canonical" href="{% firstof page.url SITE.url %}" />#}
-    {#    TODO: Aqui tem que ser feito igual está na DR.MERIGUE#}
     <link rel="canonical" href="{{ request.build_absolute_uri }}"/>
     <meta name="description" content="{{ page.description }}">
     <meta name="me" content="{{ EMPRESA.name }}">
@@ -85,44 +83,37 @@
     <meta property="og:image" content="{{ SITE.url }}{% static 'images/avatar.jpg' %}">
     <meta property="og:locale" content="pt_BR">
 
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:site" content="@CommunicareBR"/>
+{#    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"#}
+{#            data-cbid="e0832ee0-dbd7-4d0e-90de-09e791db1801" type="text/javascript" async></script>#}
 
-    {% if not debug %}
-        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
-                data-cbid="e0832ee0-dbd7-4d0e-90de-09e791db1801" type="text/javascript" async></script>
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "Organization",
+        "name" : "{{ EMPRESA.name }}",
+        "url" : "{% firstof page.url SITE.url %}",
+        "sameAs" : [
+            "{{ SITE.facebook }}",
+            "{{ SITE.instagram }}",
+            "{{ SITE.youtube }}"
+        ]
+      }
+    </script>
 
-        <script type="application/ld+json">
-          {
-            "@context" : "https://schema.org",
-            "@type" : "Organization",
-            "name" : "{{ EMPRESA.name }}",
-            "url" : "{% firstof page.url SITE.url %}",
-            "sameAs" : [
-                "https://www.facebook.com/CommunicareTreinamentos/",
-                "https://www.instagram.com/explore/locations/279528915/",
-                "https://twitter.com/communicarebr",
-                "https://www.linkedin.com/company/communicaretreinamentos/",
-                "https://www.youtube.com/channel/UCJWIepXJpUvDhiqg9WMcSKA"
-            ]
-          }
-        </script>
-
-        <meta name="google-site-verification" content="mxoFyAD1M4ZdSQPRr3jvHT_Wu6SkfYyPRqz-o2ofUus"/>
-    {% endif %}
+{#    <meta name="google-site-verification" content="mxoFyAD1M4ZdSQPRr3jvHT_Wu6SkfYyPRqz-o2ofUus"/>#}
 
 </head>
 
 <body remodal-bg>
 
-{% if not debug %}
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW2694T"
-                height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-{% endif %}
+{#{% if not debug %}#}
+{#    <!-- Google Tag Manager (noscript) -->#}
+{#    <noscript>#}
+{#        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW2694T"#}
+{#                height="0" width="0" style="display:none;visibility:hidden"></iframe>#}
+{#    </noscript>#}
+{#    <!-- End Google Tag Manager (noscript) -->#}
+{#{% endif %}#}
 
 <div class="modal_loading"></div>
 
