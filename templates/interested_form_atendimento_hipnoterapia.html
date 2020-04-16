@@ -5,9 +5,9 @@
     <img src="{% static '/images/banner/atendimento_hipnoterapia_header.jpg' %}">
 {% endblock %}
 
-{% block interested_title_type %}Atendimento{% endblock %}
+{% block interested_title_type %}ATENDIMENTO{% endblock %}
 
-{% block interested_title %}{{ ATENDIMENTO_HIPNOTERAPIA.titulo }}{% endblock %}
+{% block interested_title %}{{ ATENDIMENTO_HIPNOTERAPIA.titulo|upper }}{% endblock %}
 
 {% block extra_js %}
     {{ block.super }}

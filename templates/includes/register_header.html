@@ -35,21 +35,21 @@
     {% if event_type %}
     <h2>
         {% if event_type == EVENT_TYPES.treinamento_oratoria.value %}
-            {{ TREINAMENTO_ORATORIA.titulo }}
+            {{ TREINAMENTO_ORATORIA.titulo|upper }}
         {% elif event_type == EVENT_TYPES.curso_hipnose.value %}
-            {{ CURSO_HIPNOSE.titulo }}
+            {{ CURSO_HIPNOSE.titulo|upper }}
         {% elif event_type == EVENT_TYPES.treinamento_inteligencia_emocional.value %}
-            {{ TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo }}
+            {{ TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo|upper }}
         {% endif %}
     </h2>
     {% elif waitinglist %}
     <h2>
         {% if waitinglist.type == EVENT_TYPES.treinamento_oratoria.value %}
-            {{ TREINAMENTO_ORATORIA.titulo }}
+            {{ TREINAMENTO_ORATORIA.titulo|upper }}
         {% elif waitinglist.type == EVENT_TYPES.curso_hipnose.value %}
-            {{ CURSO_HIPNOSE.titulo }}
+            {{ CURSO_HIPNOSE.titulo|upper }}
         {% elif waitinglist.type == EVENT_TYPES.treinamento_inteligencia_emocional.value %}
-            {{ TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo }}
+            {{ TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo|upper }}
         {% endif %}
     </h2>
     {% endif %}

@@ -31,7 +31,17 @@
                     <a class="view-more-cta" href="{% url 'event-detail' slug=event.slug %}"><i class="fas fa-sign-in-alt"></i>Inscreva-se</a>
                 {% endif %}
             {% else %}
-                <a class="view-more-cta" disabled="disabled">Inscrições em breve</a>
+
+                {% if event.type == EVENT_TYPES.treinamento_oratoria.value and waiting_list_treinamento_oratoria %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list_treinamento_oratoria.slug %}" class="view-more-cta">Lista de espera</a>
+                {% elif event.type == EVENT_TYPES.curso_hipnose.value and waiting_list_curso_hipnose %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list_curso_hipnose.slug %}" class="view-more-cta">Lista de espera</a>
+                {% elif event.type == EVENT_TYPES.treinamento_inteligencia_emocional.value and waiting_list_treinamento_inteligencia_emocional %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list_treinamento_inteligencia_emocional.slug %}" class="view-more-cta">Lista de espera</a>
+                {% else %}
+                    <a class="view-more-cta" disabled="disabled">Inscrições em breve</a>
+                {% endif %}
+
             {% endif %}
             <br>
             <p><strong>Inscrições Limitadas!</strong></p>

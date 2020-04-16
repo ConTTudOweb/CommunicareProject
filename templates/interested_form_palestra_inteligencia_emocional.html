@@ -5,9 +5,9 @@
     <img src="{% static '/images/palestras/ie-banner.jpg' %}">
 {% endblock %}
 
-{% block interested_title_type %}Palestra{% endblock %}
+{% block interested_title_type %}PALESTRA{% endblock %}
 
-{% block interested_title %}{{ PALESTRA_INTELIGENCIA_EMOCIONAL.titulo }}{% endblock %}
+{% block interested_title %}{{ PALESTRA_INTELIGENCIA_EMOCIONAL.titulo|upper }}{% endblock %}
 
 {% block extra_js %}
     {{ block.super }}

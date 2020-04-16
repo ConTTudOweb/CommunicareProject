@@ -58,3 +58,9 @@ header li span {
     font-size: 1.5rem;
 ;
 }
+
+/* --- */
+.motivations ol>li {
+    display: list-item;
+    list-style-type: decimal-leading-zero;
+}
