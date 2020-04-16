@@ -126,20 +126,20 @@
         </h1>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}#cursos-e-treinamentos">Cursos e Treinamentos</a></li>
+                <li><a href="{% url 'home' %}#cursos-e-treinamentos">CURSOS E TREINAMENTOS</a></li>
                 {#                <li><a href="{% url 'home' %}#atendimentos">Atendimentos</a></li>#}
-                <li><a href="{% url 'atendimento_hipnoterapia' %}">Hipnoterapia</a></li>
+                <li><a href="{% url 'atendimento_hipnoterapia' %}">HIPNOTERAPIA</a></li>
                 <li>
-                    <span>Palestras</span>
+                    <span>PALESTRAS</span>
                     <div class="dropdown">
-                        <div><a href="{% url 'palestra_inteligencia_emocional' %}">Inteligência Emocional</a></div>
+                        <div><a href="{% url 'palestra_inteligencia_emocional' %}">INTELIGÊNCIA EMOCIONAL</a></div>
                     </div>
                 </li>
-                <li><a href="{% url 'home' %}#agenda">Agenda</a></li>
-                <li><a href="{% url 'home' %}#depoimentos">Depoimentos</a></li>
-                <li><a href="{% url 'home' %}#quem-somos">Quem somos</a></li>
-                <li><a href="{% url 'gallery' %}">Galeria de Fotos</a></li>
-                <li><a href="{% url 'home' %}#contato">Contato</a></li>
+                <li><a href="{% url 'home' %}#agenda">AGENDA</a></li>
+                <li><a href="{% url 'home' %}#depoimentos">DEPOIMENTOS</a></li>
+                <li><a href="{% url 'home' %}#quem-somos">QUEM SOMOS</a></li>
+                <li><a href="{% url 'gallery' %}">GALERIA DE FOTOS</a></li>
+                <li><a href="{% url 'home' %}#contato">CONTATO</a></li>
             </ul>
         </nav>
         <a class="menu-trigger">Menu</a>
@@ -155,7 +155,7 @@
         Saiba os valores via<br> <span>WhatsApp</span>
     </div>
     <label id="whats_results"></label>
-    <form method="POST" id="whatsapp-form">
+    <form method="POST" id="whatsapp-form" data-ajax-target="{% url 'contact_whatsapp' %}">
         <input type="text" placeholder="Nome" id="whats_name" required>
         <input type="tel" placeholder="Telefone" id="whats_tel" required>
         <input type="submit" value="Solicitar atendimento">

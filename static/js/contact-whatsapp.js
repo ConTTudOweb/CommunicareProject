@@ -1,9 +1,9 @@
 // AJAX for posting
-function contact_whatsapp() {
+function contact_whatsapp(form) {
     $body = $("body");
     $body.addClass("loading");
     $.ajax({
-        url : "contact_whatsapp/", // the endpoint
+        url : form.attr("data-ajax-target"), // the endpoint
         type : "POST", // http method
         data : {
             name : $('#whats_name').val(),
@@ -30,7 +30,8 @@ function contact_whatsapp() {
 
 
 // Submit post on submit
-$('#whatsapp-form').on('submit', function(event){
+const form = $('#whatsapp-form');
+form.on('submit', function(event){
     event.preventDefault();
-    contact_whatsapp();
+    contact_whatsapp(form);
 });
