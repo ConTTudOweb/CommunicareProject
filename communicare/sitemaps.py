@@ -9,8 +9,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
     def items(self):
         return [
             'home', 'gallery', 'privacy_policy', 'cookies_statement',
-            'treinamento_oratoria', 'curso_hipnose', 'treinamento_inteligencia_emocional',
-            'atendimento_coaching', 'atendimento_hipnoterapia'
+            'treinamento_oratoria', 'curso_hipnose', 'atendimento_hipnoterapia'
         ]
 
     def location(self, item):
