@@ -57,18 +57,20 @@ WHATSAPP
   }
 
   input[type="text"],
-  input[type="tel"] {
+  input[type="tel"],
+  input[type="email"] {
     border: none;
     padding: 0 7px;
   }
 
-  input[type="text"] {
+  //input[type="text"] {
+  input {
     margin-bottom: 10px;
   }
 
   input[type="submit"] {
     width: 100%;
-    margin-top: 10px;
+    //margin-top: 10px;
     margin-bottom: 10px;
   }
 }

@@ -1323,14 +1323,14 @@ WHATSAPP
     border-radius: 2px;
     font-size: 12px; }
   .whatsapp-widget input[type="text"],
-  .whatsapp-widget input[type="tel"] {
+  .whatsapp-widget input[type="tel"],
+  .whatsapp-widget input[type="email"] {
     border: none;
     padding: 0 7px; }
-  .whatsapp-widget input[type="text"] {
+  .whatsapp-widget input {
     margin-bottom: 10px; }
   .whatsapp-widget input[type="submit"] {
     width: 100%;
-    margin-top: 10px;
     margin-bottom: 10px; }
 
 /**

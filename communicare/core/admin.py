@@ -190,14 +190,15 @@ class RegistrationModelAdmin(admin.ModelAdmin):
 
 def export_emails(modeladmin, request, queryset):
     # response = HttpResponse(content_type="application/html")
-    emails = Lead.objects.filter(email__isnull=False).values('email')
+    emails = queryset.filter(email__isnull=False).values('email')
     emails = ("{}, ".format(i['email']) for i in emails)
     return HttpResponse(content=emails)
-export_emails.short_description = "Exportar e-mails"
+export_emails.short_description = "Exportar e-mails dos registros selecionados"
 
 
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
+    list_display = ('name', 'phone')
     search_fields = ('name', 'email', 'phone')
     list_filter = (('lecture__city', admin.RelatedOnlyFieldListFilter),)
     actions = [

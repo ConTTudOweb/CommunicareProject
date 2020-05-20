@@ -49,3 +49,10 @@ python manage.py runserver
 ```console
 git push heroku master
 ```
+
+
+## Compilar arquivos SASS
+
+```
+sass --watch static/stylesheet/main.scss:static/public/stylesheet/main.css
+```

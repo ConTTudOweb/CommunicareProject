@@ -10,7 +10,7 @@ from django.views.generic import TemplateView, DetailView, FormView
 from communicare.core.context_processors import CONSTS, PAGES
 from ..core.models import Event, Customer, Registration, Testimony, WaitingList, EventTypes, Gallery, \
     TestimonyHipnoterapia
-from ..core.forms import ContactForm, CustomerForm, InterestedForm, WaitlistedForm
+from ..core.forms import ContactForm, CustomerForm, InterestedForm, WaitlistedForm, LeadForm
 
 
 def get_current_event(type):
@@ -62,21 +62,33 @@ def contact(request):
 def contact_whatsapp(request):
     response_data = {}
     if request.method == 'POST':
-        from_ = str(settings.DEFAULT_FROM_EMAIL),
+        form = LeadForm(request.POST)
+        if form.is_valid():
+            form.save()
+            from_ = str(settings.DEFAULT_FROM_EMAIL),
 
-        message = "Nova solicitação de contato por whatsapp feita no site!\nNome: {name}\nWhatsapp: {phone}".format(
-            name=request.POST.get('name'),
-            phone=request.POST.get('phone'),
-        )
-        email = mail.EmailMessage(
-            subject='Me chame no whatsapp ({})'.format(request.POST.get('name')),
-            body=message,
-            to=from_
-        )
-        email.send()
-        response_data['result'] = 'Obrigado pelo seu contato!<br>' \
-                                  'Retornaremos o mais rápido possível.'
-        response_data['status'] = True
+            message = "Nova solicitação de contato por whatsapp feita no site!\nNome: {name}\nWhatsapp: {phone}\nE-mail: {email}".format(
+                name=form.instance.name,
+                phone=form.instance.phone,
+                email=form.instance.email,
+            )
+            email = mail.EmailMessage(
+                subject='Me chame no whatsapp ({})'.format(form.instance.name),
+                body=message,
+                to=from_
+            )
+            email.send()
+            response_data['result'] = 'Obrigado pelo seu contato!<br>' \
+                                      'Retornaremos o mais rápido possível.'
+            response_data['status'] = True
+        else:
+            errors = ""
+            for error in form.non_field_errors():
+                errors += error
+            for error in form.errors:
+                errors += form.errors[error]
+            response_data['result'] = errors
+            response_data['status'] = False
 
         return JsonResponse(response_data)
     else:

@@ -7,7 +7,8 @@ function contact_whatsapp(form) {
         type : "POST", // http method
         data : {
             name : $('#whats_name').val(),
-            phone : $('#whats_tel').val()
+            phone : $('#whats_tel').val(),
+            email : $('#whats_email').val()
         }, // data sent with the post request
 
         // handle a successful response

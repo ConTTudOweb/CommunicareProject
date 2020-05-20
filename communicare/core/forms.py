@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django_select2.forms import ModelSelect2Widget
 
-from communicare.core.models import Customer, City, Waitlisted
+from communicare.core.models import Customer, City, Waitlisted, Lead
 
 
 class ContactForm(forms.Form):
@@ -49,6 +49,12 @@ class WaitlistedForm(forms.ModelForm):
 
     class Meta:
         model = Waitlisted
+        fields = '__all__'
+
+
+class LeadForm(forms.ModelForm):
+    class Meta:
+        model = Lead
         fields = '__all__'
 
 
