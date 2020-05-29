@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Language" content="pt-br">
 
-{#    {% if not debug %}#}
+    {% if not debug %}
 {#        <!-- Global site tag (gtag.js) - Google Analytics -->#}
 {#        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57052794-8"></script>#}
 {#        <script data-cookieconsent="statistics">#}
@@ -16,6 +16,16 @@
 {#            gtag('js', new Date());#}
 {#            gtag('config', 'UA-57052794-8');#}
 {#        </script>#}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        {#GA - Conta Vinicius#}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167541512-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-167541512-1');
+        </script>
 {##}
 {#        <!-- Google Tag Manager -->#}
 {#        <script>(function (w, d, s, l, i) {#}
@@ -32,7 +42,7 @@
 {#            f.parentNode.insertBefore(j, f);#}
 {#        })(window, document, 'script', 'dataLayer', 'GTM-PW2694T');</script>#}
 {#        <!-- End Google Tag Manager -->#}
-{#    {% endif %}#}
+    {% endif %}
 
     <meta charset="utf-8">
 
