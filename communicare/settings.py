@@ -223,7 +223,7 @@ cloudinary.config(
 # Django Cors Headers
 # https://github.com/adamchainz/django-cors-headers
 
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default=["https://communicaretreinamentos.com.br", "https://communicare-site.netlify.app/"], cast=Csv())
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default="https://communicaretreinamentos.com.br, https://communicare-site.netlify.app", cast=Csv())
 
 
 # Django Rest Framework
