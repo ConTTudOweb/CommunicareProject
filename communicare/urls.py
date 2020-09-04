@@ -20,13 +20,13 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.generic import RedirectView
 
-from .sitemaps import StaticViewSitemap
 from .core.views import HomeTemplateView, contact, EventDetailView, registration, send_contract, \
     PrivacyPolicyTemplateView, CookiesStatementTemplateView, GalleryTemplateView, TreinamentoOratoriaTemplateView, \
     CursoHipnoseTemplateView, contact_whatsapp, \
     AtendimentoHipnoterapiaTemplateView, PalestraInteligenciaEmocionalTemplateView, \
     InterestedEmotionalIntelligenceLecture, interested, InterestedHypnotherapy, \
     WaitingListDetailView, waitlisted
+from .sitemaps import StaticViewSitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -35,6 +35,9 @@ sitemaps = {
 urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'favicon/favicon.ico')),
     path('admin/', admin.site.urls),
+
+    # API base url
+    path("api/", include("communicare.api_router")),
 
     # Páginas
     path('', HomeTemplateView.as_view(), name='home'),

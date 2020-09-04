@@ -7,10 +7,10 @@ from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
 from django.views.generic import TemplateView, DetailView, FormView
 
-from communicare.core.context_processors import CONSTS, PAGES
+from communicare.core.context_processors import PAGES
+from ..core.forms import ContactForm, CustomerForm, InterestedForm, WaitlistedForm, LeadForm
 from ..core.models import Event, Customer, Registration, Testimony, WaitingList, EventTypes, Gallery, \
     TestimonyHipnoterapia
-from ..core.forms import ContactForm, CustomerForm, InterestedForm, WaitlistedForm, LeadForm
 
 
 def get_current_event(type):

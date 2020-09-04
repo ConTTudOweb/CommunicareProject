@@ -86,7 +86,9 @@ APPS += (
     'django_extensions',
     'debug_toolbar',
     'cloudinary',
-    'django_select2'
+    'django_select2',
+    'corsheaders',
+    'rest_framework',
 )
 
 # Project Apps
@@ -98,6 +100,8 @@ APPS += (
 INSTALLED_APPS = APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -214,3 +218,20 @@ cloudinary.config(
     api_secret=config('CLOUDINARY_API_SECRET'),
     secure=True
 )
+
+
+# Django Cors Headers
+# https://github.com/adamchainz/django-cors-headers
+
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default=["https://communicaretreinamentos.com.br", "https://communicare-site.netlify.app/"], cast=Csv())
+
+
+# Django Rest Framework
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

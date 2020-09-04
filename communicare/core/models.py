@@ -7,8 +7,7 @@ from django.db import models
 from django.db.models import Sum
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
-
-from communicare.utils import get_whatsapp_link
+from django.utils import timezone
 
 
 class FederativeUnit(models.Model):
@@ -176,6 +175,12 @@ class Event(models.Model):
             value = 0.0
 
         return '{:.2f}%'.format(value)
+
+    def iniciado(self):
+        return self.start_date < timezone.now()
+
+    def finalizado(self):
+        return self.end_date < timezone.now()
 
     def __str__(self):
         return "{} ({})".format(self.title, self.subtitle)
