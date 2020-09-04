@@ -31,8 +31,8 @@ class TestimonySerializer(serializers.ModelSerializer):
 
 class ContactSerializer(serializers.Serializer):
     name = serializers.CharField()
-    email = serializers.EmailField(required=False)
-    phone = serializers.CharField(required=False)
+    email = serializers.EmailField(required=False, allow_blank=True)
+    phone = serializers.CharField(required=False, allow_blank=True)
     message = serializers.CharField()
 
     def validate(self, data):
