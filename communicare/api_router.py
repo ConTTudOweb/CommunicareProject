@@ -1,7 +1,7 @@
 from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
-from .core.api.views import EventViewSet, TestimonyViewSet, ContactViewSet
+from .core.api.views import EventViewSet, TestimonyViewSet, ContactViewSet, TestimonyHipnoterapiaViewSet
 
 if settings.DEBUG:
     router = DefaultRouter(trailing_slash=False)
@@ -10,6 +10,7 @@ else:
 
 router.register("events", EventViewSet)
 router.register("testimonials", TestimonyViewSet)
+router.register("testimonials-hipnoterapia", TestimonyHipnoterapiaViewSet)
 router.register("contacts", ContactViewSet, basename='contact')
 
 

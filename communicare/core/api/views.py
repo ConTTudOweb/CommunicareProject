@@ -4,8 +4,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ReadOnlyModelViewSet, ViewSet
 
-from .serializers import EventSerializer, TestimonySerializer, ContactSerializer
-from ..models import Event, Testimony
+from .serializers import EventSerializer, TestimonySerializer, ContactSerializer, TestimonyHipnoterapiaSerializer
+from ..models import Event, Testimony, TestimonyHipnoterapia
 
 
 class EventViewSet(ReadOnlyModelViewSet):
@@ -16,6 +16,11 @@ class EventViewSet(ReadOnlyModelViewSet):
 class TestimonyViewSet(ReadOnlyModelViewSet):
     serializer_class = TestimonySerializer
     queryset = Testimony.objects.filter(visible=True).all()
+
+
+class TestimonyHipnoterapiaViewSet(ReadOnlyModelViewSet):
+    serializer_class = TestimonyHipnoterapiaSerializer
+    queryset = TestimonyHipnoterapia.objects.all()
 
 
 class ContactViewSet(ViewSet):

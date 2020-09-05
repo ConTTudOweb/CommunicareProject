@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ..models import Event, Place, Testimony
+from ..models import Event, Place, Testimony, TestimonyHipnoterapia
 
 
 class PlaceSerializer(serializers.ModelSerializer):
@@ -27,6 +27,12 @@ class TestimonySerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimony
         fields = ["customer", "description", "image"]
+
+
+class TestimonyHipnoterapiaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TestimonyHipnoterapia
+        fields = ["id_video_youtube"]
 
 
 class ContactSerializer(serializers.Serializer):
