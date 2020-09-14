@@ -79,7 +79,8 @@ Main = {
     // Simple mask
 
     $('#id_phone, #whats_tel').simpleMask({
-      'mask': ['(##) ####-####', '(##) #####-####']
+      'mask': 'ddd-tel9',
+      'nextInput': true
     });
 
     $('#id_cpf').simpleMask({
