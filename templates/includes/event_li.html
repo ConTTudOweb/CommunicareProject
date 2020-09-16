@@ -17,9 +17,9 @@
     </div>
     <div class="calendar-left-entry">
         {% if event.start_date|timesince >= "1 min" %}
-            <a href="https://classroom.google.com/" target="_blank" class="view-more-cta"
-               title="Ao acessar o link clique no ícone '➕' que fica no canto superior direito da tela e escolha a opção Participar da Turma. Em seguida informe o código que recebeu!"><i class="fas fa-download"></i>Download
-                do material</a>
+{#            <a href="https://classroom.google.com/" target="_blank" class="view-more-cta"#}
+{#               title="Ao acessar o link clique no ícone '➕' que fica no canto superior direito da tela e escolha a opção Participar da Turma. Em seguida informe o código que recebeu!"><i class="fas fa-download"></i>Download#}
+{#                do material</a>#}
             {% if event.end_date|timesince >= "1 min" %}
                 <p><strong>TREINAMENTO ENCERRADO!</strong></p>
             {% endif %}
