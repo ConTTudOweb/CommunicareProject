@@ -54,6 +54,9 @@ header {
       header li {
         display: block;
         margin: 0 0 2px 0; } }
+    @media only screen and (min-width: 1165px) {
+      header li {
+        font-size: 16px; } }
     header li a, header li span {
       text-decoration: none;
       color: rgba(255, 255, 255, 0.7);

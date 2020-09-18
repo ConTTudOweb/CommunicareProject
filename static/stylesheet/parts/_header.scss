@@ -51,6 +51,10 @@ header {
       margin: 0 0 2px 0;
     }
 
+    @media #{$header-1} {
+      font-size: $font-medium-2;
+    }
+
     a, span {
       text-decoration: none;
       color: rgba($white, .7);
@@ -150,6 +154,10 @@ header {
       padding-bottom: 0;
       padding-left: 0;
     }
+
+    //@media #{$header-1} {
+    //  font-size: $font-medium-2;
+    //}
 
     &:hover {
       color: $red;
