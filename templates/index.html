@@ -7,11 +7,11 @@
         <div class="flexslider">
 
             <ul class="slides">
-                <li>
-                    <a href="{% url 'treinamento_oratoria' %}">
-                        <img src="{% static "images/banner/treinamento_oratoria.jpg" %}">
-                    </a>
-                </li>
+{#                <li>#}
+{#                    <a href="{% url 'treinamento_oratoria' %}">#}
+{#                        <img src="{% static "images/banner/treinamento_oratoria.jpg" %}">#}
+{#                    </a>#}
+{#                </li>#}
                 <li>
                     <a href="{% url 'curso_hipnose' %}">
                         <img src="{% static "images/banner/curso_hipnose.jpg" %}">
@@ -41,13 +41,14 @@
         <div class="holder">
 
             <h2>
-                Cursos e Treinamentos
+                CURSO E ATENDIMENTO
             </h2>
 
             <ul class="cards-list">
-                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_oratoria               event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}
+{#                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_oratoria               event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}#}
                 {% include "includes/cards_li.html" with card_type="Curso"       waiting_list=waiting_list_curso_hipnose                      event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg"                      card_title=CURSO_HIPNOSE.titulo                      card_description=CURSO_HIPNOSE.resumo only %}
-                {#            {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_inteligencia_emocional event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}#}
+{#                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_inteligencia_emocional event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}#}
+                {% include "includes/cards_li.html" with card_type="Atendimento" card_more_link="atendimento_hipnoterapia" card_img="images/banner/atendimento_hipnoterapia.jpg" card_title=ATENDIMENTO_HIPNOTERAPIA.titulo card_description=ATENDIMENTO_HIPNOTERAPIA.resumo only %}
             </ul>
 
         </div>
@@ -110,6 +111,141 @@
         </div>
     </section> <!-- /depoimentos -->
 
+    <section class="gallery" id="galeria">
+        <div class="holder">
+
+            <h2>Galeria de fotos</h2>
+
+            <ul class="gallery-list">
+                {% if images %}
+                    {% for img in images %}
+                        {% include 'includes/gallery_li.html' with img=img %}
+                    {% endfor %}
+                {% else %}
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana2_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_quartelapucarana2_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/curso_de_hipnose_1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/curso_de_hipnose_1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional2_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional2_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional3_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional3_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional4_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional4_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_fap_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_fap_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/palestra_inteligencia_emocional_hospital_da_providencia_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/palestra_inteligencia_emocional_hospital_da_providencia_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_2_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_2_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_3_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_3_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_4_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_4_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_apresentacao_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_apresentacao_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_aula1_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_aula1_communicare_treinamentos.jpg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_certificado_communicare_treinamentos.jpeg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_certificado_communicare_treinamentos.jpeg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/treinamento_de_oratoria_communicare_treinamentos.jpeg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/treinamento_de_oratoria_communicare_treinamentos.jpeg' %}"
+                                 alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% static 'images/gallery/filmagens_communicare_treinamentos.jpg' %}"
+                           data-lightbox="roadtrip">
+                            <img src="{% static 'images/gallery/filmagens_communicare_treinamentos.jpg' %}" alt="">
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </section> <!-- /galeria -->
+
     <section class="about" id="quem-somos">
         <div class="holder">
 
@@ -146,7 +282,7 @@
                             </p>
                             <p class="name">
                                 Vinicius Campos<br>
-                                <span>CEO, HIPNOTERAPEUTA, PALESTRANTE, COACH E HEAD TRAINER.</span><br>
+                                <span>CEO, HIPNOTERAPEUTA, PALESTRANTE E HEAD TRAINER.</span><br>
                                 <a href="{{ SITE.instagram }}" target="_blank">
                                     <i class="fab fa-instagram"></i> Instagram
                                 </a> |
@@ -186,7 +322,7 @@
                         </li>
                     </ul>
 
-                    <a href="{% url 'gallery' %}" class="styled-link">Galeria de fotos</a>
+{#                    <a href="{% url 'gallery' %}" class="styled-link">Galeria de fotos</a>#}
 
                 </div> <!-- /column-02 -->
 
@@ -316,3 +452,8 @@
     {#    <script src="{% static "js/index.js" %}"></script>#}
     <script src="{% static "js/contact.js" %}"></script>
 {% endblock %}
+
+{# Galeria de Fotos #}
+{% block extra_css %}
+    <link href="{% static 'stylesheet/lightbox.css' %}" rel="stylesheet">
+{% endblock extra_css %}

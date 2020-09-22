@@ -235,3 +235,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+
+# Preferências
+CURSO_HIPNOSE_DURACAO = config('CURSO_HIPNOSE_DURACAO', default='2 encontros de 6hrs.<br>Carga horária total de 12hrs.')
