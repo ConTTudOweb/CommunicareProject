@@ -238,4 +238,4 @@ REST_FRAMEWORK = {
 
 
 # Preferências
-CURSO_HIPNOSE_DURACAO = config('CURSO_HIPNOSE_DURACAO', default='2 encontros de 6hrs.<br>Carga horária total de 12hrs.')
+CURSO_HIPNOSE_DURACAO = config('AA_CURSO_HIPNOSE_DURACAO', default='2 encontros de 6hrs.<br>Carga horária total de 12hrs.')
