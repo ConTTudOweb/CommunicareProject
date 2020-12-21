@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta http-equiv="Content-Language" content="pt-br">
-    <title>{{ page.title }} | {{ EMPRESA.name }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ EMPRESA.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% if not debug %}
@@ -163,7 +163,7 @@
 
     <div class="holder">
         <div class="copy">
-            &copy; <strong>2019-{% now 'Y' %} Communicare Treinamentos</strong> - Todos os direitos reservados.
+            &copy; <strong>2019-{% now 'Y' %} Instituto Vinicius Campos</strong> - Todos os direitos reservados.
             <ul class="ft-links">
                 <li><a href="{% url 'privacy_policy' %}">Política de Privacidade</a></li>
                 <li><a href="{% url 'cookies_statement' %}">Declaração de Cookies</a></li>
