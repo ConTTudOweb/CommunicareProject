@@ -63,8 +63,8 @@ SERVER_EMAIL = config('EMAIL_HOST_USER')
 # Application definition
 
 # customizations
-ADMIN_SITE_TITLE = config('ADMIN_SITE_TITLE', default='Communicare')
-ADMIN_SITE_HEADER = config('ADMIN_SITE_HEADER', default='Communicare Treinamentos')
+ADMIN_SITE_TITLE = config('ADMIN_SITE_TITLE', default='Vinicius Campos')
+ADMIN_SITE_HEADER = config('ADMIN_SITE_HEADER', default='Instituto Vinicius Campos')
 ADMIN_INDEX_TITLE = config('ADMIN_INDEX_TITLE', default='Controles administrativos')
 
 # Django Apps
@@ -223,7 +223,7 @@ cloudinary.config(
 # Django Cors Headers
 # https://github.com/adamchainz/django-cors-headers
 
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default="https://communicaretreinamentos.com.br, https://communicare-site.netlify.app", cast=Csv())
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default="https://communicaretreinamentos.com.br, https://institutoviniciuscampos.com.br, https://communicare-site.netlify.app", cast=Csv())
 
 
 # Django Rest Framework

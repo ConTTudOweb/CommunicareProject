@@ -19,9 +19,11 @@ PALESTRA_INTELIGENCIA_EMOCIONAL_TITULO = "Inteligência Emocional"
 PALESTRA_INTELIGENCIA_EMOCIONAL_RESUMO = "Aprenda um pouco mais sobre suas emoções nesta palestra através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional"
 
 KEYWORDS = \
-    "a communicare é confiavel?, communicare treinamentos, communicare treinamentos apucarana, cursos em apucarana, " \
+    "o instituto vinicius campos é confiavel?, a communicare é confiavel?, instituto vinicius campos, " \
+    "communicare treinamentos, instituto vinicius campos apucarana, communicare treinamentos apucarana, " \
+    "cursos em apucarana, " \
     "curso em apucarana, treinamentos em apucarana, treinamento em apucarana, palestras em apucarana, " \
-    "palestra em apucarana, pnl, programação neurolinguística, apucarana, vinicius campos, alessandro folk"
+    "palestra em apucarana, pnl, programação neurolinguística, apucarana, vinicius campos"
 KEYWORDS_TREINAMENTO_ORATORIA = \
     "curso de oratória, treinamento de oratória, curso de comunicação, treinamento de comunicação, " \
     "curso de oratória em apucarana, curso de comunicação em apucarana, treinamento de oratória em apucarana, " \
@@ -60,7 +62,7 @@ KEYWORDS_PALESTRA_INTELIGENCIA_EMOCIONAL = \
 
 PAGES = dict(
     PAGE_HOME={
-        "title": "Centro de Treinamentos em Excelência Humana",
+        "title": "",
         "description": EMPRESA_DESCRICAO,
         "keywords": "%s, %s, %s, %s, %s, %s" % (
             KEYWORDS, KEYWORDS_TREINAMENTO_ORATORIA, KEYWORDS_CURSO_HIPNOSE,
@@ -108,10 +110,10 @@ PAGES = dict(
 
 CONSTS = dict(
     EMPRESA={
-        "name": "Communicare Treinamentos",
+        "name": "Instituto Vinicius Campos",
     },
     SITE={
-        "url": "https://communicaretreinamentos.com.br",
+        "url": "https://institutoviniciuscampos.com.br",
         "instagram": "https://www.instagram.com/viniciuscommunicare/",
         "facebook": "https://www.facebook.com/viniciushipnoterapia/",
         "linkedin": "https://www.linkedin.com/in/vinicampos/",
