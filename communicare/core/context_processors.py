@@ -111,6 +111,7 @@ PAGES = dict(
 CONSTS = dict(
     EMPRESA={
         "name": "Instituto Vinicius Campos",
+        "slogan": "O Maior Instituto em Treinamentos de Excelência Humana!",
     },
     SITE={
         "url": "https://institutoviniciuscampos.com.br",

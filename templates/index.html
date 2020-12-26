@@ -93,23 +93,23 @@
         </div>
     </section> <!-- /agenda -->
 
-    <section class="testimonials" id="depoimentos">
-        <div class="holder">
-
-            <h2>Veja o que estão falando da gente!</h2>
-
-            <div class="flexslider">
-
-                <ul class="slides">
-                    {% for testimony in testimonies %}
-                        {% include 'includes/testimony_li.html' with testimony=testimony %}
-                    {% endfor %}
-                </ul>
-
-            </div>
-
-        </div>
-    </section> <!-- /depoimentos -->
+{#    <section class="testimonials" id="depoimentos">#}
+{#        <div class="holder">#}
+{##}
+{#            <h2>Veja o que estão falando da gente!</h2>#}
+{##}
+{#            <div class="flexslider">#}
+{##}
+{#                <ul class="slides">#}
+{#                    {% for testimony in testimonies %}#}
+{#                        {% include 'includes/testimony_li.html' with testimony=testimony %}#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{##}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </section> <!-- /depoimentos -->#}
 
     <section class="gallery" id="galeria">
         <div class="holder">
@@ -264,22 +264,29 @@
                     <div class="coach">
                         <img src="{% static "images/people/vinicius.jpeg" %}">
                         <div class="coach-entry">
-                            <p>Vinicius Campos é o idealizador e trainner deste instituto. Neurolinguista e
-                                Hipnoterapeuta é um entusiasta por comunicação, neurociência e comportamento humano.
-                                Dedica grande parte do seu tempo à esse conhecimento.<br>
-                                Alguns de seus treinamentos incluem:</p>
-                            <p>
-                                <span>•</span> Hipnose Clínica;<br>
-                                <span>•</span> Dale Carnegie Training;<br>
-                                <span>•</span> Practitioner Internacional em PNL;<br>
-                                <span>•</span> Eneagrama (Estrutura de Personalidades);<br>
-                                <span>•</span> Palestrante e Orador Profissional;<br>
-                                <span>•</span> Oratória Avançada;<br>
-                                <span>•</span> Diamond Training (Equipes);<br>
-                                <span>•</span> Life Coach;<br>
-                                <span>•</span> Leader Coach;<br>
-                                <span>•</span> Professional Coach.
-                            </p>
+{#                            <p>Vinicius Campos é o idealizador e trainner deste instituto. Neurolinguista e#}
+{#                                Hipnoterapeuta é um entusiasta por comunicação, neurociência e comportamento humano.#}
+{#                                Dedica grande parte do seu tempo à esse conhecimento.<br>#}
+{#                                Alguns de seus treinamentos incluem:</p>#}
+{#                            <p>#}
+{#                                <span>•</span> Hipnose Clínica;<br>#}
+{#                                <span>•</span> Dale Carnegie Training;<br>#}
+{#                                <span>•</span> Practitioner Internacional em PNL;<br>#}
+{#                                <span>•</span> Eneagrama (Estrutura de Personalidades);<br>#}
+{#                                <span>•</span> Palestrante e Orador Profissional;<br>#}
+{#                                <span>•</span> Oratória Avançada;<br>#}
+{#                                <span>•</span> Diamond Training (Equipes);<br>#}
+{#                                <span>•</span> Life Coach;<br>#}
+{#                                <span>•</span> Leader Coach;<br>#}
+{#                                <span>•</span> Professional Coach.#}
+{#                            </p>#}
+
+                            <p>Vinicius Campos é o idealizador e trainner deste instituto. Um entusiasta por comunicação, neurociência e comportamento humano. Dedica grande parte do seu tempo à esse conhecimento.</p>
+                            <p>Master Practitioner em Programação Neurolinguística (PNL), especialista em psicopedagogia clínica e institucional e  especialista em Hipnose Clínica / Auto - Hipnose.</p>
+                            <p>Já estudou com grandes nomes da Programação Neurolinguística e Hipnose Clínica a nível mundial. Desde 2014 dedica grande parte do seu tempo a esse conhecimento.</p>
+                            <p>Todas as vezes que ministra cursos ou trata pacientes  seu coração se enche de alegria, pois sabe que a sua missão de compartilhar conhecimento e transformar vidas está sendo cumprida.</p>
+                            <p>Através dos seus cursos e atendimentos quer te ensinar tudo o que aprendeu durante esses anos, trabalhando de forma prática  para que você busque sua essência, maximizando suas potencialidades.</p>
+
                             <p class="name">
                                 Vinicius Campos<br>
                                 <span>CEO, Especialista em Hipnose Clínica, Master Practitioner em Programação Neurolinguística (PNL), Palestrante e Head Trainer.</span><br>
