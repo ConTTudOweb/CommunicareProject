@@ -246,6 +246,21 @@
         </div>
     </section> <!-- /galeria -->
 
+
+
+    <section class="cards" id="ultimos-videos">
+        <div class="holder">
+            <h2>Últimos Vídeos</h2>
+            <ul class="cards-list">
+                {% for video in videos %}
+                <li>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video }}?controls=2&modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
     <section class="about" id="quem-somos">
         <div class="holder">
 
@@ -458,6 +473,14 @@
     <script src="{% static "js/remodal.min.js" %}"></script>
     {#    <script src="{% static "js/index.js" %}"></script>#}
     <script src="{% static "js/contact.js" %}"></script>
+
+    <script src="{% static "js/jquery.fitvids.js" %}"></script>
+    <script>
+      $(document).ready(function(){
+        // Target your .container, .wrapper, .post, etc.
+        $("#ultimos-videos").fitVids();
+      });
+    </script>
 {% endblock %}
 
 {# Galeria de Fotos #}
