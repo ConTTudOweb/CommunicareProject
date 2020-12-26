@@ -1,3 +1,5 @@
+from django.conf import settings
+
 from communicare.core.models import EventTypes
 
 EMPRESA_DESCRICAO = "Nosso propósito é mediar o conhecimento, potencializando o desenvolvimento pessoal, promovendo " \
@@ -109,6 +111,7 @@ PAGES = dict(
 CONSTS = dict(
     EMPRESA={
         "name": "Instituto Vinicius Campos",
+        "slogan": "O Maior Instituto em Treinamentos de Excelência Humana!",
     },
     SITE={
         "url": "https://institutoviniciuscampos.com.br",
@@ -143,6 +146,10 @@ CONSTS = dict(
         "resumo": PALESTRA_INTELIGENCIA_EMOCIONAL_RESUMO
     },
     EVENT_TYPES=EventTypes.__members__,
+
+    PREFERENCIAS={
+        'CURSO_HIPNOSE_DURACAO': settings.CURSO_HIPNOSE_DURACAO
+    }
 )
 
 

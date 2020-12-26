@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta http-equiv="Content-Language" content="pt-br">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ EMPRESA.name }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ EMPRESA.name }}{% if not page.title %} - {{ EMPRESA.slogan }}{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% if not debug %}
@@ -56,7 +56,7 @@
     <link href="{% static "stylesheet/flexslider.css" %}" rel="stylesheet">
     <link href="{% static "stylesheet/plugins/remodal.css" %}" rel="stylesheet">
     <link href="{% static "stylesheet/plugins/remodal-default-theme.css" %}" rel="stylesheet">
-    <link href="{% static "public/stylesheet/main.css" %}?v1.0.2" rel="stylesheet">
+    <link href="{% static "public/stylesheet/main.css" %}?v1.0.3" rel="stylesheet">
     <link href="{% static "css/loading.css" %}" rel="stylesheet">
     <link href="{% static "css/custom_v2.css" %}" rel="stylesheet">
     {% block extra_css %}{% endblock extra_css %}
@@ -116,7 +116,14 @@
         </h1>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}#cursos-e-treinamentos">CURSOS E TREINAMENTOS</a></li>
+                <li>
+                    <span>CURSOS</span>
+                    <div class="dropdown">
+                        <div><a href="{% url 'curso_hipnose' %}">FORMAÇÃO EM HIPNOSE CLÍNICA COM NEUROCIÊNCIA</a></div>
+                        <div><a href="{% url 'treinamento_oratoria' %}">ORATÓRIA: FORMAÇÃO DE PALESTRANTES</a></div>
+                    </div>
+
+                </li>
                 {#                <li><a href="{% url 'home' %}#atendimentos">Atendimentos</a></li>#}
                 <li><a href="{% url 'atendimento_hipnoterapia' %}">HIPNOTERAPIA</a></li>
 {#                <li>#}
@@ -126,7 +133,7 @@
 {#                    </div>#}
 {#                </li>#}
                 <li><a href="{% url 'home' %}#agenda">AGENDA</a></li>
-                <li><a href="{% url 'home' %}#depoimentos">DEPOIMENTOS</a></li>
+{#                <li><a href="{% url 'home' %}#depoimentos">DEPOIMENTOS</a></li>#}
                 <li><a href="{% url 'home' %}#quem-somos">QUEM SOMOS</a></li>
 {#                <li><a href="{% url 'gallery' %}">GALERIA DE FOTOS</a></li>#}
                 <li><a href="{% url 'home' %}#contato">CONTATO</a></li>

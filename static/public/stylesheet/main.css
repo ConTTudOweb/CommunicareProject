@@ -126,7 +126,7 @@ header {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 7px;
     padding-bottom: 7px;
-    display: block;
+    display: inline-block;
     font-weight: bold;
     color: #bc2b33; }
     @media only screen and (max-width: 1079px) {

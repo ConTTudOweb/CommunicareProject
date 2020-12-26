@@ -12,7 +12,7 @@ Main = {
 
     //Dropdown
 
-    if ($(window).width() > 1179) {
+    if ($(window).width() > 1079) {
       $('header nav li').hover(
         function() {
           $('.dropdown', this).stop().fadeIn(300);
