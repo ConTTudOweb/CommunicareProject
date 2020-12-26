@@ -39,7 +39,7 @@ class Place(models.Model):
     address = models.CharField('endereço', max_length=255)
     city = models.ForeignKey('City', on_delete=models.PROTECT, verbose_name='cidade')
     link_to_map = models.URLField('link para o mapa')
-    image = CloudinaryField('imagem', null=True, blank=True)
+    image = CloudinaryField('imagem', null=True, blank=True, folder='place/')
 
     def __str__(self):
         return self.title
@@ -155,7 +155,8 @@ class Event(models.Model):
                             help_text="Preenchido automaticamente, não editar.")
 
     def _lucro_liquido(self):
-        query = Registration.objects.filter(event=self, net_value__isnull=False).aggregate(lucro_liquido=Sum('net_value'))
+        query = Registration.objects.filter(event=self, net_value__isnull=False).aggregate(
+            lucro_liquido=Sum('net_value'))
         return query['lucro_liquido'] or 0.0
 
     def lucro_liquido(self):
@@ -194,6 +195,7 @@ class Registration(models.Model):
         null = ''
         pendente = 'P'
         emitida = 'E'
+
     customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
     event = models.ForeignKey('Event', verbose_name=event_verbose_name, on_delete=models.PROTECT)
     contract_sent = models.BooleanField('contrato enviado?', default=False)
@@ -217,7 +219,7 @@ class Registration(models.Model):
 class Testimony(models.Model):
     customer = models.ForeignKey('Customer', verbose_name=customer_verbose_name, on_delete=models.PROTECT)
     description = models.TextField('descrição')
-    image = CloudinaryField('imagem', help_text="Imagem quadrada com no mínimo 170px")
+    image = CloudinaryField('imagem', help_text="Imagem quadrada com no mínimo 170px", folder='testimony/')
     visible = models.BooleanField('visível', default=True)
 
     def __str__(self):
@@ -227,11 +229,17 @@ class Testimony(models.Model):
         verbose_name = 'depoimento'
 
 
+@receiver(pre_delete, sender=Testimony)
+def testimony_image_delete(sender, instance, **kwargs):
+    uploader.destroy(instance.image.public_id)
+
+
 class WaitingList(models.Model):
     type = models.CharField('tipo', max_length=7, choices=[
         (EventTypes.treinamento_oratoria.value, GetEventTypesDisplay(EventTypes.treinamento_oratoria.value)),
         (EventTypes.curso_hipnose.value, GetEventTypesDisplay(EventTypes.curso_hipnose.value)),
-        (EventTypes.treinamento_inteligencia_emocional.value, GetEventTypesDisplay(EventTypes.treinamento_inteligencia_emocional.value)),
+        (EventTypes.treinamento_inteligencia_emocional.value,
+         GetEventTypesDisplay(EventTypes.treinamento_inteligencia_emocional.value)),
     ])
     slug = models.SlugField(max_length=255, unique=True, verbose_name="Slug / URL",
                             help_text="Preenchido automaticamente, não editar.")
@@ -305,7 +313,7 @@ class Audience(models.Model):
 
 
 class Gallery(models.Model):
-    image = CloudinaryField('imagem', help_text="Manter um padrão e ter no máximo 1000px")
+    image = CloudinaryField('imagem', help_text="Manter um padrão e ter no máximo 1000px", folder='gallery/')
 
     def __str__(self):
         return str(self.image)
