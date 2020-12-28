@@ -93,23 +93,23 @@
         </div>
     </section> <!-- /agenda -->
 
-{#    <section class="testimonials" id="depoimentos">#}
-{#        <div class="holder">#}
-{##}
-{#            <h2>Veja o que estão falando da gente!</h2>#}
-{##}
-{#            <div class="flexslider">#}
-{##}
-{#                <ul class="slides">#}
-{#                    {% for testimony in testimonies %}#}
-{#                        {% include 'includes/testimony_li.html' with testimony=testimony %}#}
-{#                    {% endfor %}#}
-{#                </ul>#}
-{##}
-{#            </div>#}
-{##}
-{#        </div>#}
-{#    </section> <!-- /depoimentos -->#}
+    <section class="testimonials" id="depoimentos">
+        <div class="holder">
+
+            <h2>Veja o que estão falando da gente!</h2>
+
+            <div class="flexslider">
+
+                <ul class="slides">
+                    {% for testimony in testimonies %}
+                        {% include 'includes/testimony_li.html' with testimony=testimony %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+        </div>
+    </section> <!-- /depoimentos -->
 
     <section class="gallery" id="galeria">
         <div class="holder">
