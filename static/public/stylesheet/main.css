@@ -262,8 +262,8 @@ CONTENT
     .content {
       margin-top: 0; } }
   .content .holder {
-    width: 700px; }
-    @media only screen and (max-width: 800px) {
+    width: 900px; }
+    @media only screen and (max-width: 950px) {
       .content .holder {
         width: 94%; } }
   .content h3 {
@@ -1277,6 +1277,20 @@ GALLERY
   color: #fff;
   font-size: 14px;
   margin-top: 5px; }
+
+.last-videos {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff; }
+  .last-videos h2 i {
+    color: #bc2b33; }
+
+.courses {
+  background: #333;
+  color: #fff; }
+  .courses h2.sub-title {
+    color: #bc2b33; }
+  .courses h5 {
+    text-align: center; }
 
 /**
 WHATSAPP

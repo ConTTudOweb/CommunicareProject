@@ -13,9 +13,9 @@ CONTENT
   }
 
   .holder {
-    width: 700px;
+    width: 900px;
 
-    @media #{$smartphones-1} {
+    @media #{$tablets} {
       width: 94%;
     }
   }

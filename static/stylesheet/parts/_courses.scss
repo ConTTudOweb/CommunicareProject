@@ -1,0 +1,14 @@
+.courses {
+  background: $dark-gray;
+  color: $white;
+
+  h2 {
+    &.sub-title {
+      color: $red;
+    }
+  }
+
+  h5 {
+    text-align: center;
+  }
+}
