@@ -1285,12 +1285,30 @@ GALLERY
     color: #bc2b33; }
 
 .courses {
-  background: #333;
-  color: #fff; }
+  text-align: center; }
+  .courses .cta {
+    font-size: 20px;
+    box-shadow: unset; }
   .courses h2.sub-title {
-    color: #bc2b33; }
-  .courses h5 {
+    color: #bc2b33;
+    text-transform: uppercase; }
+  .courses h4 {
     text-align: center; }
+  .courses .header {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff; }
+  .courses .details {
+    background: #ccc;
+    margin-top: unset; }
+    .courses .details ul.cards-list li {
+      text-align: center; }
+      .courses .details ul.cards-list li img {
+        background: transparent;
+        border: unset;
+        max-width: 61px;
+        padding: 0; }
+      .courses .details ul.cards-list li .title {
+        text-decoration: underline; }
 
 /**
 WHATSAPP

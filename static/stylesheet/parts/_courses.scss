@@ -1,14 +1,44 @@
 .courses {
-  background: $dark-gray;
-  color: $white;
+  text-align: center;
+
+  .cta {
+    font-size: 20px;
+    box-shadow: unset;
+  }
 
   h2 {
     &.sub-title {
       color: $red;
+      text-transform: uppercase;
     }
   }
 
-  h5 {
+  h4 {
     text-align: center;
+  }
+
+  .header {
+    background: $gray-9;
+    color: $white;
+  }
+
+  .details {
+    background: $lt-gray-3;
+    margin-top: unset;
+
+    ul.cards-list li {
+      text-align: center;
+
+      img {
+        background: transparent;
+        border: unset;
+        max-width: 61px;
+        padding: 0;
+      }
+
+      .title {
+        text-decoration: underline;
+      }
+    }
   }
 }
