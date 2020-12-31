@@ -76,6 +76,81 @@
                 </ul>
             </div>
         </section>
+
+        <section class="cards para-quem">
+            <div class="holder">
+                <h2 class="title">
+                    Para quem é o curso?
+                </h2>
+
+                <ul class="cards-list">
+                    <li><i class="fas fa-check"></i><br>Para qualquer pessoa que queira aprender hipnose clínica de forma ética e segura (sem pré-requisitos).</li>
+                    <li><i class="fas fa-check"></i><br>Para Psicólogos, Médicos, Coaches, Terapeutas Holísticos, Psicanalistas, Dentistas, Fisioterapeutas, Psicoterapeutas e demais profissionais que buscam utilizar profissionalmente a hipnose clínica.</li>
+                    <li><i class="fas fa-check"></i><br>Profissionais de saúde e desenvolvimento pessoal, que desejam aprender as técnicas para utilizar no seu trabalho.</li>
+                    <li><i class="fas fa-check"></i><br>Profissionais que não querem mais seguir uma linha tradicional de trabalho, podendo criar o próprio horário e estabelecer a própria remuneração.</li>
+                    <li><i class="fas fa-check"></i><br>Pessoas que desejam mudar de vida, atuar em uma carreira transformadora, em um mercado de grande expansão e de muito potencial.</li>
+                    <li><i class="fas fa-check"></i><br>Pessoas que querem utilizar os recursos da sua mente ao seu favor.</li>
+                    <li><i class="fas fa-check"></i><br>Para você que quer descobrir como transformar e impactar positivamente a vida das pessoas.</li>
+                    <li><i class="fas fa-check"></i><br>Para você que quer aprender as técnicas avançadas para tratar as principais demandas de um consultório.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="chamada">
+            <div class="holder">
+                {% if event %}
+                    {% if event.external_subscriptions %}
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">SIM, EU QUERO SER UM HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                    {% else %}
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">SIM, EU QUERO SER UM HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                    {% endif %}
+                {% elif waiting_list %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">SIM, EU QUERO SER UM HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                {% endif %}
+            </div>
+        </section>
+
+        <!--<section class="cards porque-eu-sei">
+            <div class="holder">
+                <img src="{% static "images/cursos/vinicius.png" %}">
+
+                <div class="descricao">
+                    <h2>PORQUE EU SEI DO QUE ESTOU FALANDO?</h2>
+
+                    <p>Meu nome é Vinicius Campos sou especialista em Hipnose Clínica e nessa caminhada já tratei mais de 700 pessoas.</p>
+                    <p>Sou Master Practitioner em Programação Neurolinguística (PNL), especialista em psicopedagogia clínica e institucional e  especialista em Hipnose Clínica / Auto - Hipnose.</p>
+                    <p>Já estudei com grandes nomes da Programação Neurolinguística e Hipnose Clínica a nível mundial. Desde 2014 dedico grande parte do meu tempo a esse conhecimento.</p>
+                    <p>Todas as vezes que ministros cursos ou trato pacientes  meu coração se enche de alegria, pois sei que a minha missão de compartilhar conhecimento e transformar vidas está sendo cumprida.</p>
+                    <p>Através do meu curso quero te ensinar tudo o que aprendi durante esses anos e toda minha experiência de consultório. Trabalhando de forma totalmente prática  os mais diversos protocolos de atendimento</p>
+                </div>
+            </div>
+        </section>-->
+
+        <section class="cards para-quem beneficios">
+            <div class="holder">
+                <h2 class="title">
+                    CONHEÇA <span class="mark">5 BENEFICÍOS REAIS</span> APÓS FINALIZAR O NOSSO TREINAMENTO.
+                </h2>
+
+                <ul class="motivations benefits">
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">É o melhor treinamento transformador de vidas do Brasil. Uma formação completa e abrangente que garante ao aluno total aptidão para atuar como hipnoterapeuta, imediatamente após a conclusão da formação.</div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">O profissional estará capacitado a prestar atendimentos de altíssima qualidade.</div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Terá o poder de fazer a diferença na vida de seus clientes.</div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Garantia de prestígio e reconhecimento pelos resultados oferecidos.</div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">O único treinamento com integração de neurociência, programação neurolinguística e hipnose clínica.</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </div>
 {% endblock %}
 

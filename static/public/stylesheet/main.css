@@ -1289,11 +1289,17 @@ GALLERY
   .courses .cta {
     font-size: 20px;
     box-shadow: unset; }
-  .courses h2.sub-title {
-    color: #bc2b33;
+  .courses h2 {
     text-transform: uppercase; }
+    .courses h2.sub-title {
+      color: #bc2b33;
+      text-transform: uppercase; }
   .courses h4 {
     text-align: center; }
+  .courses img {
+    background: transparent;
+    border: unset;
+    padding: 0; }
   .courses .header {
     background: rgba(0, 0, 0, 0.9);
     color: #fff; }
@@ -1303,12 +1309,80 @@ GALLERY
     .courses .details ul.cards-list li {
       text-align: center; }
       .courses .details ul.cards-list li img {
-        background: transparent;
-        border: unset;
-        max-width: 61px;
-        padding: 0; }
+        max-width: 61px; }
       .courses .details ul.cards-list li .title {
         text-decoration: underline; }
+  .courses .para-quem {
+    background: #f8f8f8; }
+    .courses .para-quem .title {
+      box-shadow: 0 0 6px 0 #fff;
+      background: #bc2b33;
+      color: #fff;
+      padding: 1rem 0; }
+      .courses .para-quem .title .mark {
+        background: rgba(0, 0, 0, 0.9);
+        padding: 0 0.5rem; }
+    .courses .para-quem li {
+      margin: 0 1% 30px 1%;
+      padding: 0.5%;
+      text-align: center; }
+      .courses .para-quem li i {
+        font-size: 35px;
+        color: #698d64; }
+  .courses .chamada {
+    background: #999; }
+    .courses .chamada .cta {
+      margin: 25px 0;
+      height: auto; }
+  .courses .porque-eu-sei .holder {
+    width: 925px; }
+    @media only screen and (max-width: 950px) {
+      .courses .porque-eu-sei .holder {
+        width: 94%; } }
+    .courses .porque-eu-sei .holder img {
+      width: 370px;
+      padding: 7px;
+      float: right; }
+      @media only screen and (max-width: 800px) {
+        .courses .porque-eu-sei .holder img {
+          max-width: 200px;
+          float: none; } }
+    .courses .porque-eu-sei .holder .descricao {
+      margin-right: 400px;
+      text-align: justify; }
+      .courses .porque-eu-sei .holder .descricao p {
+        line-height: normal; }
+      @media only screen and (max-width: 800px) {
+        .courses .porque-eu-sei .holder .descricao {
+          margin-right: 0; } }
+  .courses .beneficios {
+    text-align: center; }
+    .courses .beneficios .motivations {
+      padding: 0;
+      border-bottom: 0;
+      margin: 0; }
+    .courses .beneficios li {
+      max-width: 630px;
+      text-align: justify;
+      margin: 0 160px;
+      padding-bottom: 35px; }
+      @media only screen and (max-width: 950px) {
+        .courses .beneficios li {
+          width: 94%;
+          margin: 0;
+          text-align: center; } }
+      .courses .beneficios li i {
+        width: 200px;
+        float: left; }
+        @media only screen and (max-width: 950px) {
+          .courses .beneficios li i {
+            width: 120px;
+            float: none; } }
+      .courses .beneficios li .beneficios-texto {
+        margin-left: 200px; }
+        @media only screen and (max-width: 950px) {
+          .courses .beneficios li .beneficios-texto {
+            margin-left: 0; } }
 
 /**
 WHATSAPP
