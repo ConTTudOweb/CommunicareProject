@@ -25,12 +25,14 @@
 
                 {% if event %}
                     {% if event.external_subscriptions %}
-                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">Quero ser um Hipnoterapeuta</a>
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">Quero ser um
+                            Hipnoterapeuta</a>
                     {% else %}
                         <a href="{% url 'event-detail' slug=event.slug %}" class="cta">Quero ser um Hipnoterapeuta</a>
                     {% endif %}
                 {% elif waiting_list %}
-                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">Quero ser um Hipnoterapeuta</a>
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">Quero ser um
+                        Hipnoterapeuta</a>
                 {% endif %}
             </div>
         </section>
@@ -84,14 +86,31 @@
                 </h2>
 
                 <ul class="cards-list">
-                    <li><i class="fas fa-check"></i><br>Para qualquer pessoa que queira aprender hipnose clínica de forma ética e segura (sem pré-requisitos).</li>
-                    <li><i class="fas fa-check"></i><br>Para Psicólogos, Médicos, Coaches, Terapeutas Holísticos, Psicanalistas, Dentistas, Fisioterapeutas, Psicoterapeutas e demais profissionais que buscam utilizar profissionalmente a hipnose clínica.</li>
-                    <li><i class="fas fa-check"></i><br>Profissionais de saúde e desenvolvimento pessoal, que desejam aprender as técnicas para utilizar no seu trabalho.</li>
-                    <li><i class="fas fa-check"></i><br>Profissionais que não querem mais seguir uma linha tradicional de trabalho, podendo criar o próprio horário e estabelecer a própria remuneração.</li>
-                    <li><i class="fas fa-check"></i><br>Pessoas que desejam mudar de vida, atuar em uma carreira transformadora, em um mercado de grande expansão e de muito potencial.</li>
-                    <li><i class="fas fa-check"></i><br>Pessoas que querem utilizar os recursos da sua mente ao seu favor.</li>
-                    <li><i class="fas fa-check"></i><br>Para você que quer descobrir como transformar e impactar positivamente a vida das pessoas.</li>
-                    <li><i class="fas fa-check"></i><br>Para você que quer aprender as técnicas avançadas para tratar as principais demandas de um consultório.</li>
+                    <li><i class="fas fa-check"></i><br>Para qualquer pessoa que queira aprender hipnose clínica de
+                        forma ética e segura (sem pré-requisitos).
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Para Psicólogos, Médicos, Coaches, Terapeutas Holísticos,
+                        Psicanalistas, Dentistas, Fisioterapeutas, Psicoterapeutas e demais profissionais que buscam
+                        utilizar profissionalmente a hipnose clínica.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Profissionais de saúde e desenvolvimento pessoal, que desejam
+                        aprender as técnicas para utilizar no seu trabalho.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Profissionais que não querem mais seguir uma linha tradicional
+                        de trabalho, podendo criar o próprio horário e estabelecer a própria remuneração.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Pessoas que desejam mudar de vida, atuar em uma carreira
+                        transformadora, em um mercado de grande expansão e de muito potencial.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Pessoas que querem utilizar os recursos da sua mente ao seu
+                        favor.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Para você que quer descobrir como transformar e impactar
+                        positivamente a vida das pessoas.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Para você que quer aprender as técnicas avançadas para tratar as
+                        principais demandas de um consultório.
+                    </li>
                 </ul>
             </div>
         </section>
@@ -100,12 +119,15 @@
             <div class="holder">
                 {% if event %}
                     {% if event.external_subscriptions %}
-                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">SIM, EU QUERO SER UM HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">SIM, EU QUERO SER UM
+                            HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
                     {% else %}
-                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">SIM, EU QUERO SER UM HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">SIM, EU QUERO SER UM
+                            HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
                     {% endif %}
                 {% elif waiting_list %}
-                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">SIM, EU QUERO SER UM HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">SIM, EU QUERO SER UM
+                        HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
                 {% endif %}
             </div>
         </section>
@@ -134,19 +156,28 @@
 
                 <ul class="motivations benefits">
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">É o melhor treinamento transformador de vidas do Brasil. Uma formação completa e abrangente que garante ao aluno total aptidão para atuar como hipnoterapeuta, imediatamente após a conclusão da formação.</div>
+                        <div class="beneficios-texto">É o melhor treinamento transformador de vidas do Brasil. Uma
+                            formação completa e abrangente que garante ao aluno total aptidão para atuar como
+                            hipnoterapeuta, imediatamente após a conclusão da formação.
+                        </div>
                     </li>
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">O profissional estará capacitado a prestar atendimentos de altíssima qualidade.</div>
+                        <div class="beneficios-texto">O profissional estará capacitado a prestar atendimentos de
+                            altíssima qualidade.
+                        </div>
                     </li>
                     <li><i class="fas fa-check"></i>
                         <div class="beneficios-texto">Terá o poder de fazer a diferença na vida de seus clientes.</div>
                     </li>
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">Garantia de prestígio e reconhecimento pelos resultados oferecidos.</div>
+                        <div class="beneficios-texto">Garantia de prestígio e reconhecimento pelos resultados
+                            oferecidos.
+                        </div>
                     </li>
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">O único treinamento com integração de neurociência, programação neurolinguística e hipnose clínica.</div>
+                        <div class="beneficios-texto">O único treinamento com integração de neurociência, programação
+                            neurolinguística e hipnose clínica.
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -160,7 +191,8 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
 
-                <a href="https://wa.me/5543998084747" target="_blank" class="cta whatsapp">CLIQUE AQUI E FALE COMIGO PELO WHATSAPP</a>
+                <a href="https://wa.me/5543998084747" target="_blank" class="cta whatsapp">CLIQUE AQUI E FALE COMIGO
+                    PELO WHATSAPP</a>
             </div>
         </section>
         <section class="cards details">
@@ -318,7 +350,7 @@
                         <p>- EMAGRECIMENTO</p>
                         <p>- TOC</p>
                         <p>- FIBROMIALGIA</p>
-                        <p>- REALOCAÇÃO DE  EMOÇÕES</p>
+                        <p>- REALOCAÇÃO DE EMOÇÕES</p>
                         <p>- EFEITO SWISH</p>
                         <p>- PONTE AO FUTURO</p>
                         <p>- PROGRESSÃO AO FUTURO</p>
@@ -364,19 +396,24 @@
                 <ul class="cards-list">
                     <li><i class="fas fa-check"></i><br>
                         <h4>Prático e Rápido</h4>
-                        Indicado para quem tem pouco tempo para estudar e busca uma solução prática e fácil para aprender uma nova profissão através da hipnose clínica ou apenas adquirir conhecimento de um jeito simples e altamente eficiente. Nosso foco é a praticidade e o resultado dos nossos alunos.
+                        Indicado para quem tem pouco tempo para estudar e busca uma solução prática e fácil para
+                        aprender uma nova profissão através da hipnose clínica ou apenas adquirir conhecimento de um
+                        jeito simples e altamente eficiente. Nosso foco é a praticidade e o resultado dos nossos alunos.
                     </li>
                     <li><i class="fas fa-check"></i><br>
                         <h4>Professor Experiente</h4>
-                        Desde 2014 Vinicius Campos prepara estudantes, profissionais e grandes líderes, para maximizarem suas potencialidades através do autoconhecimento. Nessa caminhada já formou inúmeros alunos.
+                        Desde 2014 Vinicius Campos prepara estudantes, profissionais e grandes líderes, para maximizarem
+                        suas potencialidades através do autoconhecimento. Nessa caminhada já formou inúmeros alunos.
                     </li>
                     <li><i class="fas fa-check"></i><br>
                         <h4>Suporte VIP</h4>
-                        Suporte VIP exclusivo para tirar suas dúvidas através de um grupo exclusivo. Contato direto com o professor Vinicius Campos via whatsapp. Tire suas dúvidas e receba orientações personalizadas.
+                        Suporte VIP exclusivo para tirar suas dúvidas através de um grupo exclusivo. Contato direto com
+                        o professor Vinicius Campos via whatsapp. Tire suas dúvidas e receba orientações personalizadas.
                     </li>
                     <li><i class="fas fa-check"></i><br>
                         <h4>Método focado em resultado</h4>
-                        Não é simplesmente saber hipnose e sim potencializar seus resultados por meio dos atendimentos clínicos sabendo montar protocolos de atendimentos sob medida.
+                        Não é simplesmente saber hipnose e sim potencializar seus resultados por meio dos atendimentos
+                        clínicos sabendo montar protocolos de atendimentos sob medida.
                     </li>
                     <li><i class="fas fa-check"></i><br>
                         <h4>Certificado Reconhecido</h4>
@@ -401,12 +438,14 @@
                     <p>{{ event.details|linebreaksbr }}</p>
 
                     {% if event.external_subscriptions %}
-                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">QUERO GARANTIR MINHA VAGA!</a>
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">QUERO GARANTIR MINHA
+                            VAGA!</a>
                     {% else %}
                         <a href="{% url 'event-detail' slug=event.slug %}" class="cta">QUERO GARANTIR MINHA VAGA!</a>
                     {% endif %}
                 {% elif waiting_list %}
-                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">QUERO GARANTIR MINHA VAGA!</a>
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">QUERO GARANTIR MINHA
+                        VAGA!</a>
                 {% endif %}
             </div>
         </section>
@@ -416,7 +455,8 @@
                 <h2 class="title">
                     FORMAÇÃO TOTALMENTE CERTIFICADA
                 </h2>
-                <h3>Após concluir o curso você vai receber o seu Certificado de Conclusão com carga horária de 25 horas. Válido em todo o território nacional.</h3>
+                <h3>Após concluir o curso você vai receber o seu Certificado de Conclusão com carga horária de 25 horas.
+                    Válido em todo o território nacional.</h3>
 
                 <ul class="cards-list">
                     <li>
@@ -478,12 +518,15 @@
             <div class="holder">
                 {% if event %}
                     {% if event.external_subscriptions %}
-                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">CLIQUE AQUI E GARANTA HOJE MESMO A SUA VAGA!</a>
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">CLIQUE AQUI E GARANTA
+                            HOJE MESMO A SUA VAGA!</a>
                     {% else %}
-                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">CLIQUE AQUI E GARANTA HOJE MESMO A SUA VAGA!</a>
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">CLIQUE AQUI E GARANTA HOJE MESMO
+                            A SUA VAGA!</a>
                     {% endif %}
                 {% elif waiting_list %}
-                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">CLIQUE AQUI E GARANTA HOJE MESMO A SUA VAGA!</a>
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">CLIQUE AQUI E GARANTA
+                        HOJE MESMO A SUA VAGA!</a>
                 {% endif %}
             </div>
         </section>
@@ -519,21 +562,118 @@
 
                 <ul class="motivations benefits">
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">Quanto vale conhecer um método prático, moderno e eficiente para ajudar outras pessoas?</div>
+                        <div class="beneficios-texto">Quanto vale conhecer um método prático, moderno e eficiente para
+                            ajudar outras pessoas?
+                        </div>
                     </li>
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">Quanto vale se tornar um profissional reconhecido no mercado?</div>
+                        <div class="beneficios-texto">Quanto vale se tornar um profissional reconhecido no mercado?
+                        </div>
                     </li>
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">Quanto vale ser admirado pelas pessoas, conquistar elogios e reconhecimento através do seu conhecimento?</div>
+                        <div class="beneficios-texto">Quanto vale ser admirado pelas pessoas, conquistar elogios e
+                            reconhecimento através do seu conhecimento?
+                        </div>
                     </li>
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">Quanto vale aprender uma nova profissão e triplicar o seu faturamento?</div>
+                        <div class="beneficios-texto">Quanto vale aprender uma nova profissão e triplicar o seu
+                            faturamento?
+                        </div>
                     </li>
                     <li><i class="fas fa-check"></i>
-                        <div class="beneficios-texto">Quanto vale conhecer muito mais sobre essa máquina que te comanda, o cérebro humano?</div>
+                        <div class="beneficios-texto">Quanto vale conhecer muito mais sobre essa máquina que te comanda,
+                            o cérebro humano?
+                        </div>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="cards details">
+            <div class="holder">
+                <h2 class="title">
+                    AGORA VOCÊ TEM 3 OPÇÕES
+                </h2>
+
+                <ul class="cards-list">
+                    <li>
+                        <h4 class="title">OPÇÃO 1</h4>
+                        <p>Não fazer nada e continuar na mesma como você está hoje, se sentindo inseguro quando precisar
+                            fazer algum atendimento ou compreender a mente humana e, pior, convivendo com o medo,
+                            perdendo tempo, dinheiro e oportunidades de crescimento pessoal e profissional. Você vê o
+                            crescimento das outras pessoas e sente que está ficando para trás.</p>
+                    </li>
+                    <li>
+                        <h4 class="title">OPÇÃO 2</h4>
+                        <p>Tentar aprender tudo sozinho vendo vídeos do youtube e textos da internet que trazem
+                            informações incompletas e desorganizadas. Você levará anos fazendo testes e mais testes
+                            experimentando aquilo que funciona e aquilo que não funciona e ainda continuará
+                            inseguro.</p>
+                    </li>
+                    <li>
+                        <h4 class="title">OPÇÃO 3</h4>
+                        <p>Aproveitar a experiência de um ESPECIALISTA que já fez mais de 700 atendimentos e estudou
+                            esse assunto por anos e comprovou na prática o que realmente funciona. Já está tudo pronto.
+                            Você vai ganhar algo que vale muito mais do que dinheiro. Você vai ganhar TEMPO.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="header duvidas">
+            <div class="holder">
+                <h2 class="title">
+                    DÚVIDAS FREQUENTES
+                </h2>
+
+                <strong>1. Consigo aplicar a hipnose em outras pessoas ou trabalhar de forma profissional depois do
+                    curso?</strong>
+                <p>
+                    Sim! Esse curso tem um módulo especifico para quem deseja trabalhar na área clinica, dentro do
+                    módulo contêm todos os protocolos necessários para tratar doenças de cunho emocional.
+                    No final do treinamento, você receberá sua certificação reconhecida.
+                </p>
+
+                <hr>
+
+                <strong>2. Recebemos o certificado logo após a conclusão do curso?</strong>
+                <p>
+                    Sim. No último dia do curso você receberá seu certificado impresso.
+                </p>
+
+                <hr>
+
+                <strong>3. Tem alguma relação com religião?</strong>
+                <p>
+                    Nenhuma. Hipnose é um estado natural da mente. Ficamos hipnotizados todos os dias, por exemplo
+                    quando estamos assistindo TV. Além disso, hipnose hoje é ciência.
+                </p>
+
+                <hr>
+
+                <strong>4. Consigo parcelar o curso no boleto?</strong>
+                <p>
+                    Infelizmente não é possível, usamos uma plataforma de pagamentos que só aceita pagamentos únicos no
+                    boleto.
+                </p>
+
+                <hr>
+
+                <strong>5. Esse curso é para iniciantes?</strong>
+                <p>
+                    Você está começando no mundo da Hipnose? Fique tranquilo porque desenvolvi uma metodologia
+                    revolucionária de ensinar Hipnose. Em poucas semanas você vai estar pronto para Hipnotizar com
+                    Confiança e Segurança do absoluto zero! Este curso aborda no nível básico ao
+                    experiente/profissional.
+                </p>
+
+                <hr>
+
+                <strong>6. Quem pode fazer esse curso?</strong>
+                <p>
+                    Para qualquer pessoa que queira aprender hipnose clínica de forma ética e segura (sem
+                    pré-requisitos).
+                </p>
             </div>
         </section>
     </div>

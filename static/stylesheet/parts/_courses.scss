@@ -65,6 +65,10 @@
     color: $white;
     padding: 70px 0;
 
+    p {
+      color: $lt-gray-1;
+    }
+
     .holder {
       width: 900px;
 
@@ -213,5 +217,9 @@
     h3 {
       font-size: x-large;
     }
+  }
+
+  .duvidas {
+    text-align: left;
   }
 }
