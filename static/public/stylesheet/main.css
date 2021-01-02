@@ -1287,8 +1287,9 @@ GALLERY
 .courses {
   text-align: center; }
   .courses .cta {
-    font-size: 20px;
-    box-shadow: unset; }
+    font-size: 20px; }
+  .courses .whatsapp {
+    background: #25D366; }
   .courses h2 {
     text-transform: uppercase; }
     .courses h2.sub-title {
@@ -1297,12 +1298,37 @@ GALLERY
   .courses h4 {
     text-align: center; }
   .courses img {
-    background: transparent;
+    background: transparent !important;
     border: unset;
     padding: 0; }
+  .courses .cards-list .p-left p {
+    text-align: left !important; }
+  .courses .cards-list li {
+    width: 22%;
+    margin: 0 1% 30px 1%;
+    padding: 0.5%; }
+    @media only screen and (max-width: 950px) {
+      .courses .cards-list li {
+        width: 45%;
+        margin: 0 1.5% 50px 1.5%; } }
+    @media only screen and (max-width: 800px) {
+      .courses .cards-list li {
+        width: 100%;
+        margin: 40px 0 0 0;
+        padding: 0; } }
+    .courses .cards-list li.border {
+      box-shadow: 0 0 6px 0 #fff; }
   .courses .header {
     background: rgba(0, 0, 0, 0.9);
-    color: #fff; }
+    color: #fff;
+    padding: 70px 0; }
+    .courses .header .holder {
+      width: 900px; }
+      @media only screen and (max-width: 950px) {
+        .courses .header .holder {
+          width: 94%; } }
+    .courses .header .holder.depoimentos {
+      width: 90%; }
   .courses .details {
     background: #ccc;
     margin-top: unset; }
@@ -1383,6 +1409,8 @@ GALLERY
         @media only screen and (max-width: 950px) {
           .courses .beneficios li .beneficios-texto {
             margin-left: 0; } }
+  .courses .bonus h3 {
+    font-size: x-large; }
 
 /**
 WHATSAPP

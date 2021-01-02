@@ -3,7 +3,11 @@
 
   .cta {
     font-size: 20px;
-    box-shadow: unset;
+    //box-shadow: unset;
+  }
+
+  .whatsapp {
+    background: #25D366;
   }
 
   h2 {
@@ -19,14 +23,59 @@
   }
 
   img {
-    background: transparent;
+    background: transparent !important;
     border: unset;
     padding: 0;
+  }
+
+  .cards-list {
+    .p-left p {
+      text-align: left !important;
+    }
+
+    li {
+
+      width: 22%;
+      margin: 0 1% 30px 1%;
+      padding: 0.5%;
+
+      @media #{$tablets} {
+        width: 45%;
+        margin: 0 1.5% 50px 1.5%;
+      }
+
+      @media #{$smartphones-1} {
+        width: 100%;
+        margin: 40px 0 0 0;
+        padding: 0;
+      }
+
+
+
+      &.border {
+        box-shadow: 0 0 6px 0 $white;
+        //margin: 0 1% 30px 1%;
+        //padding: 0.5%;
+      }
+    }
   }
 
   .header {
     background: $gray-9;
     color: $white;
+    padding: 70px 0;
+
+    .holder {
+      width: 900px;
+
+      @media #{$tablets} {
+        width: 94%;
+      }
+    }
+
+    .holder.depoimentos {
+      width: 90%;
+    }
   }
 
   .details {
@@ -157,6 +206,12 @@
           margin-left: 0;
         }
       }
+    }
+  }
+
+  .bonus {
+    h3 {
+      font-size: x-large;
     }
   }
 }
