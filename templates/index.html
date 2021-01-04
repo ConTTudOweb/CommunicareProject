@@ -9,12 +9,12 @@
             <ul class="slides">
                 <li>
                     <a href="{% url 'treinamento_oratoria' %}">
-                        <img src="{% static "images/banner/treinamento_oratoria.jpg" %}">
+                        <img src="{% static "images/banner/treinamento_oratoria.png" %}">
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'curso_hipnose' %}">
-                        <img src="{% static "images/banner/curso_hipnose.jpg" %}">
+                        <img src="{% static "images/banner/curso_hipnose.png" %}">
                     </a>
                 </li>
                 {#          <li>#}
@@ -29,7 +29,7 @@
                 {#          </li>#}
                 <li>
                     <a href="{% url 'atendimento_hipnoterapia' %}">
-                        <img src="{% static "images/banner/atendimento_hipnoterapia.jpg" %}">
+                        <img src="{% static "images/banner/atendimento_hipnoterapia.png" %}">
                     </a>
                 </li>
             </ul>
@@ -45,10 +45,11 @@
             </h2>
 
             <ul class="cards-list">
-{#                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_oratoria               event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}#}
-                {% include "includes/cards_li.html" with card_type="Curso"       waiting_list=waiting_list_curso_hipnose                      event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg"                      card_title=CURSO_HIPNOSE.titulo                      card_description=CURSO_HIPNOSE.resumo only %}
-{#                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_inteligencia_emocional event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}#}
-                {% include "includes/cards_li.html" with card_type="Atendimento" card_more_link="atendimento_hipnoterapia" card_img="images/banner/atendimento_hipnoterapia.jpg" card_title=ATENDIMENTO_HIPNOTERAPIA.titulo card_description=ATENDIMENTO_HIPNOTERAPIA.resumo only %}
+                {% include "includes/cards_li.html" with card_type="Atendimento" card_more_link="atendimento_hipnoterapia" card_img="images/banner/atendimento_hipnoterapia.png" card_title=ATENDIMENTO_HIPNOTERAPIA.titulo card_description=ATENDIMENTO_HIPNOTERAPIA.resumo only %}
+                {% include "includes/cards_li.html" with card_type="Curso"       waiting_list=waiting_list_curso_hipnose                      event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.png"                      card_title=CURSO_HIPNOSE.titulo                      card_description=CURSO_HIPNOSE.resumo only %}
+                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_oratoria               event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.png"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}
+                {#{% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_inteligencia_emocional event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}#}
+
             </ul>
 
         </div>
@@ -93,23 +94,23 @@
         </div>
     </section> <!-- /agenda -->
 
-    <section class="testimonials" id="depoimentos">
-        <div class="holder">
-
-            <h2>Veja o que estão falando da gente!</h2>
-
-            <div class="flexslider">
-
-                <ul class="slides">
-                    {% for testimony in testimonies %}
-                        {% include 'includes/testimony_li.html' with testimony=testimony %}
-                    {% endfor %}
-                </ul>
-
-            </div>
-
-        </div>
-    </section> <!-- /depoimentos -->
+{#    <section class="testimonials" id="depoimentos">#}
+{#        <div class="holder">#}
+{##}
+{#            <h2>Veja o que estão falando da gente!</h2>#}
+{##}
+{#            <div class="flexslider">#}
+{##}
+{#                <ul class="slides">#}
+{#                    {% for testimony in testimonies %}#}
+{#                        {% include 'includes/testimony_li.html' with testimony=testimony %}#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{##}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </section> <!-- /depoimentos -->#}
 
     <section class="gallery" id="galeria">
         <div class="holder">
