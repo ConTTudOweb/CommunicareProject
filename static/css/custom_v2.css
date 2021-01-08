@@ -1,11 +1,11 @@
 /* Details header */
 
 .header-treinamento-oratoria {
-    background: url("../images/banner/treinamento_oratoria_header.jpg") no-repeat; !important;
+    background: url("../images/banner/treinamento_oratoria_header.png") no-repeat; !important;
 }
 
 .header-curso-hipnose {
-    background: url("../images/banner/curso_hipnose_header.jpg") no-repeat; !important;
+    background: url("../images/banner/curso_hipnose_header.png") no-repeat; !important;
 }
 
 .header-treinamento-inteligencia-emocional {
@@ -17,7 +17,7 @@
 }
 
 .header-atendimento-hipnoterapia {
-    background: url("../images/banner/atendimento_hipnoterapia_header.jpg") no-repeat; !important;
+    background: url("../images/banner/atendimento_hipnoterapia_header.png") no-repeat; !important;
 }
 
 header li span {

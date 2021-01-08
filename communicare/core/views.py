@@ -250,6 +250,20 @@ class HomeTemplateView(TemplateView):
         context['event_treinamento_inteligencia_emocional'] = get_current_event(EventTypes.treinamento_inteligencia_emocional.value)
         context['waiting_list_treinamento_inteligencia_emocional'] = get_current_waiting_list(EventTypes.treinamento_inteligencia_emocional.value)
         context['testimonies'] = Testimony.objects.filter(visible=True).all()
+
+        from urllib import request
+        import json
+        base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
+        url = base_search_url + 'key=AIzaSyCPI3xSK5bXFYCYr2QjLQ6RebGJiUr5_Og&channelId=UCgGb95A1399ogNHOi3bDbOg&part' \
+                                '=snippet,id&order=date&maxResults=3 '
+        video_ids = []
+        inp = request.urlopen(url)
+        resp = json.load(inp)
+        for i in resp['items']:
+            if i['id']['kind'] == "youtube#video":
+                video_ids.append(i['id']['videoId'])
+        context['videos'] = video_ids
+
         # SEO
         context['page'] = PAGES.get("PAGE_HOME")
         return context

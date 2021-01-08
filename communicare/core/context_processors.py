@@ -7,7 +7,7 @@ EMPRESA_DESCRICAO = "Nosso propósito é mediar o conhecimento, potencializando 
                     "patamares ainda maiores."
 TREINAMENTO_ORATORIA_TITULO = "Oratória: Comunicação e Expressão."
 TREINAMENTO_ORATORIA_RESUMO = "Um treinamento que envolve técnicas de oratória e programação neurolinguística (PNL) buscando entender e compreender todos os sentimentos que nos sabotam diante de uma apresentação"
-CURSO_HIPNOSE_TITULO = "Hipnose Clínica"
+CURSO_HIPNOSE_TITULO = "Formação em Hipnose Clínica com Neurociência"
 CURSO_HIPNOSE_RESUMO = "Um curso que alinha teoria à prática, desmistificando o que é hipnose e compreendendo seu real fundamento terapêutico para cura de traumas e fobias"
 TREINAMENTO_INTELIGENCIA_EMOCIONAL_TITULO = "Inteligência Emocional"
 TREINAMENTO_INTELIGENCIA_EMOCIONAL_RESUMO = "Saiba como lidar com suas emoções neste treinamento através da prática da Inteligência Emocional e obtenha os resultados que você busca em sua vida pessoal e profissional"

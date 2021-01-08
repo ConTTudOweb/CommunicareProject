@@ -1,0 +1,225 @@
+.courses {
+  text-align: center;
+
+  .cta {
+    font-size: 20px;
+    //box-shadow: unset;
+  }
+
+  .whatsapp {
+    background: #25D366;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    &.sub-title {
+      color: $red;
+      text-transform: uppercase;
+    }
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  img {
+    background: transparent !important;
+    border: unset;
+    padding: 0;
+  }
+
+  .cards-list {
+    .p-left p {
+      text-align: left !important;
+    }
+
+    li {
+
+      width: 22%;
+      margin: 0 1% 30px 1%;
+      padding: 0.5%;
+
+      @media #{$tablets} {
+        width: 45%;
+        margin: 0 1.5% 50px 1.5%;
+      }
+
+      @media #{$smartphones-1} {
+        width: 100%;
+        margin: 40px 0 0 0;
+        padding: 0;
+      }
+
+
+
+      &.border {
+        box-shadow: 0 0 6px 0 $white;
+        //margin: 0 1% 30px 1%;
+        //padding: 0.5%;
+      }
+    }
+  }
+
+  .header {
+    background: $gray-9;
+    color: $white;
+    padding: 70px 0;
+
+    p {
+      color: $lt-gray-1;
+    }
+
+    .holder {
+      width: 900px;
+
+      @media #{$tablets} {
+        width: 94%;
+      }
+    }
+
+    .holder.depoimentos {
+      width: 90%;
+    }
+  }
+
+  .details {
+    background: $lt-gray-3;
+    margin-top: unset;
+
+    ul.cards-list li {
+      text-align: center;
+
+      img {
+        max-width: 61px;
+      }
+
+      .title {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .para-quem {
+    //background: $red;
+    background: $lt-gray-1;
+
+    .title {
+      box-shadow: 0 0 6px 0 $white;
+      background: $red;
+      color: $white;
+      padding: 1rem 0;
+
+      .mark {
+        background: $gray-9;
+        padding: 0 0.5rem;
+      }
+    }
+
+    li {
+      //box-shadow: 0 0 6px 0 $red;
+      //background: $lt-gray-1;
+      margin: 0 1% 30px 1%;
+      padding: 0.5%;
+      text-align: center;
+
+      i {
+        font-size: 35px;
+        color: $green;
+      }
+    }
+  }
+
+  .chamada {
+    background: $lt-gray-4;
+
+    .cta {
+      margin: 25px 0;
+      height: auto;
+    }
+  }
+
+  .porque-eu-sei {
+    .holder {
+      width: 925px;
+
+      @media #{$tablets} {
+        width: 94%;
+      }
+
+      img {
+        width: 370px;
+        padding: 7px;
+        float: right;
+
+        @media #{$smartphones-1} {
+          max-width: 200px;
+          float: none;
+        }
+      }
+
+      .descricao {
+        margin-right: 400px;
+        text-align: justify;
+
+        p {
+          line-height: normal;
+        }
+
+        @media #{$smartphones-1} {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .beneficios {
+    text-align: center;
+
+    .motivations {
+      padding: 0;
+      border-bottom: 0;
+      margin: 0;
+    }
+
+    li {
+      max-width: 630px;
+      text-align: justify;
+      margin: 0 160px;
+      padding-bottom: 35px;
+
+      @media #{$tablets} {
+        width: 94%;
+        margin: 0;
+        text-align: center;
+      }
+
+      i {
+        width: 200px;
+        float: left;
+
+        @media #{$tablets} {
+          width: 120px;
+          float: none;
+        }
+      }
+
+      .beneficios-texto {
+        margin-left: 200px;
+
+        @media #{$tablets} {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .bonus {
+    h3 {
+      font-size: x-large;
+    }
+  }
+
+  .duvidas {
+    text-align: left;
+  }
+}

@@ -1,0 +1,252 @@
+{% extends 'base_details.html' %}
+
+{% block details_header_class %}
+    header-curso-hipnose
+{% endblock %}
+
+{% block details_frase %}
+    Quer descobrir o poder <br>da sua mente?<br>
+    SIM, Você Pode!
+{% endblock %}
+
+{% block details_citacao %}
+    "O pensamento é o ensaio da ação."
+{% endblock %}
+
+{% block details_citacao_autor %}
+    Freud
+{% endblock %}
+
+{% block details_titulo %}
+    {{ CURSO_HIPNOSE.titulo }}
+{% endblock %}
+
+
+{#Sobre#}
+{% block details_sobre %}
+    Sobre o curso
+{% endblock %}
+
+{% block details_sobre_p %}
+{#    <p>A Hipnose é um estado de consciência que envolve atenção focada e consciência periférica reduzida, caracterizado#}
+{#        por uma maior capacidade de resposta à sugestão. Desta forma o curso abordará em profundidade a fundamentação#}
+{#        teórica e conceitual mostrando passo a passo na prática como aplicar a hipnose em qualquer situação, com rapidez#}
+{#        e segurança garantindo consistência aos atendimentos e práticas.</p>#}
+    <p>Na formação de Hipnose Clínica você irá aprender e praticar hipnose nas situações mais adversas, garantindo seu domínio das técnicas dentro de um ambiente terapêutico. Desta forma o curso abordará em profundidade, de forma prática  mostrando passo a passo  de como aplicar a hipnose em qualquer situação, com rapidez e segurança garantindo consistência aos atendimentos.</p>
+{% endblock %}
+
+
+{#Objetivos#}
+{% block details_objetivos_p %}
+    <p>
+        Ensinar a Hipnoterapia com Ética, Segurança e Foco no ser humano, amparado em estudos científicos, a fim de capacitar os participantes para o desempenho transformador da Hipnose Clínica.
+        Desenvolver um novo olhar à respeito das relações humanas, do incrível poder da mente e demonstrar o quanto o agregar das técnicas com o conhecimento da neurociência podem gerar uma modificação profunda, positiva e definitiva.
+    </p>
+{#    <p>#}
+{#        Alinhar o conhecimento dos participantes a uma linguagem comum que será adotada durante a capacitação da técnica#}
+{#        ampliando os horizontes na perspectiva da utilização do estado hipnótico às questões psicológicas e#}
+{#        psicossomáticas. Uma melhor compreensão das relações "cérebro-mente" suscetíveis de serem aplicadas no manejo de#}
+{#        diferentes situações do comportamento humano.#}
+{#    </p>#}
+{% endblock %}
+
+
+{#Duração#}
+{% block details_duracao %}
+{{ PREFERENCIAS.CURSO_HIPNOSE_DURACAO|safe }}
+{% endblock %}
+
+
+{#Para quem?#}
+{% block details_para_quem %}
+{#    Público em geral que tenha interesse em conhecer e aperfeiçoar técnicas e práticas de hipnose. Pessoas de qualquer#}
+{#    área de atuação e do conhecimento, com ou sem experiência.#}
+    <ol>
+        <li class="icon-list">Para qualquer pessoa que queira aprender hipnose clínica de forma ética e segura (sem pré-requisitos);</li>
+        <li class="icon-list">Para Psicólogos, Médicos, Coaches, Terapeutas Holísticos, Psicanalistas, Dentistas, Fisioterapeutas, Psicoterapeutas e demais profissionais que buscam utilizar profissionalmente a hipnose clínica;</li>
+        <li class="icon-list">Profissionais de saúde e desenvolvimento pessoal, que desejam aprender as técnicas para utilizar no seu trabalho;</li>
+        <li class="icon-list">Profissionais que não querem mais seguir uma linha tradicional de trabalho, podendo criar o próprio horário e estabelecer a própria remuneração;</li>
+        <li class="icon-list">Pessoas que desejam mudar de vida, atuar em uma carreira transformadora, em um mercado de grande expansão e de muito potencial;</li>
+        <li class="icon-list">Pessoas que querem utilizar os recursos da sua mente ao seu favor;</li>
+        <li class="icon-list">Para você que quer descobrir como transformar e impactar positivamente a vida das pessoas.</li>
+    </ol>
+{% endblock %}
+
+
+{% block program_content_li %}
+    <ol>
+        <p><strong>MÓDULO 1 - BOAS VINDAS</strong></p>
+        <li>BOAS VINDAS</li>
+        <li>O QUE EU FAÇO</li>
+        <li>O QUE VOCÊ VAI APRENDER</li>
+
+        <p><strong>MÓDULO 2 - INTRODUÇÃO</strong></p>
+        <li>O QUE É HIPNOSE</li>
+        <li>HISTÓRIA DA HIPNOSE</li>
+        <li>PARA QUE SERVE</li>
+        <li>MITOS DA HIPNOSE</li>
+        <li>HIPNOTERAPIA/ HIPNOSE CLÍNICA</li>
+        <li>A HIPNOSE PODE FALHAR?</li>
+        <li>AUTORIDADE - A CAPA DO MAGO</li>
+        <li>O QUE A HIPNOSE NÃO É</li>
+        <li>TIPOS DE HIPNOSE</li>
+
+        <p><strong>MÓDULO 3 - MODELO DE MENTE</strong></p>
+        <li>MODELO DE MENTE ( CONSCIENTE, SUBCONSCIENTE E INCONSCIENTE)</li>
+        <li>FATOR CRÍTICO</li>
+        <li>FATORES QUE DETERMINAM A SUCESTIBILIDADE</li>
+        <li>TESTE DE SPIEGEL</li>
+
+        <p><strong>MÓDULO 4 - ESTRUTURA DA HIPNOSE</strong></p>
+        <li>RAPPORT</li>
+        <li>PRÉ-TALK</li>
+        <li>YES SET</li>
+        <li>PSEUDO-HIPNOSE ( BARQUINHO, DEDOS COLADOS, MÃOS COLADAS)</li>
+        <li>LOOP-HIPNÓTICO</li>
+        <li>SEGURANÇA, MORAL E ÉTICA ( CUIDADOS COM A HIPNOSE)</li>
+
+        <p><strong>MÓDULO 5 - ESTRUTURA DA HIPNOSE</strong></p>
+        <li>ESTRUTURA DA HIPNOSE</li>
+        <li>ESTADOS MENTAIS</li>
+        <li>NÍVEIS DE TRANSE</li>
+        <li>SINTOMATOLOGIA DO TRANSE</li>
+        <li>MODULAÇÃO DA VOZ ( VOZ HIPNÓTICA)</li>
+        <li>APROFUNDAMENTO</li>
+        <li>SIGNO SINAL</li>
+        <li>EMERSÃO DO TRANSE</li>
+        <li>SUGESTÕES</li>
+        <li>ÂNCORAS</li>
+
+        <p><strong>MÓDULO 6 - INDUÇÕES</strong></p>
+        <li>OS 4 PASSOS DA REPROGRAMAÇÃO MENTAL</li>
+        <li>INDUÇÃO DE DAVE ELMAN</li>
+        <li>HAND-DROP</li>
+        <li>ARM-PULL</li>
+        <li>ESPIRAL</li>
+        <li>INDUÇÃO DE RICHARD BANDLER</li>
+        <li>APERTO DE MÃO DE DAVE ELMAN</li>
+        <li>COMO PROVOCAR AMENÉSIA</li>
+        <li>TOQUE AMBÍGUO DE ERICKSON</li>
+        <li>QUEBRA DE PADRÃO</li>
+        <li>ESTADO ESDAILE</li>
+        <li>NÍVEL SONAMBÚLICO</li>
+
+        <p><strong>MÓDULO 7 - HIPNOSE CLÍNICA</strong></p>
+        <li>TERAPIA SOB MEDIDA</li>
+        <li>ANAMNESE</li>
+        <li>DEPRESSÃO</li>
+        <li>ANSIEDADE</li>
+        <li>VÍCIOS</li>
+        <li>MEDO DE DIRIGIR</li>
+        <li>PROCRASTINAÇÃO</li>
+        <li>CRENÇAS NEGATIVAS</li>
+        <li>INSEGURANÇA</li>
+        <li>FOBIAS</li>
+        <li>FOCO E CONCENTRAÇÃO</li>
+        <li>SÍNDROME DO PÂNICO</li>
+        <li>ANESTESIA</li>
+        <li>CONTROLE DE DOR E ANALGESIA</li>
+        <li>BALÃO GASTRICO HIPNÓTICO</li>
+        <li>REEDUCAÇÃO ALIMENTAR</li>
+        <li>EMAGRECIMENTO</li>
+        <li>TOC</li>
+        <li>IBROMIALGIA</li>
+        <li>REALOCAÇÃO DE EMOÇÕES</li>
+        <li>EFEITO SWISH</li>
+        <li>PONTE AO FUTURO</li>
+        <li>PROGRESSÃO AO FUTURO</li>
+        <li>SUBMODALIDADES</li>
+
+        <p><strong>MÓDULO 8 - REGRESSÃO</strong></p>
+        <li>ESTRUTURA DA REGRESSÃO</li>
+        <li>REGRESSÃO POR EMOÇÃO</li>
+        <li>REGRESSÃO DE IDADE</li>
+
+        <p><strong>MÓDULO 9 - MONTANDO A CLÍNICA</strong></p>
+        <li>COMO MONTAR UMA CLÍNICA</li>
+        <li>PRECIFICAÇÃO</li>
+        <li>REGULAMENTAÇÃO</li>
+        <li>MARKETING</li>
+        <li>CERTIFICAÇÃO</li>
+        <li>PRIMEIROS ATENDIMENTOS</li>
+        <li>GRUPOS</li>
+
+        <p><strong>MÓDULO 10 - AULA BÔNUS</strong></p>
+        <li>AUTO-HIPNOSE</li>
+    </ol>
+
+    {#    <li>#}
+    {#        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fab fa-elementor"></i>Introdução' %}#}
+    {#        <p>#}
+    {#            - O que é hipnose;<br>#}
+    {#            - Freud e a hipnose;<br>#}
+    {#            - Sintomatologia do transe;<br>#}
+    {#            - Autoridade para hipnose;<br>#}
+    {#            - Profissionalismo e ética;<br>#}
+    {#            - Instrução de segurança;<br>#}
+    {#            - Níveis de hipnose;<br>#}
+    {#            - O que a hipnose definitivamente não é;<br>#}
+    {#            - Entendendo as mentes consciente, subconsciente e inconsciente;<br>#}
+    {#            - Os estados mentais beta, alfa, teta e delta;<br>#}
+    {#            - Rapport individual e coletivo;<br>#}
+    {#            - O pre-talk perfeito;<br>#}
+    {#            - O loop hipnótico;<br>#}
+    {#            - Signo de sinal;<br>#}
+    {#            - Pseudo-hipnose: testes e aplicações;<br>#}
+    {#            - O preparo: Geração de expectativas e pré-hipnose;<br>#}
+    {#            - Os testes: Eliminando objeções conscientes e subconscientes;<br>#}
+    {#            - A seleção: Como escolher os sujeitos a serem hipnotizados;<br>#}
+    {#            - Relaxamento rápido e eficaz.#}
+    {#        </p>#}
+    {#    </li>#}
+    {#    <li>#}
+    {#        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="far fa-dot-circle"></i>Induções: Pseudo-Hipnose' %}#}
+    {#        <p>#}
+    {#            - Dedos magnéticos;<br>#}
+    {#            - Olhos colados;<br>#}
+    {#            - Mãos coladas;<br>#}
+    {#            - Barquinho;<br>#}
+    {#            - Livros e balões.#}
+    {#        </p>#}
+    {#    </li>#}
+    {#    <li>#}
+    {#        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-icicles"></i>Induções' %}#}
+    {#        <p>#}
+    {#            - Indução Rápidas E Instantâneas;<br>#}
+    {#            - A Tratar: Transtornos De Ansiedade;<br>#}
+    {#            - A Tratar: Fobias Em Geral;<br>#}
+    {#            - Indução de Dave Elman Evoluída;<br>#}
+    {#            - Atalhos da Indução de Dave Elman;<br>#}
+    {#            - Induções clássicas da hipnose;<br>#}
+    {#            - Amnésia partindo da pseudo;<br>#}
+    {#            - Falso aperto de mão de Dave Elman;<br>#}
+    {#            - Falso aperto de mão de Richard Bandler;<br>#}
+    {#            - Quebra de Padrão;<br>#}
+    {#            - Indução Espiral;<br>#}
+    {#            - HandDrop indução;<br>#}
+    {#            - Indução das oito palavras;<br>#}
+    {#            - Mãos magnéticas;<br>#}
+    {#            - Armpull indução;<br>#}
+    {#            - Street hipnose;<br>#}
+    {#            - Aprofundamento do transe;<br>#}
+    {#            - Auto hipnose;<br>#}
+    {#            - Presente hipnótico.#}
+    {#        </p>#}
+    {#    </li>#}
+{% endblock %}
+
+{% block benefits_li %}
+{#    <li class="icon-list">Promover o equilíbrio entre os estados consciente e inconsciente do indivíduo;</li>#}
+{#    <li class="icon-list">Melhorar as emoções como medo, raiva, ciúme, entre outras;</li>#}
+{#    <li class="icon-list">Ajudar no autoconhecimento, tornando-se conscientes dos seus problemas e da causa deles, fazendo com que seja possível o enfrentamento;</li>#}
+{#    <li class="icon-list">Motivar a quebra de crenças limitantes;</li>#}
+{#    <li class="icon-list">Desenvolver estados de alto rendimento;</li>#}
+{#    <li class="icon-list">Melhorar a capacidade de autoconcentração.</li>#}
+    <li class="icon-list">Descobrir a profissão que está transformando vidas e oferecendo altas remunerações;</li>
+    <li class="icon-list">Aprenda passo a passo da Hipnose Clínica partindo do absoluto ZERO ao nível mais avançado;</li>
+    <li class="icon-list">Técnicas inéditas e exclusivas de Hipnose Clínica usadas pelos maiores terapeutas do mundo;</li>
+    <li class="icon-list">Todos os temas, técnicas e protocolos clínicos essenciais para o uso terapêutico da hipnose;</li>
+    <li class="icon-list">Aprender a lidar na prática com as diversas situações que podem surgir durante uma sessão de hipnoterapia;</li>
+    <li class="icon-list">A postura ética essencial que todo hipnoterapeuta deve seguir em seus atendimentos;</li>
+    <li class="icon-list">Entender como a hipnoterapia pode ser aplicada em diversos objetivos, como tratar doenças e transtornos (depressão, ansiedade, crises de pânico, medos, traumas, fobias, alergias, dores crônicas, emagrecimento, etc.).</li>
+{% endblock %}

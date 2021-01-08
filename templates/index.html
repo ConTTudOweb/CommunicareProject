@@ -9,12 +9,12 @@
             <ul class="slides">
                 <li>
                     <a href="{% url 'treinamento_oratoria' %}">
-                        <img src="{% static "images/banner/treinamento_oratoria.jpg" %}">
+                        <img src="{% static "images/banner/treinamento_oratoria.png" %}">
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'curso_hipnose' %}">
-                        <img src="{% static "images/banner/curso_hipnose.jpg" %}">
+                        <img src="{% static "images/banner/curso_hipnose.png" %}">
                     </a>
                 </li>
                 {#          <li>#}
@@ -29,7 +29,7 @@
                 {#          </li>#}
                 <li>
                     <a href="{% url 'atendimento_hipnoterapia' %}">
-                        <img src="{% static "images/banner/atendimento_hipnoterapia.jpg" %}">
+                        <img src="{% static "images/banner/atendimento_hipnoterapia.png" %}">
                     </a>
                 </li>
             </ul>
@@ -45,10 +45,11 @@
             </h2>
 
             <ul class="cards-list">
-{#                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_oratoria               event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.jpg"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}#}
-                {% include "includes/cards_li.html" with card_type="Curso"       waiting_list=waiting_list_curso_hipnose                      event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.jpg"                      card_title=CURSO_HIPNOSE.titulo                      card_description=CURSO_HIPNOSE.resumo only %}
-{#                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_inteligencia_emocional event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}#}
-                {% include "includes/cards_li.html" with card_type="Atendimento" card_more_link="atendimento_hipnoterapia" card_img="images/banner/atendimento_hipnoterapia.jpg" card_title=ATENDIMENTO_HIPNOTERAPIA.titulo card_description=ATENDIMENTO_HIPNOTERAPIA.resumo only %}
+                {% include "includes/cards_li.html" with card_type="Atendimento" card_more_link="atendimento_hipnoterapia" card_img="images/banner/atendimento_hipnoterapia.png" card_title=ATENDIMENTO_HIPNOTERAPIA.titulo card_description=ATENDIMENTO_HIPNOTERAPIA.resumo only %}
+                {% include "includes/cards_li.html" with card_type="Curso"       waiting_list=waiting_list_curso_hipnose                      event=event_curso_hipnose                      card_more_link="curso_hipnose"                      card_img="images/banner/curso_hipnose.png"                      card_title=CURSO_HIPNOSE.titulo                      card_description=CURSO_HIPNOSE.resumo only %}
+                {% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_oratoria               event=event_treinamento_oratoria               card_more_link="treinamento_oratoria"               card_img="images/banner/treinamento_oratoria.png"               card_title=TREINAMENTO_ORATORIA.titulo               card_description=TREINAMENTO_ORATORIA.resumo only %}
+                {#{% include "includes/cards_li.html" with card_type="Treinamento" waiting_list=waiting_list_treinamento_inteligencia_emocional event=event_treinamento_inteligencia_emocional card_more_link="treinamento_inteligencia_emocional" card_img="images/banner/treinamento_inteligencia_emocional.jpg" card_title=TREINAMENTO_INTELIGENCIA_EMOCIONAL.titulo card_description=TREINAMENTO_INTELIGENCIA_EMOCIONAL.resumo only %}#}
+
             </ul>
 
         </div>
@@ -246,6 +247,19 @@
         </div>
     </section> <!-- /galeria -->
 
+    <section class="cards last-videos" id="ultimos-videos">
+        <div class="holder">
+            <h2><i class="fab fa-youtube"></i> Últimos Vídeos</h2>
+            <ul class="cards-list">
+                {% for video in videos %}
+                <li>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video }}?controls=2&modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
     <section class="about" id="quem-somos">
         <div class="holder">
 
@@ -391,7 +405,7 @@
                              alt="Foto de Vinicius Campos">
                         <h5>
                             Vinicius Campos<br>
-                            <span>CEO, HIPNOTERAPEUTA, PALESTRANTE, COACH E HEAD TRAINER.</span>
+                            <span>CEO, Especialista em Hipnose Clínica, Master Practitioner em Programação Neurolinguística (PNL), Palestrante e Head Trainer.</span>
                         </h5>
                         <p>
                             <a href="https://api.whatsapp.com/send?phone=5543998084747&text=Estou%20no%20site%20%20www.institutoviniciuscampos.com.br!"
@@ -458,6 +472,14 @@
     <script src="{% static "js/remodal.min.js" %}"></script>
     {#    <script src="{% static "js/index.js" %}"></script>#}
     <script src="{% static "js/contact.js" %}"></script>
+
+    <script src="{% static "js/jquery.fitvids.js" %}"></script>
+    <script>
+      $(document).ready(function(){
+        // Target your .container, .wrapper, .post, etc.
+        $("#ultimos-videos").fitVids();
+      });
+    </script>
 {% endblock %}
 
 {# Galeria de Fotos #}

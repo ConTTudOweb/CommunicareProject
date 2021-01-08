@@ -1,252 +1,690 @@
-{% extends 'base_details.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block details_header_class %}
-    header-curso-hipnose
+{% block content %}
+    <div class="courses" id="sessao-curso-hipnose">
+        <section class="content header">
+            <div class="holder">
+                <h2 class="title">
+                    SEJA UM HIPNOTERAPEUTA RECONHECIDO, AUMENTE SEU FATURAMENTO COM UMA DAS PROFISSÕES QUE MAIS CRESCEM
+                    NO
+                    MUNDO E AJUDE PESSOAS A REESTABELECEREM SUA PAZ MENTAL E EMOCIONAL.
+                </h2>
+
+                <h2 class="sub-title">
+                    {{ CURSO_HIPNOSE.titulo }}
+                </h2>
+
+                <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/e_9zFWE0vZE?controls=2&modestbranding=1&rel=0&showinfo=0"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                <h4>Neste vídeo o Hipnoterapeuta Vinicius Campos explica todo conteúdo!</h4>
+
+                {% if event %}
+                    {% if event.external_subscriptions %}
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">Quero ser um
+                            Hipnoterapeuta</a>
+                    {% else %}
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">Quero ser um Hipnoterapeuta</a>
+                    {% endif %}
+                {% elif waiting_list %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">Quero ser um
+                        Hipnoterapeuta</a>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="cards details">
+            <div class="holder">
+                <ul class="cards-list">
+                    <li>
+                        <img src="{% static 'images/cursos/verifica.png' %}" alt="">
+                        <h4 class="title">Metodologia Exclusiva</h4>
+                        <span>Aprenda as melhores técnicas de Hipnose Clínica & PNL.</span>
+                    </li>
+
+                    <li>
+                        <img src="{% static 'images/cursos/lider-do-time.png' %}" alt="">
+                        <h4 class="title">Para Iniciantes ou Profissionais</h4>
+                        <span>As condutas éticas obrigatórias e essenciais para Terapeutas.</span>
+                    </li>
+
+                    <li>
+                        <img src="{% static 'images/cursos/foguete.png' %}" alt="">
+                        <h4 class="title">Do Básico ao Avançado</h4>
+                        <span>Formação completa até o nível experiente/profissional.</span>
+                    </li>
+
+                    <li>
+                        <img src="{% static 'images/cursos/foca.png' %}" alt="">
+                        <h4 class="title">Aprendizado Comprovado</h4>
+                        <span>Teoria & Prática demonstrados passo a passo em detalhes.</span>
+                    </li>
+
+                    <li>
+                        <img src="{% static 'images/cursos/vencedora.png' %}" alt="">
+                        <h4 class="title">Certificado Reconhecido</h4>
+                        <span>Curso totalmente certificado.</span>
+                    </li>
+
+                    <li>
+                        <img src="{% static 'images/cursos/estrela-de-5-pontas.png' %}" alt="">
+                        <h4 class="title">Destaque como Hipnoterapeuta</h4>
+                        <span>Aprenda as melhores técnicas de Marketing para Terapeutas.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cards para-quem">
+            <div class="holder">
+                <h2 class="title">
+                    Para quem é o curso?
+                </h2>
+
+                <ul class="cards-list">
+                    <li><i class="fas fa-check"></i><br>Para qualquer pessoa que queira aprender hipnose clínica de
+                        forma ética e segura (sem pré-requisitos).
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Para Psicólogos, Médicos, Coaches, Terapeutas Holísticos,
+                        Psicanalistas, Dentistas, Fisioterapeutas, Psicoterapeutas e demais profissionais que buscam
+                        utilizar profissionalmente a hipnose clínica.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Profissionais de saúde e desenvolvimento pessoal, que desejam
+                        aprender as técnicas para utilizar no seu trabalho.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Profissionais que não querem mais seguir uma linha tradicional
+                        de trabalho, podendo criar o próprio horário e estabelecer a própria remuneração.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Pessoas que desejam mudar de vida, atuar em uma carreira
+                        transformadora, em um mercado de grande expansão e de muito potencial.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Pessoas que querem utilizar os recursos da sua mente ao seu
+                        favor.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Para você que quer descobrir como transformar e impactar
+                        positivamente a vida das pessoas.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>Para você que quer aprender as técnicas avançadas para tratar as
+                        principais demandas de um consultório.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="chamada">
+            <div class="holder">
+                {% if event %}
+                    {% if event.external_subscriptions %}
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">SIM, EU QUERO SER UM
+                            HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                    {% else %}
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">SIM, EU QUERO SER UM
+                            HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                    {% endif %}
+                {% elif waiting_list %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">SIM, EU QUERO SER UM
+                        HIPNOTERAPEUTA!<br><u>CLIQUE AQUI E GARANTA SUA VAGA.</u></a>
+                {% endif %}
+            </div>
+        </section>
+
+        <!--<section class="cards porque-eu-sei">
+            <div class="holder">
+                <img src="{% static "images/cursos/vinicius.png" %}">
+
+                <div class="descricao">
+                    <h2>PORQUE EU SEI DO QUE ESTOU FALANDO?</h2>
+
+                    <p>Meu nome é Vinicius Campos sou especialista em Hipnose Clínica e nessa caminhada já tratei mais de 700 pessoas.</p>
+                    <p>Sou Master Practitioner em Programação Neurolinguística (PNL), especialista em psicopedagogia clínica e institucional e  especialista em Hipnose Clínica / Auto - Hipnose.</p>
+                    <p>Já estudei com grandes nomes da Programação Neurolinguística e Hipnose Clínica a nível mundial. Desde 2014 dedico grande parte do meu tempo a esse conhecimento.</p>
+                    <p>Todas as vezes que ministros cursos ou trato pacientes  meu coração se enche de alegria, pois sei que a minha missão de compartilhar conhecimento e transformar vidas está sendo cumprida.</p>
+                    <p>Através do meu curso quero te ensinar tudo o que aprendi durante esses anos e toda minha experiência de consultório. Trabalhando de forma totalmente prática  os mais diversos protocolos de atendimento</p>
+                </div>
+            </div>
+        </section>-->
+
+        <section class="cards para-quem beneficios">
+            <div class="holder">
+                <h2 class="title">
+                    CONHEÇA <span class="mark">5 BENEFICÍOS REAIS</span> APÓS FINALIZAR O NOSSO TREINAMENTO.
+                </h2>
+
+                <ul class="motivations benefits">
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">É o melhor treinamento transformador de vidas do Brasil. Uma
+                            formação completa e abrangente que garante ao aluno total aptidão para atuar como
+                            hipnoterapeuta, imediatamente após a conclusão da formação.
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">O profissional estará capacitado a prestar atendimentos de
+                            altíssima qualidade.
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Terá o poder de fazer a diferença na vida de seus clientes.</div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Garantia de prestígio e reconhecimento pelos resultados
+                            oferecidos.
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">O único treinamento com integração de neurociência, programação
+                            neurolinguística e hipnose clínica.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="header">
+            <div class="holder">
+                <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/Z15Zx98b75Q?controls=2&modestbranding=1&rel=0&showinfo=0"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                <a href="https://wa.me/5543998084747" target="_blank" class="cta whatsapp">CLIQUE AQUI E FALE COMIGO
+                    PELO WHATSAPP</a>
+            </div>
+        </section>
+        <section class="cards details">
+            <div class="holder">
+                <h2 class="title">
+                    VEJA ABAIXO O QUE VAI APRENDER NESSA FORMAÇÃO!
+                </h2>
+
+                <ul class="cards-list">
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 1 - BOAS VINDAS</h4>
+                        <p>- BOAS VINDAS</p>
+                        <p>- O QUE EU FAÇO</p>
+                        <p>- O QUE VOCÊ VAI APRENDER</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 2 - PRINCÍPIOS DA NEUROCIÊNCIA</h4>
+                        <p>- DOENÇAS PSICOSSOMÁTICAS</p>
+                        <p>- GENÉTICA E EPIGENÉTICA</p>
+                        <p>- REAL VERSUS IMAGINÁRIO</p>
+                        <p>- O QUE É NEUROCIÊNCIA?</p>
+                        <p>- MITOS SOBRE O CÉREBRO</p>
+                        <p>- O QUE É O CÉREBRO?</p>
+                        <p>- DIVISÕES DO CÉREBRO</p>
+                        <p>- MENTE VERSUS CÉREBRO</p>
+                        <p>- O CORTEX CEREBRAL</p>
+                        <p>- NEURÔNIOS</p>
+                        <p>- SINÁPSES NEURAIS</p>
+                        <p>- NEUROTRANSMISSORES</p>
+                        <p>- O QUE É NEUROPLASTICIDADE?</p>
+                        <p>- A MEMÓRIA</p>
+                        <p>- O DIALÓGO MENTE VERSUS CÉREBRO</p>
+                        <p>- O QUE É SISTEMA LÍMBICO?</p>
+                        <p>- O QUE É CIRCUITO DE PAPEZ?</p>
+                        <p>- GIRO DO CINGULO</p>
+                        <p>- HIPOCAMPO</p>
+                        <p>- AMÍGDALA</p>
+                        <p>- HIPOTÁLAMO</p>
+                        <p>- FORNIX</p>
+                        <p>- CORPO MAMILAR</p>
+                        <p>- GLÂNDULA PINEAL (EPÍFISE)</p>
+                        <p>- GLÂNDULA PITUITÁRIA (HIPÓFISE)</p>
+                        <p>- NÚCLEO ACCUMBENS</p>
+                        <p>- SISTEMA NERVOSO SIMPÁTICO</p>
+                        <p>- SISTEMA NERVOSO PARASSIMPÁTICO.</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 3 - PRINCÍPIOS DA PROGRAMAÇÃO NEUROLINGUÍSTICA (PNL)</h4>
+                        <p>- O QUE É PROGRAMAÇÃO NEUROLINGUÍSTICA (PNL)?</p>
+                        <p>- HISTÓRIA DA PNL</p>
+                        <p>- CONSCIENTE VERSUS INCONSCIENTE</p>
+                        <p>- PRESSUPOSTOS DA PNL</p>
+                        <p>- BENEFÍCIOS DA PNL</p>
+                        <p>- O MODELO DE REALIDADE</p>
+                        <p>- O QUE SÃO FILTROS MENTAIS?</p>
+                        <p>- O QUE É MODELAGEM?</p>
+                        <p>- O QUE SÃO ÂNCORAS?</p>
+                        <p>- O QUE É RAPPORT?</p>
+                        <p>- O QUE É RESSIGNIFICAÇÃO?</p>
+                        <p>- APLICANDO AS SUBMODALIDADES</p>
+                        <p>- AS 4 FASES DE APRENDIZAGEM SEGUNDO A PNL</p>
+                        <p>- FONTE DAS EMOÇÕES</p>
+                        <p>- PIRÂMEDE DE NÍVEIS NEUROLÓGICOS</p>
+                        <p>- PISTAS OCULARES</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 4 - INTRODUÇÃO</h4>
+                        <p>- O QUE É HIPNOSE</p>
+                        <p>- HISTÓRIA DA HIPNOSE</p>
+                        <p>- PARA QUE SERVE</p>
+                        <p>- MITOS DA HIPNOSE</p>
+                        <p>- HIPNOTERAPIA/ HIPNOSE CLÍNICA</p>
+                        <p>- A HIPNOSE PODE FALHAR?</p>
+                        <p>- AUTORIDADE - A CAPA DO MAGO</p>
+                        <p>- O QUE A HIPNOSE NÃO É TIPOS DE HIPNOSE</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 5 - MODELO DE MENTE</h4>
+                        <p>- MODELO DE MENTE ( CONSCIENTE, SUBCONSCIENTE E INCONSCIENTE)</p>
+                        <p>- FATOR CRÍTICO</p>
+                        <p>- FATORES QUE DETERMINAM A SUCESTIBILIDADE</p>
+                        <p>- TESTE DE SPIEGEL</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 6 - ESTRUTURA DA HIPNOSE</h4>
+                        <p>- RAPPORT</p>
+                        <p>- PRÉ-TALK</p>
+                        <p>- YES SET</p>
+                        <p>- PSEUDO-HIPNOSE ( BARQUINHO, DEDOS COLADOS, MÃOS COLADAS)</p>
+                        <p>- LOOP-HIPNÓTICO</p>
+                        <p>- SEGURANÇA, MORAL E ÉTICA ( CUIDADOS COM A HIPNOSE)</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 7 - ESTRUTURA DA HIPNOSE</h4>
+                        <p>- ESTRUTURA DA HIPNOSE</p>
+                        <p>- ESTADOS MENTAIS</p>
+                        <p>- NÍVEIS DE TRANSE</p>
+                        <p>- SINTOMATOLOGIA DO TRANSE</p>
+                        <p>- MODULAÇÃO DA VOZ ( VOZ HIPNÓTICA)</p>
+                        <p>- APROFUNDAMENTO</p>
+                        <p>- SIGNO SINAL</p>
+                        <p>- EMERSÃO DO TRANSE</p>
+                        <p>- SUGESTÕES</p>
+                        <p>- ÂNCORAS</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 8 - INDUÇÕES</h4>
+                        <p>- OS 4 PASSOS DA REPROGRAMAÇÃO MENTAL</p>
+                        <p>- INDUÇÃO DE DAVE ELMAN</p>
+                        <p>- HAND-DROP</p>
+                        <p>- ARM-PULL</p>
+                        <p>- ESPIRAL- FALSO APERTO DE MÃO DE RICHARD BANDLER</p>
+                        <p>- FALSO APERTO DE MÃO DE DAVE ELMAN- MÃOS MAGNÉTICAS</p>
+                        <p>- COMO PROVOCAR AMENÉSIA</p>
+                        <p>- TOQUE AMBÍGUO DE ERICKSON</p>
+                        <p>- QUEBRA DE PADRÃO</p>
+                        <p>- ESTADO ESDAILE</p>
+                        <p>- NÍVEL SONAMBÚLICO</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 9 - HIPNOSE CLÍNICA</h4>
+                        <p>- TERAPIA SOB MEDIDA</p>
+                        <p>- ANAMNESE</p>
+                        <p>- DEPRESSÃO</p>
+                        <p>- ANSIEDADE</p>
+                        <p>- VÍCIOS</p>
+                        <p>- MEDO DE DIRIGIR</p>
+                        <p>- PROCRASTINAÇÃO</p>
+                        <p>- CRENÇAS NEGATIVAS</p>
+                        <p>- INSEGURANÇA</p>
+                        <p>- FOBIAS</p>
+                        <p>- FOCO E CONCENTRAÇÃO</p>
+                        <p>- SÍNDROME DO PÂNICO</p>
+                        <p>- ANESTESIA</p>
+                        <p>- CONTROLE DE DOR E ANALGESIA</p>
+                        <p>- BALÃO GASTRICO HIPNÓTICO</p>
+                        <p>- REEDUCAÇÃO ALIMENTAR</p>
+                        <p>- EMAGRECIMENTO</p>
+                        <p>- TOC</p>
+                        <p>- FIBROMIALGIA</p>
+                        <p>- REALOCAÇÃO DE EMOÇÕES</p>
+                        <p>- EFEITO SWISH</p>
+                        <p>- PONTE AO FUTURO</p>
+                        <p>- PROGRESSÃO AO FUTURO</p>
+                        <p>- SUBMODALIDADES</p>
+                        <p>- CIRCULO DE EXCELÊNCIA</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 10 - REGRESSÃO</h4>
+                        <p>- ESTRUTURA DA REGRESSÃO</p>
+                        <p>- REGRESSÃO POR EMOÇÃO</p>
+                        <p>- REGRESSÃO DE IDADE</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 11 - AULA BÔNUS</h4>
+                        <p>- COMO MONTAR UMA CLÍNICA</p>
+                        <p>- PRECIFICAÇÃO</p>
+                        <p>- REGULAMENTAÇÃO</p>
+                        <p>- MARKETING DIGITAL</p>
+                        <p>- CERTIFICAÇÃO</p>
+                        <p>- PRIMEIROS ATENDIMENTOS</p>
+                        <p>- GRUPOS</p>
+                    </li>
+
+                    <li class="p-left border">
+                        <img src="{% static 'images/cursos/livros.png' %}" alt="">
+                        <h4 class="title">MÓDULO 12 - AULA BÔNUS</h4>
+                        <p>- AUTO-HIPNOSE</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cards para-quem vantagens">
+            <div class="holder">
+                <h2 class="title">
+                    6 VANTAGENS IMPORTANTES
+                </h2>
+
+                <ul class="cards-list">
+                    <li><i class="fas fa-check"></i><br>
+                        <h4>Prático e Rápido</h4>
+                        Indicado para quem tem pouco tempo para estudar e busca uma solução prática e fácil para
+                        aprender uma nova profissão através da hipnose clínica ou apenas adquirir conhecimento de um
+                        jeito simples e altamente eficiente. Nosso foco é a praticidade e o resultado dos nossos alunos.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h4>Professor Experiente</h4>
+                        Desde 2014 Vinicius Campos prepara estudantes, profissionais e grandes líderes, para maximizarem
+                        suas potencialidades através do autoconhecimento. Nessa caminhada já formou inúmeros alunos.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h4>Suporte VIP</h4>
+                        Suporte VIP exclusivo para tirar suas dúvidas através de um grupo exclusivo. Contato direto com
+                        o professor Vinicius Campos via whatsapp. Tire suas dúvidas e receba orientações personalizadas.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h4>Método focado em resultado</h4>
+                        Não é simplesmente saber hipnose e sim potencializar seus resultados por meio dos atendimentos
+                        clínicos sabendo montar protocolos de atendimentos sob medida.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h4>Certificado Reconhecido</h4>
+                        Curso reconhecido e 100% certificado.
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h4>Marketing para Terapeutas</h4>
+                        Aprenda a divulgar seus serviços/produtos através da internet de forma totalmente profissional.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="chamada">
+            <div class="holder">
+                {% if event %}
+                    <h2 class="title">
+                        AGENDA - {{ event.place.city }}<br>
+                        {{ event.subtitle }}
+                    </h2>
+                    <p><strong>{{ event.place }}</strong> | {{ event.place.address }}</p>
+                    <p>{{ event.details|linebreaksbr }}</p>
+
+                    {% if event.external_subscriptions %}
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">QUERO GARANTIR MINHA
+                            VAGA!</a>
+                    {% else %}
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">QUERO GARANTIR MINHA VAGA!</a>
+                    {% endif %}
+                {% elif waiting_list %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">QUERO GARANTIR MINHA
+                        VAGA!</a>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="cards para-quem certificado">
+            <div class="holder">
+                <h2 class="title">
+                    FORMAÇÃO TOTALMENTE CERTIFICADA
+                </h2>
+                <h3>Após concluir o curso você vai receber o seu Certificado de Conclusão com carga horária de 25 horas.
+                    Válido em todo o território nacional.</h3>
+
+                <ul class="cards-list">
+                    <li>
+                        <img src="{% static 'images/cursos/Certificado Final.png' %}" alt="">
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="header">
+            <div class="holder">
+                <h2 class="title">
+                    O QUE DIZEM AQUELES QUE JÁ PASSARAM PELA NOSSA FORMAÇÃO EM HIPNOSE CLÍNICA
+                </h2>
+
+                <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/cLxMirGApHM?controls=2&modestbranding=1&rel=0&showinfo=0"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                <hr>
+            </div>
+
+            <div class="holder depoimentos">
+                <ul class="cards-list">
+                    <li>
+                        <img src="{% static 'images/cursos/dep1.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep2.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep3.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep4.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep5.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep6.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep7.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep8.jpeg' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'images/cursos/dep9.jpeg' %}" alt="">
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="chamada">
+            <div class="holder">
+                {% if event %}
+                    {% if event.external_subscriptions %}
+                        <a href="{{ event.external_subscriptions }}" target="_blank" class="cta">CLIQUE AQUI E GARANTA
+                            HOJE MESMO A SUA VAGA!</a>
+                    {% else %}
+                        <a href="{% url 'event-detail' slug=event.slug %}" class="cta">CLIQUE AQUI E GARANTA HOJE MESMO
+                            A SUA VAGA!</a>
+                    {% endif %}
+                {% elif waiting_list %}
+                    <a href="{% url 'waiting-list-detail' slug=waiting_list.slug %}" class="cta">CLIQUE AQUI E GARANTA
+                        HOJE MESMO A SUA VAGA!</a>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="cards para-quem bonus">
+            <div class="holder">
+                <h2 class="title">
+                    MATERIAL BÔNUS
+                </h2>
+
+                <ul class="cards-list">
+                    <li><i class="fas fa-check"></i><br>
+                        <h3>Marketing Digital para Terapeutas</h3>
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h3>Contrato de Atendimento com Valor Jurídico Válido</h3>
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h3>Como Montar seu Consultório</h3>
+                    </li>
+                    <li><i class="fas fa-check"></i><br>
+                        <h3>Ficha Completa de Anamnese</h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cards para-quem beneficios custo">
+            <div class="holder">
+                <h2 class="title">
+                    QUANTO CUSTA?
+                </h2>
+
+                <ul class="motivations benefits">
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Quanto vale conhecer um método prático, moderno e eficiente para
+                            ajudar outras pessoas?
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Quanto vale se tornar um profissional reconhecido no mercado?
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Quanto vale ser admirado pelas pessoas, conquistar elogios e
+                            reconhecimento através do seu conhecimento?
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Quanto vale aprender uma nova profissão e triplicar o seu
+                            faturamento?
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check"></i>
+                        <div class="beneficios-texto">Quanto vale conhecer muito mais sobre essa máquina que te comanda,
+                            o cérebro humano?
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cards details">
+            <div class="holder">
+                <h2 class="title">
+                    AGORA VOCÊ TEM 3 OPÇÕES
+                </h2>
+
+                <ul class="cards-list">
+                    <li>
+                        <h4 class="title">OPÇÃO 1</h4>
+                        <p>Não fazer nada e continuar na mesma como você está hoje, se sentindo inseguro quando precisar
+                            fazer algum atendimento ou compreender a mente humana e, pior, convivendo com o medo,
+                            perdendo tempo, dinheiro e oportunidades de crescimento pessoal e profissional. Você vê o
+                            crescimento das outras pessoas e sente que está ficando para trás.</p>
+                    </li>
+                    <li>
+                        <h4 class="title">OPÇÃO 2</h4>
+                        <p>Tentar aprender tudo sozinho vendo vídeos do youtube e textos da internet que trazem
+                            informações incompletas e desorganizadas. Você levará anos fazendo testes e mais testes
+                            experimentando aquilo que funciona e aquilo que não funciona e ainda continuará
+                            inseguro.</p>
+                    </li>
+                    <li>
+                        <h4 class="title">OPÇÃO 3</h4>
+                        <p>Aproveitar a experiência de um ESPECIALISTA que já fez mais de 700 atendimentos e estudou
+                            esse assunto por anos e comprovou na prática o que realmente funciona. Já está tudo pronto.
+                            Você vai ganhar algo que vale muito mais do que dinheiro. Você vai ganhar TEMPO.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="header duvidas">
+            <div class="holder">
+                <h2 class="title">
+                    DÚVIDAS FREQUENTES
+                </h2>
+
+                <strong>1. Consigo aplicar a hipnose em outras pessoas ou trabalhar de forma profissional depois do
+                    curso?</strong>
+                <p>
+                    Sim! Esse curso tem um módulo especifico para quem deseja trabalhar na área clinica, dentro do
+                    módulo contêm todos os protocolos necessários para tratar doenças de cunho emocional.
+                    No final do treinamento, você receberá sua certificação reconhecida.
+                </p>
+
+                <hr>
+
+                <strong>2. Recebemos o certificado logo após a conclusão do curso?</strong>
+                <p>
+                    Sim. No último dia do curso você receberá seu certificado impresso.
+                </p>
+
+                <hr>
+
+                <strong>3. Tem alguma relação com religião?</strong>
+                <p>
+                    Nenhuma. Hipnose é um estado natural da mente. Ficamos hipnotizados todos os dias, por exemplo
+                    quando estamos assistindo TV. Além disso, hipnose hoje é ciência.
+                </p>
+
+                <hr>
+
+                <strong>4. Consigo parcelar o curso no boleto?</strong>
+                <p>
+                    Infelizmente não é possível, usamos uma plataforma de pagamentos que só aceita pagamentos únicos no
+                    boleto.
+                </p>
+
+                <hr>
+
+                <strong>5. Esse curso é para iniciantes?</strong>
+                <p>
+                    Você está começando no mundo da Hipnose? Fique tranquilo porque desenvolvi uma metodologia
+                    revolucionária de ensinar Hipnose. Em poucas semanas você vai estar pronto para Hipnotizar com
+                    Confiança e Segurança do absoluto zero! Este curso aborda no nível básico ao
+                    experiente/profissional.
+                </p>
+
+                <hr>
+
+                <strong>6. Quem pode fazer esse curso?</strong>
+                <p>
+                    Para qualquer pessoa que queira aprender hipnose clínica de forma ética e segura (sem
+                    pré-requisitos).
+                </p>
+            </div>
+        </section>
+    </div>
 {% endblock %}
 
-{% block details_frase %}
-    Quer descobrir o poder <br>da sua mente?<br>
-    SIM, Você Pode!
-{% endblock %}
-
-{% block details_citacao %}
-    "O pensamento é o ensaio da ação."
-{% endblock %}
-
-{% block details_citacao_autor %}
-    Freud
-{% endblock %}
-
-{% block details_titulo %}
-    {{ CURSO_HIPNOSE.titulo }}
-{% endblock %}
-
-
-{#Sobre#}
-{% block details_sobre %}
-    Sobre o curso
-{% endblock %}
-
-{% block details_sobre_p %}
-{#    <p>A Hipnose é um estado de consciência que envolve atenção focada e consciência periférica reduzida, caracterizado#}
-{#        por uma maior capacidade de resposta à sugestão. Desta forma o curso abordará em profundidade a fundamentação#}
-{#        teórica e conceitual mostrando passo a passo na prática como aplicar a hipnose em qualquer situação, com rapidez#}
-{#        e segurança garantindo consistência aos atendimentos e práticas.</p>#}
-    <p>Na formação de Hipnose Clínica você irá aprender e praticar hipnose nas situações mais adversas, garantindo seu domínio das técnicas dentro de um ambiente terapêutico. Desta forma o curso abordará em profundidade, de forma prática  mostrando passo a passo  de como aplicar a hipnose em qualquer situação, com rapidez e segurança garantindo consistência aos atendimentos.</p>
-{% endblock %}
-
-
-{#Objetivos#}
-{% block details_objetivos_p %}
-    <p>
-        Ensinar a Hipnoterapia com Ética, Segurança e Foco no ser humano, amparado em estudos científicos, a fim de capacitar os participantes para o desempenho transformador da Hipnose Clínica.
-        Desenvolver um novo olhar à respeito das relações humanas, do incrível poder da mente e demonstrar o quanto o agregar das técnicas com o conhecimento da neurociência podem gerar uma modificação profunda, positiva e definitiva.
-    </p>
-{#    <p>#}
-{#        Alinhar o conhecimento dos participantes a uma linguagem comum que será adotada durante a capacitação da técnica#}
-{#        ampliando os horizontes na perspectiva da utilização do estado hipnótico às questões psicológicas e#}
-{#        psicossomáticas. Uma melhor compreensão das relações "cérebro-mente" suscetíveis de serem aplicadas no manejo de#}
-{#        diferentes situações do comportamento humano.#}
-{#    </p>#}
-{% endblock %}
-
-
-{#Duração#}
-{% block details_duracao %}
-{{ PREFERENCIAS.CURSO_HIPNOSE_DURACAO|safe }}
-{% endblock %}
-
-
-{#Para quem?#}
-{% block details_para_quem %}
-{#    Público em geral que tenha interesse em conhecer e aperfeiçoar técnicas e práticas de hipnose. Pessoas de qualquer#}
-{#    área de atuação e do conhecimento, com ou sem experiência.#}
-    <ol>
-        <li class="icon-list">Para qualquer pessoa que queira aprender hipnose clínica de forma ética e segura (sem pré-requisitos);</li>
-        <li class="icon-list">Para Psicólogos, Médicos, Coaches, Terapeutas Holísticos, Psicanalistas, Dentistas, Fisioterapeutas, Psicoterapeutas e demais profissionais que buscam utilizar profissionalmente a hipnose clínica;</li>
-        <li class="icon-list">Profissionais de saúde e desenvolvimento pessoal, que desejam aprender as técnicas para utilizar no seu trabalho;</li>
-        <li class="icon-list">Profissionais que não querem mais seguir uma linha tradicional de trabalho, podendo criar o próprio horário e estabelecer a própria remuneração;</li>
-        <li class="icon-list">Pessoas que desejam mudar de vida, atuar em uma carreira transformadora, em um mercado de grande expansão e de muito potencial;</li>
-        <li class="icon-list">Pessoas que querem utilizar os recursos da sua mente ao seu favor;</li>
-        <li class="icon-list">Para você que quer descobrir como transformar e impactar positivamente a vida das pessoas.</li>
-    </ol>
-{% endblock %}
-
-
-{% block program_content_li %}
-    <ol>
-        <p><strong>MÓDULO 1 - BOAS VINDAS</strong></p>
-        <li>BOAS VINDAS</li>
-        <li>O QUE EU FAÇO</li>
-        <li>O QUE VOCÊ VAI APRENDER</li>
-
-        <p><strong>MÓDULO 2 - INTRODUÇÃO</strong></p>
-        <li>O QUE É HIPNOSE</li>
-        <li>HISTÓRIA DA HIPNOSE</li>
-        <li>PARA QUE SERVE</li>
-        <li>MITOS DA HIPNOSE</li>
-        <li>HIPNOTERAPIA/ HIPNOSE CLÍNICA</li>
-        <li>A HIPNOSE PODE FALHAR?</li>
-        <li>AUTORIDADE - A CAPA DO MAGO</li>
-        <li>O QUE A HIPNOSE NÃO É</li>
-        <li>TIPOS DE HIPNOSE</li>
-
-        <p><strong>MÓDULO 3 - MODELO DE MENTE</strong></p>
-        <li>MODELO DE MENTE ( CONSCIENTE, SUBCONSCIENTE E INCONSCIENTE)</li>
-        <li>FATOR CRÍTICO</li>
-        <li>FATORES QUE DETERMINAM A SUCESTIBILIDADE</li>
-        <li>TESTE DE SPIEGEL</li>
-
-        <p><strong>MÓDULO 4 - ESTRUTURA DA HIPNOSE</strong></p>
-        <li>RAPPORT</li>
-        <li>PRÉ-TALK</li>
-        <li>YES SET</li>
-        <li>PSEUDO-HIPNOSE ( BARQUINHO, DEDOS COLADOS, MÃOS COLADAS)</li>
-        <li>LOOP-HIPNÓTICO</li>
-        <li>SEGURANÇA, MORAL E ÉTICA ( CUIDADOS COM A HIPNOSE)</li>
-
-        <p><strong>MÓDULO 5 - ESTRUTURA DA HIPNOSE</strong></p>
-        <li>ESTRUTURA DA HIPNOSE</li>
-        <li>ESTADOS MENTAIS</li>
-        <li>NÍVEIS DE TRANSE</li>
-        <li>SINTOMATOLOGIA DO TRANSE</li>
-        <li>MODULAÇÃO DA VOZ ( VOZ HIPNÓTICA)</li>
-        <li>APROFUNDAMENTO</li>
-        <li>SIGNO SINAL</li>
-        <li>EMERSÃO DO TRANSE</li>
-        <li>SUGESTÕES</li>
-        <li>ÂNCORAS</li>
-
-        <p><strong>MÓDULO 6 - INDUÇÕES</strong></p>
-        <li>OS 4 PASSOS DA REPROGRAMAÇÃO MENTAL</li>
-        <li>INDUÇÃO DE DAVE ELMAN</li>
-        <li>HAND-DROP</li>
-        <li>ARM-PULL</li>
-        <li>ESPIRAL</li>
-        <li>INDUÇÃO DE RICHARD BANDLER</li>
-        <li>APERTO DE MÃO DE DAVE ELMAN</li>
-        <li>COMO PROVOCAR AMENÉSIA</li>
-        <li>TOQUE AMBÍGUO DE ERICKSON</li>
-        <li>QUEBRA DE PADRÃO</li>
-        <li>ESTADO ESDAILE</li>
-        <li>NÍVEL SONAMBÚLICO</li>
-
-        <p><strong>MÓDULO 7 - HIPNOSE CLÍNICA</strong></p>
-        <li>TERAPIA SOB MEDIDA</li>
-        <li>ANAMNESE</li>
-        <li>DEPRESSÃO</li>
-        <li>ANSIEDADE</li>
-        <li>VÍCIOS</li>
-        <li>MEDO DE DIRIGIR</li>
-        <li>PROCRASTINAÇÃO</li>
-        <li>CRENÇAS NEGATIVAS</li>
-        <li>INSEGURANÇA</li>
-        <li>FOBIAS</li>
-        <li>FOCO E CONCENTRAÇÃO</li>
-        <li>SÍNDROME DO PÂNICO</li>
-        <li>ANESTESIA</li>
-        <li>CONTROLE DE DOR E ANALGESIA</li>
-        <li>BALÃO GASTRICO HIPNÓTICO</li>
-        <li>REEDUCAÇÃO ALIMENTAR</li>
-        <li>EMAGRECIMENTO</li>
-        <li>TOC</li>
-        <li>IBROMIALGIA</li>
-        <li>REALOCAÇÃO DE EMOÇÕES</li>
-        <li>EFEITO SWISH</li>
-        <li>PONTE AO FUTURO</li>
-        <li>PROGRESSÃO AO FUTURO</li>
-        <li>SUBMODALIDADES</li>
-
-        <p><strong>MÓDULO 8 - REGRESSÃO</strong></p>
-        <li>ESTRUTURA DA REGRESSÃO</li>
-        <li>REGRESSÃO POR EMOÇÃO</li>
-        <li>REGRESSÃO DE IDADE</li>
-
-        <p><strong>MÓDULO 9 - MONTANDO A CLÍNICA</strong></p>
-        <li>COMO MONTAR UMA CLÍNICA</li>
-        <li>PRECIFICAÇÃO</li>
-        <li>REGULAMENTAÇÃO</li>
-        <li>MARKETING</li>
-        <li>CERTIFICAÇÃO</li>
-        <li>PRIMEIROS ATENDIMENTOS</li>
-        <li>GRUPOS</li>
-
-        <p><strong>MÓDULO 10 - AULA BÔNUS</strong></p>
-        <li>AUTO-HIPNOSE</li>
-    </ol>
-
-    {#    <li>#}
-    {#        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fab fa-elementor"></i>Introdução' %}#}
-    {#        <p>#}
-    {#            - O que é hipnose;<br>#}
-    {#            - Freud e a hipnose;<br>#}
-    {#            - Sintomatologia do transe;<br>#}
-    {#            - Autoridade para hipnose;<br>#}
-    {#            - Profissionalismo e ética;<br>#}
-    {#            - Instrução de segurança;<br>#}
-    {#            - Níveis de hipnose;<br>#}
-    {#            - O que a hipnose definitivamente não é;<br>#}
-    {#            - Entendendo as mentes consciente, subconsciente e inconsciente;<br>#}
-    {#            - Os estados mentais beta, alfa, teta e delta;<br>#}
-    {#            - Rapport individual e coletivo;<br>#}
-    {#            - O pre-talk perfeito;<br>#}
-    {#            - O loop hipnótico;<br>#}
-    {#            - Signo de sinal;<br>#}
-    {#            - Pseudo-hipnose: testes e aplicações;<br>#}
-    {#            - O preparo: Geração de expectativas e pré-hipnose;<br>#}
-    {#            - Os testes: Eliminando objeções conscientes e subconscientes;<br>#}
-    {#            - A seleção: Como escolher os sujeitos a serem hipnotizados;<br>#}
-    {#            - Relaxamento rápido e eficaz.#}
-    {#        </p>#}
-    {#    </li>#}
-    {#    <li>#}
-    {#        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="far fa-dot-circle"></i>Induções: Pseudo-Hipnose' %}#}
-    {#        <p>#}
-    {#            - Dedos magnéticos;<br>#}
-    {#            - Olhos colados;<br>#}
-    {#            - Mãos coladas;<br>#}
-    {#            - Barquinho;<br>#}
-    {#            - Livros e balões.#}
-    {#        </p>#}
-    {#    </li>#}
-    {#    <li>#}
-    {#        {% include 'includes/program_content_li_title.html' with program_content_li_title='<i class="fas fa-icicles"></i>Induções' %}#}
-    {#        <p>#}
-    {#            - Indução Rápidas E Instantâneas;<br>#}
-    {#            - A Tratar: Transtornos De Ansiedade;<br>#}
-    {#            - A Tratar: Fobias Em Geral;<br>#}
-    {#            - Indução de Dave Elman Evoluída;<br>#}
-    {#            - Atalhos da Indução de Dave Elman;<br>#}
-    {#            - Induções clássicas da hipnose;<br>#}
-    {#            - Amnésia partindo da pseudo;<br>#}
-    {#            - Falso aperto de mão de Dave Elman;<br>#}
-    {#            - Falso aperto de mão de Richard Bandler;<br>#}
-    {#            - Quebra de Padrão;<br>#}
-    {#            - Indução Espiral;<br>#}
-    {#            - HandDrop indução;<br>#}
-    {#            - Indução das oito palavras;<br>#}
-    {#            - Mãos magnéticas;<br>#}
-    {#            - Armpull indução;<br>#}
-    {#            - Street hipnose;<br>#}
-    {#            - Aprofundamento do transe;<br>#}
-    {#            - Auto hipnose;<br>#}
-    {#            - Presente hipnótico.#}
-    {#        </p>#}
-    {#    </li>#}
-{% endblock %}
-
-{% block benefits_li %}
-{#    <li class="icon-list">Promover o equilíbrio entre os estados consciente e inconsciente do indivíduo;</li>#}
-{#    <li class="icon-list">Melhorar as emoções como medo, raiva, ciúme, entre outras;</li>#}
-{#    <li class="icon-list">Ajudar no autoconhecimento, tornando-se conscientes dos seus problemas e da causa deles, fazendo com que seja possível o enfrentamento;</li>#}
-{#    <li class="icon-list">Motivar a quebra de crenças limitantes;</li>#}
-{#    <li class="icon-list">Desenvolver estados de alto rendimento;</li>#}
-{#    <li class="icon-list">Melhorar a capacidade de autoconcentração.</li>#}
-    <li class="icon-list">Descobrir a profissão que está transformando vidas e oferecendo altas remunerações;</li>
-    <li class="icon-list">Aprenda passo a passo da Hipnose Clínica partindo do absoluto ZERO ao nível mais avançado;</li>
-    <li class="icon-list">Técnicas inéditas e exclusivas de Hipnose Clínica usadas pelos maiores terapeutas do mundo;</li>
-    <li class="icon-list">Todos os temas, técnicas e protocolos clínicos essenciais para o uso terapêutico da hipnose;</li>
-    <li class="icon-list">Aprender a lidar na prática com as diversas situações que podem surgir durante uma sessão de hipnoterapia;</li>
-    <li class="icon-list">A postura ética essencial que todo hipnoterapeuta deve seguir em seus atendimentos;</li>
-    <li class="icon-list">Entender como a hipnoterapia pode ser aplicada em diversos objetivos, como tratar doenças e transtornos (depressão, ansiedade, crises de pânico, medos, traumas, fobias, alergias, dores crônicas, emagrecimento, etc.).</li>
+{% block extra_js %}
+    <script src="{% static "js/jquery.fitvids.js" %}"></script>
+    <script>
+        $(document).ready(function () {
+            // Target your .container, .wrapper, .post, etc.
+            $("#sessao-curso-hipnose").fitVids();
+        });
+    </script>
 {% endblock %}
