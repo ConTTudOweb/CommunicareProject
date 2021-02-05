@@ -281,7 +281,7 @@ class Expense(models.Model):
 class Lead(models.Model):
     name = models.CharField('nome', max_length=255)
     email = models.EmailField('e-mail', null=True, blank=True)
-    phone = models.CharField('telefone', unique=True, max_length=20)
+    phone = models.CharField('telefone', max_length=20)
 
     def __str__(self):
         return self.name

@@ -43,7 +43,7 @@ INTERNAL_IPS = ['127.0.0.1', '0.0.0.0']
 
 ADMINS = [('Alessandro', 'alessandrolimafolk@gmail.com'), ]
 
-MANAGERS = ADMINS
+# MANAGERS = ADMINS
 
 AUTH_USER_MODEL = 'authentication.User'
 
