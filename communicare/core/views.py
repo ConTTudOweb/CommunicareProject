@@ -14,7 +14,7 @@ from ..core.models import Event, Customer, Registration, Testimony, WaitingList,
 
 
 def get_current_event(type):
-    return Event.objects.filter(start_date__gt=datetime.now(), open_for_subscriptions=True, visible=True, type=type)\
+    return Event.objects.filter(start_date__gt=datetime.now(), open_for_subscriptions=True, visible=True, type=type) \
         .order_by('start_date').first()
 
 
@@ -123,7 +123,8 @@ def registration(request):
             html_content = render_to_string('core/registration_email.html', d)
             subject = 'Inscrição efetuada com sucesso! (%s)' % customer.name
             to = customer.email
-            msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to], cc=[str(settings.DEFAULT_FROM_EMAIL)])
+            msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to],
+                                         cc=[str(settings.DEFAULT_FROM_EMAIL)])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
 
@@ -156,7 +157,8 @@ def waitlisted(request):
             html_content = render_to_string('core/waitlisted_email.html', d)
             subject = 'Inscrição para a lista de espera efetuada com sucesso! (%s)' % form.instance.name
             to = form.instance.email
-            msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to], cc=[str(settings.DEFAULT_FROM_EMAIL)])
+            msg = EmailMultiAlternatives(subject=subject, body=text_content, to=[to],
+                                         cc=[str(settings.DEFAULT_FROM_EMAIL)])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
 
@@ -247,21 +249,27 @@ class HomeTemplateView(TemplateView):
         context['waiting_list_treinamento_oratoria'] = get_current_waiting_list(EventTypes.treinamento_oratoria.value)
         context['event_curso_hipnose'] = get_current_event(EventTypes.curso_hipnose.value)
         context['waiting_list_curso_hipnose'] = get_current_waiting_list(EventTypes.curso_hipnose.value)
-        context['event_treinamento_inteligencia_emocional'] = get_current_event(EventTypes.treinamento_inteligencia_emocional.value)
-        context['waiting_list_treinamento_inteligencia_emocional'] = get_current_waiting_list(EventTypes.treinamento_inteligencia_emocional.value)
+        context['event_treinamento_inteligencia_emocional'] = get_current_event(
+            EventTypes.treinamento_inteligencia_emocional.value)
+        context['waiting_list_treinamento_inteligencia_emocional'] = get_current_waiting_list(
+            EventTypes.treinamento_inteligencia_emocional.value)
         context['testimonies'] = Testimony.objects.filter(visible=True).all()
 
         from urllib import request
         import json
         base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
         url = base_search_url + 'key=AIzaSyCPI3xSK5bXFYCYr2QjLQ6RebGJiUr5_Og&channelId=UCgGb95A1399ogNHOi3bDbOg&part' \
-                                '=snippet,id&order=date&maxResults=3 '
+                                '=snippet,id&order=date&maxResults=3'
         video_ids = []
-        inp = request.urlopen(url)
-        resp = json.load(inp)
-        for i in resp['items']:
-            if i['id']['kind'] == "youtube#video":
-                video_ids.append(i['id']['videoId'])
+        try:
+            inp = request.urlopen(url)
+            resp = json.load(inp)
+            for i in resp['items']:
+                if i['id']['kind'] == "youtube#video":
+                    video_ids.append(i['id']['videoId'])
+        except Exception:
+            pass
+
         context['videos'] = video_ids
 
         # SEO
